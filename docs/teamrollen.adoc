@@ -35,4 +35,9 @@
 |ibrahim.braikeh@stud.htw-dresden.de
 |s83791
 
+|Franz Starke
+|Architekt, Tester
+|franz.starke@stud.htw-dresden.de
+|s86320
+
 |===
