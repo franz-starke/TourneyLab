@@ -20,5 +20,10 @@
 |jannis.wittchen@stud.htw-dresden.de
 |s86417
 
+|Til Simon
+|Analyse
+|til.simon@stud.htw-dresden.de
+|s85651
+
 
 |===
