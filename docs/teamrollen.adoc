@@ -25,5 +25,9 @@
 |til.simon@stud.htw-dresden.de
 |s85651
 
+|Konstantin Becher
+|Analyse
+|konstantin.becher@stud.htw-dresden.de
+|s85643
 
 |===
