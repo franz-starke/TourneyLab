@@ -13,7 +13,8 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Begriff | Definition und Erläuterung | Synonyme
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-| xx | xx | xx
+|Team Fun |Team eher zum Spaß  |Amateurteam
+|Team Schwitzer | Proffessionelle competetive Teams | Profiteam
 |===
 
 
