@@ -1,0 +1,26 @@
+=== Tagesordnungspunkte
+
+* [*] Besprechung Treffen auftraggeber
+** Treffen mit Lotte längerfristig planen
+** mit Agenda zu ihr gehen
+* [x] commits in github (Team tabelle)
+* [x] Erstellung Glossar
+** Jeder nimmt Einträge selber vor wenn neue Begriffe auftauchen
+* [x] Teambuilding
+** Heute gegen 20:00??
+** Bowling 12.11.24 Südhöhe  ab 19:00
+* [x] Erstellung Github Project
+* [x] Abschluss erste Iteration
+
+=== Aufgaben für alle:
+* Auseinandersetzen mit Praktikum (Github Issues, Projects)
+* für Programmierer weiter einarbeiten (Flask, Electron, Python, Javascript, SQL)
+
+
+=== Aufgaben zum verteilen
+* Project Views erstellen auf Github => als Issue aufgenommen wird in Iteration2 zugeteilt
+* Bowling Bahn buchen buchen => Ibrahim
+* Email an Anke wegen Abschluss erster Iteration =>  Projektleiter
+* Treffen mit Marlene organisieren nächste Woche Dienstag zum Teammeeting => Projektleiter
+
+
