@@ -40,4 +40,8 @@
 |franz.starke@stud.htw-dresden.de
 |s86320
 
+|Sebastian Heber
+|Projektleiter
+|sebastian.heber2@stud.htw-dresden.de
+|s85262
 |===
