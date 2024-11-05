@@ -1,7 +1,7 @@
 == Teammitglieder
 
 .Rollen Teammitglieder
-[cols="<1,<1"]
+[cols="<1,<1, <1,<1"]
 |===
 |Name |Rolle |Email|S-Nummer
 
