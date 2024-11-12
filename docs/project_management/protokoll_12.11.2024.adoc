@@ -1,6 +1,6 @@
 = Wöchentliches Teammeeting Protokoll 12.11.2024
 
-Ziele: 
+Ziele und Tagesordnungspunkte:
 
 - Aufgabenverteilung für Zweite Iteration
 - Auf Termin mit Marlene einigen
@@ -14,7 +14,7 @@ Ziele:
 * [x] Visionsdokument erarbeiten
 * [x] Risiken erfassen und Gegenmaßnahmen ableiten
 * [x] Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern
-* [-] Erster Entwurf Wireframes (SKIP für diese Woche)
+* [ ] [.line-through]#Erster Entwurf Wireframes# (SKIP für diese Woche)
 * [x] Grobe Idee für technischen Lösungsweg erarbeiten
 * [x] Mit Architecture Notebook vertraut machen
 
@@ -25,7 +25,7 @@ Ziele:
 
 === Aufgaben zum verteilen
 
-* **Sebastian** => macht Termin mit Lotte
+* **Sebastian** => macht Termin mit Lotte für Freitag 22.11.2024
 * **Sebastian** => Visionsdokument erarbeiten
 * **Sebastian** => Template für protokoll
 * **Ibrahim** => Grundaufbau den Glossars erstellen (Häufig verwendete Wörter eintragen)
@@ -49,4 +49,4 @@ Ziele:
 * mehr Kommunikation über Discord und Errinerung an letztes Protokoll
 // Ablauf
 * nächste Woche Dienstag (19.11.) auswertung mit Coach
-* 22.11.2024 Freitag Treffen mit Lotte
+* 22.11.2024 Freitag Treffen mit Lotte 
