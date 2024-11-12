@@ -1,0 +1,52 @@
+= Wöchentliches Teammeeting Protokoll 12.11.2024
+
+Ziele: 
+
+- Aufgabenverteilung für Zweite Iteration
+- Auf Termin mit Marlene einigen
+- Auf Termin mit Kunden einigen
+
+* [x] Zuständigen für Glossar festlegen
+* [x] Grundaufbau den Glossars erstellen (Häufig verwendete Wörter eintragen)
+* [x] Github Projects Views erstellen
+* [x] Lable für issue Teilaufgaben erstellen
+* [x] Persona erarbeiten
+* [x] Visionsdokument erarbeiten
+* [x] Risiken erfassen und Gegenmaßnahmen ableiten
+* [x] Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern
+* [-] Erster Entwurf Wireframes (SKIP für diese Woche)
+* [x] Grobe Idee für technischen Lösungsweg erarbeiten
+* [x] Mit Architecture Notebook vertraut machen
+
+=== Aufgaben für alle:
+
+* Elemente im Glossar ergänzen
+* vor Bearbeitung der Aufgabe, Zeitaufwand schätzen, dann wirkliche Zeit dokumentieren (fördert Zeitmanagement)
+
+=== Aufgaben zum verteilen
+
+* **Sebastian** => macht Termin mit Lotte
+* **Sebastian** => Visionsdokument erarbeiten
+* **Ibrahim** => Grundaufbau den Glossars erstellen (Häufig verwendete Wörter eintragen)
+* **Ibrahim** => Risiken erfassen und Gegenmaßnahmen ableiten(Als View in Project)
+* **Joshua** => Github Projects Views erstellen und die Aufgaben vom Protokoll für diese Iteration übernehmen  als Issues (als Tabelle mit filter für Assignee und Iteration)
+* **Joshua** => Protokoll als pdf in Discord teilen
+* Analysten **Til, Konstantin, Jannis** => Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern
+* Analysten **Til, Konstantin, Jannis** => Persona erarbeiten
+* Analysten **Til, Konstantin, Jannis** => Lable für issue Teilaufgaben erstellen
+* **Franz, Joshua** => Mit Architecture Notebook __vertraut__ machen, Grobe Idee für technischen Lösungsweg erarbeiten
+* **Franz** => Discord Bot für Errinerung in das Protokoll zu schauen
+
+
+
+
+=== Notizen
+
+* Spaß haben fürs Bowlen
+* Löschen von Dateien aus Github (Iterationspläne, Risikolisten, Use Case)
+* Kommunikation über Discord beibehalten (kein WhatsApp)
+* mehr Kommunikation über Discord und Errinerung an letztes Protokoll
+
+// Ablauf
+// nächste Woche Dienstag (19.11.) auswertung mit Coach
+// 22.11.2024 Freitag Treffen mit Lotte
