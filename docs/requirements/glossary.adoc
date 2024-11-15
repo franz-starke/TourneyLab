@@ -15,6 +15,61 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
 |Team Fun |Team eher zum Spaß  |Amateurteam
 |Team Schwitzer | Proffessionelle competetive Teams | Profiteam
+
+| Turnier | eine organisierte Veranstaltung, bei der mehrere Teams nach einem festgelegten Spielplan gegeneinander antreten, um einen Sieger zu ermitteln. | Wettkampf
+
+|Leistungsgruppen
+|Leistungsgruppen sind Kategorien, in die Teams basierend auf ihrer Spielstärke eingeteilt werden, um fairere Wettbewerbsbedingungen zu schaffen.
+|Wettbewerbklassen
+
+|Profis
+|Ein Profi-Team ist eine Mannschaft, deren Mitglieder auf professionellem Niveau spielen und in der Regel ihren Lebensunterhalt mit dem Sport verdienen.
+|Spitzenteam
+
+|Team
+|Ein Team ist eine Gruppe von Personen, die gemeinsam an einem Ziel arbeiten
+|Mannschaft
+
+|Gelegenheitsspielende
+|sind Personen, die nur gelegentlich und nicht professionell an sportlichen Aktivitäten teilnehmen.
+|Freizeitsportler
+
+|Schiedsrichter
+|Ein Schiedsrichter ist eine neutrale Person, die ein sportliches Ereignis überwacht, die Regeln durchsetzt und Entscheidungen trifft, um das faire Spiel zu gewährleisten.
+|Spielleiter
+
+|Spielstand
+|Der Spielstand gibt den aktuellen Punktestand oder das Ergebnis eines Spiels zu einem bestimmten Zeitpunkt wieder.
+|Punktestand
+
+|Hinspiel
+|das erste von zwei Spielen in einer Serie, bei dem die Teams gegeneinander antreten
+|Startspiel
+
+|Rückspiel
+|das zweite von zwei Spielen in einer Serie, bei dem die Teams gegeneinander antreten
+|Rückrunde, zweite Partie
+
+|aussetzzeit
+|die Zeitspanne, in der ein Team nicht spielt und entweder zuschaut oder eine andere übernimmt
+|Spielpause
+
+|pfeifen
+|Schiedrichter Rolle übernehmen
+|leiten
+
+|Spielplan
+|Strukturierter Spielablauf
+|Zeitplan, Begegnungsplan
+
+|Generieren 
+|Erstellen von den Spielplan
+|Erstellen, Erzeugen
+
+|Sieger
+|das Team mit den meisten gewonnenen Spielen
+|Gewinner
+
 |===
 
 
@@ -23,7 +78,8 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Abkürzung | Bedeutung | Erläuterung
 //| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
-| xx | xx | xx
+| Schiri | Schiedsrichter | Leiter des Spiels
+
 |===
 
 == Verzeichnis der Datenstrukturen
