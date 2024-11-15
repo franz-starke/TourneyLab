@@ -12,63 +12,76 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 [%header]
 |===
 | Begriff | Definition und Erläuterung | Synonyme
+
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-|Team Fun |Team eher zum Spaß  |Amateurteam
-|Team Schwitzer | Proffessionelle competetive Teams | Profiteam
 
-| Turnier | eine organisierte Veranstaltung, bei der mehrere Teams nach einem festgelegten Spielplan gegeneinander antreten, um einen Sieger zu ermitteln. | Wettkampf
+| Team Fun 
+| Das Team, welches aus gelegenheits oder neuen Spielern besteht um spaß am Spiel zu haben. 
+| Amateurteam
 
-|Leistungsgruppen
-|Leistungsgruppen sind Kategorien, in die Teams basierend auf ihrer Spielstärke eingeteilt werden, um fairere Wettbewerbsbedingungen zu schaffen.
-|Wettbewerbklassen
+| Team Schwitzer 
+| Proffessionelles, Wettkampforientiertes Teams 
+| Profiteam
 
-|Profis
-|Ein Profi-Team ist eine Mannschaft, deren Mitglieder auf professionellem Niveau spielen und in der Regel ihren Lebensunterhalt mit dem Sport verdienen.
-|Spitzenteam
+| Turnier 
+| Eine organisierte Veranstaltung, bei der mehrere Teams nach einem festgelegten Spielplan gegeneinander antreten, um einen Sieger zu ermitteln. 
+| Wettkampf
 
-|Team
-|Ein Team ist eine Gruppe von Personen, die gemeinsam an einem Ziel arbeiten
-|Mannschaft
+| Leistungsgruppen
+| Leistungsgruppen sind Kategorien, in die Teams basierend auf ihrer Spielstärke eingeteilt werden, um fairere Wettbewerbsbedingungen zu schaffen.
+| Wettbewerbsklassen
 
-|Gelegenheitsspielende
-|sind Personen, die nur gelegentlich und nicht professionell an sportlichen Aktivitäten teilnehmen.
-|Freizeitsportler
+| Profis
+| Ein Profi-Team ist eine Mannschaft, deren Mitglieder auf einem sehr hohen Niveau spielen und in der Regel ihren Lebensunterhalt mit dem Sport verdienen.
+| Spitzenteam
 
-|Schiedsrichter
-|Ein Schiedsrichter ist eine neutrale Person, die ein sportliches Ereignis überwacht, die Regeln durchsetzt und Entscheidungen trifft, um das faire Spiel zu gewährleisten.
-|Spielleiter
+| Team
+| Ein Team ist eine Gruppe von Personen, die gemeinsam an einem Ziel arbeiten
+| Mannschaft
 
-|Spielstand
-|Der Spielstand gibt den aktuellen Punktestand oder das Ergebnis eines Spiels zu einem bestimmten Zeitpunkt wieder.
-|Punktestand
+| Gelegenheitsspielende
+| Sind Personen, die nur ab und zu und nicht professionell an sportlichen Aktivitäten teilnehmen.
+| Freizeitsportler
 
-|Hinspiel
-|das erste von zwei Spielen in einer Serie, bei dem die Teams gegeneinander antreten
-|Startspiel
+| Schiedsrichter
+| Ein Schiedsrichter ist eine neutrale Person, die ein sportliches Ereignis überwacht, die Regeln durchsetzt und Entscheidungen trifft, um ein faires Spiel zu gewährleisten.
+| Spielleiter
 
-|Rückspiel
-|das zweite von zwei Spielen in einer Serie, bei dem die Teams gegeneinander antreten
-|Rückrunde, zweite Partie
+| Spielstand
+| Der Spielstand gibt den aktuellen Punktestand oder das Ergebnis eines Spiels zu einem bestimmten Zeitpunkt wieder.
+| Punktestand
 
-|aussetzzeit
-|die Zeitspanne, in der ein Team nicht spielt und entweder zuschaut oder eine andere übernimmt
-|Spielpause
+| Hinspiel
+| Das erste von zwei Spielen in einer Serie, bei dem die Teams gegeneinander antreten
+| Startspiel
 
-|pfeifen
-|Schiedrichter Rolle übernehmen
-|leiten
+| Rückspiel
+| Das zweite von zwei Spielen in einer Serie, bei dem die Teams gegeneinander antreten
+| Rückrunde, zweite Partie
 
-|Spielplan
-|Strukturierter Spielablauf
-|Zeitplan, Begegnungsplan
+| Aussetzzeit
+| Die Zeitspanne, in der ein Team nicht spielt und entweder zuschaut oder eine andere Rolle übernimmt
+| Spielpause
 
-|Generieren 
-|Erstellen von den Spielplan
-|Erstellen, Erzeugen
+| Pfeifen
+| Schiedrichter Rolle übernehmen
+| Leiten
 
-|Sieger
-|das Team mit den meisten gewonnenen Spielen
-|Gewinner
+| Spielplan
+| Strukturierter Spielablauf
+| Zeitplan, Begegnungsplan
+
+| Generieren 
+| Erstellen eines Spielplans
+| Erstellen, Erzeugen
+
+| Sieger
+| Das Team mit den meisten gewonnenen Spielen
+| Gewinner
+
+| App
+| Ein Program in welchem eine bestimmte logik verfolgt wird um ein und ausgabe zu verwalten.
+| Program 
 
 |===
 
@@ -77,8 +90,12 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 [%header]
 |===
 | Abkürzung | Bedeutung | Erläuterung
+
 //| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
-| Schiri | Schiedsrichter | Leiter des Spiels
+
+| Schiri 
+| Schiedsrichter 
+| Leiter des Spiels
 
 |===
 
@@ -90,7 +107,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Anmeldedaten
 | Zusammensetzung von Benutzername und Passwort.
 | String
-| Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.
+| Emailadresse muss `@`-Zeichen und anschließend mindestens ein Zeichen gefolgt von einem `.` Punkt enthalten.
 | Login
 
 | xx
