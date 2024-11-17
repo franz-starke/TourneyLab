@@ -1,0 +1,65 @@
+== Protokoll: Weekly + Treffen Coach
+- **Datum:** 19. November 2024
+- **Zeit:** 15:30 - 17:00 Uhr
+- **Ort:** HTW Bib 302a / Online (Zoom)
+- **Protokollant:** Til Simon
+- **Anwesend:** Marlene Winter, Joshua Heninger, Mutaz Abuazizeh, Jannis Wittchen, Til Simon, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
+- **Abwesend:** Keine
+
+=== Tagesordnung
+1. Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
+2. Projektfortschritt
+3. Feedback von Coach
+4. Termin nächstes Treffen
+
+== Besprochene Themen
+=== 1. Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
+- **Erledigte Aufgaben:**
+[cols="1,4,2"]
+|===
+| **Wer** | **Aufgabe** | **Folgeaufgaben**
+| Sebastian | Termin mit Lotte => 22.11. 13:30 A105/106 | Fragen vorbereiten 
+|| Protokoll Vorlage erstellt | wöchentlich updaten
+|| Visionsdokument bearbeitet |
+| Ibrahim | Grundaufbau des Glossars erstellen |
+|| Risiken erfassen und Gegenmaßnahmen ableiten(Als View in Project) |
+| Joshua | Github Projects Views erstellen und die Aufgaben vom Protokoll für diese Iteration übernehmen  als Issues (als Tabelle mit filter für Assignee und Iteration) |
+| Til, Konstantin, Jannis| Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern |
+|| Persona erarbeiten|
+|| Lable für issue Teilaufgaben erstellen|
+| Franz, Joshua |Mit Architecture Notebook __vertraut__ machen, Grobe Idee für technischen Lösungsweg erarbeiten|
+| Franz | Discord Bot für Errinerung in das Protokoll zu schauen|
+|===
+
+=== 2. Projektfortschritt
+
+[cols="1,3"]
+|===
+| **TOP** | **Ergebnisse und Beschlüsse**
+| weitere Aufgaben in Interationsplan | 
+|  |  
+|===
+
+- **Aufgabenverteilung:**
+[cols="1,6,1"]
+|===
+| **Wer** | **Aufgabe** | **Deadline**
+| Alle ||
+| Sebastian || 
+| Franz || 
+| Joshua || 
+| Ibrahim || 
+| Til || 
+| Jannis || 
+| Mutaz || 
+| Konstantin ||
+|===
+
+=== 3. Feedback von Coach
+
+=== 4. Termin nächstes Treffen
+
+== Anhang
+
+- **Links und Dokumente:**
+- **Offene Fragen:** Keine.
