@@ -1,22 +1,23 @@
-= Vision: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-{localdatetime}
-include::../_includes/default-attributes.inc.adoc[]
+= Vision: Anwendung für die Organisation und Auswertung eines Volleyball-Turniers (Turnier App)
+
+//Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+//{localdatetime}
+//include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-system-name} zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie das System {project-system-name} diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Turnier zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie die Turnier App diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
 
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
-Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von <Team> entwickelt wird. Das System wird es <Zielkunde/Auftraggeber> erlauben, <Hauptfunktionen> zu nutzen, um damit <Vorteile> zu erreichen / <Aufgabe> zu erleichtern / <Problem> zu lösen.
+Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entwickelt wird. Die App wird es dem Referat Sport des StuRa erlauben, ein Volleyball Turnier zu planen, Spielstände zu erfassen, speichern und diese auszuwerten. Damit wird die Organisation und Durchführung des jährlichen Nikolaus-Volleyball Turniers vereinfacht.
 
 === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
-Siehe <<#glossary, Glossar>>.
+Siehe link:/docs/requirements/glossary.adoc[Glossar]
 
 === Referenzen
 (hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
@@ -27,15 +28,17 @@ Siehe <<#glossary, Glossar>>.
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
 
+
+
 === Problem Statement
 //Stellen Sie zusammenfassend das Problem dar, das mit diesem Projekt gelöst werden soll. Das folgende Format kann dazu verwendet werden:
 
 [cols="1,3"]
 |===
-| Das Problem | [beschreiben Sie das Problem]
-| betrifft | [die Stakeholder, die vom Problem betroffen sind]
-| die Auswirkung davon ist | [welche Auswirkungen hat das Problem?]
-| eine erfolgreiche Lösung wäre | Führen Sie einige wesentliche Vorteile einer erfolgreichen Lösung auf]
+| Das Problem | Erstellung eines Spielplans, Erfassung und Auswertung der Ergebnisse 
+| betrifft | StuRa Referat Sport, Teilnehmende des Turniers
+| die Auswirkung davon ist | Hoher Planungsaufwand, Chaos beim Eintragen der Spielstände und lange Wartezeiten bei der Auswertung
+| eine erfolgreiche Lösung wäre | eine einfache Erfassung der Turnierdaten und automatisierte Planerstellung und Auswertung
 |===
 
 ////
@@ -56,12 +59,12 @@ Beispiel:
 
 [cols="1,3"]
 |===
-| Für | [Zielkunde / Nutzer]
-| der / die | [Angabe des Bedarfs oder Chance]
-| Das Produkt / die Lösung ist ein | [Produktkategorie]
-| Die / Das | [Aussage zum Hauptvorteil / Alleinstellungsmerkmal]
-| Im Gegensatz zu | [wesentliche Lösungsalternative]
-| Unser Produkt | [Aussage zum Hauptunterschied]
+| Für | Referat Sport des StuRa
+| das | ein Volleyball Turnier organisieren möchte
+| Das Produkt ist ein | offline nutzbare Software, die auf Mobilgeräten verwendet werden kann
+| Die | einen Spielplan generiert, Spielergebnisse erfasst, speichert und auswertet  
+| Im Gegensatz zur | händischen Erstellung, Erfassung und Auswertung
+| Unser Produkt | vereinfacht die Planung und Durchführung des Volleyball Turniers
 |===
 
 ////
@@ -85,20 +88,39 @@ Beispiel Produkt:
 |===
 | Name | Beschreibung | Verantwortlichkeiten
 
-| [Benennung des Stakeholder-Typs.]
-| [Kurze Beschreibung des Stakeholders.]
-| [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+| Auftraggeber
+| Lotte Richter vom Referat Sport des StuRa
+| Definiert die Anforderungen an das Produkt. Regelmäßiger Abgleich mit aktuellen Stand der Entwicklung.
+
+| Auftragnehmer
+| Unser Projektteam (:
+| Entwicklung und Dokumentation der Anwendung. Sammeln von SE Erfahrungen. Regelmäßige Meetings gemäß Iterationsplan.    
+
+| Coach
+| Marlene Winter
+| Ansprechpartnerin bei konkreten Problemen, regelmäßige Meetings für Fragen und Feedback    
+
+| Zukünftige Nutzer
+| Teilnehmende des Volleyball Turniers
+| Hauptinteresse ist die einfache Bedienbarkeit und korrekte Berechnung der Ergebnisse. Feedback nicht bis wenig zu erwarten.
+
+| Uni
+| Prof Anke, Herr Zirkelbach
+| Setzen der Rahmenbedingungen, Vermittlung von Wissen zu SE in Vorlesungen und Praktika, Ansprechpartner bei grundlegenden Problemen, Bewertung der Gesamtleistung.
 |===
 
 === Benutzerumgebung
-Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
-
+//Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 . Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
-. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
-. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
-. Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
-. Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
+  - Die Anzahl der Nutzer varriert je nach Turnier zwischen 4-16 Teams
+. ->Mit rein?<- Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
+. Gibt es besondere Umgebungsbedingungen? //, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+  - Die Anwendung soll mobil und offline einsetzbar sein
+  - So barrierefrei und intuitiv wie möglich
+. ->gute Frage<- Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
+. Welche anderen Anwendungen sind im Einsatz? 
+  - bisher wird der Plan in Excel erstellt 
 
 Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
@@ -111,7 +133,10 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
-| xx | xx | xx | xx
+| Spielplangenerierung | 1 | xx | xx
+| Erfassung der Spielstände| 1 | xx | xx
+| Turnierauswertung | 1 | xx | xx
+| Speicherung | 1 | xx | xx
 |===
 
 
