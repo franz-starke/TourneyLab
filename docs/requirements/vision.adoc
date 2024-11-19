@@ -153,5 +153,6 @@ Hinweise:
 [%header, cols="4,1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
+| Offline Funktionalität |1|??
 | xx | xx | xx
 |===
