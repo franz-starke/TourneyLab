@@ -17,45 +17,62 @@
 - **Erledigte Aufgaben:**
 [cols="1,4,2"]
 |===
-| **Wer** | **Aufgabe** | **Folgeaufgaben**
-| Sebastian | Termin mit Lotte => 22.11. 13:30 A105/106 | Fragen vorbereiten 
-|| Protokoll Vorlage erstellt | wöchentlich updaten
-|| Visionsdokument bearbeitet | Weitere Ergänzungen notwendig
-| Ibrahim | Grundaufbau des Glossars erstellen |
-|| Risiken erfassen und Gegenmaßnahmen ableiten(Als View in Project) |
-| Joshua | Github Projects Views erstellen und die Aufgaben vom Protokoll für diese Iteration übernehmen  als Issues (als Tabelle mit filter für Assignee und Iteration) |
-| Til, Konstantin, Jannis| Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern |
-|| Persona erarbeiten|
-|| Lable für issue Teilaufgaben erstellen|
-| Franz, Joshua |Mit Architecture Notebook __vertraut__ machen, Grobe Idee für technischen Lösungsweg erarbeiten|
-| Franz | Discord Bot für Errinerung in das Protokoll zu schauen|
+| **Wer** | **Aufgabe** | **Folgeaufgaben** |
+| Sebastian | Termin mit Lotte => 22.11. 13:30 A105/106 | Fragen vorbereiten |
+| ... | Protokoll Vorlage erstellt | wöchentlich updaten |
+| ... | Visionsdokument bearbeitet | Weitere Ergänzungen notwendig |
+| Ibrahim | Grundaufbau des Glossars erstellen | |
+| ... | Risiken erfassen und Gegenmaßnahmen ableiten(Als View in Project) | |
+| Joshua | Github Projects Views erstellen und die Aufgaben vom Protokoll für diese Iteration übernehmen  als Issues (als Tabelle mit filter für Assignee und Iteration) | | 
+| Til, Konstantin, Jannis| Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern | Abwarten auf Praktikum, Inhalte Lotte fragen || 
+| Persona erarbeiten| Abwarten auf Praktikum, Inhalte Lotte fragen ||
+| Lable für issue Teilaufgaben erstellen ||
+| Franz, Joshua | Mit Architecture Notebook __vertraut__ machen, Grobe Idee für technischen Lösungsweg erarbeiten ||
+| Franz | Discord Bot für Errinerung in das Protokoll zu schauen ||
 |===
 
 === 2. Projektfortschritt
 
 [cols="1,3"]
 |===
+
 | **TOP** | **Ergebnisse und Beschlüsse**
-| weitere Aufgaben in Interationsplan | 
-|  |  
+| weitere Aufgaben in Interationsplan |  
+| User Stories in Backlog verschoben | Erledigt 
+| Risiken | Bisherige Risiken und level sind abgestimmt. Jeder darf und soll mögliche Risiken ergänzen. Risiko-Board erstellen.
+| Glossar | Grundstruktur vorhanden. Jeder ergänzt neue Begriffe. Glossar muss sich von jedem Teammitglied angeschaut werden. Reminder ist der Discord Bot.
+| Vision | Beschreibung der Stakeholder anzupassen. . Uni und Prof sind keine Stakeholder.
+| Architekturentwurf | Vorstellung der allgemeinen Architektur. Erste Ideen, um das architecture-notebook zu füllen. Evtl. noch ins notebook übernehmen.
 |===
+
+
 
 - **Aufgabenverteilung:**
 [cols="1,6,1"]
 |===
 | **Wer** | **Aufgabe** | **Deadline**
-| Alle ||
-| Sebastian || 
-| Franz || 
-| Joshua || 
-| Ibrahim || 
-| Til || 
+| Alle | Glossar anschauen, fehlendes ergänzen| 
+| Alle | Fragen für Freitag Vorbereiten in https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit| 
+| Alle | Visionsdokument anschauen|
+
+
+| Sebastian | Beschreibung der Stakeholder anzupassen | 
+| Franz | Erweiterung Discord Bot Glossar, Gedanken zu Architektur verschriftlichen | 
+| Joshua |schick Praktikum Visionsdokument in Ressourcen | 
+| Ibrahim | Risiko Board erstellen | 
+| Til | Google Docs Dokument für Mitschrift beim Auftraggebergespräch (Link dazu unter Ressourcen im Discord)| 
 | Jannis || 
 | Mutaz || 
 | Konstantin ||
 |===
 
 === 3. Feedback von Coach
+* bessere Vorbereitung für Meetings, also mit den TOP's des nächsten Meetings vorher beschäftigen
+* jedem muss klar sein, welche Anforderungen es gibt.
+* Meeting mit Auftraggeber erst sinnvoll mit sinnvollen Fragen
+* strukturierte Notizen bei Auftraggebergespräch
+
+
 
 === 4. Termin nächstes Treffen
 
