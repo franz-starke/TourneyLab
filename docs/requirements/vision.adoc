@@ -15,6 +15,17 @@ Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System 
 === Gültigkeitsbereich (Scope)
 Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entwickelt wird. Die App wird es dem Referat Sport des StuRa erlauben, ein Volleyball Turnier zu planen, Spielstände zu erfassen, speichern und diese auszuwerten. Damit wird die Organisation und Durchführung des jährlichen Nikolaus-Volleyball Turniers vereinfacht.
 
+.in scope
+* Turniererstellung, -begleitung, -auswertung
+* Turnierspeicherung
+* ...
+
+.out of scope
+* Statistiken zu gespielten Turnieren anfertigen
+* Turniersoftware nicht nur für Volleyball sondern auch für andere Spielsportarten aufsetzen
+* ...
+
+
 === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
 Siehe link:/docs/requirements/glossary.adoc[Glossar]
@@ -61,7 +72,7 @@ Beispiel:
 |===
 | Für | Referat Sport des StuRa
 | das | ein Volleyball Turnier organisieren möchte
-| Das Produkt ist ein | offline nutzbare Software, die auf Mobilgeräten verwendet werden kann
+| Das Produkt ist eine | offline nutzbare Software, die auf Mobilgeräten verwendet werden kann
 | Die | einen Spielplan generiert, Spielergebnisse erfasst, speichert und auswertet  
 | Im Gegensatz zur | händischen Erstellung, Erfassung und Auswertung
 | Unser Produkt | vereinfacht die Planung und Durchführung des Volleyball Turniers
@@ -113,8 +124,10 @@ Beispiel Produkt:
 //Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 . Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
-  - Die Anzahl der Nutzer varriert je nach Turnier zwischen 4-16 Teams
+** Die Anzahl der Nutzer varriert je nach Turnier zwischen 4-16 Teams
 . ->Mit rein?<- Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
+** Ein Turnier dauert in der Regel <Auftraggeber fragen>
+
 . Gibt es besondere Umgebungsbedingungen? //, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
   - Die Anwendung soll mobil und offline einsetzbar sein
   - So barrierefrei und intuitiv wie möglich
