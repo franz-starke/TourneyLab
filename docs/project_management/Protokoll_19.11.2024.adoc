@@ -15,9 +15,10 @@
 == Besprochene Themen
 === 1. Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
 - **Erledigte Aufgaben:**
-[cols="1,4,2"]
+[cols="1,2,1,1,1"]
 |===
 | **Wer** | **Aufgabe** | **Folgeaufgaben** | **Geplante Zeit** | **Aufgewendete Zeit**
+
 | Sebastian | Termin mit Lotte => 22.11. 13:30 A105/106 | Fragen vorbereiten | Zeit | Zeit
 | ... | Protokoll Vorlage erstellt | wöchentlich updaten | ... | ...
 | ... | Visionsdokument bearbeitet | Weitere Ergänzungen notwendig | ... | ...
@@ -35,8 +36,8 @@
 
 [cols="1,3"]
 |===
-
 | **TOP** | **Ergebnisse und Beschlüsse**
+
 | User Stories in Backlog verschoben | Erledigt 
 | Risiken | Bisherige Risiken und level sind abgestimmt. Jeder darf und soll mögliche Risiken ergänzen. Risiko-Board erstellen.
 | Glossar | Grundstruktur vorhanden. Jeder ergänzt neue Begriffe. Glossar muss sich von jedem Teammitglied angeschaut werden. Reminder ist der Discord Bot.
@@ -50,8 +51,9 @@
 [cols="1,6,1"]
 |===
 | **Wer** | **Aufgabe** | **Deadline**
+
 | Alle | Glossar anschauen, fehlendes ergänzen| 26.11.2024
-| Alle | Fragen für Freitag Vorbereiten in https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit| 22.11.2024
+| Alle | Fragen für Freitag Vorbereiten im gemeinsamen https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit[google-doc] | 22.11.2024
 | Alle | Visionsdokument anschauen| 26.11.2024
 
 
