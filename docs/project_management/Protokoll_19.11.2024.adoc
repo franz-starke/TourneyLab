@@ -17,18 +17,18 @@
 - **Erledigte Aufgaben:**
 [cols="1,4,2"]
 |===
-| **Wer** | **Aufgabe** | **Folgeaufgaben** |
-| Sebastian | Termin mit Lotte => 22.11. 13:30 A105/106 | Fragen vorbereiten |
-| ... | Protokoll Vorlage erstellt | wöchentlich updaten |
-| ... | Visionsdokument bearbeitet | Weitere Ergänzungen notwendig |
-| Ibrahim | Grundaufbau des Glossars erstellen | |
-| ... | Risiken erfassen und Gegenmaßnahmen ableiten(Als View in Project) | |
-| Joshua | Github Projects Views erstellen und die Aufgaben vom Protokoll für diese Iteration übernehmen  als Issues (als Tabelle mit filter für Assignee und Iteration) | | 
-| Til, Konstantin, Jannis| Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern | Abwarten auf Praktikum, Inhalte Lotte fragen || 
-| Persona erarbeiten| Abwarten auf Praktikum, Inhalte Lotte fragen ||
-| Lable für issue Teilaufgaben erstellen ||
-| Franz, Joshua | Mit Architecture Notebook __vertraut__ machen, Grobe Idee für technischen Lösungsweg erarbeiten ||
-| Franz | Discord Bot für Errinerung in das Protokoll zu schauen ||
+| **Wer** | **Aufgabe** | **Folgeaufgaben** | **Geplante Zeit** | **Aufgewendete Zeit**
+| Sebastian | Termin mit Lotte => 22.11. 13:30 A105/106 | Fragen vorbereiten | Zeit | Zeit
+| ... | Protokoll Vorlage erstellt | wöchentlich updaten | ... | ...
+| ... | Visionsdokument bearbeitet | Weitere Ergänzungen notwendig | ... | ...
+| Ibrahim | Grundaufbau des Glossars erstellen | ... | Zeit | Zeit
+| ... | Risiken erfassen und Gegenmaßnahmen ableiten(Als View in Project) | ... | ... | ...
+| Joshua | Github Projects Views erstellen und die Aufgaben vom Protokoll für diese Iteration übernehmen  als Issues (als Tabelle mit filter für Assignee und Iteration) | ... | Zeit | Zeit
+| Til, Konstantin, Jannis| Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern | Abwarten auf Praktikum, Inhalte Lotte fragen | Zeit | Zeit
+| ... | Persona erarbeiten| Abwarten auf Praktikum, Inhalte Lotte fragen | ... | ...
+| ... | Lable für issue Teilaufgaben erstellen | ... | ... | ...
+| Franz, Joshua | Mit Architecture Notebook __vertraut__ machen, Grobe Idee für technischen Lösungsweg erarbeiten | ... | 20 min | 1h 30min
+| Franz | Discord Bot für Errinerung in das Protokoll zu schauen | ... |  10 min | 8 min
 |===
 
 === 2. Projektfortschritt
@@ -37,7 +37,6 @@
 |===
 
 | **TOP** | **Ergebnisse und Beschlüsse**
-| weitere Aufgaben in Interationsplan |  
 | User Stories in Backlog verschoben | Erledigt 
 | Risiken | Bisherige Risiken und level sind abgestimmt. Jeder darf und soll mögliche Risiken ergänzen. Risiko-Board erstellen.
 | Glossar | Grundstruktur vorhanden. Jeder ergänzt neue Begriffe. Glossar muss sich von jedem Teammitglied angeschaut werden. Reminder ist der Discord Bot.
@@ -51,9 +50,9 @@
 [cols="1,6,1"]
 |===
 | **Wer** | **Aufgabe** | **Deadline**
-| Alle | Glossar anschauen, fehlendes ergänzen| 
-| Alle | Fragen für Freitag Vorbereiten in https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit| 
-| Alle | Visionsdokument anschauen|
+| Alle | Glossar anschauen, fehlendes ergänzen| 26.11.2024
+| Alle | Fragen für Freitag Vorbereiten in https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit| 22.11.2024
+| Alle | Visionsdokument anschauen| 26.11.2024
 
 
 | Sebastian | Beschreibung der Stakeholder anzupassen | 
@@ -78,3 +77,4 @@
 
 == Anhang
 - **Links und Dokumente:**
+* https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit
