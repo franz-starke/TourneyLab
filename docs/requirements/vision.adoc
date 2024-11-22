@@ -7,7 +7,7 @@
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Turnier zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie die Turnier App diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Turnier App zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie die Turnier App diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
 
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
@@ -16,14 +16,16 @@ Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System 
 Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entwickelt wird. Die App wird es dem Referat Sport des StuRa erlauben, ein Volleyball Turnier zu planen, Spielstände zu erfassen, speichern und diese auszuwerten. Damit wird die Organisation und Durchführung des jährlichen Nikolaus-Volleyball Turniers vereinfacht.
 
 .in scope
-* Turniererstellung, -begleitung, -auswertung
-* Turnierspeicherung
-* ...
+* Spielplanerstellung
+* Spielstandserfassung
+* Turnierauswertung
+* Speicherung von Daten
 
 .out of scope
+* Anwendbarkeit für andere Turierformate/Sportarten
+* Intuitive Bedienbarkeit
+* Einsatz außerhalb der Hochschule
 * Statistiken zu gespielten Turnieren anfertigen
-* Turniersoftware nicht nur für Volleyball sondern auch für andere Spielsportarten aufsetzen
-* ...
 
 
 === Definitionen, Akronyme und Abkürzungen
@@ -99,25 +101,26 @@ Beispiel Produkt:
 |===
 | Name | Beschreibung | Verantwortlichkeiten
 
-| Auftraggeber
-| Lotte Richter vom Referat Sport des StuRa
-| Definiert die Anforderungen an das Produkt. Regelmäßiger Abgleich mit aktuellen Stand der Entwicklung.
+| Referat Sport (StuRa)
+| Organisator des Volleyballturniers 
+| Definiert die Anforderungen an das Produkt. Regelmäßiger Abgleich mit aktuellen Stand der Entwicklung. 
 
-| Auftragnehmer
-| Unser Projektteam (:
-| Entwicklung und Dokumentation der Anwendung. Sammeln von SE Erfahrungen. Regelmäßige Meetings gemäß Iterationsplan.    
+| Technische Entwickler
+| Softwareentwickler für das Projekt 
+| Entwicklung, Anpassung und Dokumentation der Anwendung. Sammeln von SE Erfahrungen. Regelmäßige Meetings gemäß Iterationsplan.    
 
-| Coach
-| Marlene Winter
-| Ansprechpartnerin bei konkreten Problemen, regelmäßige Meetings für Fragen und Feedback    
-
-| Zukünftige Nutzer
-| Teilnehmende des Volleyball Turniers
+| Spielende Teams   
+| Teilnehmende des Volleyball Turniers 
 | Hauptinteresse ist die einfache Bedienbarkeit und korrekte Berechnung der Ergebnisse. Feedback nicht bis wenig zu erwarten.
 
-| Uni
-| Prof Anke, Herr Zirkelbach
-| Setzen der Rahmenbedingungen, Vermittlung von Wissen zu SE in Vorlesungen und Praktika, Ansprechpartner bei grundlegenden Problemen, Bewertung der Gesamtleistung.
+| Zukünftige Nutzer
+| Organisatoren ähnlicher Turniere   
+| Nutzung der Software für andere Formate  
+
+| Gesetzgeber
+| Rechtliche Instanzen, die Datenschutz- und IT-Richtlinien vorgeben
+| Sicherstellung der Einhaltung von Datenschutzgesetzen (z. B. DSGVO)
+
 |===
 
 === Benutzerumgebung
