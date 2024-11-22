@@ -1,0 +1,60 @@
+== Protokoll: Treffen mit Auftrageber
+- **Datum:** 22. November 2024
+- **Zeit:** 13:30 - 15:00 Uhr
+- **Ort:** HTW A105/106
+- **Protokollant:** Joshua Heninger
+- **Anwesend:** Mutaz Abuazizeh, Jannis Wittchen, Ibrahim Braikeh, Franz Starke, Sebastian Heber
+- **Abwesend:**  Til Simon, Konstantin Becher
+
+=== Tagesordnung
+1. Abgeleich Fragen
+2. Aufgaben 
+3. Termin nächstes Treffen
+
+
+== Besprochene Themen
+=== 1. Abgeleich Fragen
+- 
+[cols="1,1"]
+|===
+| Frage  | Antwort
+
+| Abgleich Vision/speziell Scope  |
+|Wie lange dauert ein Turnier? 6h?|
+|Auswertung geht ja nach:
+Höchste Anzahl an Punkten (erzielte Punkte in allen Spielen).
+Höchste Anzahl Siege
+Falls beides gleich sollen wir uns was ausdenken
+	Was?: z.B. Schere Stein Papier, noch ein Satz (best of 1? oder 3?), |
+|Stellt uns der Stura evtl. eine Domain oder einen Server zum Testen zur Verfügung?|
+|Welche Turnhalle benutzt ihr normalerweise, oder welche würde sich lohnen anzuschauen um ein Bild zu bekommen wo so ein Turnier stattfindet?|
+|Soll unsere App die Mitglieder eines Teams verwalten? (scope)|
+|Inhalt der Persona|
+|Inhalt User Stories|
+||
+
+|===
+
+=== 2. Aufgaben 
+
+
+- **Aufgabenverteilung:**
+[cols="1,2,1"]
+|===
+| **Wer** | **Aufgabe** | **Deadline**
+
+| Alle ||
+| Sebastian || 
+| Franz || 
+| Joshua || 
+| Ibrahim || 
+| Til || 
+| Jannis || 
+| Mutaz || 
+| Konstantin ||
+|===
+
+=== 3. Termin nächstes Treffen
+
+== Anhang
+- **Links und Dokumente:**
