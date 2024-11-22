@@ -17,8 +17,8 @@ Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entw
 
 .in scope
 * Spielplanerstellung
-* Spielstandserfassung
 * Turnierauswertung
+* Spielstandserfassung
 * Speicherung von Daten
 
 .out of scope
