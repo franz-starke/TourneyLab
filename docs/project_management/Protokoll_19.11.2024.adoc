@@ -2,8 +2,8 @@
 - **Datum:** 19. November 2024
 - **Zeit:** 15:30 - 17:00 Uhr
 - **Ort:** HTW Bib 302a / Online (Zoom)
-- **Protokollant:** Til Simon
-- **Anwesend:** Marlene Winter, Joshua Heninger, Mutaz Abuazizeh, Jannis Wittchen, Til Simon, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
+- **Protokollant:** Joshua Heninger
+- **Anwesend:** Marlene Winter, Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Til Simon, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
 - **Abwesend:** Keine
 
 === Tagesordnung
@@ -76,6 +76,9 @@
 
 
 === 4. Termin nächstes Treffen
+
+Meeting Auftaggeber: 22.11. 13:30 Uhr A105/106
+Weekly: 26.11. 15:30 Uhr Z211
 
 == Anhang
 - **Links und Dokumente:**
