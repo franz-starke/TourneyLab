@@ -1,60 +1,61 @@
-== Protokoll: Treffen mit Auftrageber
+== Protokoll: Treffen mit Auftrageber + Coach
 - **Datum:** 22. November 2024
-- **Zeit:** 13:30 - 15:00 Uhr
-- **Ort:** HTW A105/106
-- **Protokollant:** Joshua Heninger
-- **Anwesend:** Mutaz Abuazizeh, Jannis Wittchen, Ibrahim Braikeh, Franz Starke, Sebastian Heber
-- **Abwesend:**  Til Simon, Konstantin Becher
+- **Zeit:** 13:30 - 14:30 Uhr
+- **Ort:** HTW A105
+- **Protokollant:** Franz Starke
+- **Anwesend:** Lotte Richter, Marlene Winter, Joshua Heninger, Jannis Wittchen, Ibrahim Braikeh, Sebastian Heber
+- **Abwesend:**  Til Simon, Konstantin Becher, Mutaz Abuazizeh
 
 === Tagesordnung
-1. Abgeleich Fragen
-2. Aufgaben 
+1. Abgeleich Fragen 
+2. neue Erkenntnisse 
 3. Termin nächstes Treffen
 
 
 == Besprochene Themen
 === 1. Abgeleich Fragen
-- 
+
 [cols="1,1"]
 |===
 | Frage  | Antwort
 
-| Abgleich Vision/speziell Scope  |
-|Wie lange dauert ein Turnier? 6h?|
-|Auswertung geht ja nach:
-Höchste Anzahl an Punkten (erzielte Punkte in allen Spielen).
-Höchste Anzahl Siege
-Falls beides gleich sollen wir uns was ausdenken
-	Was?: z.B. Schere Stein Papier, noch ein Satz (best of 1? oder 3?), |
-|Stellt uns der Stura evtl. eine Domain oder einen Server zum Testen zur Verfügung?|
-|Welche Turnhalle benutzt ihr normalerweise, oder welche würde sich lohnen anzuschauen um ein Bild zu bekommen wo so ein Turnier stattfindet?|
-|Soll unsere App die Mitglieder eines Teams verwalten? (scope)|
-|Inhalt der Persona|
-|Inhalt User Stories|
-||
-
+| Abgleich Vision/speziell Scope  | Angepasst
+|Inhalt der Persona| keine Änderungen notwendig
+|Inhalt User Stories| keine Änderungen notwendig
+|Wie lange dauert ein Turnier? | 7h, aber egal
+| Wonach geht die Auswertung? Was wenn, gleiche Punktzahl erreicht | Auswertung primäre nach Anzahl Siegen, danach Punktedifferenz bei Spielen. Wenn Punktgleich, bis zu 3 gleiche Plätze. z.B. 3x Platz 1, Platz 4, Platz 5,... 
+|Welche Turnhalle wird verwendet? | Nötnizer Turnhallen
+|Soll unsere App die Mitglieder eines Teams verwalten? (scope)| Nur Teamname, Kategorie(Schwitzer/Fun) und Anzahl Mitglieder wichtig. Während des Spiels aktuelle Statistik (bisherige Ergebnisse und gegen wen bereits gespielt)
+| Werden Server und Domain zur verfügung gestellt? | StuRa Server kann genutzt werden. Domain ist noch nicht vorhanden, lässt sich aber erstellen
+|Welches Betriebssystem auf Server?|Linux OS
+|Verfügbarer/Geplanter Speicherplatz?| Es wird genug Speicher zur Verfügung gestellt
+|Docker vorinstalliert?| Nicht bekannt
+|Gibt es Testserver/Umgebung?| dazu virtuelle Maschinen von Zirkelbach (Testserver) nutzen
+|Wie wird deployed?|auf Auftraggeber zugehen; von Test server auf stura Server wahrscheinlich
+|Muss sich um Backups gekümmert werden?| Nein, ist im Stura-server schon eingebaut
+|Bedarf es ein Admininterface für die Turniererstellung?|  jeder darf ein Turnier erstellen und Punkte eintragen. Allerdings darf das aktuelle Turnier nicht gelöscht werden können => kein Admininterface nötig 
 |===
 
-=== 2. Aufgaben 
+=== 2. neue Erkenntnisse 
+.Aus den Fragen und dem daraus folgenden Gespräch ergaben sich folgende neue Erkenntnisse
 
+- Spielplan wird ausgedruckt und in der Halle aufgehängt
+- im Spielplan soll vor und nach dem eigentlichen Turnier Zeitsolts definierbar sein. (Aufwärmen und Abbauen)
+- Optional: Custom Zeitblöcke zwischen den Spielen
+- Während des Turniers sollen die Teams anklickbar sein und folgende Infos live gezeigt werden: Spieleranzahl, gegen wen wurde bereits gespielt, Ergebnisse bisher, welche Spiele stehen noch zu welcher Zeit bevor
+- Benutzerkonten sind nicht gewünscht
+- Der Spielplan soll im nachhinein nicht mehr geändert werden können
+- Idee für Offline-Lösung: Ein zentrales Gerät, Synchronisierung über QR-Codegenerierung
+- vergangene Turniere sollen gespeichert werden
+- Auswertung hat Priorität über Plangenerierung
 
-- **Aufgabenverteilung:**
-[cols="1,2,1"]
-|===
-| **Wer** | **Aufgabe** | **Deadline**
-
-| Alle ||
-| Sebastian || 
-| Franz || 
-| Joshua || 
-| Ibrahim || 
-| Til || 
-| Jannis || 
-| Mutaz || 
-| Konstantin ||
-|===
 
 === 3. Termin nächstes Treffen
+Lotte hat Zeit am:
+Dienstag bis 16:30
+Freitag Ganztägig
 
 == Anhang
 - **Links und Dokumente:**
+Shared Document für Fragen und Mitschriften
+https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit?tab=t.0
