@@ -20,10 +20,10 @@ Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entw
 * Turnierauswertung
 * Spielstandserfassung
 * Speicherung von Daten
+* Intuitive Bedienbarkeit
 
 .out of scope
 * Anwendbarkeit für andere Turierformate/Sportarten
-* Intuitive Bedienbarkeit
 * Einsatz außerhalb der Hochschule
 * Statistiken zu gespielten Turnieren anfertigen
 
