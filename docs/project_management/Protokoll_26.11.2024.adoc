@@ -1,0 +1,64 @@
+== Protokoll: Weekly 
+- **Datum:** 26. November 2024
+- **Zeit:** 15:30 - 17:00 Uhr
+- **Ort:** HTW Z211
+- **Protokollant:** Joshua Heninger
+- **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Til Simon, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
+- **Abwesend:** Keine
+
+=== Tagesordnung
+1. Rückblick Aufgaben letzter Woche(Probleme? Folgeaufgaben?)
+2. Projektfortschritt
+3. Termin nächstes Treffen
+
+== Besprochene Themen
+=== 1. Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
+- **Erledigte Aufgaben:**
+[cols="1,1,1,1,1"]
+|===
+| **Wer** | **Aufgabe** | **Folgeaufgaben** | **Geplante Zeit** | **Aufgewendete Zeit**
+| Alle| Glossar anschauen, fehlendes ergänzen||||
+| Alle| Visionsdokument anschauen||||
+| Sebastian |Beschreibung der Stakeholder anpassen|||
+|||||
+| Ibrahim ||||
+|||||
+| Joshua ||||
+| Til |Risiko Board erstellen| ||
+| Konstantin||||
+| Jannis||||
+| Franz |Erweiterung Discord Bot Glossar, Gedanken zu Architektur verschriftlichen|||
+| Mutaz ||||
+|===
+
+=== 2. Projektfortschritt
+
+[cols="1,3"]
+|===
+| **TOP** | **Ergebnisse und Beschlüsse**
+|Treffen mit Auftraggeberin | Neue Anforderungen eintragen
+||
+||
+||
+|===
+
+- **Aufgabenverteilung:**
+[cols="1,2,1"]
+|===
+| **Wer** | **Aufgabe** | **Deadline**
+
+| Alle ||
+| Sebastian || 
+| Franz || 
+| Joshua || 
+| Ibrahim || 
+| Til || 
+| Jannis || 
+| Mutaz || 
+| Konstantin ||
+|===
+
+=== 3. Termin nächstes Treffen
+
+== Anhang
+- **Links und Dokumente:**
