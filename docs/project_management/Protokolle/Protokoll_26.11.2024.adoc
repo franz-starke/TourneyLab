@@ -8,8 +8,8 @@ vom 26. November 2024
 - **Zeit:** 15:30 - 17:00 Uhr
 - **Ort:** HTW Z211 und online via Discord
 - **Protokollant:** Joshua Heninger
-- **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
-- **Abwesend:** Keine
+- **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Franz Starke, Sebastian Heber
+- **Abwesend:** Ibrahim Braikeh
 
 == Agenda
 
@@ -27,35 +27,42 @@ vom 26. November 2024
 
 |0
 |Begrüßung und besprechen der Agenda
-|3 Min.
+|2 Min.
 |alle wissen wo's langeht und es geht los
 |Joshua
 
 |1
 |*RISK: ineffektive Meetings (#45)* verkleinern
-|10 Min. 
+|4 Min. 
 |Teilnehmer sind informiert 
 |Joshua 
 
 |2
 |Protokoll von letztem Teammeeting (link:Protokoll_19.11.2024.adoc[here]) besprechen
-|5 Min. 
+|10 Min. 
 |Aufgaben Kontrolliert
 |Joshua 
 
 
 |3
 |Protokoll von letztem Auftraggebergespräch (link:Protokoll_22.11.2024.adoc[here]) 
-|5 Min.
-|ERGEBNIS
+|7 Min.
+|Treffen zur  Auswertung und ergänzen der Features im Visionsdokument
 |Sebastian
 
 
 |4
 |Dokumentation der Aufgabenverteilung 
-|5 Min. 
-|ERGEBNIS
+|7 Min. 
+|BESCHLUSS: Jeder trägt seine Aufgaben als Issue gebunden an das GithubProjekt ein
 |Joshua 
+
+
+|5
+|Ende der zweiten Iteration
+|5 Min.
+|Dealine: 29.11. für die Abgabe von Visionsdokument, Glossar, Risiken beim Coach
+|Sebastian
 
 
 
@@ -65,6 +72,13 @@ vom 26. November 2024
 |Jeder weiß wann wir uns das nächste Mal treffen 
 |Alle 
 
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt 
+// |Dauer 
+// |Ergebnis 
+// |Verantwortliche 
+
 
 |===
 
@@ -73,11 +87,8 @@ vom 26. November 2024
 
 == Besprechung der TOP's
 
-===  TOP 1: RISK: ineffektive Meetings (#45) verkleinern
-
-NOTE: rein Informativ. Hier könnte eine Zusammenfassung der Infos stehen oder weglassen?
-
-* Ergebnis eines TOP's kann sein: Informationen, Beschlüsse, Aufgabenlisten, Kontrolle (Seite 321)
+=== TOP 1: RISK: ineffektive Meetings (#45) verkleinern
+* neue Methoden für Protokolle und Besprechungen als Gegenmaßnahmen zu Risk #45 (siehe Github)
 
 
 === TOP 2: Protokoll von letztem Teammeeting besprechen
@@ -99,26 +110,26 @@ link:Protokoll_19.11.2024.adoc[Protokoll_19.11.2024.adoc]
 
 | Alle 
 | Glossar anschauen, fehlendes ergänzen DEADLINE: 26.11.2024
-|
-|
-|
+| Das Glossar ist immer weiter zu ergänzen und zu verinnerlichen
+| -
+| -
 
 | Alle 
 | Fragen für Freitag Vorbereiten im gemeinsamen https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit[google-doc] DEADLINE: 22.11.2024
-|
-|
-|
+| -
+| -
+|-
 
 |Alle 
 |Visionsdokument anschauen DEADLINE: 26.11.2024
-|
-|
-|
+|Jeder sollte das Visionsdokument durchgelesen haben 
+|-
+|-
 
 
 |Sebastian 
 |Beschreibung der Stakeholder anzupassen 
-|
+|Administrator als Stakeholer hinzufügen
 |
 |
 
@@ -126,32 +137,21 @@ link:Protokoll_19.11.2024.adoc[Protokoll_19.11.2024.adoc]
 |Franz 
 |Erweiterung Discord Bot Glossar, Gedanken zu Architektur verschriftlichen 
 |
-|
-|
+|5 min
+|5 min
 
-
-
-|Joshua 
-|schick Praktikum Visionsdokument in Ressourcen 
-|
-|
-|
 
 
 | Ibrahim 
 | Risiko Board erstellen 
-|
+| noch nicht erledigt => ausstehend
 |
 |
 
-
-|Til 
-|Google Docs Dokument für Mitschrift beim Auftraggebergespräch (Link dazu unter Ressourcen im Discord)
-|
-|
-|
 
 |===
+
+
 
 
 === TOP 3: Protokoll von letztem Auftraggebergespräch 
@@ -161,11 +161,9 @@ link:Protokoll_19.11.2024.adoc[Protokoll_19.11.2024.adoc]
 
 === TOP 4: Dokumentation der Aufgabenverteilung
 
-Wann übernehmen wir Aufgaben als Issue und wie wollen wir mit der Dokumentation der Aufgabenverteilung weiter verfahren?
+Wann übernehmen wir Aufgaben als Issue?
 
-* Methode TOPs abarbeiten wie im Buch. Aufgaben werden bei den einzelnen TOP's verteilt und nicht gemeinsam in eine Tabelle geschrieben
-* Bleiben bei Tabelle "Aufgabenverteilung", dann soll die aber gleich ein Format gewählt werden, sodass vom vorigen Protokoll in das nächste übernommen werden kann
-
+=> BESCHLUSS: *Jeder trägt seine Aufgaben als Issue gebunden an das GithubProjekt ein*
 
 
 
@@ -173,39 +171,64 @@ Wann übernehmen wir Aufgaben als Issue und wie wollen wir mit der Dokumentation
 
 
 
-
 == Aufgabenverteilung
+
+!!! **DEADLINE FREITAG 29.11.** !!!
+
+
 [cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
 |===
 |Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
 
 //neue Zeile einfügen:
-// |Wer 
+// |Wer
 // |Aufgabe 
 // |Folgeaufgaben 
 // |Geplante Zeit 
 // |Aufgewendete Zeit
 
+
+
 // Alle
 
-| Alle 
+|Alle außer (Konsti), Til, Ibrahim
+a| 
+.Visionsdokument überarbeiten
+* Features ergänzen abhängig vom letzten Auftraggebergespräch
+* Termin: Donnerstag 28.11. 16:30 auf Discord
+
+|
+|
+|
+
+|Alle 
+|Geplante Zeiten für Aufgaben ergänzen
 | 
+| -
+| -
+
+
+| Alle 
+| Das Glossar ist immer weiter zu ergänzen und zu verinnerlichen
+| 
+| -
+| -
+
+
+|Alle 
+|Jeder sollte das Visionsdokument durchgelesen haben 
 |
-|
-|
+|-
+|-
+
+
 
 // Joshua
 
 |Joshua
-|Protokollvorlage anpassen 
+|Protokollvorlage anpassen und letztes Protokoll nachbereiten
 | 
-| 
-|
-
-|Joshua
-|Protokollvorlage anpassen 
-| 
-| 
+| 45 Min.
 |
 
 
@@ -217,7 +240,21 @@ Wann übernehmen wir Aufgaben als Issue und wie wollen wir mit der Dokumentation
 |
 
 
+// Analysten
 
+|Analysten
+|User Stories bearbeiten/ vervollständigen / hinzufügen 
+| 
+| 
+|
+
+
+//neue Zeile einfügen:
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
 
 |===
 
@@ -226,3 +263,4 @@ Wann übernehmen wir Aufgaben als Issue und wie wollen wir mit der Dokumentation
 
 == Anhang
 - **Links und Dokumente:**
+
