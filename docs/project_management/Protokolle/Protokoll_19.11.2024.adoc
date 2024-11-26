@@ -47,24 +47,72 @@
 
 
 
-- **Aufgabenverteilung:**
-[cols="1,6,1"]
+
+[cols="1s,6,6,1,1", caption="", frame="none", grid="rows" ]
 |===
-| **Wer** | **Aufgabe** | **Deadline**
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
 
-| Alle | Glossar anschauen, fehlendes ergänzen| 26.11.2024
-| Alle | Fragen für Freitag Vorbereiten im gemeinsamen https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit[google-doc] | 22.11.2024
-| Alle | Visionsdokument anschauen| 26.11.2024
+//neue Zeile einfügen:
+// |Wer 
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+| Alle 
+| Glossar anschauen, fehlendes ergänzen DEADLINE: 26.11.2024
+|
+|
+|
+
+| Alle 
+| Fragen für Freitag Vorbereiten im gemeinsamen https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit[google-doc] DEADLINE: 22.11.2024
+|
+|
+|
+
+|Alle 
+|Visionsdokument anschauen DEADLINE: 26.11.2024
+|
+|
+|
 
 
-| Sebastian | Beschreibung der Stakeholder anzupassen | 
-| Franz | Erweiterung Discord Bot Glossar, Gedanken zu Architektur verschriftlichen | 
-| Joshua |schick Praktikum Visionsdokument in Ressourcen | 
-| Ibrahim | Risiko Board erstellen | 
-| Til | Google Docs Dokument für Mitschrift beim Auftraggebergespräch (Link dazu unter Ressourcen im Discord)| 
-| Jannis || 
-| Mutaz || 
-| Konstantin ||
+|Sebastian 
+|Beschreibung der Stakeholder anzupassen 
+|
+|
+|
+
+
+|Franz 
+|Erweiterung Discord Bot Glossar, Gedanken zu Architektur verschriftlichen 
+|
+|
+|
+
+
+
+|Joshua 
+|schick Praktikum Visionsdokument in Ressourcen 
+|
+|
+|
+
+
+| Ibrahim 
+| Risiko Board erstellen 
+|
+|
+|
+
+
+|Til 
+|Google Docs Dokument für Mitschrift beim Auftraggebergespräch (Link dazu unter Ressourcen im Discord)
+|
+|
+|
+
 |===
 
 === 3. Feedback von Coach

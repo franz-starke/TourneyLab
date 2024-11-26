@@ -50,7 +50,7 @@ vom 26. November 2024
 |Joshua 
 
 |Abschluss
-|Terminabklärung 
+|Terminabklärung  und Aufgabenverteilung abschließen
 |3 Min. 
 |Jeder weiß wann wir uns das nächste Mal treffen 
 |Alle 
@@ -58,7 +58,6 @@ vom 26. November 2024
 
 |===
 
-// Ergebnis eines TOP kann sein: Informationen, Beschlüsse, Aufgabenlisten, Kontrolle
 
 <<<
 
@@ -68,10 +67,7 @@ vom 26. November 2024
 
 NOTE: rein Informativ. Hier könnte eine Zusammenfassung der Infos stehen oder weglassen?
 
-
-
-
-
+* Ergebnis eines TOP's kann sein: Informationen, Beschlüsse, Aufgabenlisten, Kontrolle (Seite 321)
 
 
 === TOP 2: Protokoll von letztem Teammeeting besprechen
@@ -80,50 +76,140 @@ link:Protokoll_19.11.2024.adoc[Protokoll_19.11.2024.adoc]
 
 
 .Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
-[cols="1s,6,6,1,1", caption="", frame="none", grid="rows" ]
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
 |===
-| **Wer** | **Aufgabe** | **Folgeaufgaben** | **Geplante Zeit** | **Aufgewendete Zeit**
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
 
-| Sebastian | Termin mit Lotte => 22.11. 13:30 A105/106 | Fragen vorbereiten | 5 min | 5 min
-| ... | Protokoll Vorlage erstellt | wöchentlich updaten | 30 min | 45 min
-| ... | Visionsdokument bearbeitet | Weitere Ergänzungen notwendig | 45 min | 1h 30min
-| Ibrahim | Grundaufbau des Glossars erstellen | ... | Zeit | Zeit
-| ... | Risiken erfassen und Gegenmaßnahmen ableiten(Als View in Project) | ... | ... | ...
-| Joshua | Github Projects Views erstellen und die Aufgaben vom Protokoll für diese Iteration übernehmen  als Issues (als Tabelle mit filter für Assignee und Iteration) | ... | 1h | 1.5h
-| Til, Konstantin, Jannis| Erste User Stories im Product Backlog (auf GitHub) erfassen und verfeinern | Abwarten auf Praktikum, Inhalte Lotte fragen | Zeit | Zeit
-| ... | Persona erarbeiten| Abwarten auf Praktikum, Inhalte Lotte fragen | ... | ...
-| ... | Lable für issue Teilaufgaben erstellen | ... | ... | ...
-| Franz, Joshua | Mit Architecture Notebook __vertraut__ machen, Grobe Idee für technischen Lösungsweg erarbeiten | ... | 20 min | 1h 30min
-| Franz | Discord Bot für Errinerung in das Protokoll zu schauen | ... |  10 min | 8 min
+//neue Zeile einfügen:
+// |Wer 
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+| Alle 
+| Glossar anschauen, fehlendes ergänzen DEADLINE: 26.11.2024
+|
+|
+|
+
+| Alle 
+| Fragen für Freitag Vorbereiten im gemeinsamen https://docs.google.com/document/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit[google-doc] DEADLINE: 22.11.2024
+|
+|
+|
+
+|Alle 
+|Visionsdokument anschauen DEADLINE: 26.11.2024
+|
+|
+|
+
+
+|Sebastian 
+|Beschreibung der Stakeholder anzupassen 
+|
+|
+|
+
+
+|Franz 
+|Erweiterung Discord Bot Glossar, Gedanken zu Architektur verschriftlichen 
+|
+|
+|
+
+
+
+|Joshua 
+|schick Praktikum Visionsdokument in Ressourcen 
+|
+|
+|
+
+
+| Ibrahim 
+| Risiko Board erstellen 
+|
+|
+|
+
+
+|Til 
+|Google Docs Dokument für Mitschrift beim Auftraggebergespräch (Link dazu unter Ressourcen im Discord)
+|
+|
+|
+
 |===
 
 
 
 
-=== TOP3: Dokumentation der Aufgabenverteilung
+=== TOP 3: Dokumentation der Aufgabenverteilung
+
 Wann übernehmen wir Aufgaben als Issue und wie wollen wir mit der Dokumentation der Aufgabenverteilung weiter verfahren?
 
 * Methode TOPs abarbeiten wie im Buch. Aufgaben werden bei den einzelnen TOP's verteilt und nicht gemeinsam in eine Tabelle geschrieben
 * Bleiben bei Tabelle "Aufgabenverteilung", dann soll die aber gleich ein Format gewählt werden, sodass vom vorigen Protokoll in das nächste übernommen werden kann
 
 
+
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+
+
+
+
 == Aufgabenverteilung
-[cols="1,2,1"]
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
 |===
-| **Wer** | **Aufgabe** | **Deadline**
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
 
-| Alle ||
-| Sebastian || 
-| Franz || 
-| Joshua || 
-| Ibrahim || 
-| Til || 
-| Jannis || 
-| Mutaz || 
-| Konstantin ||
+//neue Zeile einfügen:
+// |Wer 
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+// Alle
+
+| Alle 
+| 
+|
+|
+|
+
+// Joshua
+
+|Joshua
+|Protokollvorlage anpassen 
+| 
+| 
+|
+
+|Joshua
+|Protokollvorlage anpassen 
+| 
+| 
+|
+
+
+// Ibrahim
+|Ibrahim
+|Riskboard erstellen
+| 
+| 
+|
+
+
+
+
 |===
 
-=== Abschluss: Termin nächstes Treffen
+
+
 
 == Anhang
 - **Links und Dokumente:**
