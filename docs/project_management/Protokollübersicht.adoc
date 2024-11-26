@@ -4,7 +4,7 @@
 
 
 == Iteration 1
-// Links zu den Protokollne einfügen
+// Links zu den Protokollen einfügen
 
 link:Protokolle/Protokoll_05.11.2024.adoc[Teammeeting vom 5. November 2024]
 
@@ -20,7 +20,7 @@ link:Protokolle/Protokoll_19.11.2024.adoc[Teammeeting vom 19. November 2024]
 
 link:Protokolle/Protokoll_22.11.2024.adoc[Auftraggebermeeting vom 22. November 2024]
 
-link:Protokolle/Protokoll_26.11.2024.adoc[#Teammeeting vom 26. November 2024#]
+*NEXT*: link:Protokolle/Protokoll_26.11.2024.adoc[Teammeeting vom 26. November 2024]
 
 
 
