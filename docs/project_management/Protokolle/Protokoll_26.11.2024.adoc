@@ -229,7 +229,7 @@ a|
 |Protokollvorlage anpassen und letztes Protokoll nachbereiten
 | 
 | 45 Min.
-|
+|1h
 
 
 // Ibrahim
