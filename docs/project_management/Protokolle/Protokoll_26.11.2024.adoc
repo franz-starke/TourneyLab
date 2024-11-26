@@ -43,11 +43,21 @@ vom 26. November 2024
 |Aufgaben Kontrolliert
 |Joshua 
 
+
 |3
+|Protokoll von letztem Auftraggebergespräch (link:Protokoll_22.11.2024.adoc[here]) 
+|5 Min.
+|ERGEBNIS
+|Sebastian
+
+
+|4
 |Dokumentation der Aufgabenverteilung 
 |5 Min. 
 |ERGEBNIS
 |Joshua 
+
+
 
 |Abschluss
 |Terminabklärung  und Aufgabenverteilung abschließen
@@ -144,9 +154,12 @@ link:Protokoll_19.11.2024.adoc[Protokoll_19.11.2024.adoc]
 |===
 
 
+=== TOP 3: Protokoll von letztem Auftraggebergespräch 
+
+(link:Protokoll_22.11.2024.adoc[Protokoll_22.11.2024.adoc]) 
 
 
-=== TOP 3: Dokumentation der Aufgabenverteilung
+=== TOP 4: Dokumentation der Aufgabenverteilung
 
 Wann übernehmen wir Aufgaben als Issue und wie wollen wir mit der Dokumentation der Aufgabenverteilung weiter verfahren?
 
