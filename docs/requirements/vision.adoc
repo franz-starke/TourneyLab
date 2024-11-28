@@ -1,4 +1,5 @@
 = Vision: Anwendung für die Organisation und Auswertung eines Volleyball-Turniers (Turnier App)
+:icons: font
 
 //Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 //{localdatetime}
@@ -26,6 +27,8 @@ Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entw
 * Anwendbarkeit für andere Turierformate/Sportarten
 * Einsatz außerhalb der Hochschule
 * Statistiken zu gespielten Turnieren anfertigen
+* Benutzerkonten
+* dynamisches Ändern des Spielplans eines erstellten Turniers
 
 
 === Definitionen, Akronyme und Abkürzungen
@@ -126,6 +129,8 @@ Beispiel Produkt:
 === Benutzerumgebung
 //Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
+
+
 . Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
 ** Die Anzahl der Nutzer varriert je nach Turnier zwischen 4-16 Teams
 . ->Mit rein?<- Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
@@ -138,6 +143,12 @@ Beispiel Produkt:
 . Welche anderen Anwendungen sind im Einsatz? 
   - bisher wird der Plan in Excel erstellt 
 
+. App wird vom Stura vermutlich sehr selten genutzt, d.h. Leute werden sich nicht immer daran errinern wie man die App benutzt, oder benutzen sie zum ersten Mal.
+ 
+. Jedes Teammitglied / Mitspieler darf in der App Änderungen vornehmen.
+
+. Server läuft vermutlich auf Linux => Docker regelt
+
 Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
 
@@ -146,13 +157,17 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 === Bedarfe und Hauptfunktionen
 //Vermeiden Sie Angaben zum Entwurf. Nennen wesentliche Features (Produktmerkmale) auf allgemeiner Ebene. Fokussieren Sie sich auf die benötigten Fähigkeiten des Systems und warum (nicht wie!) diese realisiert werden sollen. Geben Sie die von den Stakeholdern vorgegebenen Prioritäten und das geplante Release für die Veröffentlichung der Features an.
 
+
+NOTE: Prioritäten 0 bis 4 mit 0 am wichtigsten
+
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
-| Spielplangenerierung | 1 | xx | xx
-| Erfassung der Spielstände| 1 | xx | xx
-| Turnierauswertung | 1 | xx | xx
-| Speicherung | 1 | xx | xx
+
+| Turnierauswertung | 1 | Algoritmus zur Bewertung der Spielstände | xx
+| Spielplangenerierung | 2 | Benutzeroberfläche und Algoritmus zur Spielplangenerierung | xx
+| Erfassung der Spielstände| 2 | Benutzeroberfläche zur Eintragung und Speicherung der Spielstände | xx
+| Speicherung | 3 | Speicherung der vergangenen Tuniere in SQLite Files | xx
 |===
 
 
@@ -166,9 +181,52 @@ Hinweise:
 . Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen-
 . Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
 
-[%header, cols="4,1,1"]
+[%header, cols="700,^1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
-| Offline Funktionalität |1|??
-| xx | xx | xx
+
+
+// Prioritäten 0 bis 4 => 0 am wichtigsten
+// neue Zeile:
+//-----------
+// |Anforderung 
+// |Priorität 
+// |GeplantesRelease
+
+| Offline Funktionalität 
+| 0
+| ??
+
+| Intuitiv bedienbare Nutzeroberfläche
+| 1
+| ??
+
+| Ein zentrales Gerät, Synchronisierung über QR-Codegenerierung 
+| 2
+| ??
+
+| Soll schnell sein, effizient
+| 2
+| ??
+
+| Custom Zeitblöcke (Aufwärmung, Abbauen)
+| 2
+| ??
+
+| Spielplanbearbeitung (individuelle Zeitblöcke: Pausen)
+| 3
+| ??
+
+| Livespielinfos
+| 3
+| ??
+
+| Automatische Updates und Fehler beheben über Docker/Watchtower
+| 4
+| ??
+
+| Personalisierung, eigene Styles
+| 4
+| ??
+
 |===
