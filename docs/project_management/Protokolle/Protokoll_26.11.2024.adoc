@@ -11,6 +11,9 @@ vom 26. November 2024
 - **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Franz Starke, Sebastian Heber
 - **Abwesend:** Ibrahim Braikeh
 
+
+<<<
+
 == Agenda
 
 [cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
@@ -152,7 +155,7 @@ link:Protokoll_19.11.2024.adoc[Protokoll_19.11.2024.adoc]
 |===
 
 
-
+<<<
 
 === TOP 3: Protokoll von letztem Auftraggebergespräch 
 
