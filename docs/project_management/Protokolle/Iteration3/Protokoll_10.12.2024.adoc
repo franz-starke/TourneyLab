@@ -1,5 +1,5 @@
 = Protokoll Weekly 
-vom 3. Dezember 2024
+vom 10.12.2024
 :toc-title: Inhaltsverzeichnis
 :toc:
 :icons: font
@@ -34,32 +34,7 @@ vom 3. Dezember 2024
 |1
 |Protokoll von letztem Teammeeting (link:Protokoll_26.11.2024.adoc[here]) besprechen
 |10 Min. 
-|Kontrolliert
-|Joshua
-
-
-|2
-|Wann sind jetzt immer Coach-Meetings?
-|4 Min. 
-|nicht regulär, in zwei Wochen angepeilt (erst Hinweise 3 bekommen)
-|Franz
-
-
-
-|3
-|Weihnachtsmarkt besuchen für Teambuilding
-|4 Min. 
-|nur Joshua :(
-|Joshua
-
-
-|4
-|Erste Schritte zum Prototypen: Wireframes, Datenbankschema, Turnierplanerstellung-Algorithmus
-|10 Min.
-a|
-* Aufgabe Til, Ibrahim, Franz, Joshua: Auseinandersetzung mit Wireframes
-* Aufgabe Mutaz: erste Ideen zum ER-Modell für ein Volleyballturnier Datenbankschema
-* Aufgabe: Jannis Turnierplanerstellung-Algorithmus
+|
 |Joshua
 
 
@@ -91,106 +66,6 @@ link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
 
 
 .Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
-
-[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
-|===
-|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
-
-//neue Zeile einfügen:
-// |Wer
-// |Aufgabe 
-// |Folgeaufgaben 
-// |Geplante Zeit 
-// |Aufgewendete Zeit
-
-
-
-// Alle
-
-|Alle außer (Konsti), Til, Ibrahim
-a| 
-.Visionsdokument überarbeiten
-* Features ergänzen abhängig vom letzten Auftraggebergespräch
-* Termin: Donnerstag 28.11. 16:30 auf Discord
-
-|
-|30 Min.
-|45 Min.
-
-|Alle 
-|Geplante Zeiten für Aufgaben ergänzen
-| 
-| -
-| -
-
-
-| Alle 
-| Das Glossar ist immer weiter zu ergänzen und zu verinnerlichen
-| 
-| -
-| -
-
-
-|Alle 
-|Jeder sollte das Visionsdokument durchgelesen haben 
-|
-|-
-|-
-
-
-
-// Joshua
-
-|Joshua
-|Protokollvorlage anpassen und letztes Protokoll nachbereiten
-| 
-|45 Min.
-|1h
-
-
-// Ibrahim
-|Ibrahim
-|Riskboard erstellen
-|
-|
-|
-
-
-// Analysten
-
-|Analysten
-|User Stories bearbeiten/ vervollständigen / hinzufügen 
-| 
-| 
-|
-
-
-//neue Zeile einfügen:
-// |Wer
-// |Aufgabe 
-// |Folgeaufgaben 
-// |Geplante Zeit 
-// |Aufgewendete Zeit
-
-|===
-
-
-
-=== TOP 5: Erste Schritte zum Prototypen
-* Wireframes:
-** fokus auf Handy 
-** FIGMA als Software
-
-
-
-
-=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
-Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
-
-
-== Aufgabenverteilung
-
-
 [cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
 |===
 |Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
@@ -247,12 +122,6 @@ a|Termine machen mit
 | 
 |
 
-|Sebastian
-|Iterationsplan 3: Ziele als TOP's in die Agenda des nächsten Protokolls bzw. vom alten zuordnen 
-| 
-| 
-|
-
 
 
 |Joshua
@@ -261,6 +130,27 @@ a|Termine machen mit
 | 
 |
 
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+
+|===
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
+
+
+== Aufgabenverteilung
+
+
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+//neue Zeile einfügen:
 // |Wer
 // |Aufgabe 
 // |Folgeaufgaben 

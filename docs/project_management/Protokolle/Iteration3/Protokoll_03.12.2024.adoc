@@ -1,0 +1,278 @@
+= Protokoll Weekly 
+vom 3. Dezember 2024
+:toc-title: Inhaltsverzeichnis
+:toc:
+:icons: font
+
+.generelle Informationen
+- **Zeit:** 15:30 - 17:00 Uhr
+- **Ort:** HTW Bib 302b und online via Discord
+- **Protokollant:** Joshua Heninger
+- **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
+- **Abwesend:** Keine
+
+== Agenda
+
+[cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
+|===
+|Nr. |Tagesordnungspunkt |Dauer |Ergebnis |Verantwortlich
+
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt 
+// |Dauer 
+// |Ergebnis 
+// |Verantwortliche 
+
+|0
+|Begrüßung und besprechen der Agenda
+|2 Min.
+|alle wissen wo's langeht und es geht los
+|Sebastian
+
+|1
+|Protokoll von letztem Teammeeting (link:Protokoll_26.11.2024.adoc[here]) besprechen
+|10 Min. 
+|Kontrolliert
+|Joshua
+
+
+|2
+|Wann sind jetzt immer Coach-Meetings?
+|4 Min. 
+|nicht regulär, in zwei Wochen angepeilt (erst Hinweise 3 bekommen)
+|Franz
+
+
+
+|3
+|Weihnachtsmarkt besuchen für Teambuilding
+|4 Min. 
+|nur Joshua :(
+|Joshua
+
+
+|4
+|Erste Schritte zum Prototypen: Wireframes, Datenbankschema, Turnierplanerstellung-Algorithmus
+|10 Min.
+a|
+* Aufgabe Til, Ibrahim, Franz, Joshua: Auseinandersetzung mit Wireframes
+* Aufgabe Mutaz: erste Ideen zum ER-Modell für ein Volleyballturnier Datenbankschema
+* Aufgabe: Jannis Turnierplanerstellung-Algorithmus
+|Joshua
+
+
+|Abschluss
+|Terminabklärung  und Aufgabenverteilung abschließen
+|3 Min. 
+|Jeder weiß wann wir uns das nächste Mal treffen 
+|Alle 
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt 
+// |Dauer 
+// |Ergebnis 
+// |Verantwortliche 
+
+
+|===
+
+
+<<<
+
+== Besprechung der TOP's
+
+
+=== TOP 1: Protokoll von letztem Teammeeting besprechen
+
+link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
+
+
+.Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
+
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+//neue Zeile einfügen:
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+
+
+// Alle
+
+|Alle außer (Konsti), Til, Ibrahim
+a| 
+.Visionsdokument überarbeiten
+* Features ergänzen abhängig vom letzten Auftraggebergespräch
+* Termin: Donnerstag 28.11. 16:30 auf Discord
+
+|
+|30 Min.
+|45 Min.
+
+|Alle 
+|Geplante Zeiten für Aufgaben ergänzen
+| 
+| -
+| -
+
+
+| Alle 
+| Das Glossar ist immer weiter zu ergänzen und zu verinnerlichen
+| 
+| -
+| -
+
+
+|Alle 
+|Jeder sollte das Visionsdokument durchgelesen haben 
+|
+|-
+|-
+
+
+
+// Joshua
+
+|Joshua
+|Protokollvorlage anpassen und letztes Protokoll nachbereiten
+| 
+|45 Min.
+|1h
+
+
+// Ibrahim
+|Ibrahim
+|Riskboard erstellen
+|
+|
+|
+
+
+// Analysten
+
+|Analysten
+|User Stories bearbeiten/ vervollständigen / hinzufügen 
+| 
+| 
+|
+
+
+//neue Zeile einfügen:
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+|===
+
+
+
+=== TOP 4: Erste Schritte zum Prototypen Wireframes, Datenbankschema, Turnierplanerstellung-Algorithmus
+
+* Wireframes:
+** fokus auf Handy 
+** FIGMA als Software
+
+
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
+
+
+== Aufgabenverteilung
+
+
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+|Konstantin
+|neue Persona erstellen zu "unerfahrenen" Nutzern (Team Fun vs. Team Schwitzer)
+|
+|
+|
+
+|Jannis
+|Jannis *Turnierplanerstellung-Algorithmus
+| 
+|
+|
+
+
+|Konstantin
+|User Story Akzeptanzkriterien mit neuem Input aus VL überarbeiten
+| 
+| 
+|
+
+
+| Til, Franz, Joshua, Ibrahim
+|Erste Gedanken zu Wireframes (Freitag 6.12. 19:00 online Treff)
+| 
+| 
+|
+
+
+
+|Mutaz
+|erste Ideen zum ER-Modell für ein Volleyballturnier Datenbankschema 
+|
+| 
+|
+
+
+
+
+|Sebastian
+a|Termine machen mit
+
+* Coach nächste woche (10.12.)  
+* Auftraggeber übernächste (17.12.)
+| 
+| 
+|
+
+|Sebastian
+|Iterationsplan 3: Ziele als TOP's in die Agenda des nächsten Protokolls bzw. vom alten zuordnen 
+| 
+| 
+|
+
+
+
+|Joshua
+|Protokolle vorbereiten
+| 
+| 
+|
+
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+
+|===
+
+
+
+
+== Anhang
+- **Links und Dokumente:**
+
