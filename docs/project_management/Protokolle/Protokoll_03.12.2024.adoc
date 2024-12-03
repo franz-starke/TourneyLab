@@ -34,28 +34,33 @@ vom 3. Dezember 2024
 |1
 |Protokoll von letztem Teammeeting (link:Protokoll_26.11.2024.adoc[here]) besprechen
 |10 Min. 
-|
+|Kontrolliert
 |Joshua
 
 
 |2
 |Wann sind jetzt immer Coach-Meetings?
 |4 Min. 
-|
+|nicht regulär, in zwei Wochen angepeilt (erst Hinweise 3 bekommen)
 |Franz
 
-|3
-|Volleyballturnier am 8.12.
-|10 Min. 
-|
-|Joshua
 
-|4
+
+|3
 |Weihnachtsmarkt besuchen für Teambuilding
 |4 Min. 
-|
+|nur Joshua :(
 |Joshua
 
+
+|4
+|Erste Schritte zum Prototypen: Wireframes, Datenbankschema, Turnierplanerstellung-Algorithmus
+|10 Min.
+a|
+* Aufgabe Til, Ibrahim, Franz, Joshua: Auseinandersetzung mit Wireframes
+* Aufgabe Mutaz: erste Ideen zum ER-Modell für ein Volleyballturnier Datenbankschema
+* Aufgabe: Jannis Turnierplanerstellung-Algorithmus
+|Joshua
 
 
 |Abschluss
@@ -170,6 +175,15 @@ a|
 |===
 
 
+
+=== TOP 5: Erste Schritte zum Prototypen
+* Wireframes:
+** fokus auf Handy 
+** FIGMA als Software
+
+
+
+
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
 
@@ -181,7 +195,66 @@ Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen
 |===
 |Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
 
-//neue Zeile einfügen:
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+|Konstantin
+|neue Persona erstellen zu "unerfahrenen" Nutzern (Team Fun vs. Team Schwitzer)
+|
+|
+|
+
+|Jannis
+|Jannis *Turnierplanerstellung-Algorithmus
+| 
+|
+|
+
+
+|Konstantin
+|User Story Akzeptanzkriterien mit neuem Input aus VL überarbeiten
+| 
+| 
+|
+
+
+| Til, Franz, Joshua, Ibrahim
+|Erste Gedanken zu Wireframes (Freitag 6.12. 19:00 online Treff)
+| 
+| 
+|
+
+
+
+|Mutaz
+|erste Ideen zum ER-Modell für ein Volleyballturnier Datenbankschema 
+|
+| 
+|
+
+
+
+
+|Sebastian
+a|Termine machen mit
+
+* Coach nächste woche (10.12.)  
+* Auftraggeber übernächste (17.12.)
+| 
+| 
+|
+
+
+
+|Joshua
+|Protokolle vorbereiten
+| 
+| 
+|
+
 // |Wer
 // |Aufgabe 
 // |Folgeaufgaben 
