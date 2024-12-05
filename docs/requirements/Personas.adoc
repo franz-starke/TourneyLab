@@ -75,7 +75,7 @@ image::images/klaraVerhaltensvariablen.png[alt="Verhaltensvariablen Klara Grafik
 
 == Persona: Team Fun Tim
 
-image::images/Picture 3.png[alt="Persona Peter Auftraggeber",width=300,align=left]
+image::images/Picture3.png[alt="Persona Peter Auftraggeber",width=300,align=left]
 
 
 === Demographie:
