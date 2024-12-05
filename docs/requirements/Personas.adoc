@@ -38,7 +38,7 @@ image::images/peterVerhaltensvariablen.png[alt="Verhaltensvariablen Peter Grafik
 
 == Persona: Team Schwitzer Klara
 
-image::images/klara.png[alt="Persona Klar Teilnehmer",width=300,align=left]
+image::images/klara.png[alt="Persona Klar Schwitzer Team",width=300,align=left]
 
 === Demographie:
 - **Alter:** 21
@@ -75,7 +75,7 @@ image::images/klaraVerhaltensvariablen.png[alt="Verhaltensvariablen Klara Grafik
 
 == Persona: Team Fun Tim
 
-image::images/Picture3.png[alt="Persona Peter Auftraggeber",width=300,align=left]
+image::images/tim.png[alt="Persona Tim Fun Team",width=300,align=left]
 
 
 === Demographie:
@@ -106,3 +106,4 @@ image::images/Picture3.png[alt="Persona Peter Auftraggeber",width=300,align=left
 
 === Verhaltensvariablen:
 
+image::images/timVerhaltensvariablen.png[alt="Verhaltensvariablen Tim Grafik" ,width=400]
