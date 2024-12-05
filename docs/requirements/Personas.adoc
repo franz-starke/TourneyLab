@@ -36,7 +36,7 @@ image::images/peterVerhaltensvariablen.png[alt="Verhaltensvariablen Peter Grafik
 
 
 
-== Persona: Klara
+== Persona: Team Schwitzer Klara
 
 image::images/klara.png[alt="Persona Klar Teilnehmer",width=300,align=left]
 
@@ -57,7 +57,8 @@ image::images/klara.png[alt="Persona Klar Teilnehmer",width=300,align=left]
 
 === Bedürfnisse/Ziele:
 - will Volleyball spielen
-- will am Turnier teilnehmen
+- will am Turnier teilnehmen und gewinnen 
+- will ihre Fähigkeiten testen und zeigen
 - will so wenig wie möglich mit der Organisation zu tun haben
 - will einfache Software haben mit genauen Anleitungen
 - Studium erfolgreich abschließen
