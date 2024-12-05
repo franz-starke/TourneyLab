@@ -70,3 +70,39 @@ image::images/klara.png[alt="Persona Klar Teilnehmer",width=300,align=left]
 === Verhaltensvariablen:
 
 image::images/klaraVerhaltensvariablen.png[alt="Verhaltensvariablen Klara Grafik" ,width=400]
+
+
+
+== Persona: Team Fun Tim
+
+image::images/Picture 1.jpg[alt="Persona Peter Auftraggeber",width=300,align=left]
+
+
+=== Demographie:
+- **Alter:** 20
+- **Geschlecht:** männlich
+- **Familienstand:** ledig
+- **Wohnort:** Dresden
+- **Arbeitgeber:** HTW Dresden
+- **Beruf:** Student
+
+=== Technische Fähigkeiten:
+- Wirtschaftsinformatik Student im 4. Semester
+- Verwendet Apple iOS 
+- Verwendet Microsoft-Office-Produkte
+- Verwendet das Smartphone oft
+- Verwendung mehrerer Programme
+
+=== Bedürfnisse/Ziele:
+- will Volleyball spielen
+- will am Turnier teilnehmen um Spaß zu haben 
+- will so wenig wie möglich mit der Organisation zu tun haben
+- will einfache Software haben mit genauer/einfacher Anleitung
+- Studium erfolgreich abschließen
+
+=== Hindernisse/Frustration:
+- Kein persönlicher Kontakt
+- Kann individuelle Bedürfnisse haben
+
+=== Verhaltensvariablen:
+
