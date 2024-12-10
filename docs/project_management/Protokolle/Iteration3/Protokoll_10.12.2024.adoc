@@ -27,25 +27,31 @@ vom 10.12.2024
 
 |0
 |Begrüßung und besprechen der Agenda
-|2 Min.
+|2 Min
 |alle wissen wo's langeht und es geht los
 |Sebastian
 
 |1
 |Protokoll von letztem Teammeeting (link:Protokoll_26.11.2024.adoc[here]) besprechen
-|30 Min. 
+|30 Min
 |
 |Alle
 
 |2
 |Iterationsziele
-|10 Min.
+|10 Min
 |Welche Aufgaben haben wir erledigt, was fehlt noch
+|Sebastian
+
+|3
+|Issue Erstellung
+|5 Min
+|Dokumentation der Aufgaben klären
 |Sebastian
 
 |Abschluss
 |Terminabklärung  und Aufgabenverteilung abschließen
-|3 Min. 
+|3 Min
 |Jeder weiß wann wir uns das nächste Mal treffen 
 |Alle 
 
@@ -140,8 +146,6 @@ a|Termine machen mit
 // |Folgeaufgaben 
 // |Geplante Zeit 
 // |Aufgewendete Zeit
-
-
 |===
 
 === TOP 2: Iterationsziele
@@ -150,8 +154,8 @@ a|Termine machen mit
 |===
 |Nr.|Beschreibung|Erledigt? 
 
-|1|User Stories erfassen|
-|2|Wichtige User Stories mit Akzeptanzkriterien, ggf. Wireframes verfeinern|
+|1|User Stories erfassen| ja
+|2|Wichtige User Stories mit Akzeptanzkriterien, ggf. Wireframes verfeinern| ja
 |3|Qualitätsanforderungen und Randbedingungen erarbeiten und dokumentieren|
 |4|Entscheidungen für Systemarchitektur im Architecture Notebook dokumentieren|
 |5|C4-Modell für die Systemarchitektur entwickeln und im Architecture Notebook dokumentieren|
@@ -163,6 +167,11 @@ a|Termine machen mit
 .**Am Ende abzugeben:**
 - User Stories mit angemessenem Detailgrad (je nach Wert / Bedeutung)
 - Aktueller Stand des Architecture Notebook
+
+
+=== TOP 3: Issue Erstellung
+
+- Keine Issues seit letzter Woche erstellt -> Jeder selbst nachholen oder ein Verantwortlichen?
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
