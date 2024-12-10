@@ -32,9 +32,9 @@ vom 10.12.2024
 |Sebastian
 
 |1
-|Protokoll von letztem Teammeeting (link:Protokoll_26.11.2024.adoc[here]) besprechen
+|Protokoll von letztem Teammeeting (link:Protokoll_03.12.2024.adoc[here]) besprechen
 |30 Min
-|
+|Informationen und neue Aufgaben zu Wireframes, Prototyp, Turnierplanalgorithmus
 |Alle
 
 |2
@@ -73,7 +73,7 @@ vom 10.12.2024
 
 === TOP 1: Protokoll von letztem Teammeeting besprechen
 
-link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
+link:Protokoll_03.12.2024.adoc[Protokoll_03.12.2024.adoc]
 
 
 .Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
@@ -89,35 +89,35 @@ link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
 
 |Konstantin
 |neue Persona erstellen zu "unerfahrenen" Nutzern (Team Fun vs. Team Schwitzer)
-|
+| -
 |
 |
 
-|Jannis
-|Jannis *Turnierplanerstellung-Algorithmus
+| Jannis
+| Jannis *Turnierplanerstellung-Algorithmus
+| es gibt ein paar Probleme, macht aber Bock
 | 
-|
-|
+| 7-8h
 
 
 |Konstantin
 |User Story Akzeptanzkriterien mit neuem Input aus VL überarbeiten (1)
-| 
+| -
 | 
 |
 
 
 | Til, Franz, Joshua, Ibrahim
 |Erste Gedanken zu Wireframes (Freitag 6.12. 19:00 online Treff) (2)
-| 
-| 
-|
+| Weiter verfeinern bzw. fehlende Screens hinzu
+| 1h
+|2.5h
 
 
 
 |Mutaz
 |erste Ideen zum ER-Modell für ein Volleyballturnier Datenbankschema 
-|
+| -
 | 
 |
 
@@ -125,19 +125,22 @@ link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
 
 
 |Sebastian
-a|Termine machen mit
+a| 
+Termine machen mit
 
 * Coach nächste woche (10.12.)  
 * Auftraggeber übernächste (17.12.)
+--
+
 | Coach Treff 11.12. 11:30 Uhr -> Raum auswählen; Auftraggebertermin -> alle abstimmen!
 | 
 |
 
 
 
-|Joshua
+|Sebastian
 |Protokolle vorbereiten
-| 
+| -
 | 
 |
 
@@ -156,7 +159,7 @@ a|Termine machen mit
 
 |1|User Stories erfassen| ja
 |2|Wichtige User Stories mit Akzeptanzkriterien, ggf. Wireframes verfeinern| ja
-|3|Qualitätsanforderungen und Randbedingungen erarbeiten und dokumentieren|
+|3|Qualitätsanforderungen und Randbedingungen erarbeiten und dokumentieren| erst ab Praktikum
 |4|Entscheidungen für Systemarchitektur im Architecture Notebook dokumentieren|
 |5|C4-Modell für die Systemarchitektur entwickeln und im Architecture Notebook dokumentieren|
 |6|Entwicklung Prototyp beginnen|
@@ -173,6 +176,7 @@ a|Termine machen mit
 
 - Keine Issues seit letzter Woche erstellt -> Jeder selbst nachholen oder ein Verantwortlichen?
 
+BESCHLUSS: Jeder seine Aufgabe als Issue ins Projekt schreiben. Gruppenaufgaben auch, dafür einfach jemanden festlegen, der das übernimmt
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
@@ -192,12 +196,44 @@ Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen
 // |Geplante Zeit 
 // |Aufgewendete Zeit
 
+| Alle
+a| 
+
+* mit vorhandenen User-Stories vertraut machen 
+* Frage: Auftraggeber Zeiten/Runden
+* alle Aufgaben als Issues übernehmen egal wie klein. Jeder macht das individuell zu seinen Aufgaben. Falls Gruppenaufgabe, dann jemanden festlegen der das Issue erstellt
+* Wireframes weiter verfeinern bzw. fehlende Screens hinzu 
+|
+| 
+|
+
+
+
+|Sebastian
+a| 
+
+* Termin Auftraggebergespräch: Freitag 20.12.  10:30 (Ausweichtermin 13:00 Freitag 20.12.)
+* Termin Coach: Mittwoch 11.12.  11:30 (wenn sie zusagt)
+| 
+|
+|
+
+
+|Franz
+|Architechture Notebook weiter füllen, C4 Modell erste Schichten vorbereiten und dem Team vorstellen
+|  
+| 
+|
+
+
+
+| Jannis
+| Den Turnierplanerstellung-Algorithmus weiterentwickeln
+| 
+|
+|
+
 
 |===
 
-
-
-
-== Anhang
-- **Links und Dokumente:**
 
