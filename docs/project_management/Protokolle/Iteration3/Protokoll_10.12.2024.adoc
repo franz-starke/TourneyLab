@@ -33,10 +33,15 @@ vom 10.12.2024
 
 |1
 |Protokoll von letztem Teammeeting (link:Protokoll_26.11.2024.adoc[here]) besprechen
-|10 Min. 
+|30 Min. 
 |
-|Joshua
+|Alle
 
+|2
+|Iterationsziele
+|10 Min.
+|Welche Aufgaben haben wir erledigt, was fehlt noch
+|Sebastian
 
 |Abschluss
 |Terminabklärung  und Aufgabenverteilung abschließen
@@ -90,14 +95,14 @@ link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
 
 
 |Konstantin
-|User Story Akzeptanzkriterien mit neuem Input aus VL überarbeiten
+|User Story Akzeptanzkriterien mit neuem Input aus VL überarbeiten (1)
 | 
 | 
 |
 
 
 | Til, Franz, Joshua, Ibrahim
-|Erste Gedanken zu Wireframes (Freitag 6.12. 19:00 online Treff)
+|Erste Gedanken zu Wireframes (Freitag 6.12. 19:00 online Treff) (2)
 | 
 | 
 |
@@ -118,7 +123,7 @@ a|Termine machen mit
 
 * Coach nächste woche (10.12.)  
 * Auftraggeber übernächste (17.12.)
-| 
+| Coach Treff 11.12. 11:30 Uhr -> Raum auswählen; Auftraggebertermin -> alle abstimmen!
 | 
 |
 
@@ -138,6 +143,27 @@ a|Termine machen mit
 
 
 |===
+
+=== TOP 2: Iterationsziele
+
+[cols="1s,7,5", caption="", frame="none", grid="rows" ]
+|===
+|Nr.|Beschreibung|Erledigt? 
+
+|1|User Stories erfassen|
+|2|Wichtige User Stories mit Akzeptanzkriterien, ggf. Wireframes verfeinern|
+|3|Qualitätsanforderungen und Randbedingungen erarbeiten und dokumentieren|
+|4|Entscheidungen für Systemarchitektur im Architecture Notebook dokumentieren|
+|5|C4-Modell für die Systemarchitektur entwickeln und im Architecture Notebook dokumentieren|
+|6|Entwicklung Prototyp beginnen|
+|7|Termin mit potenziellen Nutzern durchführen|
+|8|Termin mit Coach durchführen|
+|===
+
+.**Am Ende abzugeben:**
+- User Stories mit angemessenem Detailgrad (je nach Wert / Bedeutung)
+- Aktueller Stand des Architecture Notebook
+
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
