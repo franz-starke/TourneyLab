@@ -7,7 +7,7 @@ vom 17.12.2024
 :last-Protokoll: Protokoll_10.12.2024.adoc
 
 .generelle Informationen
-- **Zeit:** 15:30 - 17:00 Uhr
+- **Zeit:** 13:30 - 14:30 Uhr
 - **Ort:** HTW Bib 302b und online via Discord
 - **Protokollant:** Joshua Heninger
 - **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
@@ -36,7 +36,7 @@ vom 17.12.2024
 |Sebastian
 
 |1
-|Protokoll von letztem Teammeeting (link:Protokoll_03.12.2024.adoc[here]) besprechen
+|Protokoll von letztem Teammeeting (link:{last-Protokoll}[here]) besprechen
 |30 Min
 |Informationen und neue Aufgaben zu Wireframes, Prototyp, Turnierplanalgorithmus
 |Alle
@@ -44,7 +44,9 @@ vom 17.12.2024
 |3
 |Aktueller Stand Architecture Notebook und Userstories für Abgabe am Freitag
 |10 Min
-|Was fehlt, wie ist der Stand
+a| Coach Tipps: 
+
+* zu jeder Funktion soll's ne user Story geben
 |Alle
 
 |4
@@ -66,25 +68,29 @@ vom 17.12.2024
 // |Dauer 
 // |Ergebnis 
 // |Verantwortliche 
-
-
 |===
 
 
 <<<
 
+
+
+
 == Besprechung der TOP's
 
 === TOP 1: Treffen Coach besprechen
 
+* Alles wurde Abgenickt 
+* mehr User Stories
+
+
 
 === TOP 2: Protokoll von letztem Teammeeting besprechen
 
-link:Protokoll_03.12.2024.adoc[Protokoll_03.12.2024.adoc]
+link:{last-Protokoll}[{last-Protokoll}]
 
 
 .Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
-
 [cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
 |===
 |Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
@@ -100,10 +106,13 @@ link:Protokoll_03.12.2024.adoc[Protokoll_03.12.2024.adoc]
 a| 
 
 * mit vorhandenen User-Stories vertraut machen 
-* Frage: Auftraggeber Zeiten/Runden
+* Frage: Auftraggeber Zeiten / Runden
 * alle Aufgaben als Issues übernehmen egal wie klein. Jeder macht das individuell zu seinen Aufgaben. Falls Gruppenaufgabe, dann jemanden festlegen der das Issue erstellt
 * Wireframes weiter verfeinern bzw. fehlende Screens hinzu 
-|
+a| 
+
+* kleine Verbesserungen an den User Stories vornehmen 
+* Meinung zu Wireframes und den docs/ generell bilden, wie es gerade aussieht
 | 
 |
 
@@ -114,14 +123,14 @@ a|
 
 * Termin Auftraggebergespräch: Freitag 20.12.  10:30 (Ausweichtermin 13:00 Freitag 20.12.)
 * Termin Coach: Mittwoch 11.12.  11:30 (wenn sie zusagt)
-| 
+| Termin Auftraggeber 10:30 Freitag 20.12 steht
 |
 |
 
 
 |Franz
 |Architechture Notebook weiter füllen, C4 Modell erste Schichten vorbereiten und dem Team vorstellen
-|  
+| 
 | 
 |
 
@@ -129,7 +138,17 @@ a|
 
 | Jannis
 | Den Turnierplanerstellung-Algorithmus weiterentwickeln
-| 
+a|
+Fragen an Auftraggeber:
+
+* Was wenn es zu viele Felder gibt (Aufteilung Teams Schiedsrichterteams?)
+* kann Schwitzer-Team ein Fun Team pfeifen
+* Eine Leistungsgruppe muss auf eine andere warten, wäre das ok? Im Fall das eine größer ist als andere.
+* ... Mehr Fragen von Jannis ...
+
+
+
+* Teilt den Code in Discord und gibt kleine Einführung für jeden den's interresiert
 |
 |
 
@@ -165,6 +184,11 @@ a|
 
 | Alle
 a| 
+
+* Termin Auftraggeber 10:30 Freitag 20.12 in der A107
+* kleine Verbesserungen an den User Stories vornehmen 
+* Meinung zu Wireframes und den docs/ generell bilden, wie es gerade aussieht   
+* Fragen für Auftraggeber in https://docs.google.com/document/u/0/d/1-UfYcT0gaAXHbs1ypvzO-5draQO36agw9uM_5uc7Lpk/edit?usp=sharing&pli=1&authuser=0[google_doc] 
 |
 | 
 |
@@ -173,6 +197,10 @@ a|
 
 |Sebastian
 a| 
+* mögliche Termine mit Coach:
+** 14.01. 15:30
+** 15.01. 10:30
+** 17.01. 10:30
 
 | 
 |
@@ -180,18 +208,50 @@ a|
 
 
 |Franz
-|
+a|
+
+* Wireframes weiter verfeinern (erstmal letzte Seiten noch dazu)
+* Einführung Vue.js
+* Architecture Notebook vervollständigen (auf aktuellsten Stand bringen)
 |  
 | 
 |
 
 
 
-| Jannis
+|Programmierer
+a| An Einführung von Franz in die Frameworks teilnehmen 
+
+* 19.12. Abends (19:00, 20:00)
+* Ausweichtermin 22.12. offen 
 | 
 | 
 |
+
+
+| Jannis 
+a|
+
+Fragen an Auftraggeber:
+
+* Was wenn es zu viele Felder gibt (Aufteilung Teams Schiedsrichterteams?)
+* kann Schwitzer-Team ein Fun Team pfeifen
+* Eine Leistungsgruppe muss auf eine andere warten, wäre das ok? Im Fall das eine größer ist als andere.
+* ... Mehr Fragen von Jannis ...
+
+Turnierplanerstell-Algorithmus:
+
+* Einführung geben in den aktuellen Stand von dem Turnierplanerstellung-Algorithmus
+| 
 |
+|
+
+| Analysten
+| User Stories Finalisierung B)
+| 
+|
+|
+
 
 
 |===
