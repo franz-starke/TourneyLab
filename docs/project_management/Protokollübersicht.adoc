@@ -30,3 +30,5 @@ link:Protokolle/Iteration2/Protokoll_26.11.2024.adoc[Teammeeting vom 26. Novembe
 link:Protokolle/Iteration3/Protokoll_03.12.2024.adoc[Teammeeting vom 3. Dezember 2024]
 
 link:Protokolle/Iteration3/Protokoll_10.12.2024.adoc[Teammeeting vom 10. Dezember 2024]
+
+link:Protokolle/Iteration3/Protokoll_17.12.2024.adoc[Teammeeting vom 17. Dezember 2024]

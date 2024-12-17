@@ -4,13 +4,16 @@ vom 17.12.2024
 :toc-title: Inhaltsverzeichnis
 :toc:
 :icons: font
+:last-Protokoll: Protokoll_10.12.2024.adoc
 
 .generelle Informationen
-- **Zeit:** 13:45 - 15:00 Uhr
-- **Ort:** online via Discord
+- **Zeit:** 15:30 - 17:00 Uhr
+- **Ort:** HTW Bib 302b und online via Discord
 - **Protokollant:** Joshua Heninger
 - **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
 - **Abwesend:** Keine
+
+
 
 == Agenda
 
@@ -33,13 +36,7 @@ vom 17.12.2024
 |Sebastian
 
 |1
-|Treffen Coach besprechen
-|10 Min
-|Wekche Kritik und Hinweise gab es. Wann nächstes Treffen
-|Sebastian
-
-|2
-|Protokoll von letztem Teammeeting (link:Protokoll_10.12.2024.adoc[here]) besprechen
+|Protokoll von letztem Teammeeting (link:Protokoll_03.12.2024.adoc[here]) besprechen
 |30 Min
 |Informationen und neue Aufgaben zu Wireframes, Prototyp, Turnierplanalgorithmus
 |Alle
@@ -83,7 +80,7 @@ vom 17.12.2024
 
 === TOP 2: Protokoll von letztem Teammeeting besprechen
 
-link:Protokoll_10.12.2024.adoc[Protokoll_10.12.2024.adoc]
+link:Protokoll_03.12.2024.adoc[Protokoll_03.12.2024.adoc]
 
 
 .Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
