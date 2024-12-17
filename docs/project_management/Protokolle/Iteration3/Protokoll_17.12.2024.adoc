@@ -1,13 +1,13 @@
 
 = Protokoll Weekly 
-vom 10.12.2024
+vom 17.12.2024
 :toc-title: Inhaltsverzeichnis
 :toc:
 :icons: font
 
 .generelle Informationen
-- **Zeit:** 15:30 - 17:00 Uhr
-- **Ort:** HTW Bib 302b und online via Discord
+- **Zeit:** 13:45 - 15:00 Uhr
+- **Ort:** online via Discord
 - **Protokollant:** Joshua Heninger
 - **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
 - **Abwesend:** Keine
@@ -33,22 +33,29 @@ vom 10.12.2024
 |Sebastian
 
 |1
-|Protokoll von letztem Teammeeting (link:Protokoll_03.12.2024.adoc[here]) besprechen
+|Treffen Coach besprechen
+|10 Min
+|Wekche Kritik und Hinweise gab es. Wann nächstes Treffen
+|Sebastian
+
+|2
+|Protokoll von letztem Teammeeting (link:Protokoll_10.12.2024.adoc[here]) besprechen
 |30 Min
 |Informationen und neue Aufgaben zu Wireframes, Prototyp, Turnierplanalgorithmus
 |Alle
 
-|2
-|Iterationsziele
-|10 Min
-|Welche Aufgaben haben wir erledigt, was fehlt noch
-|Sebastian
-
 |3
-|Issue Erstellung
-|5 Min
-|Dokumentation der Aufgaben klären
-|Sebastian
+|Aktueller Stand Architecture Notebook und Userstories für Abgabe am Freitag
+|10 Min
+|Was fehlt, wie ist der Stand
+|Alle
+
+|4
+|Treffen Freitag Auftraggeberin
+|10 Min
+|Welche Fragen gibt es?
+|Alle
+
 
 |Abschluss
 |Terminabklärung  und Aufgabenverteilung abschließen
@@ -71,120 +78,15 @@ vom 10.12.2024
 
 == Besprechung der TOP's
 
+=== TOP 1: Treffen Coach besprechen
 
-=== TOP 1: Protokoll von letztem Teammeeting besprechen
 
-link:Protokoll_03.12.2024.adoc[Protokoll_03.12.2024.adoc]
+=== TOP 2: Protokoll von letztem Teammeeting besprechen
+
+link:Protokoll_10.12.2024.adoc[Protokoll_10.12.2024.adoc]
 
 
 .Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
-[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
-|===
-|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
-
-// |Wer
-// |Aufgabe 
-// |Folgeaufgaben 
-// |Geplante Zeit 
-// |Aufgewendete Zeit
-
-|Konstantin
-|neue Persona erstellen zu "unerfahrenen" Nutzern (Team Fun vs. Team Schwitzer)
-| -
-|
-|
-
-| Jannis
-| Jannis *Turnierplanerstellung-Algorithmus
-| es gibt ein paar Probleme, macht aber Bock
-| 
-| 7-8h
-
-
-|Konstantin
-|User Story Akzeptanzkriterien mit neuem Input aus VL überarbeiten (1)
-| -
-| 
-|
-
-
-| Til, Franz, Joshua, Ibrahim
-|Erste Gedanken zu Wireframes (Freitag 6.12. 19:00 online Treff) (2)
-| Weiter verfeinern bzw. fehlende Screens hinzu
-| 1h
-|2.5h
-
-
-
-|Mutaz
-|erste Ideen zum ER-Modell für ein Volleyballturnier Datenbankschema 
-| -
-| 
-|
-
-
-
-
-|Sebastian
-a| 
-Termine machen mit
-
-* Coach nächste woche (10.12.)  
-* Auftraggeber übernächste (17.12.)
---
-
-| Coach Treff 11.12. 11:30 Uhr -> Raum auswählen; Auftraggebertermin -> alle abstimmen!
-| 
-|
-
-
-
-|Sebastian
-|Protokolle vorbereiten
-| -
-| 
-|
-
-// |Wer
-// |Aufgabe 
-// |Folgeaufgaben 
-// |Geplante Zeit 
-// |Aufgewendete Zeit
-|===
-
-=== TOP 2: Iterationsziele
-
-[cols="1s,7,5", caption="", frame="none", grid="rows" ]
-|===
-|Nr.|Beschreibung|Erledigt? 
-
-|1|User Stories erfassen| ja
-|2|Wichtige User Stories mit Akzeptanzkriterien, ggf. Wireframes verfeinern| ja
-|3|Qualitätsanforderungen und Randbedingungen erarbeiten und dokumentieren| erst ab Praktikum
-|4|Entscheidungen für Systemarchitektur im Architecture Notebook dokumentieren|
-|5|C4-Modell für die Systemarchitektur entwickeln und im Architecture Notebook dokumentieren|
-|6|Entwicklung Prototyp beginnen|
-|7|Termin mit potenziellen Nutzern durchführen|
-|8|Termin mit Coach durchführen|
-|===
-
-.**Am Ende abzugeben:**
-- User Stories mit angemessenem Detailgrad (je nach Wert / Bedeutung)
-- Aktueller Stand des Architecture Notebook
-
-
-=== TOP 3: Issue Erstellung
-
-- Keine Issues seit letzter Woche erstellt -> Jeder selbst nachholen oder ein Verantwortlichen?
-
-BESCHLUSS: Jeder seine Aufgabe als Issue ins Projekt schreiben. Gruppenaufgaben auch, dafür einfach jemanden festlegen, der das übernimmt
-
-=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
-Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
-
-
-== Aufgabenverteilung
-
 
 [cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
 |===
@@ -230,6 +132,66 @@ a|
 
 | Jannis
 | Den Turnierplanerstellung-Algorithmus weiterentwickeln
+| 
+|
+|
+
+
+|===
+
+
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+
+=== TOP 3: Aktueller Stand Architecture Notebook und Userstories für Abgabe am Freitag
+
+
+=== TOP 4: Treffen Freitag Auftraggeberin
+
+== Aufgabenverteilung
+
+
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+//neue Zeile einfügen:
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+| Alle
+a| 
+|
+| 
+|
+
+
+
+|Sebastian
+a| 
+
+| 
+|
+|
+
+
+|Franz
+|
+|  
+| 
+|
+
+
+
+| Jannis
+| 
 | 
 |
 |
