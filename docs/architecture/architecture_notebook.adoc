@@ -1,5 +1,5 @@
 = Architecture Notebook: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+Franz Starke <s86320@htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -18,21 +18,38 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
 
+- Offline/Online Nutzung
+- Einfache Programmierung
+- Übersichtliche Programmstruktur
+- Einheitliche Syntax
+- Einfache Kompilierung/Tests
+- Einfaches Deployment
+- Keine besonderen Geschwindigkeitsanforderungen
+- Keine besonderen Sicherheitsanforderungen
+- Leichte Pflegung und Weiterentwicklung (Modularer Aufbau)
+- Datenspeicherung
+- Export von Dateien
+- Soll für unterschiedlichen Betriebssystemen/Gerätetypen kompatibel sein
+- Zugriff von mehreren Geräten
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
+
+- Legacy Support (Einladen der Alten Excel Tabelle)
 
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
 
+- Informationsübertragung mit einem Datenspeicher.
+
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
 
-. Entscheidung oder Einschränkung oder Begründung 1
-. Entscheidung oder Einschränkung oder Begründung 2
-
+- Um die App auf so vielen Geräten wie möglich anzuzeigen wird eine Progressive Web App verwendet.
+- Um Daten zu speichern und sortieren wird eine Datenbank verwendet.
+- Um einen einfachen Zugriff auf die Gespeicherten Daten zu haben wird eine API verwendet.
 
 == Architekturmechanismen
 https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
@@ -42,9 +59,9 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
 
-. Architekturmechanismus 1
-. Architekturmechanismus 2
-
+. Komponenten verwenden
+. Standardisierten Syntax verwenden
+. Leserlichen Code schreiben
 
 == Wesentliche Abstraktionen
 //[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
@@ -52,7 +69,9 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
-
+- FastAPI (Python)
+- SQLite (SQL)
+- Vue (Java Script)
 
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
