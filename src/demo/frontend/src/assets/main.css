@@ -1,0 +1,21 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #E7E9F6;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button{
+	height: 80px;
+	border-radius: 30px;
+	font-size: 20px;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 700;
+	border: none;
+	background-color: white;
+	padding: 20px;
+}
+
+button:hover{
+  background-color: #D9D9D9;
+}
