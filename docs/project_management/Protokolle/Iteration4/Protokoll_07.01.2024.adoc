@@ -1,1 +1,109 @@
 
+= Protokoll Weekly 
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc:
+:icons: font
+
+.generelle Informationen
+- **Zeit:** 15:30 - 17:00 Uhr
+- **Ort:** HTW Bib 302b 
+- **Protokollant:** Joshua Heninger
+- **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
+- **Abwesend:** Keine
+
+== Agenda
+
+[cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
+|===
+|Nr. |Tagesordnungspunkt |Dauer |Ergebnis |Verantwortlich
+
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt 
+// |Dauer 
+// |Ergebnis 
+// |Verantwortliche 
+
+|0
+|Begrüßung und besprechen der Agenda
+|2 Min.
+|alle wissen wo's langeht und es geht los
+|Sebastian
+
+|1
+|Protokoll von letztem Teammeeting besprechen
+|10 Min.     
+|
+|Sebastian
+
+
+|Abschluss
+|Terminabklärung  und Aufgabenverteilung abschließen
+|3 Min. 
+|Jeder weiß wann wir uns das nächste Mal treffen 
+|Alle 
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt 
+// |Dauer 
+// |Ergebnis 
+// |Verantwortliche 
+
+
+|===
+
+
+<<<
+
+== Besprechung der TOP's
+
+
+=== TOP 1: Protokoll von letztem Teammeeting besprechen
+
+link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
+
+
+.Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+//neue Zeile einfügen:
+// |Wer 
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+|===
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
+
+
+== Aufgabenverteilung
+
+
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+//neue Zeile einfügen:
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+
+|===
+
+
+
+
+== Anhang
+- **Links und Dokumente:**
+
