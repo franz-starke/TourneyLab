@@ -29,7 +29,7 @@ vom __date__
 |0
 |Begrüßung und besprechen der Agenda
 |2 Min.
-|alle wissen wo's langeht und es geht los
+|alle wissen wo's lang geht und es geht los
 |Sebastian
 
 |1
@@ -38,6 +38,17 @@ vom __date__
 |
 |Sebastian
 
+|2
+|Neuen Iterationsplan besprechen
+|30 Min.     
+|alle kennen die Aufgaben und ihre Zuständigkeit
+|alle
+
+|3
+|Klausurvorbereitung
+|10 Min.     
+|Termin für gemeinsame Lernsession
+|alle
 
 |Abschluss
 |Terminabklärung  und Aufgabenverteilung abschließen
@@ -63,26 +74,85 @@ vom __date__
 
 === TOP 1: Protokoll von letztem Teammeeting besprechen
 
-link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
+link:Protokoll_17.12.2024.adoc[Protokoll_17.12.2024.adoc]
 
 
-.Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
+.Rückblick Aufgaben letzter Woche / Vorstellung aktueller Stand der Entwicklung
 [cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
 |===
 |Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
 
 //neue Zeile einfügen:
-// |Wer 
+// |Wer
 // |Aufgabe 
 // |Folgeaufgaben 
 // |Geplante Zeit 
 // |Aufgewendete Zeit
 
+| Alle
+a| Meinung zu Wireframes und den docs/ generell bilden, wie es gerade aussieht   
+|
+| 
+|
+
+
+|Franz
+a|
+* Wireframes weiter verfeinern (erstmal letzte Seiten noch dazu)
+* Einführung Vue.js
+* Architecture Notebook vervollständigen (auf aktuellsten Stand bringen)
+|  
+| 
+|
+
+|Programmierer
+a| An Einführung von Franz in die Frameworks teilnehmen 
+| 
+| 
+|
+
+| Analysten
+| User Stories Finalisierung 
+| 
+|
+|
+
 |===
 
-=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
-Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
+=== TOP 2: Neuen Iterationsplan besprechen
 
+.Aufgaben
+[cols="7,5,3", caption="", frame="none", grid="rows" ]
+|===
+|Aufgabe |Aktueller Stand |Probleme?
+
+|Prototyp fertigstellen
+|
+|
+
+|Erstellen eines Domänenmodells
+|
+|
+
+|Dokumentieren der grundlegenden technischen Entscheidungen im Architecture Notebook
+|
+|
+
+|Vorbereitung Vorstellung Prototyp
+|
+|
+
+|Termin mit potenziellen Nutzern durchführen
+|
+|
+
+|Termin mit Coach durchführen
+|14.01.2025 um 15:30 Uhr
+|
+
+
+|===
+=== TOP 3: Klausurvorbereitung
 
 == Aufgabenverteilung
 
@@ -98,11 +168,40 @@ Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen
 // |Geplante Zeit 
 // |Aufgewendete Zeit
 
+| Alle
+|
+|
+| 
+|
+
+
+
+|Sebastian
+|
+| 
+|
+|
+
+
+|Franz
+a|
+|
+|  
+| 
+|
+
+
+
+|
+| 
+| 
+|
+|
+
+
+
 
 |===
-
-
-
 
 == Anhang
 - **Links und Dokumente:**
