@@ -51,7 +51,7 @@ vom __date__
 |alle
 
 |Abschluss
-|Terminabklärung  und Aufgabenverteilung abschließen
+|Terminabklärung und Aufgabenverteilung abschließen
 |3 Min. 
 |Jeder weiß wann wir uns das nächste Mal treffen 
 |Alle 
@@ -180,7 +180,7 @@ a|
 
 
 |Sebastian
-|Termin mit Auftraggeber geplant am 17. 
+|Termin mit Auftraggeber am 17. 
 | 
 |
 |
@@ -202,10 +202,23 @@ a|
 |
 |
 
+|Kostantin, Til
+|Alle Unterlagen durchgehen und auf Begriffe überprüfen, die noch nicht im Glossar sind. Generelle Überprüfung auf Rechtschreib- / Logikfehler.
+| 
+|
+|
 
-
+|Ibrahim
+|Risiko Board überprüfen, ggf neue Risiken mit aufnehmen.
+| 
+|
+|
 
 |===
+
+=== Abschluss
+
+.Nächsten Treffen: 14.01.2025 um 15:30 Uhr im Raum Z211. Treffen mit Coach 
 
 == Anhang
 - **Links und Dokumente:**
