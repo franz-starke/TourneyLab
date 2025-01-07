@@ -101,7 +101,7 @@ a|
 * Wireframes weiter verfeinern (erstmal letzte Seiten noch dazu)
 * Einführung Vue.js
 * Architecture Notebook vervollständigen (auf aktuellsten Stand bringen)
-|  
+|  hat stattgefunden, bei Mutaz gibt es noch Probleme mit node.js
 | 
 |
 
@@ -127,15 +127,15 @@ a| An Einführung von Franz in die Frameworks teilnehmen
 |Aufgabe |Aktueller Stand |Probleme?
 
 |Prototyp fertigstellen
-|
+|Fast fertig,  Programmierer noch einweisen
 |
 
 |Erstellen eines Domänenmodells
-|
+|verschieben um eine Woche nach Praktikum
 |
 
 |Dokumentieren der grundlegenden technischen Entscheidungen im Architecture Notebook
-|
+|wird noch verfeinert
 |
 
 |Vorbereitung Vorstellung Prototyp
@@ -143,7 +143,7 @@ a| An Einführung von Franz in die Frameworks teilnehmen
 |
 
 |Termin mit potenziellen Nutzern durchführen
-|
+|Sebastian macht einen Termin
 |
 
 |Termin mit Coach durchführen
@@ -169,7 +169,10 @@ a| An Einführung von Franz in die Frameworks teilnehmen
 // |Aufgewendete Zeit
 
 | Alle
-|
+a|
+* Prof. Anke fragen, wie das Beleg Fromat aussehen soll 
+* Coach fragen ob das Glossar so in Ordnung ist.
+* Jeder muss die Klausur bestehen. Alle für Einen und Einer für Alle.
 |
 | 
 |
@@ -177,23 +180,24 @@ a| An Einführung von Franz in die Frameworks teilnehmen
 
 
 |Sebastian
-|
+|Termin mit Auftraggeber geplant am 17. 
 | 
 |
 |
 
 
-|Franz
+|Franz, Joshua
 a|
+* Wireframe um Turnierplanertsellung ergänzen
+* Architecture Notebook überarbeiten
 |
 |  
 | 
 |
 
 
-
-|
-| 
+|Programmierer
+|Prototyp verstehen 
 | 
 |
 |
