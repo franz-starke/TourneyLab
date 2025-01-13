@@ -7,10 +7,10 @@ vom __date__
 
 .generelle Informationen
 - **Zeit:** 15:30 - 17:00 Uhr
-- **Ort:** HTW Bib 302b 
+- **Ort:** HTW Z211 / online 
 - **Protokollant:** Joshua Heninger
-- **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
-- **Abwesend:** Keine
+- **Anwesend:** Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Franz Starke, Sebastian Heber
+- **Abwesend:** Til Simon(online), Ibrahim Braikeh(entschuldigt)
 
 == Agenda
 
