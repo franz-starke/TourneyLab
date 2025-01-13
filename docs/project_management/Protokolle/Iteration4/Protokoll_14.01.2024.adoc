@@ -176,6 +176,47 @@ a|
 .Wer macht Powerpoint?
 .Wer präsentiert mit Franz zusammen?
 
+== Aufgabenverteilung
+
+
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+//neue Zeile einfügen:
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+| Alle
+a|
+|
+| 
+|
+
+
+
+|Sebastian
+|
+| 
+|
+|
+
+
+|Franz, Joshua
+a|
+|
+|  
+| 
+|
+
+
+|===
+
+
+
 === Abschluss
 
 .Nächsten Treffen: 17.01.2025 um 10:30 Uhr im Raum a106/107. Treffen mit Auftraggeberin 
