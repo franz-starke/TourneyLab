@@ -1,1 +1,186 @@
 
+= Protokoll Weekly 
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc:
+:icons: font
+
+.generelle Informationen
+- **Zeit:** 15:30 - 17:00 Uhr
+- **Ort:** HTW Z211 
+- **Protokollant:** Joshua Heninger
+- **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Franz Starke, Sebastian Heber, Ibrahim Braikeh
+- **Abwesend:**
+
+== Agenda
+
+[cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
+|===
+|Nr. |Tagesordnungspunkt |Dauer |Ergebnis |Verantwortlich
+
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt 
+// |Dauer 
+// |Ergebnis 
+// |Verantwortliche 
+
+|0
+|Begrüßung und besprechen der Agenda
+|2 Min.
+|alle wissen wo's lang geht und es geht los
+|Sebastian
+
+|1
+|Protokoll von letztem Teammeeting besprechen
+|10 Min.     
+|
+|Sebastian
+
+|2
+|Restliche Aufgaben besprechen
+|30 Min.     
+|alle kennen die Aufgaben und ihre Zuständigkeit
+|alle
+
+|3
+|Vortrag besprechen
+|10 Min.     
+|Zuständigkeiten klären
+|alle
+
+|Abschluss
+|Terminabklärung und Aufgabenverteilung abschließen
+|3 Min. 
+|Jeder weiß wann wir uns das nächste Mal treffen 
+|Alle 
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt 
+// |Dauer 
+// |Ergebnis 
+// |Verantwortliche 
+
+
+|===
+
+
+<<<
+
+== Besprechung der TOP's
+
+
+=== TOP 1: Protokoll von letztem Teammeeting besprechen
+
+link:Protokoll_07.01.2025.adoc[Protokoll_07.01.2025.adoc]
+
+
+.Rückblick Aufgaben letzter Woche / Vorstellung aktueller Stand der Entwicklung
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+//neue Zeile einfügen:
+// |Wer
+// |Aufgabe 
+// |Folgeaufgaben 
+// |Geplante Zeit 
+// |Aufgewendete Zeit
+
+| Alle
+a|
+* Prof. Anke fragen, wie das Beleg Fromat aussehen soll 
+* Coach fragen ob das Glossar so in Ordnung ist.
+* Jeder muss die Klausur bestehen. Alle für Einen und Einer für Alle.
+|
+| 
+|
+
+
+
+|Sebastian
+|Termin mit Auftraggeber am 17. 
+| 
+|
+|
+
+
+|Franz, Joshua
+a|
+* Wireframe um Turnierplanertsellung ergänzen
+* Architecture Notebook überarbeiten
+|
+|  
+| 
+|
+
+
+|Programmierer
+|Prototyp verstehen 
+| 
+|
+|
+
+|Kostantin, Til
+|Alle Unterlagen durchgehen und auf Begriffe überprüfen, die noch nicht im Glossar sind. Generelle Überprüfung auf Rechtschreib- / Logikfehler.
+| 
+|
+|
+
+|Ibrahim
+|Risiko Board überprüfen, ggf neue Risiken mit aufnehmen.
+| 
+|
+|
+
+|===
+
+=== TOP 2: Restliche Aufgaben besprechen
+
+.Aufgaben
+[cols="7,5,3", caption="", frame="none", grid="rows" ]
+|===
+|Aufgabe |Aktueller Stand |Probleme?
+
+|Prototyp fertigstellen
+|Fast fertig,  Programmierer noch einweisen
+|
+
+|Erstellen eines Domänenmodells
+|verschieben um eine Woche nach Praktikum
+|
+
+|Dokumentieren der grundlegenden technischen Entscheidungen im Architecture Notebook
+|wird noch verfeinert
+|
+
+|Vorbereitung Vorstellung Prototyp
+|
+|
+
+|Termin mit potenziellen Nutzern durchführen
+|17.01.2025 um 10:30 Uhr
+|
+
+|Termin mit Coach durchführen
+|14.01.2025 um 17:30 Uhr
+|
+
+
+|===
+
+=== TOP 3: Vortrag besprechen
+
+.Wer macht Powerpoint?
+.Wer präsentiert mit Franz zusammen?
+
+=== Abschluss
+
+.Nächsten Treffen: 17.01.2025 um 10:30 Uhr im Raum a106/107. Treffen mit Auftraggeberin 
+
+== Anhang
+- **Links und Dokumente:**
+
+
