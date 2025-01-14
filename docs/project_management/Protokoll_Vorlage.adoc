@@ -1,8 +1,9 @@
-= Protokoll Weekly 
+= Protokoll Weekly
 vom __date__
 :toc-title: Inhaltsverzeichnis
 :toc:
 :icons: font
+:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
 
 .generelle Informationen
 - **Zeit:** 15:30 - 17:00 Uhr
@@ -20,10 +21,10 @@ vom __date__
 
 //neue Zeile einfügen:
 // |Nr
-// |Tagesordnungspunkt 
-// |Dauer 
-// |Ergebnis 
-// |Verantwortliche 
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
 
 |0
 |Begrüßung und besprechen der Agenda
@@ -32,24 +33,24 @@ vom __date__
 |Sebastian
 
 |1
-|Protokoll von letztem Teammeeting (link:Protokoll_26.11.2024.adoc[here]) besprechen
-|10 Min. 
+|Protokoll von letztem Teammeeting (link:{last-Protokoll}[here]) besprechen
+|10 Min.
 |
 |Joshua
 
 
 |Abschluss
 |Terminabklärung  und Aufgabenverteilung abschließen
-|3 Min. 
-|Jeder weiß wann wir uns das nächste Mal treffen 
-|Alle 
+|3 Min.
+|Jeder weiß wann wir uns das nächste Mal treffen
+|Alle
 
 //neue Zeile einfügen:
 // |Nr
-// |Tagesordnungspunkt 
-// |Dauer 
-// |Ergebnis 
-// |Verantwortliche 
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
 
 
 |===
@@ -62,7 +63,7 @@ vom __date__
 
 === TOP 1: Protokoll von letztem Teammeeting besprechen
 
-link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
+link:{last-Protokoll}[{last-Protokoll}]
 
 
 .Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
@@ -71,10 +72,10 @@ link:Protokoll_26.11.2024.adoc[Protokoll_26.11.2024.adoc]
 |Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
 
 //neue Zeile einfügen:
-// |Wer 
-// |Aufgabe 
-// |Folgeaufgaben 
-// |Geplante Zeit 
+// |Wer
+// |Aufgabe
+// |Folgeaufgaben
+// |Geplante Zeit
 // |Aufgewendete Zeit
 
 |===
@@ -92,9 +93,9 @@ Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen
 
 //neue Zeile einfügen:
 // |Wer
-// |Aufgabe 
-// |Folgeaufgaben 
-// |Geplante Zeit 
+// |Aufgabe
+// |Folgeaufgaben
+// |Geplante Zeit
 // |Aufgewendete Zeit
 
 

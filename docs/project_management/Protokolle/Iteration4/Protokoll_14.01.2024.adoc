@@ -1,13 +1,14 @@
 
-= Protokoll Weekly 
+= Protokoll Weekly
 vom __date__
 :toc-title: Inhaltsverzeichnis
 :toc:
 :icons: font
+:last-protocol: ./Protokoll_07.01.2024.adoc
 
 .generelle Informationen
 - **Zeit:** 15:30 - 17:00 Uhr
-- **Ort:** HTW Z211 
+- **Ort:** HTW Z211
 - **Protokollant:** Joshua Heninger
 - **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Franz Starke, Sebastian Heber, Ibrahim Braikeh
 - **Abwesend:**
@@ -21,10 +22,10 @@ vom __date__
 
 //neue Zeile einfügen:
 // |Nr
-// |Tagesordnungspunkt 
-// |Dauer 
-// |Ergebnis 
-// |Verantwortliche 
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
 
 |0
 |Begrüßung und besprechen der Agenda
@@ -34,34 +35,46 @@ vom __date__
 
 |1
 |Protokoll von letztem Teammeeting besprechen
-|10 Min.     
-|
+|10 Min.
+a|
+* Belegformat mit Prof. Anke geklärt
+* Franz hat noch Begriffe hinzuzufügen für das Glossar
+* Termin mit Auftraggeber, Prototyp 10:30 am 17.01.2025
+* Wireframes sind vollständig
+* Prototyp von fast allen nachvollzogen
+* Risikoboard musste nicht wirklich geupdated werden
 |Sebastian
 
 |2
 |Restliche Aufgaben besprechen
-|30 Min.     
-|alle kennen die Aufgaben und ihre Zuständigkeit
+|30 Min.
+a|alle kennen die Aufgaben und ihre Zuständigkeit
+
+* Aufgabe: Domänenmodell von Joshua in Plantuml
+* Aufgabe:  Architecture Notebook vervollständigen: Franz, Joshua
+* Aufgabe: Prototyp fertig machen (letzte Priorität)
 |alle
 
 |3
 |Vortrag besprechen
-|10 Min.     
-|Zuständigkeiten klären
-|alle
+|10 Min.
+a|Zuständigkeiten klären
 
+* Aufgabe: Präsentation in Canva Vorbereiten   (Til, Konsti)
+* Vortragende: Til, Franz und Joshua
+|alle
 |Abschluss
 |Terminabklärung und Aufgabenverteilung abschließen
-|3 Min. 
-|Jeder weiß wann wir uns das nächste Mal treffen 
-|Alle 
+|3 Min.
+|Jeder weiß wann wir uns das nächste Mal treffen
+|Alle
 
 //neue Zeile einfügen:
 // |Nr
-// |Tagesordnungspunkt 
-// |Dauer 
-// |Ergebnis 
-// |Verantwortliche 
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
 
 
 |===
@@ -74,7 +87,7 @@ vom __date__
 
 === TOP 1: Protokoll von letztem Teammeeting besprechen
 
-link:Protokoll_07.01.2025.adoc[Protokoll_07.01.2025.adoc]
+link:{last-protocol}[{last-protocol}]
 
 
 .Rückblick Aufgaben letzter Woche / Vorstellung aktueller Stand der Entwicklung
@@ -84,25 +97,25 @@ link:Protokoll_07.01.2025.adoc[Protokoll_07.01.2025.adoc]
 
 //neue Zeile einfügen:
 // |Wer
-// |Aufgabe 
-// |Folgeaufgaben 
-// |Geplante Zeit 
+// |Aufgabe
+// |Folgeaufgaben
+// |Geplante Zeit
 // |Aufgewendete Zeit
 
 | Alle
 a|
-* Prof. Anke fragen, wie das Beleg Fromat aussehen soll 
+* Prof. Anke fragen, wie das Beleg Fromat aussehen soll
 * Coach fragen ob das Glossar so in Ordnung ist.
 * Jeder muss die Klausur bestehen. Alle für Einen und Einer für Alle.
 |
-| 
+|
 |
 
 
 
 |Sebastian
-|Termin mit Auftraggeber am 17. 
-| 
+|Termin mit Auftraggeber am 17.
+|
 |
 |
 
@@ -112,69 +125,39 @@ a|
 * Wireframe um Turnierplanertsellung ergänzen
 * Architecture Notebook überarbeiten
 |
-|  
-| 
+|
 |
 
 
 |Programmierer
-|Prototyp verstehen 
-| 
+|Prototyp verstehen
+|
 |
 |
 
 |Kostantin, Til
 |Alle Unterlagen durchgehen und auf Begriffe überprüfen, die noch nicht im Glossar sind. Generelle Überprüfung auf Rechtschreib- / Logikfehler.
-| 
+|
 |
 |
 
 |Ibrahim
 |Risiko Board überprüfen, ggf neue Risiken mit aufnehmen.
-| 
+|
 |
 |
 
 |===
 
-=== TOP 2: Restliche Aufgaben besprechen
 
-.Aufgaben
-[cols="7,5,3", caption="", frame="none", grid="rows" ]
-|===
-|Aufgabe |Aktueller Stand |Probleme?
-
-|Prototyp fertigstellen
-|Fast fertig,  Programmierer noch einweisen
-|
-
-|Erstellen eines Domänenmodells
-|verschieben um eine Woche nach Praktikum
-|
-
-|Dokumentieren der grundlegenden technischen Entscheidungen im Architecture Notebook
-|wird noch verfeinert
-|
-
-|Vorbereitung Vorstellung Prototyp
-|
-|
-
-|Termin mit potenziellen Nutzern durchführen
-|17.01.2025 um 10:30 Uhr
-|
-
-|Termin mit Coach durchführen
-|14.01.2025 um 17:30 Uhr
-|
-
-
-|===
 
 === TOP 3: Vortrag besprechen
 
 .Wer macht Powerpoint?
+Til und Konstantin
+
 .Wer präsentiert mit Franz zusammen?
+Til und Joshua
 
 == Aufgabenverteilung
 
@@ -185,31 +168,39 @@ a|
 
 //neue Zeile einfügen:
 // |Wer
-// |Aufgabe 
-// |Folgeaufgaben 
-// |Geplante Zeit 
+// |Aufgabe
+// |Folgeaufgaben
+// |Geplante Zeit
 // |Aufgewendete Zeit
 
-| Alle
+|Joshua
+|Domänenmodell erstellen
+|
+|
+|
+
+
+|Franz
 a|
+* neue Begriffe dem Glossar hinzuzufügen
 |
-| 
-|
-
-
-
-|Sebastian
-|
-| 
 |
 |
 
 
 |Franz, Joshua
 a|
+* Architecture Notebook vervollständigen
+* Prototyp fertigstellen (niedrige Priorität)
 |
-|  
-| 
+|
+|
+
+
+|Til, Konstantin
+|Präsentation in Canva vorbereiten
+|
+|
 |
 
 
@@ -217,11 +208,5 @@ a|
 
 
 
-=== Abschluss
-
-.Nächsten Treffen: 17.01.2025 um 10:30 Uhr im Raum a106/107. Treffen mit Auftraggeberin 
-
-== Anhang
-- **Links und Dokumente:**
 
 
