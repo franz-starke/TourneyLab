@@ -1,7 +1,7 @@
 = Protokoll Weekly
 vom __date__
 :toc-title: Inhaltsverzeichnis
-:toc:
+:toc: left
 :icons: font
 :last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
 
