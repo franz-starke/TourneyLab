@@ -1,11 +1,8 @@
-= Vision: Anwendung für die Organisation und Auswertung eines Volleyball-Turniers (Turnier App)
-:icons: font
-
-//Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-//{localdatetime}
-//include::../_includes/default-attributes.inc.adoc[]
+= Vision: {project-name}
+Sebastian Heber <sebastian.heber2@stud.htw-dresden.de>; Joshua Heninger <s87568@htw-dresden.de>; Franz Starke <franz.starke@stud.htw-dresden.de>; Mutaz Abuazizeh <s87611@htw-dresden.de>; Jannis Wittchen <jannis.wittchen@stud.htw-dresden.de>; Til Simon <til.simon@stud.htw-dresden.de>; Konstantin Becher <konstantin.becher@stud.htw-dresden.de>; Ibrahim Braikeh <ibrahim.braikeh@stud.htw-dresden.de>
+{localdatetime}
+include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
-
 
 == Einführung
 Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Turnier App zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie die Turnier App diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.

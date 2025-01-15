@@ -1,30 +1,16 @@
 // --- 1. Projektthema -------------------------
 = SE I - Belegabgabe: {project-name}
 // --- 2. Teammitglieder -----------------------
-Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>
+Sebastian Heber <sebastian.heber2@stud.htw-dresden.de>; Joshua Heninger <s87568@htw-dresden.de>; Franz Starke <franz.starke@stud.htw-dresden.de>; Mutaz Abuazizeh <s87611@htw-dresden.de>; Jannis Wittchen <jannis.wittchen@stud.htw-dresden.de>; Til Simon <til.simon@stud.htw-dresden.de>; Konstantin Becher <konstantin.becher@stud.htw-dresden.de>; Ibrahim Braikeh <ibrahim.braikeh@stud.htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
-01. Januar 2020
+24. Januar 2025
 // ---------------------------------------------
 :docs: ../docs
 include::{docs}/_includes/default-attributes.inc.adoc[]
 // ---
 :doctype: book
-:toc:
-:toclevels: 2
-:toc-title: Inhaltsverzeichnis
-:sectnums:
-:icons: font
-//:source-highlighter: highlightjs
-:source-highlighter: rouge
-:rouge-style: github
-:xrefstyle: full
-:experimental:
 :chapter-signifier:
-:figure-caption: Abbildung
-:table-caption: Tabelle
 :listing-caption: Listing
-:!example-caption:
-:experimental:
 // Folders
 :imagesdir-reset: {imagesdir}
 :docs-test2: {docs}/test2
@@ -40,46 +26,32 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 // --- Projektdokumentation ---
 = Projektdokumentation
-* Projektplan
-* Risikoliste
-* Iterationspläne (für zwei ausgewählte Iterationen)
 
 :imagesdir: {docs-project-management}/images
 
-// Projektplan
-include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Risikoliste
-include::{docs-project-management}/risk_list.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Iteration 1
-include::{docs-project-management}/iteration_plan_01.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Iteration 2
-//include::{docs-project-management}/iteration_plan_02.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Iteration 3
-//include::{docs-project-management}/iteration_plan_03.adoc[lines=1..1;4..-1,leveloffset=+1]
+// FIXME: Projektplan => zur Zeit wird das Projekt nur in Github und über die Protokolle gemanaged (nichts in project_plan.adoc)
+// include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
+NOTE: link:https://github.com/users/franz-starke/projects/4/views/1[Github Project Backlog]
+
+.relevante Links
+* link:https://github.com/users/franz-starke/projects/4/views/13[User Story Liste]
+* link:https://github.com/users/franz-starke/projects/4/views/9[Iterationsübersicht]
+* link:https://github.com/users/franz-starke/projects/4/views/12[Risiko Board]
+* link:https://github.com/users/franz-starke/projects/4/views/6[Zeitplan]
+
 <<<
 
 // --- Technische Spezifikation ---
 = Technische Spezifikation
 * Vision
-* Use Case Model (inkl. Wireframes, sofern vorhanden)
-* System-wide Requirements
 * Glossar
 * Domänenmodel
+* UX-Konzept
 
 :imagesdir: {docs-requirements}/images
 
 // Vision
 include::{docs-requirements}/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Use Case Model (inkludiert selbst die einzelnen usecase_spec_x.adoc Dateien)
-include::{docs-requirements}/use-case_model.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// System-wide Requirements
-include::{docs-requirements}/system-wide_requirements.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // Glossar
 [#glossary]
@@ -88,24 +60,29 @@ include::{docs-requirements}/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
 // Domänenmodell
 include::{docs-requirements}/domain_model.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
+// UX-Konzept
+// FIXME: UX-Konzept sind die Wireframes. Wollen wir die so einbinden?
+// include::{docs-requirements}/ux-concept.adoc[lines=1..1;4..-1,leveloffset=+1]
+= UX-Konzept
+
+.Entwurf zu Wireframes
+image::wireframes.png[]
+
+<<<
 
 // --- Entwurfsdokumentation ---
 = Entwurfsdokumentation
 * Architektur-Notizbuch
 * Test Cases
-* Design
 
 // Architektur-Notizbuch
 :imagesdir: {docs-architecture}/images
 include::{docs-architecture}/architecture_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // Test Cases
-:imagesdir: {docs-test}/images
-include::{docs-test}/test_cases.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Design
-:imagesdir: {docs-development}/images
-include::{docs-development}/design.adoc[lines=1..1;4..-1,leveloffset=+1]
+// FIXME: Noch keine Test Cases
+// :imagesdir: {docs-test}/images
+// include::{docs-test}/test_cases.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 
 // ---------------------------------------------

@@ -1,4 +1,3 @@
-// Meta
 :project-name: Volleyball-Turnier-Belegprojekt
 :project-system-name: Volleyball-Turnier
 // Settings:
@@ -7,9 +6,10 @@
 :toclevels: 2
 :sectnums:
 :icons: font
-//:source-highlighter: highlightjs
-:source-highlighter: rouge
-:rouge-style: github
+:source-highlighter: highlightjs
+:highlightjs-theme: github
+// :source-highlighter: rouge
+// :rouge-style: github
 :xrefstyle: full
 :figure-caption: Abbildung
 :table-caption: Tabelle
