@@ -37,8 +37,9 @@ link:Protokolle/Iteration3/Protokoll_17.12.2024.adoc[Teammeeting vom 17. Dezembe
 
 == Iteration 4
 
-link:Protokolle/Iteration4/Protokoll_07.01.2025.adoc[Teammeeting vom Protokoll_7. Januar 2025]
+link:Protokolle/Iteration4/Protokoll_07.01.2025.adoc[Teammeeting vom 7. Januar 2025]
 
+link:Protokolle/Iteration4/Protokoll_14.01.2025.adoc[Teammeeting vom 14. Januar 2025]
 
-link:Protokolle/Iteration4/Protokoll_14.01.2025.adoc[Teammeeting vom Protokoll_14. Januar 2025]
+link:Protokolle/Iteration4/Protokoll_21.01.2025.adoc[Teammeeting vom 21. Januar 2025]
 

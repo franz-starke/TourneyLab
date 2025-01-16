@@ -1,13 +1,13 @@
 = Protokoll Weekly
-vom __date__
+vom 21.01.2025
 :toc-title: Inhaltsverzeichnis
 :toc: left
 :icons: font
-:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
+:last-Protokoll: Protokoll_14.01.2025.adoc
 
 .generelle Informationen
 - **Zeit:** 15:30 - 17:00 Uhr
-- **Ort:** HTW Bib 302b und online via Discord
+- **Ort:** Z 211
 - **Protokollant:** Joshua Heninger
 - **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
 - **Abwesend:** Keine
@@ -38,6 +38,11 @@ vom __date__
 |
 |Joshua
 
+|2
+|Belegabgabedokument prüfen auf Unvollständigkeit, z.B. sind manche Dokumente noch nicht fertig gefüllt oder enthalten noch Musterlösungen
+|10 Min.
+|
+|Joshua
 
 |Abschluss
 |Terminabklärung  und Aufgabenverteilung abschließen
@@ -78,7 +83,35 @@ link:{last-Protokoll}[{last-Protokoll}]
 // |Geplante Zeit
 // |Aufgewendete Zeit
 
+|Joshua
+|Domänenmodell erstellen
+|
+| 1.5h
+| 
+
+|Franz, Joshua
+a|
+* Architecture Notebook vervollständigen
+* Prototyp fertigstellen (niedrige Priorität)
+|
+|
+|
+
+
+|Til, Konstantin
+|Präsentation in Canva vorbereiten
+|
+|
+|
+
+
 |===
+
+=== TOP 1: Protokoll von letztem Teammeeting besprechen
+
+
+
+
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.

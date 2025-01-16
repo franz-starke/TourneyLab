@@ -5,8 +5,7 @@ include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Turnier App zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie die Turnier App diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
-
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Turnier App zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe.
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
@@ -18,7 +17,7 @@ Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entw
 * Turnierauswertung
 * Spielstandserfassung
 * Speicherung von Daten
-* Intuitive Bedienbarkeit
+// * Intuitive Bedienbarkeit
 
 .out of scope
 * Anwendbarkeit für andere Turierformate/Sportarten
@@ -32,9 +31,9 @@ Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entw
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
 Siehe link:/docs/requirements/glossary.adoc[Glossar]
 
-=== Referenzen
-(hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
-
+// === Referenzen
+// (hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
+//
 
 == Positionierung
 
@@ -48,7 +47,7 @@ Siehe link:/docs/requirements/glossary.adoc[Glossar]
 
 [cols="1,3"]
 |===
-| Das Problem | Erstellung eines Spielplans, Erfassung und Auswertung der Ergebnisse 
+| Das Problem | Erstellung eines Spielplans, Erfassung und Auswertung der Ergebnisse
 | betrifft | StuRa Referat Sport, Teilnehmende des Turniers
 | die Auswirkung davon ist | Hoher Planungsaufwand, Chaos beim Eintragen der Spielstände und lange Wartezeiten bei der Auswertung
 | eine erfolgreiche Lösung wäre | eine einfache Erfassung der Turnierdaten und automatisierte Planerstellung und Auswertung
@@ -75,7 +74,7 @@ Beispiel:
 | Für | Referat Sport des StuRa
 | das | ein Volleyball Turnier organisieren möchte
 | Das Produkt ist eine | offline nutzbare Software, die auf Mobilgeräten verwendet werden kann
-| Die | einen Spielplan generiert, Spielergebnisse erfasst, speichert und auswertet  
+| Die | einen Spielplan generiert, Spielergebnisse erfasst, speichert und auswertet
 | Im Gegensatz zur | händischen Erstellung, Erfassung und Auswertung
 | Unser Produkt | vereinfacht die Planung und Durchführung des Volleyball Turniers
 |===
@@ -102,20 +101,20 @@ Beispiel Produkt:
 | Name | Beschreibung | Verantwortlichkeiten
 
 | Referat Sport (StuRa)
-| Organisator des Volleyballturniers 
-| Definiert die Anforderungen an das Produkt. Regelmäßiger Abgleich mit aktuellen Stand der Entwicklung. 
+| Organisator des Volleyballturniers
+| Definiert die Anforderungen an das Produkt. Regelmäßiger Abgleich mit aktuellen Stand der Entwicklung.
 
 | Technische Entwickler
-| Softwareentwickler für das Projekt 
-| Entwicklung, Anpassung und Dokumentation der Anwendung. Sammeln von SE Erfahrungen. Regelmäßige Meetings gemäß Iterationsplan.    
+| Softwareentwickler für das Projekt
+| Entwicklung, Anpassung und Dokumentation der Anwendung. Sammeln von SE Erfahrungen. Regelmäßige Meetings gemäß Iterationsplan.
 
-| Spielende Teams   
-| Teilnehmende des Volleyball Turniers 
+| Spielende Teams
+| Teilnehmende des Volleyball Turniers
 | Hauptinteresse ist die einfache Bedienbarkeit und korrekte Berechnung der Ergebnisse. Feedback nicht bis wenig zu erwarten.
 
 | Zukünftige Nutzer
-| Organisatoren ähnlicher Turniere   
-| Nutzung der Software für andere Formate  
+| Organisatoren ähnlicher Turniere
+| Nutzung der Software für andere Formate
 
 | Gesetzgeber
 | Rechtliche Instanzen, die Datenschutz- und IT-Richtlinien vorgeben
@@ -130,23 +129,23 @@ Beispiel Produkt:
 
 . Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
 ** Die Anzahl der Nutzer varriert je nach Turnier zwischen 4-16 Teams
-. ->Mit rein?<- Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
-** Ein Turnier dauert in der Regel <Auftraggeber fragen>
+// . ->Mit rein?<- Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
+// ** Ein Turnier dauert in der Regel <Auftraggeber fragen>
 
-. Gibt es besondere Umgebungsbedingungen? //, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+. Gibt es besondere Umgebungsbedingungen?
+// Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
   - Die Anwendung soll mobil und offline einsetzbar sein
   - So barrierefrei und intuitiv wie möglich
-. ->gute Frage<- Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
-. Welche anderen Anwendungen sind im Einsatz? 
-  - bisher wird der Plan in Excel erstellt 
+. Welche anderen Anwendungen sind im Einsatz?
+  - bisher wird der Plan in Excel erstellt
 
 . App wird vom Stura vermutlich sehr selten genutzt, d.h. Leute werden sich nicht immer daran errinern wie man die App benutzt, oder benutzen sie zum ersten Mal.
- 
+
 . Jedes Teammitglied / Mitspieler darf in der App Änderungen vornehmen.
 
-. Server läuft vermutlich auf Linux => Docker regelt
+. Server läuft vermutlich auf Linux => Docker
 
-Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
+// Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
 
 == Produkt-/Lösungsüberblick
@@ -155,7 +154,7 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 //Vermeiden Sie Angaben zum Entwurf. Nennen wesentliche Features (Produktmerkmale) auf allgemeiner Ebene. Fokussieren Sie sich auf die benötigten Fähigkeiten des Systems und warum (nicht wie!) diese realisiert werden sollen. Geben Sie die von den Stakeholdern vorgegebenen Prioritäten und das geplante Release für die Veröffentlichung der Features an.
 
 
-NOTE: Prioritäten 0 bis 4 mit 0 am wichtigsten
+NOTE: Prioritäten 1 bis 4 mit 1 am wichtigsten
 
 [%header, cols="4,1,4,1"]
 |===
@@ -164,9 +163,8 @@ NOTE: Prioritäten 0 bis 4 mit 0 am wichtigsten
 | Turnierauswertung | 1 | Algoritmus zur Bewertung der Spielstände | xx
 | Spielplangenerierung | 2 | Benutzeroberfläche und Algoritmus zur Spielplangenerierung | xx
 | Erfassung der Spielstände| 2 | Benutzeroberfläche zur Eintragung und Speicherung der Spielstände | xx
-| Speicherung | 3 | Speicherung der vergangenen Tuniere in SQLite Files | xx
+| Speicherung | 3 | Speicherung der Turnierdaten auch von vergangenen Tuniere| xx
 |===
-
 
 == Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
@@ -186,11 +184,11 @@ Hinweise:
 // Prioritäten 0 bis 4 => 0 am wichtigsten
 // neue Zeile:
 //-----------
-// |Anforderung 
-// |Priorität 
+// |Anforderung
+// |Priorität
 // |GeplantesRelease
 
-| Offline Funktionalität 
+| Offline Funktionalität
 | 0
 | ??
 
@@ -198,7 +196,7 @@ Hinweise:
 | 1
 | ??
 
-| Ein zentrales Gerät, Synchronisierung über QR-Codegenerierung 
+| Ein zentrales Gerät, Synchronisierung über QR-Codegenerierung
 | 2
 | ??
 
