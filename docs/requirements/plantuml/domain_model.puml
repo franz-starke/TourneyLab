@@ -1,4 +1,7 @@
-@startuml syntax-example
+@startuml domain_model
+
+skinparam nodesep 100
+skinparam Ranksep 60
 
 ' Klassen
 class Turnier {
@@ -28,13 +31,12 @@ class Turnierplan {
   Anzahl_Runden
 }
 
-Turnier "1..*" -- "1..*" Leistungsgruppe
-Turnier "1" -- "1" Turnierplan
-Spiel "3..*" -- "1" Turnierplan
-Team    "1..*" -- "1" Leistungsgruppe
-Team    "1..*" -- "1" Spiel : Schiedsrichter >
-Team    "2..*" --- "1" Spiel : Team_Home >
-Team    "2..*" -- "1" Spiel : Team_Away >
-
+Turnier "3..*" -right- "1..*" Leistungsgruppe
+Turnier "1"    -down--  "1" Turnierplan
+Team    "1..*" -up- "1" Leistungsgruppe
+Team    "1" -down-- "1..*" Spiel : Schiedsrichter >
+Team    "1" -down- "*" Spiel : Team_Home >
+Team    "1" -down- "*" Spiel : Team_Away >
+Spiel   "3..*" -left- "1" Turnierplan
 
 @enduml
