@@ -1,0 +1,40 @@
+@startuml syntax-example
+
+' Klassen
+class Turnier {
+  Name
+  Datum
+  Anzahl_Felder
+}
+
+class Leistungsgruppe {
+  Name
+
+}
+
+class Spiel {
+  Uhrzeit
+  Punkte_Home
+  Punkte_Away
+  Feldnummmer
+}
+
+class Team {
+  Name
+}
+
+class Turnierplan {
+  QR-Code
+  Anzahl_Runden
+}
+
+Turnier "1..*" -- "1..*" Leistungsgruppe
+Turnier "1" -- "1" Turnierplan
+Spiel "3..*" -- "1" Turnierplan
+Team    "1..*" -- "1" Leistungsgruppe
+Team    "1..*" -- "1" Spiel : Schiedsrichter >
+Team    "2..*" --- "1" Spiel : Team_Home >
+Team    "2..*" -- "1" Spiel : Team_Away >
+
+
+@enduml

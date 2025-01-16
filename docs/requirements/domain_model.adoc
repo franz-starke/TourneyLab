@@ -7,5 +7,9 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Allgemeine Informationen
 
+.Klassendiagramm mit PlantUML
+[plantuml, "{diagramsdir}/domain_model.puml", svg]
+....
+include::{plantumlsdir}//domain_model.puml[]
+....
 
-== ...
