@@ -1,5 +1,4 @@
 = Architecture Notebook: {project-name}
-Franz Starke <s86320@htw-dresden.de>
 {localdatetime}
 
 :imagesdir:images
@@ -38,20 +37,37 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
 
 - Legacy Support (Einladen der Alten Excel Tabelle)
-
+- Jeder Nutzer hat ein Web fähiges (Mobil) Gerät
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
 
-- Informationsübertragung mit einem Datenspeicher.
-
+- Speicherung von Daten auf Gerät
+- offline Funktionalität
+- Synchronisierung von Daten zwischen verschiedenen Geräten über QR Codes
+- Anwendung soll plattformunabhängig sein
+- live Spielinformationen
+- geringe Ladezeiten
+- effizienter Code
+- Exportieren von Spielplänen in PDF Datei
+- Englisch als zweite App-Sprache
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
 
-- Um die App auf so vielen Geräten wie möglich anzuzeigen wird eine Progressive Web App verwendet.
-- Um Daten zu speichern und sortieren wird eine Datenbank verwendet.
-- Um einen einfachen Zugriff auf die Gespeicherten Daten zu haben wird eine API verwendet.
+
+* Datenbank: geringer Aufwand mit einfacher Bedienbarkeit, geringer Speicherbedarf. 
+** SQLite
+
+* API: geringer Aufwand, minimaler Code, einfache implementierung und Nutzung, schnelle Einarbeitung der Developer möglich 
+** FastAPI
+
+* Frontend: einfache nutzung, möglichkeit für offline PWA, Komponenten bassieres programmieren
+** Vue.js
+
+// - Um die App auf so vielen Geräten wie möglich anzuzeigen wird eine Progressive Web App verwendet.
+// - Um Daten zu speichern und sortieren wird eine Datenbank verwendet.
+// - Um einen einfachen Zugriff auf die Gespeicherten Daten zu haben wird eine API verwendet.
 
 == Architekturmechanismen
 https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
@@ -61,9 +77,25 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
 
-. Komponenten verwenden
-. Standardisierten Syntax verwenden
-. Leserlichen Code schreiben
+* Erreichbarkeit
+** Betriebszeit
+* Event Management
+** synchron - asynchron
+** Zeit
+** Priorität
+* Information Exchange
+** Häufigkeit
+** Dauer
+* Localization
+** unterstützte Sprache
+* Persistence
+** wie lange speichern
+** Granularität
+** Volumen
+* Printing
+** PDF-export
+* Scheduling
+* Transaction Management
 
 == Wesentliche Abstraktionen
 //[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
@@ -71,6 +103,7 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
+
 - FastAPI (Python)
 - SQLite (SQL)
 - Vue (Java Script)
