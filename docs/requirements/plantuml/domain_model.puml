@@ -31,7 +31,7 @@ class Turnierplan {
   Anzahl_Runden
 }
 
-Turnier "3..*" -right- "1..*" Leistungsgruppe
+Turnier "1..*" -right- "1..*" Leistungsgruppe
 Turnier "1"    -down--  "1" Turnierplan
 Team    "1..*" -up- "1" Leistungsgruppe
 Team    "1" -down-- "1..*" Spiel : Schiedsrichter >

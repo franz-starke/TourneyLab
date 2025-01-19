@@ -10,6 +10,8 @@ include::../_includes/default-attributes.inc.adoc[]
 .Klassendiagramm mit PlantUML
 [plantuml, "{diagramsdir}/domain_model.puml", svg]
 ....
-include::{plantumlsdir}//domain_model.puml[]
+
+include::plantuml/domain_model.puml[]
+
 ....
 
