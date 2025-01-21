@@ -22,6 +22,9 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 <<<
 
+
+//COMPILE WITH: asciidoctor-pdf -r asciidoctor-diagram Belegarbeit/Repo/SE-Volleyball-Turnier-Belegprojekt/belegabgabe_se1/se1_belegabgabe_t00.adoc 
+
 // --- 4. include Pfade anpassen ---------------
 
 // --- Projektdokumentation ---
@@ -63,20 +66,26 @@ include::{docs-requirements}/domain_model.adoc[lines=1..1;4..-1,leveloffset=+1]
 // UX-Konzept
 // FIXME: UX-Konzept sind die Wireframes. Wollen wir die so einbinden?
 // include::{docs-requirements}/ux-concept.adoc[lines=1..1;4..-1,leveloffset=+1]
+
+
 = UX-Konzept
 
 .Entwurf zu Wireframes
-image::wireframes.png[]
+image::wireframe2.png[]
+
+.konkretes UI-Design 
+image::wireframe1.png[]
+
+
 
 <<<
 
 // --- Entwurfsdokumentation ---
 = Entwurfsdokumentation
-* Architektur-Notizbuch
-* Test Cases
+* Architektur-Notizbuch 
 
 // Architektur-Notizbuch
-:imagesdir: {docs-architecture}/images
+:imagesdir: ../docs/architecture/images
 include::{docs-architecture}/architecture_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // Test Cases

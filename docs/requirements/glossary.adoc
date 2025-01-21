@@ -84,8 +84,8 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Program
 
 |PWA
-|Progressiv Web App
 |Eine Website,die wie eine native App aussieht und funktioniert
+|
 
 |Framework
 |Anwendung oder Gerüst welches viele vorgefertigten Tools beinhaltet
@@ -111,9 +111,10 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |Zweidimensionaler,Grafischer,aus Punkten zu einem Quadrat zusammengesetzter, elektronischer lesbarer Code 
 |
 
+
 |API
-|Application Programming Interfaces
-|Eine API ist eine SChnittstelle, die es unabhängigen Anwendungen ermöglicht, miteinander zu kommunizieren und Daten auszutauschen
+|Eine API ist eine Schnittstelle, die es unabhängigen Anwendungen ermöglicht, miteinander zu kommunizieren und Daten auszutauschen
+|
 
 |Frontend
 |Eine grafischen Benutzeroberfläche mit welcherder Benutzer interagiert
@@ -136,6 +137,15 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Schiedsrichter
 | Leiter des Spiels
 
+
+|API
+|Application Programming Interfaces
+|Schnittstelle zwischen Datenbank und Frontend
+
+|PWA
+|Progressiv Web App
+|Eine Website die aussieht wie eine native App
+
 |===
 
 == Verzeichnis der Datenstrukturen
@@ -149,9 +159,4 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Emailadresse muss `@`-Zeichen und anschließend mindestens ein Zeichen gefolgt von einem `.` Punkt enthalten.
 | Login
 
-| xx
-| xx
-| xx
-| xx
-| xx
 |===
