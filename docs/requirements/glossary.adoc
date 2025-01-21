@@ -83,6 +83,45 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Ein Program in welchem eine bestimmte Logik verfolgt wird um ein und ausgabe zu verwalten.
 | Program
 
+|PWA
+|Progressiv Web App
+|Eine Website,die wie eine native App aussieht und funktioniert
+
+|Framework
+|Anwendung oder Gerüst welches viele vorgefertigten Tools beinhaltet
+|
+
+|Wireframe
+|Eine übergordneter Entwurf, der die Sturktur deiner Website,App oder deine Projektes veranschaulicht 
+|
+
+|Datenbank 
+|System zur Beschreibung, Speicherung und zum Abrufen von großen Datenmengen
+|
+
+|Team Home, Team Away
+|Unterscheidung der Teams bezügich Hin und Rückspiel
+|
+
+|Punkte Home,Punkte Away
+|Unterscheidung der Punkten bezüglich Hin und Rückspiel
+|
+
+|QR-Code
+|Zweidimensionaler,Grafischer,aus Punkten zu einem Quadrat zusammengesetzter, elektronischer lesbarer Code 
+|
+
+|API
+|Application Programming Interfaces
+|Eine API ist eine SChnittstelle, die es unabhängigen Anwendungen ermöglicht, miteinander zu kommunizieren und Daten auszutauschen
+
+|Frontend
+|Eine grafischen Benutzeroberfläche mit welcherder Benutzer interagiert
+|
+
+|Backend
+|Ein System, welches die Datenverarbeitung und Bereitstellung eines System gewährleistet
+|
 |===
 
 
