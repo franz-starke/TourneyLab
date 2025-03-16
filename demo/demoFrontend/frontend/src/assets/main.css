@@ -1,0 +1,19 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-size: 2.2vh;
+  font-weight: 600;
+  background-color: #E7E9F6;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.gradient{
+	/* background: linear-gradient(to right, #EC660C,#BB500A); */
+	background: linear-gradient(to right, #58AAA0,#387D75);
+  color: white;
+}
+
+.element{
+	background-color: white;
+	border-radius: 30px;
+}
