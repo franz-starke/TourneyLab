@@ -45,6 +45,13 @@ vom __date__
 |Untergruppen wurden gebildet
 |Alle
 
+|3
+|Wiederholung des bisherigen Standes, Einführung in verwendete Tools 
+|60 Min
+|Alle sind in der Lage am Projekt weiterzuarbeiten 
+|Franz 
+
+
 |Abschluss
 |Terminabklärung  und Aufgabenverteilung abschließen
 |3 Min.
@@ -74,13 +81,21 @@ Festlegung von Weekly auf Montag, 09:45 Uhr - 11:15: Uhr
 
 Gruppen:
 
-Frontend: Joshua, Jannis
+Frontend: Joshua, Jannis, Mutaz
 
 Backend: Franz, Ibrahim
 
 Github, Projektleitung: Sebastian
 
-Mutaz?
+Gruppen Treffen sich separt und arbeiten am Projekt. 
+
+=== TOP 3: Wiederholung des bisherigen Standes, Einführung in verwendete Tools
+
+Verwendung von Vue.js im Frontend
+
+Verwendung von PHP im Backend
+
+Anwendung von Branches und Pull-Requests in GitHub
 
 
 
@@ -98,6 +113,17 @@ Mutaz?
 // |Geplante Zeit
 // |Aufgewendete Zeit
 
+|Alle
+|Treffen in Untergruppen. Einarbeitung in Programmiersprachen und gemeinsame Anwendung am Projekt 
+|Folgeaufgaben
+|Geplante Zeit
+|Aufgewendete Zeit
+
+|Sebastian
+|Termin mit Coach. Rückfragen zu Projektbericht
+|Folgeaufgaben
+|Geplante Zeit
+|Aufgewendete Zeit
 
 |===
 
