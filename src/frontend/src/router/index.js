@@ -1,21 +1,63 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import LandingPage from '@/components/LandingPage.vue'
+import EnterTournament from '@/components/EnterTournament.vue'
+import CreateTournament from '@/components/CreateTournament.vue'
+import ViewOldTournaments from '@/components/ViewOldTournaments.vue'
+import TournamentHome from '@/components/TournamentHome.vue'
+import Dashboard from '@/components/tournamentViews/Dashboard.vue'
+import Games from '@/components/tournamentViews/Games.vue'
+import Settings from '@/components/tournamentViews/Games.vue'
+import Teams from '@/components/tournamentViews/Teams.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      name: 'landing',
+      component: LandingPage,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      path: '/enter-tournament',
+      name: 'enter-tournament',
+      component: EnterTournament, 
+    },
+    {
+      path: '/create-tournament',
+      name: 'create-tournament',
+      component: CreateTournament, 
+    },
+    {
+      path: '/old-tournament',
+      name: 'old-tournament',
+      component: ViewOldTournaments, 
+    },
+    {
+      path: '/tournament-home',
+      name: 'tournament-home',
+      component: TournamentHome, 
+      children: [
+        {
+          path: '',
+          component: Dashboard,
+        },
+        {
+          path: 'dashboard',
+          component: Dashboard,
+        },
+        {
+          path: 'games',
+          component: Games,
+        },
+        {
+          path: 'teams',
+          component: Teams,
+        },
+        {
+          path: 'settings',
+          component: Settings,
+        },
+      ],
     },
   ],
 })
