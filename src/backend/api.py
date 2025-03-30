@@ -1,58 +1,11 @@
-from sqlite3.dbapi2 import Timestamp
 import fastapi
-from data.apiobjects import apiobjects
+from data.apiobjects.apiobjects import *
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
 
 api = fastapi.FastAPI()
-
-
-class TeamInfo(BaseModel):
-    TeamID: str
-    Team_Name: str
-
-class PunkteInfo(BaseModel):
-    Punkte_Team1: int
-    Punkte_Team2: int
-
-class GameInfo(BaseModel):
-    SpielID: str
-    Anfang: Timestamp
-    Ende: Timestamp
-    Team1: TeamInfo
-    Team2: TeamInfo
-    Schiri: str
-    Punkte: PunkteInfo
-
-class CreateTurnier(BaseModel):
-    Turniername: str
-    Anzahl_der_Felder: int
-    Anzahl_der_Teams: int
-    Anzahl_der_Leistungsgruppen: int
-    Hin_Rueckspiel: bool
-
-class PunkteUpdate(BaseModel):
-    Punkte_Team1: int
-    Punkte_Team2: int
-
-class GroupInfo(BaseModel):
-    Name: str
-    GruppenID: str
-
-class TeamGroupEntry(BaseModel):
-    Name: str
-    Spielpunkten: int
-
-class TeamGameInfo(BaseModel):
-    Team1: str
-    Team2: str
-    Anfang: Timestamp
-    Ende: Timestamp
-    Feld: int
-    Punkte: PunkteInfo
-
 
 @api.get("/")
 def get_main():
@@ -91,8 +44,8 @@ def get_team_info(turnierID: str, teamID: str):
     return {
         "Team1": "",
         "Team2": "",
-        "Anfang": Timestamp,
-        "Ende": Timestamp,
+        "Anfang": 0,
+        "Ende": 0,
         "Feld": 0,
         "Punkte": {"Punkte_Team1": 0, "Punkte_Team2": 0}
     }
