@@ -1,9 +1,6 @@
 import fastapi
 from data.apiobjects.apiobjects import *
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import List, Optional
-from datetime import datetime
 
 api = fastapi.FastAPI()
 
