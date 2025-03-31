@@ -2,10 +2,26 @@
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
-// Platzhalter für weitere Dokumenten-Attribute
-
 
 == Allgemeine Informationen
 
+Git Commits in Englisch.
+Kommentare in Englisch und sobald Sinn ergibt diese einzufügen.
+Bitte auch direkt nach Funktions definition beschreiben, wass diese Funktion macht.
 
+Snytax für JavaScript:
+Camel case für Variablen und Funktionen
+    Beispiel: aRandomFunction()
+
+Es gilt außerdem das allgemeine JavaScript Style Guide.
+https://google.github.io/styleguide/jsguide.html
+
+Snytax für Python:
+Snake case für Variablen und Funktionen 
+    Beispiel: a_random_function()
+Große Anfangsbuchstaben der einzelnen wörter für Klassen
+    Beispiel: ARandomClass
+
+Es gilt außerdem das allgemeine Python Style Guide.
+https://peps.python.org/pep-0008/
 == ...
