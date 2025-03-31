@@ -19,13 +19,13 @@
 #### Ausgaben:
 - TurnierID
 
-### "Endpunkt api.htw-turnier.de/turnaments"
+### "Endpunkt api.htw-turnier.de/tournaments"
 #### Typ:
 - get
 #### Ausgaben:
 - Turniere: Liste
   - Turniername: String
-  - Start Datum: Timestamp
+  - Start Datum: Integer
   - TurnierID: String
 
 ### "Endpunkt api.htw-turnier.de/{turnierID}/fields/{feldID}"
