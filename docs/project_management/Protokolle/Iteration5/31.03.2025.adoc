@@ -6,7 +6,7 @@ vom __date__
 :last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
 
 .generelle Informationen
-- **Zeit:** 09:45 - 10:00 Uhr
+- **Zeit:** 09:45 - 10:00 Uhr / 14:00 - 14:30 Uhr
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
 - **Anwesend:**  Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Franz Starke, Sebastian Heber
