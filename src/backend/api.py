@@ -4,45 +4,52 @@ from fastapi.middleware.cors import CORSMiddleware
 
 api = fastapi.FastAPI()
 
-@api.get("/")
-def get_main():
-    return {"games":[]}
-
 @api.post("/create")
-def create_turnier(data: CreateTurnier):
-    return {"TurnierID": "<GENERATED_TURNIER_ID>"}
+def create_tournaments(data: CreateTournament):
+    return {"turnamentid": "0"}
 
-@api.get("/turnaments")
-def get_turniere():
-    return {"Turniere": []}
+@api.get("/tournaments")
+def get_tournaments():
+    return {"tournaments": [
+        ["Nikolaus Tournier 2024",1743455286,"0"],
+        ["Weihnachts Tournier 2024",1743455354,"1"]
+    ]}
 
-@api.get("/{turnierID}/fields/{feldID}")
-def get_field_games(turnierID: str, feldID: str):
-    return {"games": []}
+@api.get("/{tournament_id}/fields/{field_id}")
+def get_field_games(tournament_id: str, field_id: str):
+    return {"games": [
+        ["0",1743455286,1743455777,["0","Fun 1"],["1","Fun 2"],"Fun 3",[0,0]],
+        ["1",1743455888,1743455999,["1","Fun 2"],["0","Fun 1"],"Fun 3",[10,10]],
+    ]}
 
-@api.get("/{turnierID}/game/{spielID}")
-def get_game_points(turnierID: str, spielID: str):
-    return {"Punkte": {"Punkte_Team1": 0, "Punkte_Team2": 0}}
+@api.get("/{tournament_id}/game/{game_id}")
+def get_game_points(tournament_id: str, game_id: str):
+    return {"points": [0,0]}
 
-@api.put("/{turnierID}/game/{spielID}")
-def update_game_points(turnierID: str, spielID: str, punkte: PunkteUpdate):
-    return {"updated": True}
+@api.put("/{tournament_id}/game/{game_id}")
+def update_game_points(tournament_id: str, game_id: str, points: PointUpdate):
+    return fastapi.HTTPException(status_code=200,detail="OK")
 
-@api.get("/{turnierID}/performancegroups")
-def get_performancegroups(turnierID: str):
-    return {"Gruppen": []}
+@api.get("/{tournament_id}/groups")
+def get_groups(tournament_id: str):
+    return {"groups": [
+            ["Fun 1","0"],
+            ["Fun 2","1"],
+            ["Fun 3","2"],
+        ]}
 
-@api.get("/{turnierID}/performancegroups/{groupID}")
-def get_group_teams(turnierID: str, groupID: str):
-    return {"Teams": []}
+@api.get("/{tournament_id}/groups/{group_id}")
+def get_group_teams(tournament_id: str, group_id: str):
+    return {"teams": [
+        ["Fun 1",2],
+        ["Fun 2",0],
+        ["Fun 3",5],
+    ]}
 
-@api.get("/{turnierID}/team/{teamID}")
-def get_team_info(turnierID: str, teamID: str):
-    return {
-        "Team1": "",
-        "Team2": "",
-        "Anfang": 0,
-        "Ende": 0,
-        "Feld": 0,
-        "Punkte": {"Punkte_Team1": 0, "Punkte_Team2": 0}
-    }
+@api.get("/{tournament_id}/team/{team_id}")
+def get_team_info(tournament_id: str, team_id: str):
+    return {"games":[
+        {"team1": "Fun 1","team2": "Fun 2","start": 1743455286,"end": 1743455777,"field": 0,"points": [0,0]},
+        {"team1": "Fun 2","team2": "Fun 1","start": 1743455777,"end": 1743455888,"field": 0,"points": [0,0]},
+        {"team1": "","team2": "","start": 1743455888,"end": 1743455999,"field": 0,"points": [0,0]}
+    ]}
