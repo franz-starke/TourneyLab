@@ -1,4 +1,4 @@
-= Protokoll Weekly
+= Protokoll Weekly/Coachmeeting
 vom __date__
 :toc-title: Inhaltsverzeichnis
 :toc: left
@@ -9,8 +9,8 @@ vom __date__
 - **Zeit:** 09:45 - 10:00 Uhr
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
-- **Anwesend:** Jannis Wittchen, Joshua Heninger, Franz Starke, Sebastian Heber
-- **Abwesend:**  Mutaz Abuazizeh, Ibrahim Braikeh (beide entschuldigt wegen Arbeit) 
+- **Anwesend:**  Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Franz Starke, Sebastian Heber
+- **Abwesend:**  Ibrahim Braikeh (beide entschuldigt wegen Arbeit) 
 
 == Agenda
 
@@ -89,12 +89,41 @@ Ibrahim und Franz:
 
 Dokumentation im Code, wie wird bewertet, worauf müssen wir achten? 
 
+-> Dokument erstellen mit Richtlinen für: Variabeln, Kommentare im Code, verwendeter Style
+
+->Entwickler Dokumentation am Ende abgeben mit Erklärungen und knappen Beschreibung zu Funktionen. Außerdem wird Betriebsdokumentation (Aus Sicht von späteren Developern der App), Anwendungsdokumentation (aus Sicht von späteren Benutzern der App) und Testdokumentation (was mache ich?, was erwarte ich?, was passiert?) gefordert.
+
+-> bereits jetzt beginnen mit grober dokumentation von Funktionalitäten. Betriebs- und Anwendungsdoku beginnen. 
+
+
+C4-Modell jetzt weiterführen?
+->Ja und weiter darauf aufbauen 
+
 Gute Ways of Working?
 
-Algorhymus: Spezialfälle bei z.B. eine Gruppe mehr Spieler.  
+-> Eine funktionalität nach der Anderen bearbeiten. Direkt Auftraggeberin präsentieren und Feedback sammeln.
+
+-> GitHub Pull Requests verwenden! Durch Headdeveloper (einer für Front und einer für Backend) absegnen lassen.
+
+-> Großer Punkt: Alle müssen zuverlässig arbeiten. Konflikte im Team schnell lösen.
+
 
 Kontakt zu Ruben?
 
+ruben-david.kraus2@stud.htw-dresden.de
+
+Verlauf von SE2?
+
+->Ende des Semesters wieder Präsentation wie SE1 nur mit mehr Inhalt und Reflexion. Abgabe von Reflexionen und Dokumentationen
+
+-> Reflexion schon im Laufe des Projekts mitschreiben. Reflexion macht am Ende größeren Anteil an der Note als Dokumentation
+
+Fragen zu Projektbericht:
+
+->Projektplan: Wer ist Team, Iterationslänge, Kenntnisse aus einzelnen Iterationen dokumentieren.
+
+
+Algorhymus: Spezialfälle bei z.B. eine Gruppe mehr Spieler.  -> Frage für Auftraggeberin
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 
