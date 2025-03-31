@@ -6,11 +6,11 @@ vom __date__
 :last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
 
 .generelle Informationen
-- **Zeit:** 15:30 - 17:00 Uhr
-- **Ort:** HTW Bib 302b und online via Discord
-- **Protokollant:** Joshua Heninger
-- **Anwesend:** Til Simon, Mutaz Abuazizeh, Jannis Wittchen, Joshua Heninger, Konstantin Becher, Ibrahim Braikeh, Franz Starke, Sebastian Heber
-- **Abwesend:** Keine
+- **Zeit:** 09:45 - 10:00 Uhr
+- **Ort:**  online via Discord
+- **Protokollant:** Sebastian Heber
+- **Anwesend:** Jannis Wittchen, Joshua Heninger, Franz Starke, Sebastian Heber
+- **Abwesend:**  Mutaz Abuazizeh, Ibrahim Braikeh (beide entschuldigt wegen Arbeit) 
 
 == Agenda
 
@@ -33,14 +33,19 @@ vom __date__
 |Sebastian
 
 |1
-|Protokoll von letztem Teammeeting (link:{last-Protokoll}[here]) besprechen
+|Aktuellen Stand der Untergruppen besprechen
+|5 Min.
+|
+|Alle
+
+|2
+|Fragen an Coach
 |10 Min.
 |
-|Joshua
-
+|Alle
 
 |Abschluss
-|Terminabklärung  und Aufgabenverteilung abschließen
+|Terminabklärung und Aufgabenverteilung abschließen
 |3 Min.
 |Jeder weiß wann wir uns das nächste Mal treffen
 |Alle
@@ -61,28 +66,39 @@ vom __date__
 == Besprechung der TOP's
 
 
-=== TOP 1: Protokoll von letztem Teammeeting besprechen
+=== TOP 1: Aktuellen Stand der Untergruppen besprechen
 
-link:{last-Protokoll}[{last-Protokoll}]
+Rücksprache mit Prof. Anke: Projektbericht muss nicht korrigiert werden. Für SE2 wird neues Dokument erstellt.
+
+Jannis und Joshua:
+
+- Treffen am 31.03. abends mit Mutaz -> er soll CSS machen
+
+- Algorhytmus hat noch Problemfälle (Siehe Fragen an Coach/Auftraggeber)
+
+- Entscheidung: Schnittstelle für Algorhytmus zuerst erstellen, dann den Algorhymus perfektionieren
+
+Ibrahim und Franz:
+
+- API gibt Bespieldaten zurück
+
+- innerhalb der nächsten 2 Wochen Merge
 
 
-.Rückblick Aufgaben letzter Woche (Probleme? Folgeaufgaben?)
-[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
-|===
-|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+=== TOP 2: Fragen an Coach
 
-//neue Zeile einfügen:
-// |Wer
-// |Aufgabe
-// |Folgeaufgaben
-// |Geplante Zeit
-// |Aufgewendete Zeit
+Dokumentation im Code, wie wird bewertet, worauf müssen wir achten? 
 
-|===
+Gute Ways of Working?
+
+Algorhymus: Spezialfälle bei z.B. eine Gruppe mehr Spieler.  
+
+Kontakt zu Ruben?
+
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
-Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen mehr an der Aufgabenverteilung vorgenommen werden.
 
+14:00 Treffen mit Coach
 
 == Aufgabenverteilung
 
@@ -91,12 +107,12 @@ Alle sind über die nächsten Termine im Klaren und es müssen keine Änderungen
 |===
 |Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
 
-//neue Zeile einfügen:
-// |Wer
-// |Aufgabe
-// |Folgeaufgaben
-// |Geplante Zeit
-// |Aufgewendete Zeit
+
+|Sebastian
+|Termin Auftraggeberin nächste Woche
+|
+|
+|
 
 
 |===
