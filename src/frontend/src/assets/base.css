@@ -1,36 +1,43 @@
 /* color palette  */
 :root {
-  --background-color: rgb(231,233,246);
-  --color-button-highlight: rgb(43,236,90);
-  --color-button-normal: white;
+  /* base colors light */
+  --color-background-light: rgb(231,233,246);
+  --color-button-light: white;
+  --gradient-highlight-light: linear-gradient(to right, #58AAA0,#387D75);
+  --font-color-light: black;
+  
+  /* base colors dark */
+  --color-background-dark: rgb(24,22,9);
+  --color-button-dark: rgb(83, 83, 83);
+  --gradient-highlight-dark: linear-gradient(to right, #e6813e,#ec660c);
+  --font-color-dark: white;
 
+  /* set light colors default */
+  --color-background: var(--color-background-light);
+  --color-button-highlight: var(--gradient-highlight-light);
+  --color-button: var(--color-button-light);
+  --font-color-main: var(--font-color-light);
 }
 
 body {
-  background-color: var(--background-color); /* Use the variable */
-
+  background-color: var(--color-background); /* Use the variable */
+  color: var(--font-color-main);
 }
 
 * {
   text-align: center;
 }
 
-a. {
-    display: block;
-    background-color: black;
-    border: solid 1px black;
-    color: white;
-    padding: 50px;
-    margin: 10px;
-    font-size: xx-large;
-  }
-  a:hover,
-  a.router-link-active {
-    background-color: rgb(110, 79, 13);
-  }
-
+a.router-link {
+  background-color: var(--color-button);
+  color: var(--font-color-main);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
   
-  #header, #navbar {
-        background-color: gray;
-        padding: 5%;
-    }
+}
+
+a.router-link:hover, a.highlight-button {
+  background: var(--color-button-highlight);
+}
