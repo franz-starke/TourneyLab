@@ -10,7 +10,10 @@
     "test:unit": "vitest"
   },
   "dependencies": {
+    "qrcode.vue": "^3.6.0",
     "vue": "^3.5.13",
+    "vue-qrcode": "^2.2.2",
+    "vue-qrcode-reader": "^5.7.1",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {

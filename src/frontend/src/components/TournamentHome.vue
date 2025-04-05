@@ -14,6 +14,11 @@
 
 <style scoped>
 
+#header, #navbar {
+    background-color: gray;
+}
+
+
 
 
 

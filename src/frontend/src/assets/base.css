@@ -28,6 +28,10 @@ body {
   text-align: center;
 }
 
+
+
+
+/* global routerlink styles */
 a.router-link {
   background-color: var(--color-button);
   color: var(--font-color-main);
