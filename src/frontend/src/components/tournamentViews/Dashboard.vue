@@ -31,8 +31,20 @@ export default {
 
 
   <h1>Dashboard</h1>
-  <qrcode-stream @detect="onDetect"></qrcode-stream>
-  <qrcode-vue :value="value" :size="size" level="H" render-as="svg" />
+
+  <h2>QR-Scanner for offline updating Tournament Data:</h2>
+  <qrcode-stream class="qr-code" @detect="onDetect"></qrcode-stream>
+
+  <h2>QR-Generator for current Tournament Data:</h2>
+  <qrcode-vue class="qr-code" :value="value" :size="size" level="H" render-as="svg" />
   <!-- <qrcode-vue :value="value" :size="size" level="H" render-as="svg" /> -->
 
 </template>
+
+<style scoped>
+
+.qr-code {
+  width: 100%;
+}
+
+</style>

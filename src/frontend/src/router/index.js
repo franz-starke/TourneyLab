@@ -6,7 +6,7 @@ import ViewOldTournaments from '@/components/ViewOldTournaments.vue'
 import TournamentHome from '@/components/TournamentHome.vue'
 import Dashboard from '@/components/tournamentViews/Dashboard.vue'
 import Games from '@/components/tournamentViews/Games.vue'
-import Settings from '@/components/tournamentViews/Games.vue'
+import Settings from '@/components/tournamentViews/Settings.vue'
 import Teams from '@/components/tournamentViews/Teams.vue'
 
 const router = createRouter({

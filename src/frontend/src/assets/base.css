@@ -33,10 +33,11 @@ body {
 
 /* global routerlink styles */
 a.router-link {
+  display:block;
   background-color: var(--color-button);
   color: var(--font-color-main);
-  margin: 10px;
-  padding: 10px;
+  margin: 10px 0px;
+  padding: 10px 0px;
   border-radius: 10px;
   text-decoration: none;
   
