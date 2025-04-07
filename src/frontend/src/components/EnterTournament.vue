@@ -29,7 +29,7 @@ import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
 <template>
 
   <h2>Scan Tournament QR-Code</h2>
-  <qrcode-stream @detect="onDetect"></qrcode-stream>
+  <qrcode-stream id="qr-code-enter" @detect="onDetect"></qrcode-stream>
 
 
 
@@ -43,4 +43,10 @@ import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
   <RouterLink class="router-link" to="/tournament-home">Beitreten</RouterLink>
 </template>
 
+
+<style scoped>
+
+
+
+</style>
 
