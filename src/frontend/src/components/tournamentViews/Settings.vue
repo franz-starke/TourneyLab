@@ -2,7 +2,7 @@
 
 <template>
 
-  <h1>Tournament Settings Not Implemented</h1>
+  <h1>Tournament Setting Not Implemented</h1>
 
 
 </template>
