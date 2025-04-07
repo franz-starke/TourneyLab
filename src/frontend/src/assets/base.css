@@ -31,8 +31,8 @@ body {
 
 
 
-/* global routerlink styles */
-a.router-link {
+/* global routerlink styles and highlight buttons in general */
+a.router-link, div.highlight-button {
   display:block;
   background-color: var(--color-button);
   color: var(--font-color-main);
@@ -43,6 +43,6 @@ a.router-link {
   
 }
 
-a.router-link:hover, a.highlight-button {
+a.router-link:hover, a.highlight-button, div.highlight-button:hover {
   background: var(--color-button-highlight);
 }
