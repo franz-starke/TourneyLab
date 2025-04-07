@@ -1,23 +1,66 @@
 # API Plan
-
-## Error Codes
-- 200 OK
-- 400 Bad Request
-- 404 Not Found
-- 500 Internal Server Error
-
 ## Endpunkte
-### "Endpunkt api.htw-turnier.de/create"
-#### Typ:
-- post 
-#### Eingaben:
-- Turniername: String
-- Anzahl der Felder: Integer
-- Anzahl der Teams: Integer
-- Anzahl der Leistungsgruppen: Integer
-- Hin-Rückspiel: Boolean
-#### Ausgaben:
-- TurnierID
+
+### Create a tournament
+
+```POST htw-turnier.de/api/create```
+
+Creates a new Tournament with empty games.
+
+#### Parameters
+
+| Field	| Type | Description |
+| :---: | :--: | :---------: |
+| name | String | The name of the new Tournament with max. 16 Alphanumeric characters.
+| fields | Integer | The amount of individual fields.
+| teams | Integer | The amount of the overall teams.
+| groups | Integer | The amount of performance groups.
+| return | Boolean | Defines if the teams have a returning game or rematch.
+| refs | Object | For filling the remaining empty referee slots.
+| games | Object | All games that have to be played.
+
+#### Example request data
+
+```
+{
+  "name":"Sommer Turnier 2025",
+  "fields":2,
+  "teams":2,
+  "groups":1,
+  "return":false,
+  "refs":
+    {
+      "1":2,
+      "2":2
+    },
+  "games":
+    {
+      "1":[1,2,null],
+      "2":[1,2,null],
+    }
+}
+```
+
+#### Explanation
+The "refs" field is required for the because the creation algorithm creates games with no refs when no ref is available. In this case the user can decide which team should be a referee. This must be send over the api so it can be stored in the database.
+
+Also the "games" field is required, that all created games from the frontend are send to the database, so the backend can store point entries in the correct dataset.
+
+#### Response
+```
+HTTP/1.1 200 OK
+{
+  "tid":"XYZ"
+}
+```
+
+#### Possible errors
+400 Bad Request
+
+403 Forbidden
+
+503 Service Unavailable
+
 
 ### "Endpunkt api.htw-turnier.de/tournaments"
 #### Typ:
