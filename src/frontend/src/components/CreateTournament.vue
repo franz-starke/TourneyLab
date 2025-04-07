@@ -1,10 +1,11 @@
 <script>
-  import { generate } from '@vue/compiler-core';
-import axios from 'axios'
+  import axios from 'axios'
 
     
   
     async function createTournament() {
+      // Funktion, um nach erfolgter Turnierplanerstellung, die Daten mit dem Server zu synchronisieren.
+      // falls das nicht möglich ist, sollten die Daten im localstorage aufbewahrt werden
 
       this.tournamentData = {
         "name": this.tournamentName,

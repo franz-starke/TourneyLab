@@ -40,9 +40,12 @@ a.router-link, div.highlight-button {
   padding: 10px 0px;
   border-radius: 10px;
   text-decoration: none;
+  cursor: pointer;
   
 }
 
 a.router-link:hover, a.highlight-button, div.highlight-button:hover {
   background: var(--color-button-highlight);
 }
+
+
