@@ -129,13 +129,36 @@ The api will respond with an ```array``` composed of ```objects```, which contai
     - Punkte Team1: Integer
     - Punkte Team2: Integer
 
-### "Endpunkt api.htw-turnier.de/{turnierID}/game/{spielID}"
-#### Typ:
-- get
-#### Ausgaben:
-- Punkte: Liste
-  - Punkte Team1: Integer
-  - Punkte Team2: Integer
+
+### Get a game score
+
+```GET htw-turnier.de/api/{tournamentID}/game/{gameID}```
+
+Gets the current score for a game.
+
+#### Explanation
+This endpoint does not need any parameters and is meant to return an array with 2 entries which is the score for the requested game.
+
+#### Response
+```
+HTTP/1.1 200 OK
+{
+  "score":[5,2]
+}
+```
+The api will respond with an ```array``` composed of 2 ```integers```. The first index of the array `[0]` are the points for the team in the first field of the game and the second index `[1]` are the points for the team in the other field of the game.
+
+### Response fields
+| Field	| Type | Description |
+| :---: | :--: | :---------: |
+| score | Array | An array composed of 2 integers.  .
+
+#### Possible errors
+400 Bad Request
+
+403 Forbidden
+
+503 Service Unavailable
 
 ### "Endpunkt api.htw-turnier.de/{turnierID}/game/{spielID}"
 #### Typ:
