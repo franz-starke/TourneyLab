@@ -1,8 +1,10 @@
+from server import *
 import fastapi
 from data.apiobjects.apiobjects import *
 from fastapi.middleware.cors import CORSMiddleware
 
 api = fastapi.FastAPI()
+server = Server()
 
 @api.post("/create")
 def create_tournaments(data: CreateTournament):
