@@ -67,15 +67,37 @@ The api will respond with a unique tournament id, that can be used to make api r
 
 503 Service Unavailable
 
+### Get old tournaments
 
-### "Endpunkt api.htw-turnier.de/tournaments"
-#### Typ:
-- get
-#### Ausgaben:
-- Turniere: Liste
-  - Turniername: String
-  - Start Datum: Integer
-  - TurnierID: String
+```GET htw-turnier.de/api/tournaments```
+
+Get all old tournaments, that have been created.
+
+#### Explanation
+This endpoint does not need any parameters and is meant to return a list of all tournaments that have been played before by any player.
+
+#### Response
+```
+HTTP/1.1 200 OK
+{
+  "tournaments":[
+	{"id":"XYZ","name":"Sommer Turnier 2025","date":1748736000},
+	{"id":"ABC","name":"Nikolaus Turnier 2025","date":1764979200},
+	{"id":"KLM","name":"Winter Turnier 2025","date":1767139200},
+  ]
+}
+```
+The api will respond with a ```list``` composed of ```objects```, which contain:
+- ```id``` as a unique tournament id
+- ```name``` for the name of the tournament
+- ```date``` as a timestamp for when the tournament was played.
+
+#### Possible errors
+400 Bad Request
+
+403 Forbidden
+
+503 Service Unavailable
 
 ### "Endpunkt api.htw-turnier.de/{turnierID}/fields/{feldID}"
 #### Typ:
