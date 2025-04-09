@@ -1,9 +1,10 @@
 import os
 import sqlite3
+from database import *
 
 class Server:
     def __init__(self):
-        pass
+        self.database = Database()
 
     def query(self,tournament_id="",query="",attributes=[]):
         try:
