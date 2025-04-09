@@ -168,14 +168,6 @@ The api will respond with an ```array``` composed of 2 ```integers```. The first
     - Punkte Team1: Integer
     - Punkte Team2: Integer
 
-### "Endpunkt api.htw-turnier.de/{turnierID}/performancegroups"
-#### Typ:
-- get
-#### Ausgabe:
-- Gruppen: Liste
-  - Name: String
-  - GruppenID: String
-
 ### "Endpunkt api.htw-turnier.de/{turnierID}/performancegroups/{groupID}"
 #### Typ:
 - get
