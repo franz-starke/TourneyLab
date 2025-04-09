@@ -58,7 +58,13 @@ HTTP/1.1 200 OK
   "tid":"XYZ"
 }
 ```
+
 The api will respond with a unique tournament id, that can be used to make api requests to  this specific tournament.
+
+### Response fields
+| Field	| Type | Description |
+| :---: | :--: | :---------: |
+| tid | String | The unique id for the newly created tournament.
 
 #### Possible errors
 400 Bad Request
@@ -87,10 +93,15 @@ HTTP/1.1 200 OK
   ]
 }
 ```
-The api will respond with a ```list``` composed of ```objects```, which contain:
+The api will respond with an ```array``` composed of ```objects```, which contain:
 - ```id``` as a unique tournament id
 - ```name``` for the name of the tournament
 - ```date``` as a timestamp for when the tournament was played.
+
+### Response fields
+| Field	| Type | Description |
+| :---: | :--: | :---------: |
+| tournaments | Array | An array composed of objects with previous tournaments.  .
 
 #### Possible errors
 400 Bad Request
