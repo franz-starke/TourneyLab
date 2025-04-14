@@ -91,7 +91,12 @@ Datenstruktur effizient genug?
 
 === TOP 3: Fragen an Auftraggeberin
 
-Turnierplan Algorhytmus 
+Turnierplan Algorithmus 
+* refs manuell ok, Felder so nebeneinander
+* turnierplanerstellung online am rechner
+* qr-codes sollten auf allen Geräten funktionieren wenn nicht dann an turniercode denken
+* zuletzt eingetragen
+* einfacher punkte eintragen
 
 
 
