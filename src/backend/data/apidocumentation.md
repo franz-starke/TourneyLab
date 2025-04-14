@@ -1,4 +1,4 @@
-# API Plan
+# API Documentation
 1. [Create a Tournament](#create-a-tournament)
 2. [Get old Tournaments](#get-old-tournaments)
 3. [Get game scores for a field](#get-game-scores-for-a-field)
