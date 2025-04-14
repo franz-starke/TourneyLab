@@ -1178,21 +1178,22 @@ export function createTournamentAlgo(numTeams1, numTeams2, numGroups, numFields,
 
     // Neue Datenstruktur: Felder → Spiel-ID → Spiel-Array
     const numericSchedule = {};
+    let globalId = 1;
 
     for (const field of Object.keys(fieldsNew)) {
-        const matches = fieldsNew[field];
-        const matchMap = {};
+    numericSchedule[field] = {};
 
-        matches.forEach(([t1, t2, r], index) => {
-            matchMap[String(index + 1)] = [
-                nameToNumber[t1] || 0,
-                nameToNumber[t2] || 0,
-                nameToNumber[r] || 0
-            ];
-        });
-
-        numericSchedule[field] = matchMap;
+    for (const match of fieldsNew[field]) {
+        const [t1, t2, r] = match;
+        numericSchedule[field][globalId] = [
+        nameToNumber[t1] || 0,
+        nameToNumber[t2] || 0,
+        nameToNumber[r] || 0
+        ];
+        globalId++; // <-- wichtig!
     }
+    }
+
 
     return numericSchedule;
 }
