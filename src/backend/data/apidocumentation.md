@@ -1,13 +1,17 @@
 # API Plan
-## Endpunkte
+1. [Create a Tournament](#create-a-tournament)
+2. [Get old Tournaments](#get-old-tournaments)
+3. [Get game scores for a field](#get-game-scores-for-a-field)
+4. [Get a game score](#get-a-game-score)
+5. [Edit a game score](#edit-a-game-score)
 
-### Create a tournament
+## Create a tournament
 
 ```POST htw-turnier.de/api/create```
 
 Creates a new Tournament with empty games.
 
-#### Parameters
+### Parameters
 
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
@@ -20,7 +24,7 @@ Creates a new Tournament with empty games.
 | teamgroups | Object | For setting a custom amount for teams in a performancegroup
 | games | Object | All games that have to be played.
 
-#### Example request data
+### Example request data
 
 ```
 {
@@ -44,14 +48,14 @@ Creates a new Tournament with empty games.
 }
 ```
 
-#### Explanation
+### Explanation
 The ```refs``` field is required for the because the creation algorithm creates games with no refs when no ref is available. In this case the user can decide which team should be a referee. This must be send over the api so it can be stored in the database.
 
 In the ```teamgroups``` required field, a custom team amount of a performance group can be defined, so it can be stored in the database. 
 
 Also the ```games``` field is required, that all created games from the frontend are send to the database, so the backend can store point entries in the correct dataset.
 
-#### Response
+### Response
 ```
 HTTP/1.1 200 OK
 {
@@ -66,23 +70,23 @@ The api will respond with a unique tournament id, that can be used to make api r
 | :---: | :--: | :---------: |
 | tid | String | The unique id for the newly created tournament.
 
-#### Possible errors
+### Possible errors
 400 Bad Request
 
 403 Forbidden
 
 503 Service Unavailable
 
-### Get old tournaments
+## Get old tournaments
 
 ```GET htw-turnier.de/api/tournaments```
 
 Get all old tournaments, that have been created.
 
-#### Explanation
+### Explanation
 This endpoint does not need any parameters and is meant to return a list of all tournaments that have been played before by any player.
 
-#### Response
+### Response
 ```
 HTTP/1.1 200 OK
 {
@@ -101,36 +105,54 @@ The api will respond with an ```array``` composed of ```objects```, which contai
 ### Response fields
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
-| tournaments | Array | An array composed of objects with previous tournaments.  .
+| tournaments | Array | An array composed of objects with previous tournaments.
 
-#### Possible errors
+### Possible errors
 400 Bad Request
 
 403 Forbidden
 
 503 Service Unavailable
 
-### "Endpunkt api.htw-turnier.de/{turnierID}/fields/{feldID}"
-#### Typ:
-- get
-#### Ausgaben:
-- games: Liste
-  - SpielID: String
-  - Anfang: Timestamp
-  - Ende: Timestamp
-  - Team1: Liste
-    - TeamID: String
-    - Team Name: String
-  - Team2: Liste
-    - TeamID: String
-    - Team Name: String
-  - Schiri: String
-  - Punkte: Liste
-    - Punkte Team1: Integer
-    - Punkte Team2: Integer
 
+## Get game scores for a field
 
-### Get a game score
+```GET htw-turnier.de/{tournamentID}/fields/{fieldID}```
+
+Get all games from a field.
+
+### Explanation
+This endpoint does not need any parameters and is meant to return a list of scores from the played games.
+
+### Response
+```
+HTTP/1.1 200 OK
+{
+	"games":[
+		{"id":"0","score":[0,2]},
+		{"id":"1","score":[3,4]},
+		{"id":"2","score":[12,3]}
+  	]
+}
+```
+
+The api will respond with an ```array``` composed of ```objects```, which contain:
+- ```id``` as the unique game id
+- ```score``` for the games score. This is an ```array``` of which the index [0] is the score for team 1 and the index [1] is the score for team 2.
+
+### Response fields
+| Field	| Type | Description |
+| :---: | :--: | :---------: |
+| games | Object | An array composed of objects with game scores for a game.
+
+### Possible errors
+400 Bad Request
+
+403 Forbidden
+
+503 Service Unavailable
+
+## Get a game score
 
 ```GET htw-turnier.de/api/{tournamentID}/game/{gameID}```
 
@@ -153,40 +175,48 @@ The api will respond with an ```array``` composed of 2 ```integers```. The first
 | :---: | :--: | :---------: |
 | score | Array | An array composed of 2 integers.  .
 
-#### Possible errors
+### Possible errors
 400 Bad Request
 
 403 Forbidden
 
 503 Service Unavailable
 
-### "Endpunkt api.htw-turnier.de/{turnierID}/game/{spielID}"
-#### Typ:
-- put
-#### Eingabe:
-- Punkte: Liste
-    - Punkte Team1: Integer
-    - Punkte Team2: Integer
+## Edit a game score
 
-### "Endpunkt api.htw-turnier.de/{turnierID}/performancegroups/{groupID}"
-#### Typ:
-- get
-#### Ausgabe:
-- Teams: Liste
-  - Name: String
-  - Spielpunkten: Integer
+```PUT htw-turnier.de/api/{tournamentID}/games/{gameID}```
 
-### "Endpunkt api.htw-turnier.de/{turnierID}/team/{teamID}"
-#### Typ:
-- get
-#### Info
-- Wenn Team1 == "" und Team2 == "", dann ist Team Schiedsrichter
-#### Ausgabe:
-- Team1: String
-- Team2: String
-- Anfang: Timestamp
-- Ende: Timestamp
-- Feld: Integer
-- Punkte: Liste
-  - Punkte Team1: Integer
-  - Punkte Team2: Integer
+Edit a specific game score.
+
+### Parameters
+
+| Field	| Type | Description |
+| :---: | :--: | :---------: |
+| score | Array | An array for the new game score.
+
+### Example request data
+
+```
+{
+	"score":[1,4]
+}
+```
+
+### Explanation
+
+The ```score``` field is a required entry with 2 ```integer```, which represent the games score. The first index of the array `[0]` are the points for the team in the first field of the game and the second index `[1]` are the points for the team in the other field of the game.
+
+### Response
+
+```
+HTTP/1.1 200 OK
+```
+
+The api will respond with a status code, dependent on the correctness of the change.
+
+### Possible errors
+400 Bad Request
+
+403 Forbidden
+
+503 Service Unavailable
