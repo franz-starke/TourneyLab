@@ -30,8 +30,8 @@ Creates a new Tournament with empty games.
 {
 	"name":"Sommer Turnier 2025",
 	"fields":2,
-	"teams":2,
-	"groups":1,
+	"teams":5,
+	"groups":2 ,
 	"return":false,
 	"refs":{
       	"1":2,
