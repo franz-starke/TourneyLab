@@ -44,10 +44,6 @@ vom __date__
 |
 |Sebastian
 
-|3
-|10 Min.
-|
-|Alle
 
 |Abschluss
 |Terminabklärung und Aufgabenverteilung abschließen
@@ -73,13 +69,19 @@ vom __date__
 
 === TOP 1: Aktuellen Stand der Untergruppen besprechen
 
-Spielplan: Möglichkeit bei nicht aufgehen der Verteilung, Schiedsrichter leer lassen und selbst zuteilen 
+Frontend:
+- heute (14.04.) Treffen von Joshua, Mutaz und Ali für gemeinsame Einarbeitung in Vue
 
-QR-Code Scanner implementiert 
+Backend:
+- Algorhymus zur Turnierplan Erstellung von Auftraggeberin abgenommen. 
 
-Datenstruktur für Turnierplan muss festgelegt werden, damit Schnittstelle 
+- API fast fertig
 
-Dokumentation durch Franz von aktuellen Stand
+- Datenbank braucht nur wenige Anpassungen
+
+Generell: Mehr Issues in GitHub schreiben, wenn Aufgaben zugeteilt werden
+
+Vorschlag: gemeinsames Co-Working an einem Wochenende 
 
 === TOP 2: Fragen an Ruben Kraus besprechen
 
@@ -92,11 +94,11 @@ Datenstruktur effizient genug?
 === TOP 3: Fragen an Auftraggeberin
 
 Turnierplan Algorithmus 
-* refs manuell ok, Felder so nebeneinander
-* turnierplanerstellung online am rechner
-* qr-codes sollten auf allen Geräten funktionieren wenn nicht dann an turniercode denken
-* zuletzt eingetragen
-* einfacher punkte eintragen
+- refs manuell ok, Felder so nebeneinander
+- turnierplanerstellung online am rechner
+- qr-codes sollten auf allen Geräten funktionieren wenn nicht dann an turniercode denken
+- zuletzt eingetragen
+- einfacher punkte eintragen
 
 
 
