@@ -1142,14 +1142,18 @@ function main() {
 
 // Wird aufgerufen um Turnier zu erstellen
 export function createTournamentAlgo(numTeams1, numTeams2, numGroups, numFields, boolRueckspiel) {
-    const funMatches = getGamesWeighted(numTeams1, "Fun");
-    const compMatches = getGamesWeighted(numTeams2, "Schwitzer");
-
     let fieldsNew;
+
     if (numGroups === 2) {
+        const funMatches = getGamesWeighted(numTeams1, "Fun");
+        const compMatches = getGamesWeighted(numTeams2, "Schwitzer");
         fieldsNew = distributeGamesToFieldsAndAssignReferees(funMatches, compMatches, numFields, boolRueckspiel);
-    } else {
+    } else if (numGroups === 1) {
+        const funMatches = getGamesWeighted(numTeams1, "Fun");
         fieldsNew = distributeGamesToFieldsWithOneGroup(funMatches, numFields, boolRueckspiel);
+    } else {
+        console.error("Ungültige Anzahl an Gruppen:", numGroups);
+        fieldsNew = {};
     }
 
     // Alle Namen sammeln
@@ -1172,14 +1176,22 @@ export function createTournamentAlgo(numTeams1, numTeams2, numGroups, numFields,
         nameToNumber[name] = idx++;
     }
 
-    // Spielplan in Zahlen umwandeln
+    // Neue Datenstruktur: Felder → Spiel-ID → Spiel-Array
     const numericSchedule = {};
+
     for (const field of Object.keys(fieldsNew)) {
-        numericSchedule[field] = fieldsNew[field].map(([t1, t2, r]) => [
-            nameToNumber[t1] || 0,
-            nameToNumber[t2] || 0,
-            nameToNumber[r] || 0
-        ]);
+        const matches = fieldsNew[field];
+        const matchMap = {};
+
+        matches.forEach(([t1, t2, r], index) => {
+            matchMap[String(index + 1)] = [
+                nameToNumber[t1] || 0,
+                nameToNumber[t2] || 0,
+                nameToNumber[r] || 0
+            ];
+        });
+
+        numericSchedule[field] = matchMap;
     }
 
     return numericSchedule;

@@ -59,6 +59,7 @@
         // TODO:
         //  let games = {}
         this.games = await createTournamentAlgo(this.amountTeams1, this.amountTeams2 , this.amountGroups, this.amountFields, this.withReturnGame);
+        console.log("test", this.games)
         // TODO: 
         // based on output from the Tournament Algorith, we need to decide if refs have to be added manually
         // if (games has games with refs == null) then:
@@ -110,14 +111,15 @@
      then assign them  -->
 
 
-    <div v-for="(field, fieldNum) in games "> 
-      Field {{ fieldNum }}
-      <div v-for="(game, round) in field">
+     <div v-for="(field, fieldNum) in games" :key="fieldNum">
+      <h2>Field {{ fieldNum }}</h2>
+      
+      <div v-for="(game, gameId) in field" :key="gameId">
         <div v-if="!game[2] || game[2] === 'leer'">
-          Round {{ round }}: Team {{ game[0] }} vs. Team {{ game[1] }}  
-          <br>
+          Game {{ gameId }}: Team {{ game[0] }} vs. Team {{ game[1] }}  
+          <br />
           Referee:
-          <select @change="updateFreeRefs($event, round, fieldNum)">
+          <select @change="updateFreeRefs($event, gameId, fieldNum)">
             <option v-for="ref in [1, 2, 3, 4, 5]" :key="ref" :value="ref">
               {{ ref }}
             </option>
@@ -125,6 +127,7 @@
         </div>
       </div>
     </div>
+
     <button @click="submitForm">save refs</button>
     <button @click="closeModal">cancel</button>
   </div>
