@@ -33,17 +33,19 @@ Creates a new Tournament with empty games.
 	"teams":5,
 	"groups":2 ,
 	"return":false,
-	"refs":{
-      	"1":2,
-      	"2":2
-    },
     "teamgroups":{
 		"1":2,
 		"2":3
 	},
   	"games":{
-      	"1":[1,2,null],
-      	"2":[1,2,null]
+		"1 (fieldID)":{
+			"1 (gameID)":[1(teamID),2,3],
+      		"2":[1,2,4]
+		},
+		"2":{
+			"3":[1,2,3],
+      		"4":[1,2,4]
+		},
     }
 }
 ```
