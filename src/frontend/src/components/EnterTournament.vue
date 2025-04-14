@@ -20,14 +20,10 @@ import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
       QrcodeCapture
     }
   }
- 
-
-
-
 </script>
 
-<template>
 
+<template>
   <h2>Scan Tournament QR-Code</h2>
   <div class="flex-container">
     <div id="qr-code-wrapper">

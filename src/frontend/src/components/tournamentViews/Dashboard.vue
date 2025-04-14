@@ -34,14 +34,13 @@ export default {
 
 <template>
 
-
+  <!-- Tournament Dashboard -->
   <div v-if="!syncGames" id="dashboard-container" class="flex-container">
     <h1>Dashboard</h1>
-
     <div class="highlight-button" @click="toggleSyncGames">Sync Games</div>
-
   </div>
 
+  <!-- Dialog for syncing Games  -->
   <div v-else id="synchronize-games-container" class="flex-container">
     <div class="highlight-button" @click="toggleSyncGames">Dashboard</div>  
 
@@ -50,14 +49,9 @@ export default {
       <qrcode-stream  @detect="onDetect"></qrcode-stream>
     </div>
   
-
     <h2>QR-Generator for current Tournament Data:</h2>
     <qrcode-vue class="qr-code" :value="value" :size="size" level="H" render-as="svg" />
-    <!-- <qrcode-vue :value="value" :size="size" level="H" render-as="svg" /> -->
   </div>
-
-
-
 
 </template>
 
