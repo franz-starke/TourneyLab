@@ -1,6 +1,7 @@
 <script>
 
   import api from "@/api/api.js";
+  import { createTournamentAlgo } from '../tournamentalgo/tournamentalgo.js';
 
 
   
