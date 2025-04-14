@@ -1,4 +1,5 @@
 <script>
+
   import api from "@/api/api.js";
 
 
@@ -10,33 +11,11 @@
       return {
         tournamentName: "",
         amountFields: 1,
-        amountTeams: 3,
+        amountTeams1: 4,
+        amountTeams2: 4,
         amountGroups: 1,
-        withReturnGame: true,
+        withReturnGame: false,
         tournamentData: {},
-
-
-        // FIXME: TESTING: test of the form the algorithm would give when called
-        //////////////////
-        gamesTest: {
-          1: [
-            // game// possible refs
-            [1,2,3],
-            [2,3,null],
-            [3,2,null],
-          ],
-          2: [
-            [4,5,9],
-            [8,6,4],
-            [5,7,null],
-          ],
-        },
-        freeRefsPerRoundTest: {
-          2: [1,5,7],
-          3: [1,4,6],
-        },
-        //////////////////
-        
 
         games: {},
         showRefModal: false, // varable to handle if there is a ref dialog going on (for conditional rendering with v-if)
@@ -51,14 +30,14 @@
       async generateTournament() {
         // TODO:
         //  let games = {}
-        //  games = await derNervigsteSagenumwobeneKannMichMalFettAmA****LeckenAlgorithmus(this.amountFields, this.amountTeams, this.amountGroups);
-
+        this.games = await createTournamentAlgo(this.amountTeams1, this.amountTeams2 , this.amountGroups, this.amountFields, this.withReturnGame);
+        console.log("test", this.games)
         // TODO: 
         // based on output from the Tournament Algorithm, we need to decide if refs have to be added manually
         // if (games has games with refs == null) then:
         this.games = await this.openRefModal();
         // else 
-
+        
 
         //TODO: call createTournament
         await this.syncTournament();
@@ -73,17 +52,9 @@
         // handles the manual assignment of referees
         return new Promise((resolve) => {
           this.showRefModal = true; 
-
           // do something with this.games (add referees)
-
-
-
           // Function to handle form submission
           this.submitForm = () => {
-            // FIXME: TESTING
-            /////////
-            this.games = this.gamesTest
-            //////////
             this.showRefModal = false;
             resolve(this.games); // Resolve the promise with the user input
           };
@@ -123,7 +94,6 @@
         // call API at create
         await api.createTournament(tournamenData);
       }
-
     }
   };
 
@@ -134,7 +104,8 @@
   <form v-if="!showRefModal">
     <input v-model="tournamentName" type="text" placeholder="Enter tournament name" required><br>
     <p>Amount Fields: <input v-model="amountFields" type="number" min="1" max="4" required></p>
-    <p>Amount Teams: <input v-model="amountTeams" type="number" min="3" max="12" required></p>
+    <p>Amount Teams1: <input v-model="amountTeams1" type="number" min="3" max="12" required></p>
+    <p>Amount Teams2: <input v-model="amountTeams2" type="number" min="3" max="12" required></p>
     <p>Amount Groups: <input v-model="amountGroups" type="number" min="1" max="2" required></p>
     <p>Return Game <input v-model="withReturnGame" type="checkbox" required></p>
     <div class="highlight-button" @click="generateTournament" type="submit">Create</div>
@@ -143,21 +114,27 @@
   <!-- Referee Assignment Dialog -->
   <div v-if="showRefModal">
     <h1>Handle manual referee assigning</h1>
-<!-- TODO: show each round as a table with fields as the headers. This helps with referee assining because they're next to each other -->
- <!-- FIXME: use the algorithm as test not static test data -->
-  <!-- /////////////////////////////////////////////////// -->
-    <div v-for="(field, fieldNum) in gamesTest "> 
-      Field {{ fieldNum }}
-      <div v-for="(game, round) in field">
-        <div v-if="game[2] == null">
-          Round {{ round }}: Team {{ game[0] }} vs. Team {{ game[1] }} Ref =
-          <select @change="updateFreeRefs($event, round)" name="possible-refs">
-            <option  v-for="ref in freeRefsPerRoundTest[round + 1]" :value="ref" >{{ ref }}</option>
+    <!-- TODO: -->
+    <!-- v-for each game that doesn't have a ref yet, add a div with a select with v-for options set to all possible refs for this Game
+     then assign them  -->
+
+
+     <div v-for="(field, fieldNum) in games" :key="fieldNum">
+      <h2>Field {{ fieldNum }}</h2>
+      
+      <div v-for="(game, gameId) in field" :key="gameId">
+        <div v-if="!game[2] || game[2] === 'leer'">
+          Game {{ gameId }}: Team {{ game[0] }} vs. Team {{ game[1] }}  
+          <br />
+          Referee:
+          <select @change="updateFreeRefs($event, gameId, fieldNum)">
+            <option v-for="ref in [1, 2, 3, 4, 5]" :key="ref" :value="ref">
+              {{ ref }}
+            </option>
           </select>
         </div>
       </div>
     </div>
-
 
     <button @click="submitForm">save refs</button>
     <button @click="closeModal">cancel</button>
@@ -165,13 +142,7 @@
     <!-- /////////////////////////////////////////////////// -->
 
 
-
 </template>
-
-
 <style scoped>
-
-
-
 </style>
 
