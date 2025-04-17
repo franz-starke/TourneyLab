@@ -1,43 +1,30 @@
-<script>
+<script setup>
 import QrcodeVue, { QrcodeCanvas, QrcodeSvg } from "qrcode.vue";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
+import { ref } from "vue";
 
-export default {
-  data() {
-    return {
-      value: JSON.stringify({ Team: 1, Spiel: "Hannes" }),
-      size: 300,
+const value = ref(JSON.stringify({ Team: 1, Spiel: "Hannes" }));
+const size = ref(300);
 
-      syncGames: false,
-    };
-  },
-  methods: {
-    onDetect(detectedCodes) {
-      this.debugInfo = JSON.parse(detectedCodes.get());
-      console.log(this.debugInfo);
-    },
-    toggleSyncGames() {
-      this.syncGames = !this.syncGames;
-    },
-  },
-  components: {
-    QrcodeVue,
-    QrcodeCanvas,
-    QrcodeSvg,
-    QrcodeStream,
-    QrcodeDropZone,
-    QrcodeCapture,
-  },
-};
+const syncGames = ref(false);
+
+function onDetect(detectedCodes) {}
+function toggleSyncGames() {
+  syncGames.value = !syncGames.value;
+}
 </script>
 
 <template>
+  <!-- ? maybe use dynamic component loading instead of conditional rendering -->
   <!-- Tournament Dashboard -->
   <div v-if="!syncGames" id="dashboard-container" class="flex-container">
     <h1>Dashboard</h1>
     <div class="highlight-button" @click="toggleSyncGames">Sync Games</div>
   </div>
 
+
+
+  
   <!-- Dialog for syncing Games  -->
   <div v-else id="synchronize-games-container" class="flex-container">
     <div class="highlight-button" @click="toggleSyncGames">Dashboard</div>

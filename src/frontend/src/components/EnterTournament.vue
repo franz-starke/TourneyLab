@@ -1,25 +1,14 @@
-<script>
+<script setup>
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
+import { ref } from "vue";
 
-export default {
-  data() {
-    return {
-      debugInfo: "degubingfo: pls scan a qr-code",
-    };
-  },
-  methods: {
-    onDetect(detectedCodes) {
-      // detectedCodes is a Proxy Array
-      this.debugInfo = JSON.parse(detectedCodes[0].rawValue);
-      console.log(JSON.stringify(this.debugInfo, null, 2));
-    },
-  },
-  components: {
-    QrcodeStream,
-    QrcodeDropZone,
-    QrcodeCapture,
-  },
-};
+const debugInfo = ref("degubingfo: pls scan a qr-code");
+
+async function onDetect(detectedCodes) {
+  // detectedCodes is a Proxy Array
+  debugInfo.value = await JSON.parse(detectedCodes[0].rawValue);
+  console.log(JSON.stringify(debugInfo.value, null, 2));
+}
 </script>
 
 <template>
@@ -29,13 +18,15 @@ export default {
       <qrcode-stream @detect="onDetect"></qrcode-stream>
     </div>
 
-    <!-- ausgabe der qr code daten -->
+    <!-- output of what the qr-scanner scans -->
     <p>
       {{ debugInfo }}
     </p>
 
     <input id="enter-code" type="text" placeholder="Turnier-Code eingeben..." />
-    <RouterLink class="router-link" to="/tournament-home">Beitreten</RouterLink>
+    <RouterLink class="router-link" to="/tournament-home/dashboard"
+      >Beitreten</RouterLink
+    >
   </div>
 </template>
 

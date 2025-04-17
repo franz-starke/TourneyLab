@@ -38,10 +38,6 @@ const router = createRouter({
       component: TournamentHome, 
       children: [
         {
-          path: '/',
-          component: Dashboard,
-        },
-        {
           path: 'dashboard',
           component: Dashboard,
         },
