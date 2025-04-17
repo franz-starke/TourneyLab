@@ -38,7 +38,7 @@ const router = createRouter({
       component: TournamentHome, 
       children: [
         {
-          path: '',
+          path: '/',
           component: Dashboard,
         },
         {
