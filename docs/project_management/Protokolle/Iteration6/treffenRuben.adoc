@@ -1,0 +1,14 @@
+= Stichpunkte zu treffen mit Ruben
+
+.Tipps zum direkten umsetzen
+* project plan, ausformulieren (iterationen, Sprints, wie arbeiten wir im Team, Praktiken, Protokolle, Regeln)
+* Github Issues als Leitfaden für sich selbst und andere nutzen (was ist der nächste Arbeitspunkt / Schritt)
+* Extensions für vscode:
+** Github Copilot (gratis für Studenten)
+** Prettier (für einfache Code Formatierung)
+** better comments (für Klassifizieren von Kommentaren)
+* Die zu erstellenden Dokumentationen zu unserem Code sind vllt. einfach über Autogeneratoren möglich. 
+* keine großen langen branches, eher kleine Branches
+* pinia store verwenden für "globale Variablen" z.B. TurnierID
+** mit vueuse useStorage() um refs zu nutzen, die in den localStorage zurückschreiben
+* lieber in die composition api einarbeiten für bessere Übersicht / sauberer code
