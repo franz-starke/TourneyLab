@@ -1,8 +1,4 @@
 <script>
-// ! important comment?
-
-
-
 import api from "@/api/api.js";
 import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
 
@@ -20,7 +16,7 @@ export default {
       tournamentData: {},
 
       games: {},
-      showRefModal: false, // varable to handle if there is a ref dialog going on (for conditional rendering with v-if)
+      showRefModal: false, // variable to handle if there is a ref dialog going on (for conditional rendering with v-if)
     };
   },
   methods: {

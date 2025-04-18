@@ -1,8 +1,23 @@
 <script setup>
+import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
-import { ref } from "vue";
+import { provide, ref } from "vue";
+import { useTournamentStore } from "@/stores/tournamentStore";
 
 const debugInfo = ref("degubingfo: pls scan a qr-code");
+const tournamentName = ref("lol");
+const tournamentData = ref({});
+
+const store = useTournamentStore();
+
+function enterCodeEval(event) {
+  // * handle enter tournament manually by input
+  // * only supports test data
+  console.log(event);
+  store.setTournamentName("lol"); // or some user input
+  store.updateTournament(createTournamentAlgo(3, 3, 1, 1, false));
+  console.log(store.tournamentData);
+}
 
 async function onDetect(detectedCodes) {
   // detectedCodes is a Proxy Array
@@ -23,8 +38,16 @@ async function onDetect(detectedCodes) {
       {{ debugInfo }}
     </p>
 
-    <input id="enter-code" type="text" placeholder="Turnier-Code eingeben..." />
-    <RouterLink class="router-link" to="/tournament-home/dashboard"
+    <input
+      id="enter-code"
+      type="text"
+      placeholder="Turnier-Code eingeben..."
+      v-model="tournamentName"
+    />
+    <RouterLink
+      class="router-link"
+      to="/tournament-home/dashboard"
+      @click.native="enterCodeEval"
       >Beitreten</RouterLink
     >
   </div>
