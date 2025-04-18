@@ -2,12 +2,16 @@ from server import *
 import fastapi
 from data.apiobjects.apiobjects import *
 from fastapi.middleware.cors import CORSMiddleware
+from database import create_tournament_db
+import uuid
 
 api = fastapi.FastAPI()
 server = Server()
 
 @api.post("/create")
 def create_tournaments(data: CreateTournament):
+    tournament_id = str(uuid.uuid4())
+    create_tournament_db(tournament_id)
     return {"turnamentid": "0"}
 
 @api.get("/tournaments")
