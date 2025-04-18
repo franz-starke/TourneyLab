@@ -1,7 +1,14 @@
-<script setup></script>
+<script setup>
+import { useTournamentStore } from "@/stores/tournamentStore";
+
+// TODO: first fetch from api for newest tournamentData and write it into the store
+// if offline just use store
+
+const store = useTournamentStore();
+</script>
 
 <template>
-  <div id="header">space for header</div>
+  <div id="header">Turniername: {{ store.tournamentName }}</div>
   <RouterView></RouterView>
   <div id="navbar">
     <RouterLink class="router-link" to="/tournament-home/dashboard">

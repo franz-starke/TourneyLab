@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useTournamentStore = defineStore("tournament", () => {
-  const tournamentName = ref("lol");
+  const tournamentName = ref("");
   const tournamentData = ref({});
 
   function updateTournament(data) {

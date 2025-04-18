@@ -5,18 +5,22 @@ import { provide, ref } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
 
 const debugInfo = ref("degubingfo: pls scan a qr-code");
-const tournamentName = ref("lol");
-const tournamentData = ref({});
+const tournamentName = ref("test");
 
 const store = useTournamentStore();
 
+// FIXME: change function to enter tournament based on input field not only test data
 function enterCodeEval(event) {
   // * handle enter tournament manually by input
   // * only supports test data
-  console.log(event);
-  store.setTournamentName("lol"); // or some user input
-  store.updateTournament(createTournamentAlgo(3, 3, 1, 1, false));
-  console.log(store.tournamentData);
+  store.setTournamentName(tournamentName.value); // or some user input
+
+  if (tournamentName.value.toLowerCase() === "test") {
+    // ! static test tournament data here
+    store.updateTournament(createTournamentAlgo(4, 0, 1, 2, false));
+  } else {
+    console.log("Haven't implemented tournaments except for test");
+  }
 }
 
 async function onDetect(detectedCodes) {
