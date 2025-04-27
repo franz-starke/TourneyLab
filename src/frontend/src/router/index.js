@@ -8,6 +8,7 @@ import Dashboard from '@/components/tournamentViews/Dashboard.vue'
 import Games from '@/components/tournamentViews/Games.vue'
 import Settings from '@/components/tournamentViews/Settings.vue'
 import Teams from '@/components/tournamentViews/Teams.vue'
+import EditGame from '@/components/tournamentViews/EditGame.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,10 +39,6 @@ const router = createRouter({
       component: TournamentHome, 
       children: [
         {
-          path: '',
-          component: Dashboard,
-        },
-        {
           path: 'dashboard',
           component: Dashboard,
         },
@@ -57,6 +54,14 @@ const router = createRouter({
           path: 'settings',
           component: Settings,
         },
+        {
+          path: 'edit-game/:gameID',
+          component: EditGame,
+          name: 'edit-game',
+          props: route => ({
+            gameID: Number(route.params.gameID),
+          })
+        }
       ],
     },
   ],

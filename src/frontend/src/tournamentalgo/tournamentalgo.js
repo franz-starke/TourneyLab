@@ -948,7 +948,7 @@ function distributeGamesToFieldsAndAssignReferees(funMatches, competitiveMatches
 
 // --------------------------------------------------------------
 // Checkgames(fields): Konflikte aufdecken und Spiele verschieben
-// --------------------------------------------------------------
+// ----------------------------------------------------------input----
 function checkGames(fields) {
     const maxIndex = Math.max(...Object.values(fields).map(arr => arr.length));
     for (let loop = 0; loop < 2; loop++) {
