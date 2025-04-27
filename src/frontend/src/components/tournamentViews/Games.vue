@@ -13,7 +13,6 @@ import { useTournamentStore } from "@/stores/tournamentStore";
 import Game from "../utilcomponents/Game.vue";
 import { ref } from "vue";
 
-
 // TODO: first fetch from api for newest tournamentData and write it into the store
 // if offline just use store
 const activeFieldID = ref(1);
@@ -39,15 +38,17 @@ function renderGamesForField(fieldID) {
   </div>
 
   <div id="games-for-field">
-
     <div
-      v-for="game, gameID in store.tournamentData[activeFieldID]"
+      v-for="(game, gameID) in store.tournamentData[activeFieldID]"
       :key="gameID"
     >
-      <Game :team1="game[0]" :team2="game[1]" :referee="game[2]" :gameID="Number(gameID)" />
-      
+      <Game 
+        :team1="game[0]"
+        :team2="game[1]"
+        :referee="game[2]"
+        :gameID="Number(gameID)"
+      />
     </div>
-
   </div>
 </template>
 
@@ -63,7 +64,6 @@ function renderGamesForField(fieldID) {
   justify-content: space-evenly;
   align-items: center;
 }
-
 
 div.button {
   padding: 0.4em;

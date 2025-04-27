@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useTournamentStore = defineStore("tournament", () => {
+  const tournamentGroups = ref(1)
   const tournamentName = ref("");
   const tournamentData = ref({});
 
@@ -14,7 +15,12 @@ export const useTournamentStore = defineStore("tournament", () => {
     tournamentName.value = name;
   }
 
+  function setTournamentGroups(groups) {
+    tournamentGroups.value = groups;
+  }
+
   return {
+    tournamentGroups,
     tournamentName,
     tournamentData,
     updateTournament,

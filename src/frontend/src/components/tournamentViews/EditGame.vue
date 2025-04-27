@@ -10,4 +10,5 @@ const props = defineProps({
 <template>
   <h2>EDIT GAME {{ gameID }}</h2>
     <h3>TODO: implement edit game</h3>
+    
 </template>

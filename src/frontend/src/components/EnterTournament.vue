@@ -1,7 +1,7 @@
 <script setup>
 import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
-import { provide, ref } from "vue";
+import { ref } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
 
 const debugInfo = ref("degubingfo: pls scan a qr-code");
@@ -12,7 +12,7 @@ const store = useTournamentStore();
 // FIXME: change function to enter tournament based on input field not only test data
 function enterCodeEval(event) {
   // * handle enter tournament manually by input
-  // * only supports test data
+  // * only supports test data atm
   store.setTournamentName(tournamentName.value); // or some user input
 
   if (tournamentName.value.toLowerCase() === "test") {
