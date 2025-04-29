@@ -17,7 +17,7 @@ function enterCodeEval(event) {
 
   if (tournamentName.value.toLowerCase() === "test") {
     // ! static test tournament data here
-    store.updateTournament(createTournamentAlgo(4, 0, 1, 2, false));
+    store.updateTournament(createTournamentAlgo(3, 0, 1, 2, false));
   } else {
     console.log("Haven't implemented tournaments except for test");
   }
@@ -57,11 +57,18 @@ async function onDetect(detectedCodes) {
   </div>
 </template>
 
+
+
+
 <style scoped>
 #qr-code-wrapper {
   width: 30%; /* Set the width you desire */
   height: 30%; /* Set the height you desire */
   overflow: hidden; /* Prevent the content from spilling out */
+}
+
+#enter-code {
+  border-radius: 30px;
 }
 
 div.flex-container {
