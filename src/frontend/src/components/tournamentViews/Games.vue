@@ -46,6 +46,7 @@ function renderGamesForField(fieldID) {
         :team1="game[0]"
         :team2="game[1]"
         :referee="game[2]"
+        :points="game[3]"
         :gameID="Number(gameID)"
       />
     </div>

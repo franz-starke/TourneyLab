@@ -15,6 +15,10 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  points: {
+    type: Array,
+    required: true,
+  },
   gameID: {
     type: Number,
     required: true,
@@ -33,6 +37,7 @@ const gameRoute = computed(() => ({
     <div v-else>
       <p>Team {{ team1 }} vs. Team {{ team2 }}</p>
       <p>Schiedsrichter: {{ referee }}</p>
+      <p>Points: {{ points[0] }} : {{ points[1] }}</p>
       <RouterLink id="edit-game-state" class="router-link" :to="gameRoute">
         <svg
           xmlns="http://www.w3.org/2000/svg"
