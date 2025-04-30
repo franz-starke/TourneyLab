@@ -40,9 +40,12 @@ def get_field_games(tournament_id: str, field_id: str):
     games = server.get_games_from_fied(tournament_id,field_id)
     return {"games":games}
 
-@api.get("/{tournament_id}/game/{game_id}")
-def get_game_points(tournament_id: str, game_id: str):
-    return {"points": [0,0]}
+@api.get("/api/{tournament_id}/game/{game_id}")
+def get_game_score(tournament_id: str, game_id: str):
+    
+    score = server.get_game_score(tournament_id,game_id)
+
+    return {"score": score}
 
 @api.put("/{tournament_id}/game/{game_id}")
 def update_game_points(tournament_id: str, game_id: str, points: PointUpdate):
