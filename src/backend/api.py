@@ -47,8 +47,10 @@ def get_game_score(tournament_id: str, game_id: str):
 
     return {"score": score}
 
-@api.put("/{tournament_id}/game/{game_id}")
-def update_game_points(tournament_id: str, game_id: str, points: PointUpdate):
+@api.put("/api/{tournament_id}/game/{game_id}")
+def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
+    score = data.score
+    server.set_game_score(tournament_id,game_id,score)
     return fastapi.HTTPException(status_code=200,detail="OK")
 
 @api.get("/{tournament_id}/groups")
