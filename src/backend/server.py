@@ -92,3 +92,11 @@ class Server:
 
         return [data[5],data[6]]
     
+    def set_game_score(self,tournament_id:str,game_id,score):
+        """
+        Documentation here
+        """
+
+        data = self.database.set_game_score(tournament_id,game_id,score)
+        return True
+
