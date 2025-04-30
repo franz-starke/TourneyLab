@@ -27,12 +27,12 @@ def create_tournaments(data: CreateTournament):
 
     return {"tournamentid": tournament_id}
 
-@api.get("/tournaments")
+@api.get("/api/tournaments")
 def get_tournaments():
-    return {"tournaments": [
-        ["Nikolaus Tournier 2024",1743455286,"0"],
-        ["Weihnachts Tournier 2024",1743455354,"1"]
-    ]}
+    
+    tournaments = server.get_tournaments()
+    
+    return {"tournaments": tournaments}
 
 @api.get("/{tournament_id}/fields/{field_id}")
 def get_field_games(tournament_id: str, field_id: str):
