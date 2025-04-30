@@ -9,19 +9,51 @@ class Server:
     def __init__(self):
         self.database = Database()
 
-    def query(self,tournament_id="",query="",attributes=[]):
+    def create_tournament(self,
+                          name:str,
+                          teams:dict,
+                          games:dict,
+                          date:int):
+        """
+        Documentation here
+        """
+
+        uuid = self.generate_unique_string()
+        team_count = 0
+        group_count = 0
+
         try:
-            with sqlite3.connect(os.path.join("data",f"{tournament_id}.db")) as connection:
-                cursor = connection.cursor()
-                cursor.execute(query,attributes)
-                data = cursor.fetchall()
-                return data
-
+            open(os.path.join(DATABASE_PATH,f"{uuid}.db"),"w+")
         except Exception as e:
-            print(f"Error executing query: {e}")
+            print(e)
 
-    def create_tournaments(self):
-        pass
+        field_count = len(games)
+        fields = {}
+        for field in games:
+            fields[f"{field}"] = f"Feld {field}"
+
+        group_count = len(teams)
+        group_data = {"1":"Fun"}
+        if group_count != 1:
+            group_data["2"] = "Schwitzer"
+        
+        team_count = sum(teams.values())
+        team_data = {}
+        for i in range(team_count):
+            team_id = f"{i+1}"
+            if group_count != 1 and i < teams["1"]:
+                team_data[team_id] = [f"Fun {team_id}",1]
+            else:
+                team_data[team_id] = [f"Schwitzer {int(team_id)-teams["1"]}",2]
+
+        playing_games = {}
+        for field in games:
+            for game in games[str(field)]:
+                playing_games[game] = [field,games[field][game][0],games[field][game][1],games[field][game][2],0,0]
+            
+        self.database.create_tournament(uuid,name,field_count,team_count,group_count,fields,team_data,group_data,playing_games,datetime.datetime.fromtimestamp(date))
+
+        return uuid
 
     def get_tournaments(self):
         pass
