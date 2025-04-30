@@ -82,3 +82,13 @@ class Server:
             return_data.append({"id":game[0],"score":[game[5],game[6]]})
 
         return return_data
+    
+    def get_game_score(self,tournament_id:str,game_id):
+        """
+        Documentation here
+        """
+
+        data = self.database.get_game_score(tournament_id,game_id)[0]
+
+        return [data[5],data[6]]
+    
