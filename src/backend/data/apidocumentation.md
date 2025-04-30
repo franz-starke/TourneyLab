@@ -15,53 +15,45 @@ Creates a new Tournament with empty games.
 
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
-| name | String | The name of the new Tournament with max. 16 Alphanumeric characters.
-| fields | Integer | The amount of individual fields.
-| teams | Integer | The amount of the overall teams.
-| groups | Integer | The amount of performance groups.
-| return | Boolean | Defines if the teams have a returning game or rematch.
-| refs | Object | For filling the remaining empty referee slots.
-| teamgroups | Object | For setting a custom amount for teams in a performancegroup
+| name | String | The name of the new Tournament.
+| teams | Object | An object of all the groups with their sizes.
+| teams.{groupid} | Integer | The individual team sizes.
 | games | Object | All games that have to be played.
+| games.{fieldid} | Object | Contains a games played in this field.
+| games.{fieldid}.{gameid} | Array (1-3) | An array composed of team ids as strings with index ```[0]``` for the id for team 1, index ```[1]``` for the id for team 2, index ```[2]``` for the id for the referee team.
+| date | Integer | The date when the tournament is played, formated as a POSIX timestamp.
 
 ### Example request data
 
 ```
 {
 	"name":"Sommer Turnier 2025",
-	"fields":2,
-	"teams":5,
-	"groups":2 ,
-	"return":false,
-    "teamgroups":{
-		"1":2,
+    "teams":{
+		"1":3,
 		"2":3
 	},
   	"games":{
-		"1 (fieldID)":{
-			"1 (gameID)":[1(teamID),2,3],
-      		"2":[1,2,4]
+		"1":{
+			"1":["1","2","3"],
+      		"2":["1","2","4"]
 		},
 		"2":{
-			"3":[1,2,3],
-      		"4":[1,2,4]
-		},
-    }
+			"3":["1","2","3"],
+      		"4":["1","2","4"]
+		}
+    },
+	"date":1735689600
 }
 ```
 
 ### Explanation
-The ```refs``` field is required for the because the creation algorithm creates games with no refs when no ref is available. In this case the user can decide which team should be a referee. This must be send over the api so it can be stored in the database.
-
-In the ```teamgroups``` required field, a custom team amount of a performance group can be defined, so it can be stored in the database. 
-
-Also the ```games``` field is required, that all created games from the frontend are send to the database, so the backend can store point entries in the correct dataset.
+coming soon...
 
 ### Response
 ```
 HTTP/1.1 200 OK
 {
-  "tid":"XYZ"
+  "tournament_id":"XYZ"
 }
 ```
 
@@ -70,7 +62,7 @@ The api will respond with a unique tournament id, that can be used to make api r
 ### Response fields
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
-| tid | String | The unique id for the newly created tournament.
+| tournament_id | String | The unique id for the newly created tournament.
 
 ### Possible errors
 400 Bad Request
@@ -86,28 +78,28 @@ The api will respond with a unique tournament id, that can be used to make api r
 Get all old tournaments, that have been created.
 
 ### Explanation
-This endpoint does not need any parameters and is meant to return a list of all tournaments that have been played before by any player.
+This endpoint does not need any parameters and is meant to return a list of all tournaments that have been played before by any player. It includes the important ID of each already played tournament for further requests.
 
 ### Response
 ```
 HTTP/1.1 200 OK
 {
   "tournaments":[
-	{"id":"XYZ","name":"Sommer Turnier 2025","date":1748736000},
-	{"id":"ABC","name":"Nikolaus Turnier 2025","date":1764979200},
-	{"id":"KLM","name":"Winter Turnier 2025","date":1767139200},
+	{"id":"XYZ","name":"Sommer Turnier 2025","date":"2025-06-20T15:53:00+05:00"},
+	{"id":"ABC","name":"Nikolaus Turnier 2025","date":"2025-12-06T15:00:00+05:00"},
+	{"id":"KLM","name":"Winter Turnier 2025","date":"2025-02-15T17:00:00+05:00"},
   ]
 }
 ```
-The api will respond with an ```array``` composed of ```objects```, which contain:
-- ```id``` as a unique tournament id
-- ```name``` for the name of the tournament
-- ```date``` as a timestamp for when the tournament was played.
+The api will respond with an ```array``` composed of ```objects```.
 
 ### Response fields
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
 | tournaments | Array | An array composed of objects with previous tournaments.
+| tournaments[i].id | String | The unique id of the already played tournament.
+| tournaments[i].name | String | The name of the already played tournament.
+| tournaments[i].date | String | The date when the tournament was played. Its formatted in a ISO 8601  date string.
 
 ### Possible errors
 400 Bad Request
@@ -119,12 +111,12 @@ The api will respond with an ```array``` composed of ```objects```, which contai
 
 ## Get game scores for a field
 
-```GET htw-turnier.de/{tournamentID}/fields/{fieldID}```
+```GET htw-turnier.de/api/{tournamentID}/fields/{fieldID}```
 
 Get all games from a field.
 
 ### Explanation
-This endpoint does not need any parameters and is meant to return a list of scores from the played games.
+This endpoint does not need any parameters and is meant to return a list of scores from the played games on a specific field.
 
 ### Response
 ```
@@ -138,14 +130,16 @@ HTTP/1.1 200 OK
 }
 ```
 
-The api will respond with an ```array``` composed of ```objects```, which contain:
-- ```id``` as the unique game id
-- ```score``` for the games score. This is an ```array``` of which the index [0] is the score for team 1 and the index [1] is the score for team 2.
+The api will respond with an ```array``` composed of ```objects```.
 
 ### Response fields
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
 | games | Object | An array composed of objects with game scores for a game.
+| games[i].id | String | The id of the game.
+| games[i].score | Array (1-2) | An array composed of 2 integer as the game score.
+
+The game score ```array``` describes the score for team 1 in the index `[0]` and the index `[1]` is the score for team 2.
 
 ### Possible errors
 400 Bad Request
@@ -175,7 +169,7 @@ The api will respond with an ```array``` composed of 2 ```integers```. The first
 ### Response fields
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
-| score | Array | An array composed of 2 integers.  .
+| score | Array (1-2) | An array composed of 2 integers.
 
 ### Possible errors
 400 Bad Request
@@ -194,7 +188,7 @@ Edit a specific game score.
 
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
-| score | Array | An array for the new game score.
+| score | Array (1-2) | An array for the new game score.
 
 ### Example request data
 
