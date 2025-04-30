@@ -2,8 +2,6 @@ from server import *
 import fastapi
 from data.apiobjects.apiobjects import *
 from fastapi.middleware.cors import CORSMiddleware
-from database import create_tournament_db
-import uuid
 
 api = fastapi.FastAPI()
 server = Server()
