@@ -91,3 +91,7 @@ class Database:
         data = self.query(tournament_id,"""SELECT * FROM config""")
         return data
     
+    def get_games_from_field(self,tournament_id,field_id):
+        data = self.query(tournament_id,"""SELECT * FROM games WHERE field_id IS ?""",[field_id])
+        return data
+    
