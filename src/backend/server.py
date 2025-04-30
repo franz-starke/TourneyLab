@@ -70,3 +70,15 @@ class Server:
                 return_data.append({"id":data[0],"name":data[1],"date":data[5]})
 
         return return_data
+    
+    def get_games_from_fied(self,tournament_id:str,field_id):
+        """
+        Documentation here
+        """
+
+        return_data = []
+        data = self.database.get_games_from_field(tournament_id,field_id)
+        for game in data:
+            return_data.append({"id":game[0],"score":[game[5],game[6]]})
+
+        return return_data
