@@ -16,10 +16,16 @@ api.add_middleware(
     allow_headers=["*"],
 )
 
+@api.post("/api/create")
 def create_tournaments(data: CreateTournament):
-    tournament_id = str(uuid.uuid4())
-    create_tournament_db(tournament_id)
-    return {"turnamentid": "0"}
+    name = data.name
+    teams = data.teams
+    games = data.games
+    date = data.date
+
+    tournament_id = server.create_tournament(name,teams,games,date)
+
+    return {"tournamentid": tournament_id}
 
 @api.get("/tournaments")
 def get_tournaments():
