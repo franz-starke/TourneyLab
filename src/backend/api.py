@@ -8,7 +8,16 @@ import uuid
 api = fastapi.FastAPI()
 server = Server()
 
-@api.post("/create")
+origins = ["*"]
+
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 def create_tournaments(data: CreateTournament):
     tournament_id = str(uuid.uuid4())
     create_tournament_db(tournament_id)
