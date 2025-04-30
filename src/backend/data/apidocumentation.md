@@ -69,6 +69,8 @@ The api will respond with a unique tournament id, that can be used to make api r
 
 403 Forbidden
 
+500 Internal Server Error
+
 503 Service Unavailable
 
 ## Get old tournaments
@@ -105,6 +107,8 @@ The api will respond with an ```array``` composed of ```objects```.
 400 Bad Request
 
 403 Forbidden
+
+500 Internal Server Error
 
 503 Service Unavailable
 
@@ -146,6 +150,8 @@ The game score ```array``` describes the score for team 1 in the index `[0]` and
 
 403 Forbidden
 
+500 Internal Server Error
+
 503 Service Unavailable
 
 ## Get a game score
@@ -175,6 +181,8 @@ The api will respond with an ```array``` composed of 2 ```integers```. The first
 400 Bad Request
 
 403 Forbidden
+
+500 Internal Server Error
 
 503 Service Unavailable
 
@@ -214,5 +222,7 @@ The api will respond with a status code, dependent on the correctness of the cha
 400 Bad Request
 
 403 Forbidden
+
+500 Internal Server Error
 
 503 Service Unavailable
