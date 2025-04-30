@@ -34,12 +34,11 @@ def get_tournaments():
     
     return {"tournaments": tournaments}
 
-@api.get("/{tournament_id}/fields/{field_id}")
+@api.get("/api/{tournament_id}/fields/{field_id}")
 def get_field_games(tournament_id: str, field_id: str):
-    return {"games": [
-        ["0",1743455286,1743455777,["0","Fun 1"],["1","Fun 2"],"Fun 3",[0,0]],
-        ["1",1743455888,1743455999,["1","Fun 2"],["0","Fun 1"],"Fun 3",[10,10]],
-    ]}
+    
+    games = server.get_games_from_fied(tournament_id,field_id)
+    return {"games":games}
 
 @api.get("/{tournament_id}/game/{game_id}")
 def get_game_points(tournament_id: str, game_id: str):
