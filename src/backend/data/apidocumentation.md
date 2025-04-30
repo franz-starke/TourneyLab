@@ -71,6 +71,8 @@ The api will respond with a unique tournament id, that can be used to make api r
 
 405 Method Not Allowed
 
+422 Unprocessable Entity
+
 500 Internal Server Error
 
 503 Service Unavailable
@@ -111,6 +113,8 @@ The api will respond with an ```array``` composed of ```objects```.
 403 Forbidden
 
 405 Method Not Allowed
+
+422 Unprocessable Entity
 
 500 Internal Server Error
 
@@ -156,6 +160,8 @@ The game score ```array``` describes the score for team 1 in the index `[0]` and
 
 405 Method Not Allowed
 
+422 Unprocessable Entity
+
 500 Internal Server Error
 
 503 Service Unavailable
@@ -189,6 +195,8 @@ The api will respond with an ```array``` composed of 2 ```integers```. The first
 403 Forbidden
 
 405 Method Not Allowed
+
+422 Unprocessable Entity
 
 500 Internal Server Error
 
@@ -232,6 +240,8 @@ The api will respond with a status code, dependent on the correctness of the cha
 403 Forbidden
 
 405 Method Not Allowed
+
+422 Unprocessable Entity
 
 500 Internal Server Error
 
