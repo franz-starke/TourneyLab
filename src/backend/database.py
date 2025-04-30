@@ -99,3 +99,6 @@ class Database:
         data = self.query(tournament_id,"""SELECT * FROM games WHERE id IS ?""",[game_id])
         return data
     
+    def set_game_score(self,tournament_id:str,game_id,score):
+        data = self.query(tournament_id,"""UPDATE games SET score1 = ?, score2 = ? WHERE id = ?""",[score[0],score[1],game_id])
+        return data
