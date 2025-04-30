@@ -87,3 +87,7 @@ class Database:
                    (id,field_id,team1,team2,ref,score1,score2)
             VALUES (?,?,?,?,?,?,?)""",[game,*games[game]])
 
+    def get_config(self,tournament_id:str):
+        data = self.query(tournament_id,"""SELECT * FROM config""")
+        return data
+    
