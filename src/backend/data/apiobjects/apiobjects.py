@@ -7,6 +7,5 @@ class CreateTournament(BaseModel):
     groups: int
     returngame: bool
 
-class PointUpdate(BaseModel):
-    team1: int
-    team2: int
+class ScoreUpdate(BaseModel):
+    score: list
