@@ -95,3 +95,7 @@ class Database:
         data = self.query(tournament_id,"""SELECT * FROM games WHERE field_id IS ?""",[field_id])
         return data
     
+    def get_game_score(self,tournament_id:str,game_id):
+        data = self.query(tournament_id,"""SELECT * FROM games WHERE id IS ?""",[game_id])
+        return data
+    
