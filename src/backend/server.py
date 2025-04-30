@@ -100,3 +100,25 @@ class Server:
         data = self.database.set_game_score(tournament_id,game_id,score)
         return True
 
+    def generate_unique_string(self):
+        length = 8
+        characters = string.ascii_letters + string.digits
+        max_iterations = len(characters)**8
+        iteration = 0
+        used_uuids = []
+        files = os.listdir(DATABASE_PATH)
+        
+        for file in files.copy():
+            if file.endswith(".db") and len(file) == 11:
+                used_uuids.append(file.replace(".db",""))
+        
+        while True:
+            if iteration >= max_iterations:
+                return
+            
+            new_uuid = ""
+            for i in range(length):
+                new_uuid += secrets.choice(characters)
+
+            if new_uuid not in used_uuids:
+                return new_uuid
