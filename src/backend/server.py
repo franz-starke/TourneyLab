@@ -56,22 +56,17 @@ class Server:
         return uuid
 
     def get_tournaments(self):
-        pass
+        
+        """
+        Documentation here
+        """
 
-    def get_field_games(self):
-        pass
+        return_data = []
+        files = os.listdir(DATABASE_PATH)
+        for file in files.copy():
+            if file.endswith(".db") and len(file) == 11:
+                uuid = file.replace(".db","")
+                data = self.database.get_config(uuid)[0]
+                return_data.append({"id":data[0],"name":data[1],"date":data[5]})
 
-    def get_game_points(self):
-        pass
-
-    def update_game_points(self):
-        pass
-
-    def get_groups(self):
-        pass
-
-    def get_group_teams(self):
-        pass
-
-    def get_team_info(self):
-        pass
+        return return_data
