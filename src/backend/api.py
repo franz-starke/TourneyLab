@@ -52,27 +52,3 @@ def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
     score = data.score
     server.set_game_score(tournament_id,game_id,score)
     return fastapi.HTTPException(status_code=200,detail="OK")
-
-@api.get("/{tournament_id}/groups")
-def get_groups(tournament_id: str):
-    return {"groups": [
-            ["Fun 1","0"],
-            ["Fun 2","1"],
-            ["Fun 3","2"],
-        ]}
-
-@api.get("/{tournament_id}/groups/{group_id}")
-def get_group_teams(tournament_id: str, group_id: str):
-    return {"teams": [
-        ["Fun 1",2],
-        ["Fun 2",0],
-        ["Fun 3",5],
-    ]}
-
-@api.get("/{tournament_id}/team/{team_id}")
-def get_team_info(tournament_id: str, team_id: str):
-    return {"games":[
-        {"team1": "Fun 1","team2": "Fun 2","start": 1743455286,"end": 1743455777,"field": 0,"points": [0,0]},
-        {"team1": "Fun 2","team2": "Fun 1","start": 1743455777,"end": 1743455888,"field": 0,"points": [0,0]},
-        {"team1": "","team2": "","start": 1743455888,"end": 1743455999,"field": 0,"points": [0,0]}
-    ]}
