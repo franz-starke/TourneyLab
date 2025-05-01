@@ -18,7 +18,7 @@ import { ref } from "vue";
 const activeFieldID = ref(1);
 
 const store = useTournamentStore();
-console.log(store.tournamentData);
+console.log(store.tournament.games[1]);
 
 function renderGamesForField(fieldID) {
   activeFieldID.value = fieldID;
@@ -30,7 +30,7 @@ function renderGamesForField(fieldID) {
   <div id="fields">
     <div
       class="button"
-      v-for="field in Object.keys(store.tournamentData)"
+      v-for="field in Object.keys(store.tournament.games)"
       @click="renderGamesForField(field)"
     >
       Feld {{ field }}
@@ -39,15 +39,11 @@ function renderGamesForField(fieldID) {
 
   <div id="games-for-field">
     <div
-      v-for="(game, gameID) in store.tournamentData[activeFieldID]"
-      :key="gameID"
+      v-for="(game, gameId) in store.tournament.games[activeFieldID]"
+      :key="gameId"
     >
-      <Game 
-        :team1="game[0]"
-        :team2="game[1]"
-        :referee="game[2]"
-        :points="game[3]"
-        :gameID="Number(gameID)"
+      <Game
+        :gameID="Number(gameId)"
       />
     </div>
   </div>

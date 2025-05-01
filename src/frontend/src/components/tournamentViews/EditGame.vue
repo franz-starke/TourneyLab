@@ -14,13 +14,11 @@ const props = defineProps({
 const game = ref([]);
 const points = ref([]);
 
-
-
 // TODO: first request most recent Points for game from server
 // if not online, then use pinia store
 onBeforeMount(() => {
   console.log("gameID ", props.gameID);
-  Object.values(store.tournamentData).forEach((field) => {
+  Object.values(store.tournament.games).forEach((field) => {
     Object.keys(field).forEach((gameId) => {
       if (gameId == props.gameID) {
         game.value = field[gameId];
@@ -32,13 +30,12 @@ onBeforeMount(() => {
   console.log("game ", game.value);
 });
 
-
 //  TODO: first send request to api for new points
 watch(
   () => points.value,
   (newPoints) => {
     console.log("Points updated to", newPoints);
-    Object.values(store.tournamentData).forEach((field) => {
+    Object.values(store.tournament.games).forEach((field) => {
       Object.keys(field).forEach((gameId) => {
         if (gameId == props.gameID) {
           field[gameId][3] = newPoints;
@@ -64,12 +61,7 @@ watch(
       >
         -
       </button>
-      <button
-        @click="(points[0] += 1)"
-        class="float-right"
-      >
-        +
-      </button>
+      <button @click="points[0] += 1" class="float-right">+</button>
     </div>
   </div>
   <div id="t2-points">

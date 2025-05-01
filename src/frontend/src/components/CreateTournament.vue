@@ -22,6 +22,7 @@ const amountFields = ref(1);
 const amountTeams1 = ref(3);
 const amountTeams2 = ref(0);
 const amountGroups = ref(1);
+const teamgroups = ref({}); // variable to hold the teams in the groups
 const withReturnGame = ref(false);
 const tournamentData = ref({});
 const games = ref({});
@@ -51,13 +52,14 @@ async function generateTournament() {
     withReturnGame.value
   );
 
+  teamgroups.value = {
+    1: amountTeams1.value,
+    2: amountTeams2.value,
+  };
+
   //// DEBUGING
   console.log("test", games.value);
   ////
-
-  // TODO:
-  // based on output from the Tournament Algorithm, we need to decide if refs have to be added manually
-  // if (games.some((game) => game[2] === "leer")) {
 
   // Check if any array has a 0 at index 2 <=> no referee assigned
   const hasZeroAtIndex2 = Object.values(games.value).some((innerObj) =>
@@ -71,11 +73,10 @@ async function generateTournament() {
   }
 
   // if online, then sync this data to the server
-  //TODO: test api
-  // if (navigator.onLine) {
-  //   console.log("Online: Synchronizing tournament data with the server...");
-  //   await syncTournament();
-  // }
+  if (navigator.onLine) {
+    console.log("Online: Synchronizing tournament data with the server...");
+    await syncTournament();
+  }
 
   // init games with Points 0,0
   Object.keys(games.value).forEach((field) => {
@@ -87,11 +88,32 @@ async function generateTournament() {
   });
 
   // store Tournament data in localstorage via pinia
-  store.setTournamentName(tournamentName.value);
-  store.updateTournament(games.value);
+  store.tournament.games  = games.value;
+  store.tournament.name = tournamentName.value;
+
+
+  // console.log(store.tournament);
 
   // Redirect to the tournament home page
   router.push({ name: "tournament-home" });
+}
+
+// Methode, um nach erfolgter Turnierplanerstellung, die Daten mit dem Server zu synchronisieren.
+// falls das nicht möglich ist, sollten die Daten im localstorage via pinia aufbewahrt werden
+async function syncTournament() {
+  tournamentData.value = {
+    name: tournamentName.value,
+    teams: teamgroups.value,
+    games: games.value,
+    date: 0,
+  };
+
+  // call API at create
+  let res = await api.createTournament(tournamentData.value);
+
+  // save the tournament ID in the store
+  store.tournament.id = res.tournamentid;
+  // console.log("Tournament created with ID: ", store.tournamentId);
 }
 
 /**
@@ -116,7 +138,6 @@ function submitRefModal() {
     resolvePromise(games.value); // Resolve the promise with the updated games
   }
 }
-
 
 function closeRefModal() {
   console.log("Modal closed without saving changes.");
@@ -188,31 +209,12 @@ function availableRefs(gameId) {
   return refs;
 }
 
-// Methode, um nach erfolgter Turnierplanerstellung, die Daten mit dem Server zu synchronisieren.
-// falls das nicht möglich ist, sollten die Daten im localstorage via pinia aufbewahrt werden
-async function syncTournament() {
-  tournamentData.value = {
-    name: tournamentName.value,
-    fields: amountFields.value,
-    teams: amountTeams.value,
-    groups: amountGroups.value,
-    return: withReturnGame.value,
-    games: {},
-  };
-
-  // call API at create
-  await api.createTournament(tournamenData);
-}
-
 function updateFreeRefs(event, gameId, fieldNum) {
   // function to update the free refs for the game
   const selectedRef = event.target.value;
   games.value[fieldNum][gameId][2] = selectedRef; // Update the referee in the games object
   console.log("Selected Referee: ", selectedRef);
 }
-
-
-
 </script>
 
 <template>
