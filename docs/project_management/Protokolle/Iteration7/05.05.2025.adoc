@@ -1,0 +1,125 @@
+
+
+= Protokoll Weekly
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc: left
+:icons: font
+:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
+
+.generelle Informationen
+- **Zeit:** 09:45 - 11:00 Uhr 
+- **Ort:**  online via Discord
+- **Protokollant:** Sebastian Heber
+- **Anwesend:**  Mutaz Abuazizeh, Joshua Heninger, Franz Starke, Sebastian Heber, Ali Zeinelov
+- **Abwesend:**  Ibrahim Braikeh, Jannis Wittchen (entschuldigt wegen Arbeit) 
+
+== Agenda
+
+[cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
+|===
+|Nr. |Tagesordnungspunkt |Dauer |Ergebnis |Verantwortlich
+
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnigs
+// |Verantwortliche
+
+|0
+|Begrüßung und besprechen der Agenda
+|2 Min.
+|alle wissen wo's langeht und es geht los
+|Sebastian
+
+|1
+|Aktuellen Stand der Untergruppen besprechen
+|45 Min.
+|
+|Alle
+
+|2
+|Präsentation am Freitag 09.05.
+|10 Min.
+|
+|Alle
+
+
+|3
+|Planung von gemeinsamer Arbeitssession
+|45 Min.
+|
+|Alle
+
+
+|Abschluss
+|Terminabklärung und Aufgabenverteilung abschließen
+|3 Min.
+|Jeder weiß wann wir uns das nächste Mal treffen
+|Alle
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
+
+
+|===
+
+
+<<<
+
+== Besprechung der TOP's
+
+
+=== TOP 1: Aktuellen Stand der Untergruppen besprechen
+
+Auswertungsalgorhytmus
+
+
+Frontend:
+
+
+
+Backend:
+
+- API 
+
+
+=== TOP 2: Präsentation am Freitag 09.05.
+
+=== TOP 3: Planung von gemeinsamer Arbeitssession
+
+
+
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+
+gemeinsames Treffen am 10.05.
+
+== Aufgabenverteilung
+
+
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+|
+|
+|
+|
+|
+
+
+
+|===
+
+
+
+
+== Anhang
+- **Links und Dokumente:**
