@@ -82,7 +82,6 @@ Auswertungsalgorhytmus:
 
 - grobe Information gesammelt
 
-
 Frontend:
 
 - API Endpunkte getestet -> check
@@ -113,7 +112,9 @@ Den Auftakt bildet der Aspekt Projektmanagement. Bitte bereiten Sie dafür PRO T
 
 - Rundendauer
 
-- Treffen mit Auftraggeberin
+- Treffen mit Auftraggeberin nächste Woche
+
+Fragen: Kombinationen checken bei Eingabe, zusätzliche Schiedsrichter
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
