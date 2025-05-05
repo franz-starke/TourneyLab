@@ -49,7 +49,7 @@ vom __date__
 
 |3
 |Planung von gemeinsamer Arbeitssession
-|45 Min.
+|10 Min.
 |
 |Alle
 
@@ -78,23 +78,42 @@ vom __date__
 
 === TOP 1: Aktuellen Stand der Untergruppen besprechen
 
-Auswertungsalgorhytmus
+Auswertungsalgorhytmus:
+
+- grobe Information gesammelt
 
 
 Frontend:
 
-
+- API Endpunkte getestet -> check
+- create Turnament -> check
 
 Backend:
 
-- API 
+- Merging jetzt schon möglich
+
+- API funktioniert und dokumentiert
+
+Ein Endpunkt fehlt. Alte Turniere
+Problem: Datenstruktur fehlt
+
+
 
 
 === TOP 2: Präsentation am Freitag 09.05.
 
+Den Auftakt bildet der Aspekt Projektmanagement. Bitte bereiten Sie dafür PRO TEAM 2-3 Folien vor, auf denen Sie stichpunktartig folgende Fragen beantworten:
+
+1. Wie werden in unserem Team Anforderungen und Aufgaben gesammelt, verteilt und deren Erfüllung geprüft?
+2. Welche Erfolge haben wir bislang im Projektmanagement erzielt - was klappt besonders gut?
+3. Welche Probleme konnten wir bislang noch nicht lösen?
+4. Welchen Beitrag hat Risikomanagement bislang zur Vermeidung bzw. Reduzierung von Problemen geleistet?
+
 === TOP 3: Planung von gemeinsamer Arbeitssession
 
+- Rundendauer
 
+- Treffen mit Auftraggeberin
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
