@@ -1,5 +1,5 @@
 = Vision: {project-name}
-Sebastian Heber <sebastian.heber2@stud.htw-dresden.de>; Joshua Heninger <s87568@htw-dresden.de>; Franz Starke <franz.starke@stud.htw-dresden.de>; Mutaz Abuazizeh <s87611@htw-dresden.de>; Jannis Wittchen <jannis.wittchen@stud.htw-dresden.de>; Til Simon <til.simon@stud.htw-dresden.de>; Konstantin Becher <konstantin.becher@stud.htw-dresden.de>; Ibrahim Braikeh <ibrahim.braikeh@stud.htw-dresden.de>
+include::../_includes/team-members.adoc[]
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute

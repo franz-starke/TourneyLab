@@ -1,4 +1,5 @@
 = Architecture Notebook: {project-name}
+include::../_includes/team-members.adoc[]
 {localdatetime}
 :imagesdir: images
 include::../_includes/default-attributes.inc.adoc[]
