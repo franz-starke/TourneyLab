@@ -56,7 +56,6 @@ class Server:
         return uuid
 
     def get_tournaments(self):
-        
         """
         Documentation here
         """

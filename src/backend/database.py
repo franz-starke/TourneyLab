@@ -72,7 +72,7 @@ class Database:
                    (id,name)
             VALUES (?,?)""",[field,fields[field]])
 
-
+        # Set games
         self.query(tournament_id,"""CREATE TABLE IF NOT EXISTS games (
                                id           VARCHAR PRIMARY KEY,
                                field_id     VARCHAR,
