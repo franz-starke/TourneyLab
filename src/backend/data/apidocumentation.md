@@ -25,7 +25,7 @@ Creates a new Tournament with empty games.
 
 ### Example request data
 
-```
+```json
 {
 	"name":"Sommer Turnier 2025",
     "teams":{
@@ -50,8 +50,7 @@ Creates a new Tournament with empty games.
 coming soon...
 
 ### Response
-```
-HTTP/1.1 200 OK
+```json
 {
   "tournament_id":"XYZ"
 }
@@ -87,8 +86,7 @@ Get all old tournaments, that have been created.
 This endpoint does not need any parameters and is meant to return a list of all tournaments that have been played before by any player. It includes the important ID of each already played tournament for further requests.
 
 ### Response
-```
-HTTP/1.1 200 OK
+```json
 {
   "tournaments":[
 	{"id":"XYZ","name":"Sommer Turnier 2025","date":"2025-06-20T15:53:00+05:00"},
@@ -103,9 +101,9 @@ The api will respond with an ```array``` composed of ```objects```.
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
 | tournaments | Array | An array composed of objects with previous tournaments.
-| tournaments[i].id | String | The unique id of the already played tournament.
-| tournaments[i].name | String | The name of the already played tournament.
-| tournaments[i].date | String | The date when the tournament was played. Its formatted in a ISO 8601  date string.
+| tournaments[```i```].id | String | The unique id of the already played tournament.
+| tournaments[```i```].name | String | The name of the already played tournament.
+| tournaments[```i```].date | String | The date when the tournament was played. Its formatted in a ISO 8601  date string.
 
 ### Possible errors
 400 Bad Request
@@ -131,8 +129,7 @@ Get all games from a field.
 This endpoint does not need any parameters and is meant to return a list of scores from the played games on a specific field.
 
 ### Response
-```
-HTTP/1.1 200 OK
+```json
 {
 	"games":[
 		{"id":"0","score":[0,2]},
@@ -176,8 +173,7 @@ Gets the current score for a game.
 This endpoint does not need any parameters and is meant to return an array with 2 entries which is the score for the requested game.
 
 #### Response
-```
-HTTP/1.1 200 OK
+```json
 {
   "score":[5,2]
 }
@@ -216,7 +212,7 @@ Edit a specific game score.
 
 ### Example request data
 
-```
+```json
 {
 	"score":[1,4]
 }
@@ -228,7 +224,7 @@ The ```score``` field is a required entry with 2 ```integer```, which represent 
 
 ### Response
 
-```
+```json
 HTTP/1.1 200 OK
 ```
 
