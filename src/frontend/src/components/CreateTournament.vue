@@ -88,11 +88,11 @@ async function generateTournament() {
   });
 
   // store Tournament data in localstorage via pinia
-  store.tournament.games  = games.value;
+  store.tournament.games = games.value;
   store.tournament.name = tournamentName.value;
 
 
-  // console.log(store.tournament);
+  console.log(store.tournament);
 
   // Redirect to the tournament home page
   router.push({ name: "tournament-home" });
@@ -110,6 +110,10 @@ async function syncTournament() {
 
   // call API at create
   let res = await api.createTournament(tournamentData.value);
+  if (res == undefined) {
+    console.error("Api access error in syncTournament");
+    return;
+  }
 
   // save the tournament ID in the store
   store.tournament.id = res.tournamentid;
@@ -220,62 +224,29 @@ function updateFreeRefs(event, gameId, fieldNum) {
 <template>
   <!-- Dashboard html -->
   <form v-if="!showRefModal">
-    <input
-      v-model="tournamentName"
-      type="text"
-      placeholder="Enter tournament name"
-      maxlength="8"
-      required
-    /><br />
+    <input v-model="tournamentName" type="text" placeholder="Enter tournament name" maxlength="8" required /><br />
     <p>
       <label for="amountFields">Amount Fields: </label>
-      <input
-        id="amountFields"
-        v-model="amountFields"
-        type="number"
-        min="1"
-        max="4"
-        required
-      />
+      <input id="amountFields" v-model="amountFields" type="number" min="1" max="4" required />
     </p>
     <p>
       Amount Groups:
       <input v-model="amountGroups" type="number" min="1" max="2" required />
     </p>
     <p>
-      <label for="amountTeams1"
-        >Amount Teams {{ amountGroups == 1 ? "" : " Group 1" }}:
+      <label for="amountTeams1">Amount Teams {{ amountGroups == 1 ? "" : " Group 1" }}:
       </label>
-      <input
-        id="amountTeams1"
-        v-model="amountTeams1"
-        type="number"
-        min="3"
-        max="12"
-        required
-      />
+      <input id="amountTeams1" v-model="amountTeams1" type="number" min="3" max="12" required />
     </p>
     <p v-if="amountGroups == 2">
       <!-- * Only show this input if there are 2 groups -->
       <label for="amountTeams2">Amount Teams Group 2: </label>
-      <input
-        id="amountTeams2"
-        v-model="amountTeams2"
-        type="number"
-        min="3"
-        max="12"
-        required
-      />
+      <input id="amountTeams2" v-model="amountTeams2" type="number" min="3" max="12" required />
     </p>
 
     <p>
       <label for="withReturnGame">with Return Game </label>
-      <input
-        id="withReturnGame"
-        v-model="withReturnGame"
-        type="checkbox"
-        required
-      />
+      <input id="withReturnGame" v-model="withReturnGame" type="checkbox" required />
     </p>
     <div class="button" @click="generateTournament" type="submit">Create</div>
   </form>
@@ -292,11 +263,7 @@ function updateFreeRefs(event, gameId, fieldNum) {
             <br />
             Referee:
             <select @change="updateFreeRefs($event, gameId, fieldNum)">
-              <option
-                v-for="ref in availableRefs(gameId)"
-                :key="ref"
-                :value="ref"
-              >
+              <option v-for="ref in availableRefs(gameId)" :key="ref" :value="ref">
                 {{ ref }}
               </option>
             </select>

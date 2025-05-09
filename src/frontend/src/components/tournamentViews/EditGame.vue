@@ -5,7 +5,7 @@ import { onBeforeMount, ref, watch } from "vue";
 const store = useTournamentStore();
 
 const props = defineProps({
-  gameID: {
+  gameId: {
     type: Number,
     required: true,
   },
@@ -17,10 +17,10 @@ const points = ref([]);
 // TODO: first request most recent Points for game from server
 // if not online, then use pinia store
 onBeforeMount(() => {
-  console.log("gameID ", props.gameID);
+  console.log("gameId ", props.gameId);
   Object.values(store.tournament.games).forEach((field) => {
     Object.keys(field).forEach((gameId) => {
-      if (gameId == props.gameID) {
+      if (gameId == props.gameId) {
         game.value = field[gameId];
         points.value = field[gameId][3];
       }
@@ -37,7 +37,7 @@ watch(
     console.log("Points updated to", newPoints);
     Object.values(store.tournament.games).forEach((field) => {
       Object.keys(field).forEach((gameId) => {
-        if (gameId == props.gameID) {
+        if (gameId == props.gameId) {
           field[gameId][3] = newPoints;
         }
       });

@@ -1,10 +1,10 @@
-<!-- TODO: 
- + fill as per wireframe
- + list games per field via api calls or localstorage (pinia store)
- + maybe create "editable Game"- component for listing Games
-    because user should be able to change Game State
-    => so when clicking on it, should open a Game-Editor where 
-        points can be changed (maybe as router-links to a GameEdit.vue component)
+<!-- TODO:
+   + fill as per wireframe
+   + list games per field via api calls or localstorage (pinia store)
+   + maybe create "editable Game"- component for listing Games
+      because user should be able to change Game State
+      => so when clicking on it, should open a Game-Editor where
+          points can be changed (maybe as router-links to a GameEdit.vue component)
 
 -->
 
@@ -28,23 +28,14 @@ function renderGamesForField(fieldID) {
 
 <template>
   <div id="fields">
-    <div
-      class="button"
-      v-for="field in Object.keys(store.tournament.games)"
-      @click="renderGamesForField(field)"
-    >
+    <div class="button" v-for="field in Object.keys(store.tournament.games)" @click="renderGamesForField(field)">
       Feld {{ field }}
     </div>
   </div>
 
   <div id="games-for-field">
-    <div
-      v-for="(game, gameId) in store.tournament.games[activeFieldID]"
-      :key="gameId"
-    >
-      <Game
-        :gameID="Number(gameId)"
-      />
+    <div v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
+      <Game :team1="game[0]" :team2="game[1]" :referee="game[2]" :points="game[3]" :gameId="Number(gameId)" />
     </div>
   </div>
 </template>
