@@ -1,55 +1,96 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
-    <header></header>
+  <header class="page-header">
+    <h1>Turnierplattform</h1>
+  </header>
+
+  <main class="landing">
+    <h2>Willkommen zum Turnierportal</h2>
+    <p>Erstelle oder betrete ein Turnier deiner Wahl.</p>
+
     <div class="button-wrapper">
-        <RouterLink id="join" class="router-link highlight-button" to="/enter-tournament">
-          <div id="div-icon">
-                <svg id="enter-icon" xmlns="http://www.w3.org/2000/svg" width="164" height="164" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
-                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-                </svg>
-          </div>
-          Turnier beitreten
-        </RouterLink>
-        <RouterLink class="router-link" to="/create-tournament">neues Turnier</RouterLink>
-        <RouterLink class="router-link" to="/old-tournament">altes Turnier</RouterLink>
+      <RouterLink class="highlight-button" to="/enter-tournament">
+        <svg class="enter-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 ..."/>
+          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 ..."/>
+        </svg>
+        Turnier beitreten
+      </RouterLink>
+
+      <RouterLink class="default-button" to="/create-tournament">Neues Turnier</RouterLink>
+      <RouterLink class="default-button" to="/old-tournament">Altes Turnier</RouterLink>
     </div>
+  </main>
 </template>
 
 <style scoped>
-
-#button-wrapper {
-  /* width: 100%; */
-  height: 100%;
-  min-width: 140px;
-  /* align-items: center; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-
-    
-#join{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-}
-
-
-
-#enter-icon {
+.page-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #2c3e50;
   color: white;
-  width: 80%;
-  height: 80%;
-  min-width: none;
-  margin-right: 50px;
 }
 
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
 
+.landing h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.landing p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 200px;
+}
+
+.highlight-button,
+.default-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.highlight-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.highlight-button:hover {
+  background-color: #2980b9;
+}
+
+.default-button {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+}
+
+.default-button:hover {
+  background-color: #d0d7de;
+}
+
+.enter-icon {
+  width: 24px;
+  height: 24px;
+}
 </style>
