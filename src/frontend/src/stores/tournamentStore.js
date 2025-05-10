@@ -1,29 +1,24 @@
 // stores/tournamentStore.js
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { useLocalStorage } from "@vueuse/core";
+import { ref, watch } from "vue";
 
 export const useTournamentStore = defineStore("tournament", () => {
-  const tournamentGroups = ref(1)
-  const tournamentName = ref("");
-  const tournamentData = ref({});
+  const tournament = ref({
+    game: {},
+    name: "",
+    id: "",
+    groups: [],
+  });
 
-  function updateTournament(data) {
-    tournamentData.value = data;
-  }
-
-  function setTournamentName(name) {
-    tournamentName.value = name;
-  }
-
-  function setTournamentGroups(groups) {
-    tournamentGroups.value = groups;
-  }
+  // Use local storage to persist tournament name
+  const tournamentLocalStorage = useLocalStorage("tournament", {});
+  tournament.value = tournamentLocalStorage.value;
+  watch(tournament, (newName) => {
+    storedTournamentName.value = newName;
+  });
 
   return {
-    tournamentGroups,
-    tournamentName,
-    tournamentData,
-    updateTournament,
-    setTournamentName,
+    tournament,
   };
 });

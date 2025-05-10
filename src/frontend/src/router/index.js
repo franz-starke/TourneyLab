@@ -21,22 +21,22 @@ const router = createRouter({
     {
       path: '/enter-tournament',
       name: 'enter-tournament',
-      component: EnterTournament, 
+      component: EnterTournament,
     },
     {
       path: '/create-tournament',
       name: 'create-tournament',
-      component: CreateTournament, 
+      component: CreateTournament,
     },
     {
       path: '/old-tournament',
       name: 'old-tournament',
-      component: ViewOldTournaments, 
+      component: ViewOldTournaments,
     },
     {
       path: '/tournament-home',
       name: 'tournament-home',
-      component: TournamentHome, 
+      component: TournamentHome,
       children: [
         {
           path: 'dashboard',
@@ -55,11 +55,11 @@ const router = createRouter({
           component: Settings,
         },
         {
-          path: 'edit-game/:gameID',
+          path: 'edit-game/:gameId',
           component: EditGame,
           name: 'edit-game',
           props: route => ({
-            gameID: Number(route.params.gameID),
+            gameId: Number(route.params.gameId),
           })
         }
       ],

@@ -1,7 +1,7 @@
 <script setup>
 import QrcodeVue, { QrcodeCanvas, QrcodeSvg } from "qrcode.vue";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
-import { inject, ref } from "vue";
+import { ref } from "vue";
 
 const syncGames = ref(false);
 
@@ -16,7 +16,7 @@ function toggleSyncGames() {
   <!-- Tournament Dashboard -->
   <div v-if="!syncGames" id="dashboard-container" class="flex-container">
     <h1>Dashboard</h1>
-    <div class="highlight-button" @click="toggleSyncGames">Sync Games</div>
+    <div class="button" @click="toggleSyncGames">Sync Games</div>
   </div>
 
   <!-- Dialog for syncing Games  -->
