@@ -125,12 +125,12 @@ class Server:
 
     def get_tournament_details(self, tournament_id: str):
         teams = self.database.get_teams(tournament_id)
-        fields = self.database.get_fields(tournament_id)
+        date = self.database.get_date(tournament_id)
         games = self.database.get_games(tournament_id)
-        name = self.database.get_tournament_data(tournament_id)
+        name = self.database.get_tournament_name(tournament_id)
         return {
         "name": name,
         "teams": teams,
-        "fields": fields,
-        "games": games
+        "games": games,
+        "date": date
     }

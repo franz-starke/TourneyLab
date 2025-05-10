@@ -242,3 +242,48 @@ The api will respond with a status code, dependent on the correctness of the cha
 500 Internal Server Error
 
 503 Service Unavailable
+
+
+```GET /api/{tournament_id}/details```
+
+Gets the details of an old tournament
+
+
+#### Explanation
+
+This endpoint does not need any parameters and is meant to return the details for the requested old tournament.
+
+### Response
+
+```json
+{
+  "name": ["Niklaus Tunier"],
+
+  "teams":{
+		"1":1,
+		"2":1,
+		"3":1,
+		"4":1
+	},
+
+  "games": {
+	"1":{
+			"1":["1","2","3",[5,7]],
+      		"2":["1","2","4",[3,9]]
+		},
+		"2":{
+			"3":["1","2","3",[23,9]],
+      		"4":["1","2","4",[24,15]]
+		}
+  },
+  "date": [124114]
+}
+```
+
+### Response fields
+| Field	| Type | Description |
+| :---: | :--: | :---------: |
+| games | Object | An array composed of objects with game scores for a game.
+| field[i].id | String | The id of the field.
+| games[i].id | String | The id of the game.
+| games[i]    | Array  | An array composed of 3 integers and an array score composed of 2 integers
