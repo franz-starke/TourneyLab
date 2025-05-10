@@ -121,3 +121,16 @@ class Server:
 
             if new_uuid not in used_uuids:
                 return new_uuid
+
+
+    def get_tournament_details(self, tournament_id: str):
+        teams = self.database.get_teams(tournament_id)
+        fields = self.database.get_fields(tournament_id)
+        games = self.database.get_games(tournament_id)
+        name = self.database.get_tournament_data(tournament_id)
+        return {
+        "name": name,
+        "teams": teams,
+        "fields": fields,
+        "games": games
+    }

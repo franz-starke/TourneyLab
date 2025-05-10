@@ -22,6 +22,9 @@ def create_tournaments(data: CreateTournament):
     teams = data.teams
     games = data.games
     date = data.date
+    
+
+
 
     tournament_id = server.create_tournament(name,teams,games,date)
 
@@ -52,3 +55,8 @@ def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
     score = data.score
     server.set_game_score(tournament_id,game_id,score)
     return fastapi.HTTPException(status_code=200,detail="OK")
+
+@api.get("/api/{tournament_id}/details")
+def get_tournament_details(tournament_id: str):
+    return server.get_tournament_details(tournament_id)
+

@@ -102,3 +102,21 @@ class Database:
     def set_game_score(self,tournament_id:str,game_id,score):
         data = self.query(tournament_id,"""UPDATE games SET score1 = ?, score2 = ? WHERE id = ?""",[score[0],score[1],game_id])
         return data
+
+    def get_tournament_name(self, tournament_id: str):
+        data = self.query(tournament_id,"""SELECT name FROM tournament""")
+        return data
+
+    def get_teams(self, tournament_id: str):
+        data = self.query(tournament_id, """SELECT * FROM teams""")
+        return data
+
+    def get_fields(self, tournament_id: str):
+        query = """SELECT * FROM fields"""
+        return self.query(tournament_id, query)
+
+    def get_games(self, tournament_id: str):
+        query = "SELECT * FROM games"
+        return self.query(tournament_id, query)
+    
+
