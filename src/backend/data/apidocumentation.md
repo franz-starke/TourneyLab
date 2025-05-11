@@ -4,6 +4,7 @@
 3. [Get game scores for a field](#get-game-scores-for-a-field)
 4. [Get a game score](#get-a-game-score)
 5. [Edit a game score](#edit-a-game-score)
+6. [get an old tournament details](#get-old-tournament-details)
 
 ## Create a tournament
 
@@ -243,7 +244,7 @@ The api will respond with a status code, dependent on the correctness of the cha
 
 503 Service Unavailable
 
-
+## get old tournament details
 ```GET /api/{tournament_id}/details```
 
 Gets the details of an old tournament
@@ -277,6 +278,7 @@ This endpoint does not need any parameters and is meant to return the details fo
 		}
   },
   "date": [124114]
+  
 }
 ```
 

@@ -22,6 +22,10 @@ def create_tournaments(data: CreateTournament):
     teams = data.teams
     games = data.games
     date = data.date
+    start_time = data.time.start_time
+    round_duration = data.time.round_duration
+    pause_duration = data.time.pause_duration
+
     
 
 
