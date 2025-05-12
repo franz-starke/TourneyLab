@@ -1,0 +1,135 @@
+
+
+= Protokoll Weekly
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc: left
+:icons: font
+:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
+
+.generelle Informationen
+- **Zeit:** 09:45 - 11:00 Uhr 
+- **Ort:**  online via Discord
+- **Protokollant:** Sebastian Heber
+- **Anwesend:**  Mutaz Abuazizeh, Joshua Heninger, Franz Starke, Sebastian Heber, Ali Zeinelov, Jannis Wittchen
+- **Abwesend:**  Ibrahim Braikeh,  (entschuldigt wegen Arbeit) 
+
+== Agenda
+
+[cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
+|===
+|Nr. |Tagesordnungspunkt |Dauer |Ergebnis |Verantwortlich
+
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnigs
+// |Verantwortliche
+
+|0
+|Begrüßung und besprechen der Agenda
+|2 Min.
+|alle wissen wo's langeht und es geht los
+|Sebastian
+
+|1
+|Auswertung Gruppenreflexion und gemeinsame Arbeitssession
+|10 Min.
+|
+|Alle
+
+|2
+|Aktuellen Stand der Untergruppen besprechen
+|45 Min.
+|
+|Alle
+
+
+|Abschluss
+|Terminabklärung und Aufgabenverteilung abschließen
+|3 Min.
+|Jeder weiß wann wir uns das nächste Mal treffen
+|Alle
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
+
+
+|===
+
+
+<<<
+
+== Besprechung der TOP's
+
+=== TOP 1: Auswertung Gruppenreflexion und gemeinsame Arbeitssession
+
+
+
+=== TOP 2: Aktuellen Stand der Untergruppen besprechen
+
+
+
+
+Auswertungsalgorhytmus:
+
+- grobe Information gesammelt
+
+Frontend:
+
+- API Endpunkte getestet -> check
+- create Turnament -> check
+
+Backend:
+
+- Merging jetzt schon möglich
+
+- API funktioniert und dokumentiert
+
+Ein Endpunkt fehlt. Alte Turniere
+Problem: Datenstruktur fehlt
+
+
+
+
+=== TOP 3: Planung von gemeinsamer Arbeitssession
+
+- Rundendauer
+
+- Treffen mit Auftraggeberin nächste Woche
+
+Fragen: Kombinationen checken bei Eingabe, zusätzliche Schiedsrichter
+
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+
+14.05.2025  17:15 Uhr Treffen Auftraggeberin hybrid A106 / https://bbb.stura.uni-heidelberg.de/rooms/op5-sij-akq-uvl/join 
+
+== Aufgabenverteilung
+
+
+[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+
+|
+|
+|
+|
+|
+
+
+
+|===
+
+
+
+
+== Anhang
+- **Links und Dokumente:**
