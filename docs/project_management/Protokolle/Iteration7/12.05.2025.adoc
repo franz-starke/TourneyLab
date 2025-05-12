@@ -70,22 +70,25 @@ vom __date__
 
 === TOP 1: Auswertung Gruppenreflexion und gemeinsame Arbeitssession
 
-
+- Gute Zusammenarbeit
+- Alle auf aktuellen Stand und in der Lage selbstständig Code zu erweitern
 
 === TOP 2: Aktuellen Stand der Untergruppen besprechen
 
-
-
+Aufgaben bis Ende Iteration
 
 Auswertungsalgorhytmus:
 
-- grobe Information gesammelt
+- Daten können grundsätzlich ausgewertet werden 
+
+- Darstellung von Ergebnissen
 
 Frontend:
-- Zeitplan
 
-- API Endpunkte getestet -> check
-- create Turnament -> check
+- Zeitplan generieren (Runden-,  Pausenzeiten)
+
+- Styling beginnen für Desktop / Smartphone Ansicht 
+
 
 Backend:
 
@@ -93,23 +96,10 @@ Backend:
 
 - Validierung der Eingabedaten
 
-- Hackking Proffing 
+- Hack Proofing
 
 - Zeiten richtig einspeichern
 
-Ein Endpunkt fehlt. Alte Turniere
-Problem: Datenstruktur fehlt
-
-
-
-
-=== TOP 3: Planung von gemeinsamer Arbeitssession
-
-- Rundendauer
-
-- Treffen mit Auftraggeberin nächste Woche
-
-Fragen: Kombinationen checken bei Eingabe, zusätzliche Schiedsrichter
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
@@ -119,17 +109,36 @@ Fragen: Kombinationen checken bei Eingabe, zusätzliche Schiedsrichter
 == Aufgabenverteilung
 
 
-[cols="3s,7,5,3,3", caption="", frame="none", grid="rows" ]
+[cols="3s,7", caption="", frame="none", grid="rows" ]
 |===
-|Wer |Aufgabe |Folgeaufgaben |Geplante Zeit |Aufgewendete Zeit
+|Wer |Aufgabe 
 
-|
-|
-|
-|
-|
+| Mutaz
+|Styling beginnen für Desktop  Ansicht 
 
+| Ali
+|Styling beginnen für Smartphone Ansicht 
 
+| Sebastian 
+| Idee für Darstellung von Ergebnissen
+
+| Janis
+| Auswertealgorhytmus fertigstellen
+
+| Joshua
+| Zeitplan generieren (Runden-,  Pausenzeiten)
+
+| Franz
+| Logging System erstellen
+
+| Franz
+| Timer für Turniererstellung (Hack Proofing)
+
+| Ibrahim 
+| korrekte Speicherung von Zeiten  
+
+| Ibrahim
+| Validierung der Eingabedaten 
 
 |===
 
