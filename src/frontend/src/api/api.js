@@ -4,7 +4,7 @@
 import axios from "axios";
 
 // choose right server address for testing or deployment
-const localhost = "127.0.0.1";
+const localhost = "127.0.0.1:8000";
 const serverDomain = "htw-turnier.de";
 const testServer = "217.79.180.226:5400";
 const protocol = "http://";
@@ -32,12 +32,10 @@ class api {
   }
 
   async getOldTournaments() {
-    console.log(this.protocol);
 
     try {
-      return await axios.get(
-        `${this.protocol}${this.serverAddr}/api/tournaments`
-      );
+      this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/tournaments`);
+      return this.response.data;
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -74,4 +72,4 @@ class api {
   }
 }
 
-export default new api(testServer);
+export default new api(localhost);

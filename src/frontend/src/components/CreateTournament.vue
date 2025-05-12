@@ -1,4 +1,6 @@
 <script setup>
+// TODO: add times configuration for the game plan
+// TODO: disallow some combinations of tournament params
 import api from "@/api/api.js";
 import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
 import Modal from "@/components/utilcomponents/Modal.vue";
@@ -9,9 +11,6 @@ import { useRouter } from "vue-router";
 // * IMPORTATN SEMANTICS
 // * Treat a game with [0,0,0] as empty game
 const emptyGame = [0, 0, 0];
-/** Certain combinations with few teams in relation to amount of fields such as
- * 7 Teams and 3 fields are not currently supported
- */
 
 const store = useTournamentStore();
 const router = useRouter();
@@ -29,22 +28,93 @@ const games = ref({});
 const rounds = ref([]); // variable to hold the rounds of the tournament
 const showRefModal = ref(false); // variable to handle if there is a ref dialog going on (for conditional rendering with v-if)
 
-let resolvePromise; // Shared variable to hold the resolve function of the promise
+let resolvePromise; // Shared variable to hold the resolve function of a promise
 
 /**
  * Function Name: generateTournament
  *
  * This function handles the User Input on the Tournament Parameters.
  * 1. It calls the Tournament Algorithm to generate the Tournament.
- *    Only valid values are allowed on user input which is handled via Html.
+ *    Only valid values are allowed as user input which is handled via Html.
  * 2. After, if any games do not yet have referees assigned, a modal dialog
  *    is opened to assign referees.
+Combinations where referees can and have to be assigned are (some ranges include totally fine combinations but it easier to wrap them together here):
+
+ Return game false:
+     Groups 2:
+        fields 2:
+            Teams1: 3
+                Teams2: 4,5
+            Teams1: 4
+                Teams2: 5
+        fields 3:
+            Teams1 + Teams2 >= 9
+        fields 4:
+            Teams1 + Teams2 >=12
+
+ Return Game true:
+    Groups 1:
+        fields 1:
+            Teams 3-12
+        fields 2:
+            Teams 6-12
+        fields 3:
+            Teams 9-12
+        fields 4:
+            Teams 12
+     Groups 2:
+        fields 1:
+            Teams1 + Teams2 = 6 to 24
+        fields 2:
+            Teams1 + Teams2 = 6 to 24
+        fields 3:
+            Teams1 + Teams2 = 9 to 24
+        fields 4:
+            Teams1 + Teams2 = 12 to 24
+
+
+
+
+Then there are combinations, that are not sensible, or where the algorithm produces a schedule where
+games don't have a referee but there are not enough teams available to assign.
+All of the deprecated combinations include:
+
+ Return Game false:
+    Groups 1:
+        fields 2:
+            Teams 3-5
+        fields 3:
+            Teams 3-8
+        fields 4:
+            Teams 3-11
+    Groups 2:
+        fields 3:
+            Teams1 + Teams2 < 9
+        fields 4:
+            Teams1 + Teams2 < 12
+
+ Return Game true:
+    Groups 1:
+        fields 2:
+            Teams 3-5
+        fields 3:
+            Teams 3-8
+        fields 4:
+            Teams 3-11
+    Groups 2:
+        fields 3:
+            Teams1 + Teams2 = 3 to 8
+        fields 4:
+            Teams1 + Teams2 = 3 to 11
+
+All non-listed combinations are unproblematic
+
  * 3. If the modal returns successfully or it wasn't needed, the tournament data is
  *    synchronized with the server. And the user is redirected to the Tournament Home.
  *
  */
 async function generateTournament() {
-  games.value = await createTournamentAlgo(
+  games.value = createTournamentAlgo(
     amountTeams1.value,
     amountTeams2.value,
     amountGroups.value,
@@ -57,20 +127,65 @@ async function generateTournament() {
     2: amountTeams2.value,
   };
 
-  //// DEBUGING
-  console.log("test", games.value);
-  ////
+  //// TEST:-------------------------------
+  //=======================================================================
+  console.log("Game plan: ", games.value);
+  rounds.value = getRounds(games.value);
 
   // Check if any array has a 0 at index 2 <=> no referee assigned
-  const hasZeroAtIndex2 = Object.values(games.value).some((innerObj) =>
-    Object.values(innerObj).some((arr) => arr[2] === 0)
-  );
+  // and see which refs are available
+  let impossibleRefAssigning = false;
+  Object.values(games.value).forEach((field) => {
+    for (const [gameId, game] of Object.entries(field)) {
+      let gameHasNoRefAndIsNoNullGame = game[2] === 0 && game[0] != 0 && game[1] != 0;
+      if (!gameHasNoRefAndIsNoNullGame) continue;
+      // find the round where the game is in
+      const round = rounds.value.find((r) =>
+        r.some((g) => g[0] === gameId.toString())
+      );
+      let refNeeded = round.reduce((total, game) => {
+        if (game[1][2] == 0) {
+          return total + 1;
+        }
+        return total;
+      }, 0);
+      console.log("Refs needed", refNeeded);
+      let refsToassign = availableRefs(gameId);
+      console.log("no ref ", gameId, " available refs: ", refsToassign);
+      if (refsToassign.length < refNeeded) impossibleRefAssigning = true;
+    }
+  });
 
-  if (hasZeroAtIndex2) {
-    // Open the modal dialog to assign referees
-    rounds.value = getRounds(games.value);
-    games.value = await openRefModal();
-  }
+  // TEST: if no refs available for a round with needed refs, then true
+  console.log("Impossible ref assigning: ", impossibleRefAssigning);
+  //=======================================================================
+
+  return;
+
+  // TODO: handle cases with manual referee assignment through modal dialog
+
+
+  // const gameHasNoRef =  Object.values(games.value).forEach((field) => { for (const [gameId, game] of Object.entries(field)) {
+  //
+  //     let gameHasNoRefAndIsNoNullGame = game[2] === 0 && game[0] != 0 && game[1] != 0;
+  //     if (!gameHasNoRefAndIsNoNullGame) continue;
+  //
+  //     let refsToassign = availableRefs(gameId);
+  //     console.log(gameId, refsToassign);
+  //
+  //   }
+  // });
+  //
+  //   console.log(gameHasNoRef);
+  //
+  //
+  //
+  // if (gameHasNoRef) {
+  //   // Open the modal dialog to assign referees
+  //   rounds.value = getRounds(games.value);
+  //   games.value = await openRefModal();
+  // }
+  //
 
   // if online, then sync this data to the server
   if (navigator.onLine) {
@@ -92,20 +207,28 @@ async function generateTournament() {
   store.tournament.name = tournamentName.value;
 
 
-  console.log(store.tournament);
+  // console.log(store.tournament);
 
   // Redirect to the tournament home page
   router.push({ name: "tournament-home" });
 }
 
-// Methode, um nach erfolgter Turnierplanerstellung, die Daten mit dem Server zu synchronisieren.
-// falls das nicht möglich ist, sollten die Daten im localstorage via pinia aufbewahrt werden
+/** Methode, um nach erfolgter Turnierplanerstellung, die Daten mit dem Server zu synchronisieren.
+* falls das nicht möglich ist, sollten die Daten im localstorage via pinia aufbewahrt werden
+*/
 async function syncTournament() {
   tournamentData.value = {
     name: tournamentName.value,
     teams: teamgroups.value,
     games: games.value,
+
+    // FIXME: don't hardcode. get from user input
     date: 0,
+    time: {
+      start_time: 14,
+      round_duration: 20,
+      pause_duration: 10,
+    },
   };
 
   // call API at create
@@ -187,7 +310,7 @@ function getRounds(games) {
 function availableRefs(gameId) {
   // function to get the available referees for the current round that gameId is in
 
-  // find the game in the rounds
+  // find the round where the game is in
   const round = rounds.value.find((r) =>
     r.some((g) => g[0] === gameId.toString())
   );
