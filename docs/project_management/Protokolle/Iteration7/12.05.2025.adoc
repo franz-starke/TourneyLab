@@ -82,15 +82,20 @@ Auswertungsalgorhytmus:
 - grobe Information gesammelt
 
 Frontend:
+- Zeitplan
 
 - API Endpunkte getestet -> check
 - create Turnament -> check
 
 Backend:
 
-- Merging jetzt schon möglich
+- Logging System 
 
-- API funktioniert und dokumentiert
+- Validierung der Eingabedaten
+
+- Hackking Proffing 
+
+- Zeiten richtig einspeichern
 
 Ein Endpunkt fehlt. Alte Turniere
 Problem: Datenstruktur fehlt
