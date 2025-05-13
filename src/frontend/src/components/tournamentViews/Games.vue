@@ -13,12 +13,27 @@ import { useTournamentStore } from "@/stores/tournamentStore";
 import Game from "../utilcomponents/Game.vue";
 import { ref } from "vue";
 
-// TODO: first fetch from api for newest tournamentData and write it into the store
-// if offline just use store
-const activeFieldID = ref(1);
 
+const activeFieldID = ref(1);
+const gamesOfActiveField = ref({});
 const store = useTournamentStore();
-console.log(store.tournament.games[1]);
+
+
+// TODO: first fetch from api for newest tournamentData and write it into the store
+// then always use store to load data (also offline)
+if (navigator.onLine) {
+  onMounted(async function () {
+    try {
+      const response = await api.getGamesWithScoresFromField(store.tournament.id, activeFieldID.value);
+      gamesOfActiveField.value = response.games;
+      // FIXME: see that correct data arrives first
+      console.log(response.games);
+      store.tournament.games[activeFieldID] = gamesOfActiveField.value;
+    } catch (error) {
+      console.error("get old tournaments failed");
+    }
+  });
+}
 
 function renderGamesForField(fieldID) {
   activeFieldID.value = fieldID;
@@ -28,7 +43,8 @@ function renderGamesForField(fieldID) {
 
 <template>
   <div id="fields">
-    <div class="button" v-for="field in Object.keys(store.tournament.games)" @click="renderGamesForField(field)">
+    <div class="button" v-for="field in Object.keys(store.tournament.games)" :key="field"
+      @click="renderGamesForField(field)">
       Feld {{ field }}
     </div>
   </div>

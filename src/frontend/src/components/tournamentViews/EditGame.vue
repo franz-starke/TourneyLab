@@ -14,9 +14,24 @@ const props = defineProps({
 const game = ref([]);
 const points = ref([]);
 
-// TODO: first request most recent Points for game from server
-// if not online, then use pinia store
-onBeforeMount(() => {
+
+// TODO: get this games score from api first if online
+// if online: update pinia store
+// then always use pinia store for rendering
+onBeforeMount(async function () {
+  if (navigator.onLine) {
+    try {
+      const response = await api.getGameScore(store.tournament.id, props.gameId);
+
+      // FIXME: see that correct data arrives first
+      console.log(response.score);
+      //TODO: update store here
+
+    } catch (error) {
+      console.error("get old tournaments failed");
+    }
+  }
+
   console.log("gameId ", props.gameId);
   Object.values(store.tournament.games).forEach((field) => {
     Object.keys(field).forEach((gameId) => {
@@ -27,13 +42,23 @@ onBeforeMount(() => {
     });
   });
 
-  console.log("game ", game.value);
 });
 
-//  TODO: first send request to api for new points
+
 watch(
   () => points.value,
   (newPoints) => {
+
+    // TODO: call api if onLine at editGameScore
+    if (navigator.onLine) {
+      try {
+        // FIXME: test whether correct request is sent
+        const response = api.editGameScore(store.tournament.id, props.gameId, newPoints);
+      } catch (error) {
+        console.error("get old tournaments failed");
+      }
+    }
+
     console.log("Points updated to", newPoints);
     Object.values(store.tournament.games).forEach((field) => {
       Object.keys(field).forEach((gameId) => {
@@ -55,10 +80,7 @@ watch(
     <h1>{{ points[0] }}</h1>
 
     <div id="points-buttons">
-      <button
-        @click="points[0] > 0 ? (points[0] -= 1) : points[0]"
-        class="float-left"
-      >
+      <button @click="points[0] > 0 ? (points[0] -= 1) : points[0]" class="float-left">
         -
       </button>
       <button @click="points[0] += 1" class="float-right">+</button>
@@ -69,10 +91,7 @@ watch(
     <h1>{{ points[1] }}</h1>
 
     <div id="points-buttons">
-      <button
-        @click="points[1] > 0 ? (points[1] -= 1) : points[1]"
-        class="float-left"
-      >
+      <button @click="points[1] > 0 ? (points[1] -= 1) : points[1]" class="float-left">
         -
       </button>
       <button @click="points[1] += 1" class="float-right">+</button>
@@ -101,6 +120,7 @@ watch(
 .float-left {
   float: left;
 }
+
 .float-right {
   float: right;
 }

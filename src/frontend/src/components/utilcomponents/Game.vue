@@ -2,6 +2,8 @@
 import { RouterLink } from "vue-router";
 import { computed } from "vue";
 
+
+
 const props = defineProps({
   team1: {
     type: Number,
@@ -24,6 +26,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+
 
 const gameRoute = computed(() => ({
   name: "edit-game",
