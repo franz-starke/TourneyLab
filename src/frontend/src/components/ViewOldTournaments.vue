@@ -6,7 +6,7 @@ import { ref, onMounted } from "vue";
 
 const tournamentIds = ref([]);
 
-getTournamentIds();
+// getTournamentIds();
 
 onMounted(async () => {
   try {

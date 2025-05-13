@@ -1,11 +1,11 @@
 <script setup>
-// TODO: add times configuration for the game plan
+// TODO: add time as Game Attribute from the create Tournament params
 // TODO: disallow some combinations of tournament params
 import api from "@/api/api.js";
 import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
 import Modal from "@/components/utilcomponents/Modal.vue";
 import { useTournamentStore } from "@/stores/tournamentStore.js";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
 // * IMPORTATN SEMANTICS
@@ -27,6 +27,31 @@ const tournamentData = ref({});
 const games = ref({});
 const rounds = ref([]); // variable to hold the rounds of the tournament
 const showRefModal = ref(false); // variable to handle if there is a ref dialog going on (for conditional rendering with v-if)
+const date = ref((new Date()).toISOString().split('T')[0]);
+// TEST: how date is represented
+// watch(date, function (newDate, oldDate) {
+//   console.log("New: ", newDate);
+//   console.log("Old: ", oldDate);
+//   console.log("type of date: ", typeof newDate);
+// })
+
+const startTime = ref("");
+// TEST: watch(startTime, function (after, before) {
+//   console.log("New: ", after);
+//   console.log("Old: ", before);
+//   console.log("type of date: ", typeof after);
+// })
+
+const roundDuration = ref(25);
+const breakDuration = ref(5);
+// TEST:
+// watch([roundDuration, breakDuration], function (after, before) {
+//   console.log("New: ", after);
+//   console.log("Old: ", before);
+//   // console.log("type of date: ", typeof after);
+// })
+
+
 
 let resolvePromise; // Shared variable to hold the resolve function of a promise
 
@@ -160,7 +185,6 @@ async function generateTournament() {
   console.log("Impossible ref assigning: ", impossibleRefAssigning);
   //=======================================================================
 
-  return;
 
   // TODO: handle cases with manual referee assignment through modal dialog
 
@@ -193,7 +217,10 @@ async function generateTournament() {
     await syncTournament();
   }
 
+
+  return;
   // init games with Points 0,0
+  // TODO: add the times to each game with startTime, roundDuration and breakDuration
   Object.keys(games.value).forEach((field) => {
     Object.keys(games.value[field]).forEach((gameId) => {
       if (games.value[field][gameId] !== emptyGame) {
@@ -218,19 +245,40 @@ async function generateTournament() {
 */
 async function syncTournament() {
   tournamentData.value = {
-    name: tournamentName.value,
+    name: tournamentName.value, // string
     teams: teamgroups.value,
-    games: games.value,
+    /* teamgroups structure
+    {
+      "1": int,
+      "2": int
+    }
 
-    // FIXME: don't hardcode. get from user input
-    date: 0,
+    */
+    games: games.value,
+    /* games structure
+    {
+      {
+         str : [
+                  {str: [int, int, int] },
+                  ...
+                ]
+      },
+         ...
+    }
+
+    */
+    date: date.value, // string ex: "2025-04-26"
     time: {
-      start_time: 14,
-      round_duration: 20,
-      pause_duration: 10,
+      start_time: startTime.value, // string ex: "14:00"
+      round_duration: roundDuration.value, // number ex: 25
+      pause_duration: breakDuration.value, // number ex: 5
     },
   };
 
+  console.log("Request data: ", tournamentData.value);
+
+  return;
+  // FIXME:
   // call API at create
   let res = await api.createTournament(tournamentData.value);
   if (res == undefined) {
@@ -371,6 +419,27 @@ function updateFreeRefs(event, gameId, fieldNum) {
       <label for="withReturnGame">with Return Game </label>
       <input id="withReturnGame" v-model="withReturnGame" type="checkbox" required />
     </p>
+
+    <p>
+      <label for="date">Date:</label>
+      <input type="date" id="input-date" name="date" v-model="date" />
+    </p>
+
+    <p>
+      <label for="start-time">Start:</label>
+      <input type="time" id="input-start-time" name="start-time" v-model="startTime" />
+    </p>
+
+    <p>
+      <label for="round-duration">Round duration (min):</label>
+      <input type="number" id="input-round-duration" name="round-duration" v-model="roundDuration" min="1" />
+    </p>
+
+    <p>
+      <label for="break-duration">Break duration (min):</label>
+      <input type="number" id="input-break-duration" name="break-duration" v-model="breakDuration" min="0" />
+    </p>
+
     <div class="button" @click="generateTournament" type="submit">Create</div>
   </form>
 
