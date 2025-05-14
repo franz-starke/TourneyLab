@@ -445,8 +445,7 @@ function distributeGamesToFieldsWithOneGroup(onlyTeamMatches, numFields, boolRue
             for (let match of fields[f]) {
                 newMatches.push(match); // Hinspiel
                 const [tm1, tm2, r] = match;
-                // Rückspiel: Teams tauschen, Schiri "leer"
-                newMatches.push([tm2, tm1, "leer"]);
+                newMatches.push([tm2, tm1, r]);
             }
             fields[f] = newMatches;
         }
@@ -864,7 +863,7 @@ function distributeGamesToFieldsAndAssignReferees(funMatches, competitiveMatches
                 for (let match of fieldsObj[f]) {
                     newArr.push(match);
                     const [t1, t2, r] = match;
-                    newArr.push([t2, t1, "leer"]);
+                    newArr.push([t2, t1, r]);
                 }
                 fieldsObj[f] = newArr;
             }
