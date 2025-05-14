@@ -26,10 +26,6 @@ def create_tournaments(data: CreateTournament):
     round_duration = data.time.round_duration
     pause_duration = data.time.pause_duration
 
-    
-
-
-
     tournament_id = server.create_tournament(name,teams,games,date)
 
     return {"tournamentid": tournament_id}

@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-
 class TimeSettings(BaseModel):
     start_time: int        
     round_duration: int     
