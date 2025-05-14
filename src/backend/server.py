@@ -70,7 +70,7 @@ class Server:
 
         return return_data
     
-    def get_games_from_fied(self,tournament_id:str,field_id):
+    def get_games_from_field(self,tournament_id:str,field_id):
         """
         Documentation here
         """
