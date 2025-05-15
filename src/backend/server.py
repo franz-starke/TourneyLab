@@ -273,38 +273,40 @@ class Server:
         }
 
 
+    def generate_unique_string(self) -> str|None:
+        """
+        Generates a unique 8-character alphanumeric string that is not currently used as a filename in the specified database path.
+
+        Returns:
+            str: A unique 8-character string if successfully generated.
+            None: If all possible unique IDs are exhausted.
+        """
 
         length = 8
         characters = string.ascii_letters + string.digits
-        max_iterations = len(characters)**8
+        max_iterations = len(characters) ** length
         iteration = 0
-        used_uuids = []
-        files = os.listdir(DATABASE_PATH)
-        
-        for file in files.copy():
-            if file.endswith(".db") and len(file) == 11:
-                used_uuids.append(file.replace(".db",""))
-        
-        while True:
-            if iteration >= max_iterations:
-                return
-            
+        used_uuids = set()
+
+        # Get all existing UUIDs from database files
+        try:
+            files = os.listdir(DATABASE_PATH)
+            for file in files:
+                if file.endswith(".db") and len(file) == length+3:
+                    used_uuids.add(file[:-3])  # Remove the ".db" extension
+        except Exception as e:
+            return None
+
+        # Generate unique UUID
+        while iteration < max_iterations:
             new_uuid = ""
             for i in range(length):
                 new_uuid += secrets.choice(characters)
 
             if new_uuid not in used_uuids:
                 return new_uuid
+            
+            iteration += 1
 
-
-    def get_tournament_details(self, tournament_id: str):
-        teams = self.database.get_teams(tournament_id)
-        date = self.database.get_date(tournament_id)
-        games = self.database.get_games(tournament_id)
-        name = self.database.get_tournament_name(tournament_id)
-        return {
-        "name": name,
-        "teams": teams,
-        "games": games,
-        "date": date
-    }
+        # If all possible iterations are exhausted
+        return None
