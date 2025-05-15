@@ -98,7 +98,7 @@ class Database:
         return data
     
     def get_game_score(self,tournament_id:str,game_id):
-        data = self.query(tournament_id,"""SELECT * FROM games WHERE id IS ?""",[game_id])
+        data = self.query(tournament_id,"""SELECT score1,score2 FROM games WHERE id IS ?""",[game_id])
         return data
     
     def set_game_score(self,tournament_id:str,game_id,score):
