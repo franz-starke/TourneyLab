@@ -172,15 +172,36 @@ class Server:
         return return_data
 
 
+    def get_game_score(self,tournament_id: str, game_id: str) -> list|Error:
         """
-        Documentation here
+        Retrieves the score from the specified game.
+
+        Args:
+            tournament_id (str): The unique ID of the tournament.
+            game_id (str): The ID of the game from which to retrieve the score.
+
+        Returns:
+            (list): A list of scores for the game [team1_score, team2_score].
         """
 
-        data = self.database.get_game_score(tournament_id,game_id)[0]
+        return_data = []
 
-        return [data[5],data[6]]
-    
-    def set_game_score(self,tournament_id:str,game_id,score):
+        try:
+            # Fetch the games associated with the specified field from the database
+            score_data = self.database.get_game_score(tournament_id,game_id)
+
+            if not score_data or not score_data[0]:
+                return Error(400, "Cannot get a score from the specified game.")
+
+            data = score_data[0]
+            return_data = [*data]
+
+        except Exception as e:
+            return Error(500, "An error occurred while retrieving the game score.")
+
+        return return_data
+
+
         """
         Documentation here
         """
