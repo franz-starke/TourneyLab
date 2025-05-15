@@ -134,18 +134,44 @@ class Server:
         return return_data
 
 
+    def get_games_from_field(self, tournament_id: str, field_id: str) -> list|Error:
         """
-        Documentation here
-        """
+        Retrieves all games associated with a specific field.
 
+        Args:
+            tournament_id (str): The unique ID of the tournament.
+            field_id (str): The ID of the field from which to retrieve games.
+
+        Returns:
+            (list): A list of dictionaries, each containing:
+                - "id": The game ID.
+                - "score": A list of scores for the game [team1_score, team2_score].
+                - "time": The start time of the game.
+        """
+        
         return_data = []
-        data = self.database.get_games_from_field(tournament_id,field_id)
-        for game in data:
-            return_data.append({"id":game[0],"score":[game[5],game[6]]})
+
+        try:
+            # Fetch the games associated with the specified field from the database
+            field_data = self.database.get_games_from_field(tournament_id, field_id)
+
+            if not field_data or not field_data[0]:
+                return Error(400, "There are no games associated with this field.")
+
+            # Loop through each game and collect the required information
+            for game in field_data[0]:
+                return_data.append({
+                    "id": game[0],
+                    "score": [game[5], game[6]],
+                    "time": game[7]
+                })
+
+        except Exception as e:
+            return Error(500, "An error occurred while retrieving field data.")
 
         return return_data
-    
-    def get_game_score(self,tournament_id:str,game_id):
+
+
         """
         Documentation here
         """
