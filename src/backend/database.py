@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from data.constances import *
+from data.utils import *
 
 class Database:
     def __init__(self):
