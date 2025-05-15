@@ -96,22 +96,44 @@ class Server:
 
         return uuid
 
-    def get_tournaments(self):
+
+    def get_tournaments(self) -> list|Error:
         """
-        Documentation here
+        Retrieves the configuration data for all tournaments stored in the database path.
+
+        Returns:
+            (list): A list of dictionaries containing:
+            - "id": The UUID of the tournament.
+            - "name": The name of the tournament.
+            - "date": The date of the tournament.
         """
 
         return_data = []
-        files = os.listdir(DATABASE_PATH)
-        for file in files.copy():
-            if file.endswith(".db") and len(file) == 11:
-                uuid = file.replace(".db","")
-                data = self.database.get_config(uuid)[0]
-                return_data.append({"id":data[0],"name":data[1],"date":data[5]})
+
+        try:
+            # List all files in the database path
+            for file in os.listdir(DATABASE_PATH):
+
+                # Check if the file is a valid database file (ends with .db and has 8-character UUID)
+                if file.endswith(".db") and len(file) == 11:
+                    uuid = file[:-3]  # Remove the ".db" extension
+                    config_data = self.database.get_config(uuid)
+
+                    # Only add to the list if config data is valid and not empty
+                    if config_data:
+                        data = config_data[0]
+                        return_data.append({
+                            "id": data[0],
+                            "name": data[1],
+                            "date": data[5]
+                        })
+
+        except Exception as e:
+            return Error(500, "An error occurred while retrieving tournament data.")
 
         return return_data
-    
-    def get_games_from_field(self,tournament_id:str,field_id):
+
+
         """
         Documentation here
         """
