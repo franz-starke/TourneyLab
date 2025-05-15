@@ -8,13 +8,30 @@ class Server:
     def __init__(self):
         self.database = Database()
 
-    def create_tournament(self,
-                          name:str,
-                          teams:dict,
-                          games:dict,
-                          date:int):
+
+    def create_tournament(self, name: str, teams: dict, games: dict, date: str) -> str|Error:
         """
-        Documentation here
+        Creates a new tournament and stores it in a database.
+
+        Args:
+            name (str): The name of the tournament. 
+            teams (dict): A dictionary representing the groups of teams. 
+                Keys are group IDs ("1" for "Fun", "2" for "Schwitzer") and values are the number of teams in each group.
+            games (dict): A dictionary representing the game schedule. 
+                Keys are field IDs, and values are dictionaries where each key is a game ID and the value is a list with match details: [team1_id, team2_id, game_time].
+            date (str): The date of the tournament.
+
+        Returns:
+            str: The unique identifier (UUID) of the newly created tournament if successful.
+            Error: An Error object if the tournament creation fails at any step.
+
+        Raises:
+            Error: If:
+            - A unique ID could not be generated.
+            - Database file creation fails.
+            - Team data preparation encounters an issue.
+            - Game data preparation encounters an issue.
+            - Tournament database insertion fails.
         """
 
         uuid = self.generate_unique_string()
