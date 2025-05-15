@@ -94,6 +94,7 @@ All fields must at least provide one game and none should be empty.
 	- Each field must contain at least one game
 
 ### Response
+
 ```json
 {
   "tournament_id":"XYZ"
@@ -103,11 +104,13 @@ All fields must at least provide one game and none should be empty.
 The api will respond with a unique tournament id, that can be used to make api requests to  this specific tournament.
 
 ### Response fields
+
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
 | tournament_id | String | The unique id for the newly created tournament.
 
 ### Possible errors
+
 400 Bad Request
 
 403 Forbidden
@@ -127,9 +130,11 @@ The api will respond with a unique tournament id, that can be used to make api r
 Get all old tournaments, that have been created.
 
 ### Explanation
+
 This endpoint does not need any parameters and is meant to return a list of all tournaments that have been played before by any player. It includes the important ID of each already played tournament for further requests.
 
 ### Response
+
 ```json
 {
   "tournaments":[
@@ -142,6 +147,7 @@ This endpoint does not need any parameters and is meant to return a list of all 
 The api will respond with an `array` composed of `objects`.
 
 ### Response fields
+
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
 | tournaments | Array | An array composed of objects with previous tournaments.
@@ -150,6 +156,7 @@ The api will respond with an `array` composed of `objects`.
 | tournaments[`i`].date | String | The date when the tournament was played. Its formatted using the `"yyyy-MM-dd"` pattern.
 
 ### Possible errors
+
 400 Bad Request
 
 403 Forbidden
@@ -162,7 +169,6 @@ The api will respond with an `array` composed of `objects`.
 
 503 Service Unavailable
 
-
 ## Get game scores for a field
 
 `GET htw-turnier.de/api/{tournamentID}/fields/{fieldID}`
@@ -170,9 +176,11 @@ The api will respond with an `array` composed of `objects`.
 Get all games from a field.
 
 ### Explanation
+
 This endpoint does not need any parameters and is meant to return a list of scores from the played games on a specific field.
 
 ### Response
+
 ```json
 {
 	"games":[
@@ -186,6 +194,7 @@ This endpoint does not need any parameters and is meant to return a list of scor
 The api will respond with an `array` composed of `objects`.
 
 ### Response fields
+
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
 | games | Object | An array composed of objects with game scores for a game.
@@ -196,6 +205,7 @@ The api will respond with an `array` composed of `objects`.
 The game score `array` describes the score for team 1 in the index `[0]` and the index `[1]` is the score for team 2.
 
 ### Possible errors
+
 400 Bad Request
 
 403 Forbidden
@@ -215,9 +225,11 @@ The game score `array` describes the score for team 1 in the index `[0]` and the
 Gets the current score for a game.
 
 #### Explanation
+
 This endpoint does not need any parameters and is meant to return an array with 2 entries which is the score for the requested game.
 
 #### Response
+
 ```json
 {
   "score":[5,2]
@@ -226,11 +238,13 @@ This endpoint does not need any parameters and is meant to return an array with 
 The api will respond with an `array` composed of 2 `integers`. The first index of the array `[0]` are the points for the team in the first field of the game and the second index `[1]` are the points for the team in the other field of the game.
 
 ### Response fields
+
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
 | score | Array (1-2) | An array composed of 2 integers.
 
 ### Possible errors
+
 400 Bad Request
 
 403 Forbidden
@@ -276,6 +290,7 @@ HTTP/1.1 200 OK
 The api will respond with a status code, dependent on the correctness of the change.
 
 ### Possible errors
+
 400 Bad Request
 
 403 Forbidden
@@ -289,6 +304,7 @@ The api will respond with a status code, dependent on the correctness of the cha
 503 Service Unavailable
 
 ## Get tournament details
+
 `GET /api/{tournament_id}/details`
 
 Gets the details of a tournament.
@@ -326,6 +342,7 @@ This endpoint does not need any parameters and is meant to return the details fo
 ```
 
 ### Response fields
+
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
 | name | String | The name of the new tournament.
