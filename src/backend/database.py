@@ -105,20 +105,10 @@ class Database:
         data = self.query(tournament_id,"""UPDATE games SET score1 = ?, score2 = ? WHERE id = ?""",[score[0],score[1],game_id])
         return data
 
-    def get_tournament_name(self, tournament_id: str):
-        data = self.query(tournament_id,"""SELECT name FROM config""")
-        return data
-
     def get_teams(self, tournament_id: str):
         data = self.query(tournament_id, """SELECT * FROM teams""")
         return data
-
-    def get_date(self, tournament_id: str):
-        data =  self.query(tournament_id,"""SELECT date FROM config""")
-        return data
-
+    
     def get_games(self, tournament_id: str):
         data = self.query(tournament_id,"""SELECT * FROM games""")
         return data
-    
-
