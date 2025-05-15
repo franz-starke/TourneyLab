@@ -227,6 +227,53 @@ class Server:
         return True
 
 
+    def get_tournament_details(self, tournament_id: str) -> dict|Error:
+        """
+        Retrieves the detailed information of a specified tournament.
+
+        Args:
+            tournament_id (str): The unique ID of the tournament.
+
+        Returns:
+            dict: A dictionary containing:
+                - "name": The name of the tournament.
+                - "teams": A list of teams participating in the tournament.
+                - "games": A list of games scheduled in the tournament.
+                - "date": The date of the tournament.
+        """
+
+        try:
+            # Fetch config data from the database
+            config_data = self.database.get_config(tournament_id)
+            if not config_data or not config_data[0]:
+                return Error(400, "Cannot fetch information from this tournament.")
+
+            data = config_data[0]
+            name = data[1]
+            date = data[5]
+
+            # Fetch all groups with their team sizes
+            team_data = self.database.get_teams(tournament_id)
+            if not team_data or not team_data[0]:
+                return Error(400, "Cannot fetch team information from this tournament.")
+            
+            # Fetch all fields with their games
+            game_data = self.database.get_games(tournament_id)
+            if not game_data or not game_data[0]:
+                return Error(400, "Cannot fetch game information from this tournament.")
+            
+        except Exception as e:
+            return Error(500, "Error while retrieving tournament details.")
+
+        return {
+            "name": name,
+            "teams": team_data[0],
+            "games": game_data[0],
+            "date": date
+        }
+
+
+
         length = 8
         characters = string.ascii_letters + string.digits
         max_iterations = len(characters)**8
