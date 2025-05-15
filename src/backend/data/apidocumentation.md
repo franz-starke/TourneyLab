@@ -381,3 +381,17 @@ In the `games` section:
 - The time is a string in `24-hour` format, using the `HH:mm` pattern (e.g., `"16:30"`).
 - The date is a string, using the `yyyy-MM-dd` format (e.g., `"2025-06-15"`).
 - Timezones are not handled by the API; clients must account for the local timezone of the tournament.
+
+### Possible errors
+
+400 Bad Request
+
+403 Forbidden
+
+405 Method Not Allowed
+
+422 Unprocessable Entity
+
+500 Internal Server Error
+
+503 Service Unavailable
