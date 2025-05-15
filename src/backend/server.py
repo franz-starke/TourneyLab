@@ -35,39 +35,64 @@ class Server:
         """
 
         uuid = self.generate_unique_string()
-        team_count = 0
-        group_count = 0
 
+        if type(uuid) != str:
+            return Error(500, "Could not create new unique ID in maximal iterations. Possibly all tournament ID slots are filled with content.")
+
+        # Create the tournament database file
         try:
-            open(os.path.join(DATABASE_PATH,f"{uuid}.db"),"w+")
-        except Exception as e:
-            print(e)
+            open(os.path.join(DATABASE_PATH, f"{uuid}.db"), "w+")
+        except Exception:
+            return Error(500, "An error occurred while creating a new tournament database file.")
 
-        field_count = len(games)
+        # Prepare game fields
         fields = {}
         for field in games:
-            fields[f"{field}"] = f"Feld {field}"
+            fields[str(field)] = f"Feld {field}"
 
+        # Prepare group data
         group_count = len(teams)
-        group_data = {"1":"Fun"}
+        group_data = {"1": "Fun"}
         if group_count != 1:
             group_data["2"] = "Schwitzer"
-        
-        team_count = sum(teams.values())
-        team_data = {}
-        for i in range(team_count):
-            team_id = f"{i+1}"
-            if group_count != 1 and i < teams["1"]:
-                team_data[team_id] = [f"Fun {team_id}",1]
-            else:
-                team_data[team_id] = [f"Schwitzer {int(team_id)-teams["1"]}",2]
 
-        playing_games = {}
-        for field in games:
-            for game in games[str(field)]:
-                playing_games[game] = [field,games[field][game][0],games[field][game][1],games[field][game][2],0,0]
-            
-        self.database.create_tournament(uuid,name,field_count,team_count,group_count,fields,team_data,group_data,playing_games,datetime.datetime.fromtimestamp(date))
+        # Prepare team data
+        try:
+            team_count = sum(teams.values())
+            team_data = {}
+            for i in range(team_count):
+                team_id = str(i + 1)
+                if group_count != 1 and i < teams["1"]:
+                    team_data[team_id] = [f"Fun {team_id}", 1]
+                else:
+                    schwitzer_id = int(team_id) - teams["1"]
+                    team_data[team_id] = [f"Schwitzer {schwitzer_id}", 2]
+        except Exception:
+            return Error(500, "An error occurred while preparing team data.")
+
+        # Prepare playing games data
+        try:
+            playing_games = {}
+            for field in games:
+                for game in games[str(field)]:
+                    playing_games[game] = [
+                        field,
+                        games[field][game][0],
+                        games[field][game][1],
+                        games[field][game][2],
+                        0,
+                        0
+                    ]
+        except Exception:
+            return Error(500, "An error occurred while preparing playing games data.")
+
+        # Save tournament to database
+        result = self.database.create_tournament(
+            uuid, name, len(fields), team_count, group_count, fields, team_data, group_data, playing_games, date
+        )
+
+        if not result:
+            return Error(500, "An error occurred while saving the tournament to the database.")
 
         return uuid
 
