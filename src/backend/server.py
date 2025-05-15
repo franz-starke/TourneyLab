@@ -202,14 +202,31 @@ class Server:
         return return_data
 
 
+    def set_game_score(self, tournament_id: str, game_id: str, score: list) -> bool|Error:
         """
-        Documentation here
+        Sets the score for a specific game in a tournament.
+
+        Args:
+            tournament_id (str): The unique ID of the tournament.
+            game_id (str): The ID of the game whose score is to be updated.
+            score (list): A list of scores for the game [team1_score, team2_score].
+
+        Returns:
+            bool: True if the score was successfully updated, False otherwise.
         """
 
-        data = self.database.set_game_score(tournament_id,game_id,score)
+        try:
+            # Attempt to update the score in the database
+            result = self.database.set_game_score(tournament_id, game_id, score)
+            if not result:
+                return Error(400, "Cannot set new score for the specified game.")
+
+        except Exception as e:
+            return Error(500, "Cannot set new score for the specified game.")
+
         return True
 
-    def generate_unique_string(self):
+
         length = 8
         characters = string.ascii_letters + string.digits
         max_iterations = len(characters)**8
