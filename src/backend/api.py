@@ -40,7 +40,7 @@ def get_tournaments():
 @api.get("/api/{tournament_id}/fields/{field_id}")
 def get_field_games(tournament_id: str, field_id: str):
     
-    games = server.get_games_from_fied(tournament_id,field_id)
+    games = server.get_games_from_field(tournament_id,field_id)
     return {"games":games}
 
 @api.get("/api/{tournament_id}/game/{game_id}")
