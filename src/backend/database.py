@@ -22,11 +22,11 @@ class Database:
                           field_count:int,
                           team_count:int,
                           group_count:int,
-                          fields:dict[str:str],
-                          teams:dict[str:list[str,int]],
-                          groups:dict[str:str],
+                          fields:dict[str,str],
+                          teams:dict[str,list[str|int]],
+                          groups:dict[str,str],
                           games:dict,
-                          date:int):
+                          date:str):
         
         # Tournament config
         self.query(tournament_id,"""CREATE TABLE IF NOT EXISTS config (
