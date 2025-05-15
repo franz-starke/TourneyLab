@@ -35,7 +35,7 @@ class Database:
                                field_count  INTEGER,
                                team_count   INTEGER,
                                group_count  INTEGER,
-                               date         TIMESTAMP)""")
+                               date         VARCHAR)""")
         
         self.query(tournament_id,"""INSERT INTO config 
                    (id,name,field_count,team_count,group_count,date)
