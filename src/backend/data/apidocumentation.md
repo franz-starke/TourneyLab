@@ -358,7 +358,7 @@ This endpoint does not need any parameters and is meant to return the details fo
 | games.{`fieldid`}.{`gameid`}[`4`] | String | Time the game is scheduled, e.g., `"16:10"`.
 | date | String | The date of the tournament, formatted using the `"yyyy-MM-dd"` pattern.
 
-# Explanation
+### Explanation
 
 In the `teams` section:
 - The keys represent group IDs (e.g., `"1"` for "Fun", `"2"` for "Schwitzer").
