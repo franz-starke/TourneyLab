@@ -25,35 +25,58 @@ def create_tournaments(data: CreateTournament):
 
     tournament_id = server.create_tournament(name,teams,games,date)
 
-    return {"tournamentid": tournament_id}
+    if type(tournament_id) == Error:
+        return fastapi.HTTPException(status_code=tournament_id.code,detail=tournament_id.message)
+    else:
+        return {"tournamentid": tournament_id}
 
 @api.get("/api/tournaments")
 def get_tournaments():
     
     tournaments = server.get_tournaments()
-    
-    return {"tournaments": tournaments}
+
+    if type(tournaments) == Error:
+        return fastapi.HTTPException(status_code=tournaments.code,detail=tournaments.message)
+    else:
+        return {"tournaments": tournaments}
 
 @api.get("/api/{tournament_id}/fields/{field_id}")
 def get_field_games(tournament_id: str, field_id: str):
     
     games = server.get_games_from_field(tournament_id,field_id)
-    return {"games":games}
+
+    if type(games) == Error:
+        return fastapi.HTTPException(status_code=games.code,detail=games.message)
+    else:
+        return {"games":games}
 
 @api.get("/api/{tournament_id}/game/{game_id}")
 def get_game_score(tournament_id: str, game_id: str):
     
     score = server.get_game_score(tournament_id,game_id)
 
-    return {"score": score}
+    if type(score) == Error:
+        return fastapi.HTTPException(status_code=score.code,detail=score.message)
+    else:
+        return {"score": score}
 
 @api.put("/api/{tournament_id}/game/{game_id}")
 def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
     score = data.score
-    server.set_game_score(tournament_id,game_id,score)
-    return fastapi.HTTPException(status_code=200,detail="OK")
+    status = server.set_game_score(tournament_id,game_id,score)
+
+    if type(status) == Error:
+        return fastapi.HTTPException(status_code=status.code,detail=status.message)
+    else:
+        return fastapi.HTTPException(status_code=200,detail="Updated ")
 
 @api.get("/api/{tournament_id}/details")
 def get_tournament_details(tournament_id: str):
-    return server.get_tournament_details(tournament_id)
+
+    tournament_data = server.get_tournament_details(tournament_id)
+
+    if type(tournament_data) == Error:
+        return fastapi.HTTPException(status_code=tournament_data.code,detail=tournament_data.message)
+    else:
+        return tournament_data
 
