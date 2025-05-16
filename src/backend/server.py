@@ -1,17 +1,21 @@
 import os
 import string
 import secrets
+import datetime
 from database import *
 from data.utils import *
 
 class Server:
     def __init__(self):
         self.database = Database()
-
+        self.max_calls = 5
+        self.time_window = 60 # seconds
+        self.time_diff = self.time_window/self.max_calls
+        self.last_created = 0.0
 
     def create_tournament(self, name: str, teams: dict, games: dict, date: str) -> str|Error:
         """
-        Creates a new tournament and stores it in a database.
+        Creates a new tournament and stores it in a database. A new tournament can only be created every 12 seconds to prevent spamming the database.
 
         Args:
             name (str): The name of the tournament. 
@@ -33,6 +37,15 @@ class Server:
             - Game data preparation encounters an issue.
             - Tournament database insertion fails.
         """
+
+        # Timeout requests that are to fast
+        current_time = datetime.datetime.now().timestamp()
+
+        # Return an error when function was called in timeout interval
+        if current_time - self.last_created <= self.time_diff:
+            return Error(400, "You are creating tournaments too fast.")
+
+        self.last_created = current_time
 
         uuid = self.generate_unique_string()
 
