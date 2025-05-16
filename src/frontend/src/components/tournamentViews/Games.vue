@@ -42,28 +42,28 @@ function renderGamesForField(fieldID) {
 </script>
 
 <template>
-  <div id="fields">
+  <div id="fields-container">
     <div class="button" v-for="field in Object.keys(store.tournament.games)" :key="field"
       @click="renderGamesForField(field)">
       Feld {{ field }}
     </div>
   </div>
 
-  <div id="games-for-field">
+  <div id="games-container">
     <div v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
       <Game :team1="game[0]" :team2="game[1]" :referee="game[2]" :startTime="game[3]" :points="game[4]"
-        :gameId="Number(gameId)" />
+        :gameId="gameId" />
     </div>
   </div>
 </template>
 
 <style scoped>
-#fields {
+#fields-container {
   display: flex;
   justify-content: space-evenly;
 }
 
-#games-for-field {
+#games-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

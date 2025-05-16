@@ -2,6 +2,7 @@
 export function addMinutes(time, minutesAdd) {
   let [hours, minutes] = time.split(':').map(Number);
   if (minutesAdd > 500) {
+
     console.error("this much minutes should not be added");
   }
   minutes += minutesAdd;
