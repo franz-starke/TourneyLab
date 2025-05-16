@@ -280,9 +280,9 @@ class Server:
 
         return {
             "name": name,
+            "date": date,
             "teams": team_data[0],
-            "games": game_data[0],
-            "date": date
+            "games": game_data[0]
         }
 
 
