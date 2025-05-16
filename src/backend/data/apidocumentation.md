@@ -274,7 +274,7 @@ The api will respond with an `array` composed of `objects`.
 | :---: | :--: | :---------: |
 | games | Object | An array composed of objects with game scores for a game.
 | games[i].id | String | The id of the game.
-| games[i].score | Array (1-2) | An array composed of 2 integer as the game score.
+| games[i].score | Array (2) | An array composed of 2 integer as the game score.
 | games[i].time | String | Time the game is scheduled, e.g., `"16:10"`.
 
 The game score `array` describes the score for team 1 in the index `[0]` and the index `[1]` is the score for team 2.
@@ -316,7 +316,7 @@ The api will respond with an `array` composed of 2 `integers`. The first index o
 
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
-| score | Array (1-2) | An array composed of 2 integers.
+| score | Array (2) | An array composed of 2 integers.
 
 ### Possible errors
 
@@ -342,7 +342,7 @@ Edit a specific game score.
 
 | Field	| Type | Description |
 | :---: | :--: | :---------: |
-| score | Array (1-2) | An array for the new game score.
+| score | Array (2) | An array for the new game score.
 
 ### Example request data
 
@@ -483,7 +483,7 @@ This endpoint does not need any parameters and is meant to return the details fo
 | games.{`fieldid`}.{`gameid`}[`0`] | Integer | ID of the first playing team.
 | games.{`fieldid`}.{`gameid`}[`1`] | Integer | ID of the second playing team.
 | games.{`fieldid`}.{`gameid`}[`2`] | Integer | ID of the referee team.
-| games.{`fieldid`}.{`gameid`}[`3`] | Integer | Score of the game.
+| games.{`fieldid`}.{`gameid`}[`3`] | Array (2) | Score of the game.
 | games.{`fieldid`}.{`gameid`}[`4`] | String | Time the game is scheduled, e.g., `"16:10"`.
 
 ### Explanation
