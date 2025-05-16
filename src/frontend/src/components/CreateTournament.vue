@@ -1,14 +1,17 @@
 <script setup>
-// TODO: add time as Game Attribute from the create Tournament params
+
 // TODO: disallow some combinations of tournament params
 import api from "@/api/api.js";
-import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
+import { createTournamentAlgo } from "@/util/tournamentalgo.js";
+import { addMinutes } from "@/util/time.js"
+import { availableRefs, getRounds } from "@/util/tournamentDataStructureUtil.js"
+
 import Modal from "@/components/utilcomponents/Modal.vue";
 import { useTournamentStore } from "@/stores/tournamentStore.js";
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
-// * IMPORTATN SEMANTICS
+// * IMPORTANT SEMANTICS
 // * Treat a game with [0,0,0] as empty game
 const emptyGame = [0, 0, 0];
 
@@ -28,28 +31,9 @@ const games = ref({});
 const rounds = ref([]); // variable to hold the rounds of the tournament
 const showRefModal = ref(false); // variable to handle if there is a ref dialog going on (for conditional rendering with v-if)
 const date = ref((new Date()).toISOString().split('T')[0]);
-// TEST: how date is represented
-// watch(date, function (newDate, oldDate) {
-//   console.log("New: ", newDate);
-//   console.log("Old: ", oldDate);
-//   console.log("type of date: ", typeof newDate);
-// })
-
-const startTime = ref("");
-// TEST: watch(startTime, function (after, before) {
-//   console.log("New: ", after);
-//   console.log("Old: ", before);
-//   console.log("type of date: ", typeof after);
-// })
-
+const startTime = ref("10:00");
 const roundDuration = ref(25);
 const breakDuration = ref(5);
-// TEST:
-// watch([roundDuration, breakDuration], function (after, before) {
-//   console.log("New: ", after);
-//   console.log("Old: ", before);
-//   // console.log("type of date: ", typeof after);
-// })
 
 
 
@@ -78,15 +62,6 @@ Combinations where referees can and have to be assigned are (some ranges include
             Teams1 + Teams2 >=12
 
  Return Game true:
-    Groups 1:
-        fields 1:
-            Teams 3-12
-        fields 2:
-            Teams 6-12
-        fields 3:
-            Teams 9-12
-        fields 4:
-            Teams 12
      Groups 2:
         fields 1:
             Teams1 + Teams2 = 6 to 24
@@ -96,9 +71,6 @@ Combinations where referees can and have to be assigned are (some ranges include
             Teams1 + Teams2 = 9 to 24
         fields 4:
             Teams1 + Teams2 = 12 to 24
-
-
-
 
 Then there are combinations, that are not sensible, or where the algorithm produces a schedule where
 games don't have a referee but there are not enough teams available to assign.
@@ -147,16 +119,13 @@ async function generateTournament() {
     withReturnGame.value
   );
 
-  teamgroups.value = {
-    1: amountTeams1.value,
-    2: amountTeams2.value,
-  };
 
   //// TEST:-------------------------------
   //=======================================================================
   console.log("Game plan: ", games.value);
   rounds.value = getRounds(games.value);
 
+  console.log("rounds ", rounds.value);
   // Check if any array has a 0 at index 2 <=> no referee assigned
   // and see which refs are available
   let impossibleRefAssigning = false;
@@ -211,20 +180,38 @@ async function generateTournament() {
   // }
   //
 
+  // prepare for server sync
+  Object.keys(games.value).forEach((field) => {
+    let roundTime = startTime.value;
+    Object.keys(games.value[field]).forEach((gameId) => {
+      games.value[field][gameId][3] = roundTime;
+      roundTime = addMinutes(roundTime, roundDuration.value + breakDuration.value);
+    });
+  });
+
+  teamgroups.value = {
+    1: amountTeams1.value,
+    2: amountTeams2.value,
+  };
+
   // if online, then sync this data to the server
+  let tournamentId;
   if (navigator.onLine) {
     console.log("Online: Synchronizing tournament data with the server...");
-    await syncTournament();
+    tournamentId = await syncTournament();
+  }
+  else {
+    console.log("Offline: no server sync");
+    tournamentId = undefined;
   }
 
 
-  return;
   // init games with Points 0,0
   // TODO: add the times to each game with startTime, roundDuration and breakDuration
   Object.keys(games.value).forEach((field) => {
     Object.keys(games.value[field]).forEach((gameId) => {
       if (games.value[field][gameId] !== emptyGame) {
-        games.value[field][gameId][3] = [0, 0]; // Add points [0, 0] to each game
+        games.value[field][gameId][4] = [0, 0]; // Add points [0, 0] to each game
       }
     });
   });
@@ -232,9 +219,8 @@ async function generateTournament() {
   // store Tournament data in localstorage via pinia
   store.tournament.games = games.value;
   store.tournament.name = tournamentName.value;
+  store.tournament.id = tournamentId; // can be undefined in which case as soon as a network connection establishes, a call to the api should happen to get one
 
-
-  // console.log(store.tournament);
 
   // Redirect to the tournament home page
   router.push({ name: "tournament-home" });
@@ -247,49 +233,23 @@ async function syncTournament() {
   tournamentData.value = {
     name: tournamentName.value, // string
     teams: teamgroups.value,
-    /* teamgroups structure
-    {
-      "1": int,
-      "2": int
-    }
-
-    */
     games: games.value,
-    /* games structure
-    {
-      {
-         str : [
-                  {str: [int, int, int] },
-                  ...
-                ]
-      },
-         ...
-    }
-
-    */
     date: date.value, // string ex: "2025-04-26"
-    time: {
-      start_time: startTime.value, // string ex: "14:00"
-      round_duration: roundDuration.value, // number ex: 25
-      pause_duration: breakDuration.value, // number ex: 5
-    },
   };
 
   console.log("Request data: ", tournamentData.value);
 
-  return;
-  // FIXME:
+  // FIXME: continous testing
   // call API at create
-  let res = await api.createTournament(tournamentData.value);
-  if (res == undefined) {
+  let tId = await api.createTournament(tournamentData.value);
+  if (tId == undefined) {
     console.error("Api access error in syncTournament");
     return;
   }
 
-  // save the tournament ID in the store
-  store.tournament.id = res.tournamentid;
-  // console.log("Tournament created with ID: ", store.tournamentId);
+  return tId.tournamentid;
 }
+
 
 /**
  * Function Name: openRefModal
@@ -320,68 +280,6 @@ function closeRefModal() {
   if (resolvePromise) {
     resolvePromise(null); // Resolve with `null` to indicate no changes
   }
-}
-
-/**
- *
- * @param games Object of Fields with Games
- * @returns Array of Rounds
- */
-function getRounds(games) {
-  // function to get the rounds from the games
-  const rounds = [];
-
-  // Step 1: Convert each field (object of games) into an array
-  const fieldGames = Object.values(games).map(
-    (field) => Object.entries(field) // get all games on that field
-  );
-
-  // Step 2: Determine how many rounds we have (max number of games per field)
-  const maxRounds = Math.max(...fieldGames.map((g) => g.length));
-
-  // Step 3: For each round index, gather the corresponding game from each field
-  for (let i = 0; i < maxRounds; i++) {
-    const round = [];
-
-    fieldGames.forEach((field) => {
-      if (field[i]) {
-        round.push(field[i]); // Push the i-th game from each field (if exists)
-      }
-    });
-
-    rounds.push(round);
-  }
-
-  return rounds;
-}
-
-function availableRefs(gameId) {
-  // function to get the available referees for the current round that gameId is in
-
-  // find the round where the game is in
-  const round = rounds.value.find((r) =>
-    r.some((g) => g[0] === gameId.toString())
-  );
-  // console.log("Round: ", round);
-
-  // get all participants of the round the game is in
-  const participants = [];
-  round.forEach((g) => {
-    g[1].forEach((team) => {
-      if (team != 0) participants.push(team);
-    });
-  });
-  // console.log("Participants ", participants);
-  let refs = Array.from(
-    { length: amountTeams1.value + amountTeams2.value },
-    (_, i) => i + 1
-  );
-  // console.log("all refs", refs);
-
-  refs = refs.filter((ref) => !participants.includes(ref));
-  // console.log("filtered refs", refs);
-
-  return refs;
 }
 
 function updateFreeRefs(event, gameId, fieldNum) {

@@ -1,5 +1,5 @@
 <script setup>
-import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
+import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 import { ref } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";

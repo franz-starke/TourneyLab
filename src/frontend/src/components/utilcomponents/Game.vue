@@ -17,6 +17,10 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  startTime: {
+    type: String,
+    required: true,
+  },
   points: {
     type: Array,
     required: true,
@@ -36,6 +40,7 @@ const gameRoute = computed(() => ({
 </script>
 
 <template>
+  {{ startTime }}
   <div id="game-container">
     <div v-if="team1 == 0 || team2 == 0"> -- </div>
     <div v-else>

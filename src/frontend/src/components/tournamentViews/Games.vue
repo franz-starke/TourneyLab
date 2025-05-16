@@ -51,7 +51,8 @@ function renderGamesForField(fieldID) {
 
   <div id="games-for-field">
     <div v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
-      <Game :team1="game[0]" :team2="game[1]" :referee="game[2]" :points="game[3]" :gameId="Number(gameId)" />
+      <Game :team1="game[0]" :team2="game[1]" :referee="game[2]" :startTime="game[3]" :points="game[4]"
+        :gameId="Number(gameId)" />
     </div>
   </div>
 </template>
