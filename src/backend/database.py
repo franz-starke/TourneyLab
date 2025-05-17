@@ -6,15 +6,21 @@ class Database:
     def __init__(self):
         pass
 
-    def query(self,tournament_id="",query="",attributes=[]):
-        try:
-            with sqlite3.connect(os.path.join(DATABASE_PATH,f"{tournament_id}.db")) as connection:
-                cursor = connection.cursor()
-                cursor.execute(query,attributes)
-                data = cursor.fetchall()
-                return data
-        except Exception as e:
-            print(f"Error executing query: {e}")
+    def query(self, tournament_id="", query="", attributes=[]):
+     try:
+        with sqlite3.connect(os.path.join(DATABASE_PATH, f"{tournament_id}.db")) as connection:
+            cursor = connection.cursor()
+            cursor.execute(query, attributes)
+
+            if query.strip().upper().startswith("SELECT"):
+                return cursor.fetchall()
+            else:
+                # Für INSERT/UPDATE/DELETE: Zeilenanzahl zurückgeben
+                return cursor.rowcount
+     except Exception as e:
+        print(f"Error executing query: {e}")
+        return None
+
 
     def create_tournament(self,
                           tournament_id:str,
@@ -101,9 +107,17 @@ class Database:
         data = self.query(tournament_id,"""SELECT score1,score2 FROM games WHERE id IS ?""",[game_id])
         return data
     
-    def set_game_score(self,tournament_id:str,game_id,score):
-        data = self.query(tournament_id,"""UPDATE games SET score1 = ?, score2 = ? WHERE id = ?""",[score[0],score[1],game_id])
-        return data
+    def set_game_score(self, tournament_id: str, game_id, score):
+        result = self.query(tournament_id,
+                        "UPDATE games SET score1 = ?, score2 = ? WHERE id = ?",
+                        [score[0], score[1], game_id])
+
+        if result == 0:
+            return Error(400, "Cannot set new score for the specified game.")  
+        elif result is None:
+            return Error(500, "Database error occurred.")  
+        return True
+
 
     def get_teams(self, tournament_id: str):
         data = self.query(tournament_id, """SELECT group_id, COUNT(*) AS team_count FROM teams GROUP BY group_id;""")
