@@ -281,8 +281,8 @@ class Server:
         return {
             "name": name,
             "date": date,
-            "teams": team_data[0],
-            "games": game_data[0]
+            "teams": team_data,
+            "games": game_data
         }
 
 
