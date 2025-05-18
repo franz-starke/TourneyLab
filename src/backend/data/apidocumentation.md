@@ -334,7 +334,7 @@ The api will respond with an `array` composed of 2 `integers`. The first index o
 
 ## Edit a game score
 
-`PUT htw-turnier.de/api/{tournamentID}/games/{gameID}`
+`PUT htw-turnier.de/api/{tournamentID}/game/{gameID}`
 
 Edit a specific game score.
 
