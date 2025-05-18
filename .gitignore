@@ -200,3 +200,7 @@ coverage
 
 *.tsbuildinfo
 .vscode
+
+
+# Database files
+*.db
