@@ -103,7 +103,9 @@ class Database:
     
     def set_game_score(self,tournament_id:str,game_id,score):
         data = self.query(tournament_id,"""UPDATE games SET score1 = ?, score2 = ? WHERE id = ?""",[score[0],score[1],game_id])
-        return data
+        if data == []:
+            return True
+        return False
 
     def get_teams(self, tournament_id: str):
         data = self.query(tournament_id, """SELECT group_id, COUNT(*) AS team_count FROM teams GROUP BY group_id;""")
