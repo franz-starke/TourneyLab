@@ -93,6 +93,7 @@ class Server:
                         games[field][game][0],
                         games[field][game][1],
                         games[field][game][2],
+                        games[field][game][3],
                         0,
                         0
                     ]
