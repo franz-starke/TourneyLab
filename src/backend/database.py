@@ -6,20 +6,30 @@ class Database:
     def __init__(self):
         pass
 
-    def query(self, tournament_id="", query="", attributes=[]):
-     try:
-        with sqlite3.connect(os.path.join(DATABASE_PATH, f"{tournament_id}.db")) as connection:
-            cursor = connection.cursor()
-            cursor.execute(query, attributes)
+    def query(self, tournament_id="", query="", attributes=[]) -> list|bool|None:
+        try:
+            with sqlite3.connect(os.path.join(DATABASE_PATH, f"{tournament_id}.db")) as connection:
+                cursor = connection.cursor()
+                cursor.execute(query, attributes)
 
-            if query.strip().upper().startswith("SELECT"):
-                return cursor.fetchall()
-            else:
-                # Für INSERT/UPDATE/DELETE: Zeilenanzahl zurückgeben
-                return cursor.rowcount
-     except Exception as e:
-        print(f"Error executing query: {e}")
-        return None
+                if query.strip().upper().startswith("SELECT"):
+                    data = cursor.fetchall()
+                    if len(data) > 0:
+                        return data
+                
+                elif query.strip().upper().startswith("CREATE"):
+                    if cursor.rowcount == -1:
+                        return True
+                
+                elif query.strip().upper().startswith("INSERT") or query.strip().upper().startswith("UPDATE"):
+                    if cursor.rowcount > 0:
+                        return True
+                
+                return None
+            
+        except Exception as e:
+            print(f"Error executing query: {e}")
+            return None
 
 
     def create_tournament(self,
