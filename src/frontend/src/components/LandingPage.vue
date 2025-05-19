@@ -2,19 +2,22 @@
 </script>
 
 <template>
-  <header class="page-header">
-    <h1>Turnierplattform</h1>
+  <header>
+    <div id="lang-chooser">
+
+    </div>
+    <div id="dark-light-mode">
+
+    </div>
   </header>
 
   <main class="landing">
-    <h2>Willkommen zum Turnierportal</h2>
-    <p>Erstelle oder betrete ein Turnier deiner Wahl.</p>
-
     <div class="button-wrapper">
       <RouterLink class="highlight-button" to="/enter-tournament">
-        <svg class="enter-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 ..."/>
-          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 ..."/>
+        <svg class="enter-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 ..." />
+          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 ..." />
         </svg>
         Turnier beitreten
       </RouterLink>

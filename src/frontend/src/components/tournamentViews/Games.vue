@@ -11,7 +11,7 @@
 <script setup>
 import { useTournamentStore } from "@/stores/tournamentStore";
 import Game from "../utilcomponents/Game.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 
 const activeFieldID = ref(1);
@@ -30,12 +30,12 @@ if (navigator.onLine) {
       console.log(response.games);
       store.tournament.games[activeFieldID] = gamesOfActiveField.value;
     } catch (error) {
-      console.error("get old tournaments failed");
+      console.error("API: Get games for field FAILED");
     }
   });
 }
 
-function renderGamesForField(fieldID) {
+function changeActiveField(fieldID) {
   activeFieldID.value = fieldID;
   console.log(fieldID);
 }
@@ -44,15 +44,14 @@ function renderGamesForField(fieldID) {
 <template>
   <div id="fields-container">
     <div class="button" v-for="field in Object.keys(store.tournament.games)" :key="field"
-      @click="renderGamesForField(field)">
-      Feld {{ field }}
+      @click="changeActiveField(field)">
+      Field {{ field }}
     </div>
   </div>
 
   <div id="games-container">
     <div v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
-      <Game :team1="game[0]" :team2="game[1]" :referee="game[2]" :startTime="game[3]" :points="game[4]"
-        :gameId="gameId" />
+      <Game :team1="game[0]" :team2="game[1]" :referee="game[2]" :startTime="game[3]" :gameId="gameId" />
     </div>
   </div>
 </template>

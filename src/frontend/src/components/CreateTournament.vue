@@ -1,5 +1,6 @@
 <script setup>
 
+// TODO: manual ref assinging dialogue
 // TODO: disallow some combinations of tournament params
 import api from "@/api/api.js";
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
@@ -37,7 +38,7 @@ const breakDuration = ref(5);
 
 
 
-let resolvePromise; // Shared variable to hold the resolve function of a promise
+let resolvePromise; // Shared variable to hold the resolve function of a promise, used for the modal dialog
 
 /**
  * Function Name: generateTournament
@@ -144,7 +145,7 @@ async function generateTournament() {
         return total;
       }, 0);
       console.log("Refs needed", refNeeded);
-      let refsToassign = availableRefs(gameId);
+      let refsToassign = availableRefs(games.value, gameId);
       console.log("no ref ", gameId, " available refs: ", refsToassign);
       if (refsToassign.length < refNeeded) impossibleRefAssigning = true;
     }

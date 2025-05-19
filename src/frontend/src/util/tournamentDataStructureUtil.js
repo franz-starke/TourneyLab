@@ -36,7 +36,9 @@ export function getRounds(games) {
  *
  * @returns Array of available Referee Teams for game with gameId
  */
-export function availableRefs(gameId) {
+export function availableRefs(games, gameId) {
+
+  const rounds = getRounds(games);
 
   // find the round where the game is in
   const round = rounds.value.find((r) =>
@@ -63,6 +65,5 @@ export function availableRefs(gameId) {
 
   return refs;
 }
-
 
 

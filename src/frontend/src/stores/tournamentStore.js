@@ -5,20 +5,34 @@ import { ref, watch } from "vue";
 
 export const useTournamentStore = defineStore("tournament", () => {
   const tournament = ref({
-    game: {},
+    games: {},
     name: "",
     id: "",
     groups: [],
   });
 
-  // Use local storage to persist tournament name
+  // Use local storage to persist tournament
   const tournamentLocalStorage = useLocalStorage("tournament", {});
   tournament.value = tournamentLocalStorage.value;
-  watch(tournament, (newName) => {
-    storedTournamentName.value = newName;
+  watch(tournament, (newTournament) => {
+    tournamentLocalStorage.value = newTournament;
   });
 
+
+  function getGameById(gameId) {
+    for (const [field, gamesOnField] of Object.entries(tournament.value.games)) {
+      for (const [gId, game] of Object.entries(gamesOnField)) {
+        if (gId == gameId) {
+          return tournament.value.games[field][gId];
+        }
+      }
+    };
+    return undefined;
+  }
+
+
   return {
+    getGameById,
     tournament,
   };
 });

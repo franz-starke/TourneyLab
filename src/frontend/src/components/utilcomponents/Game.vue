@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { computed } from "vue";
-
+import { computed, ref, onMounted } from "vue";
+import { useTournamentStore } from "@/stores/tournamentStore";
 
 
 const props = defineProps({
@@ -21,10 +21,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  points: {
-    type: Array,
-    required: true,
-  },
+  // points: {
+  //   type: Array,
+  //   required: true,
+  // },
   gameId: {
     type: String,
     required: true,
@@ -32,6 +32,13 @@ const props = defineProps({
 });
 
 
+
+const store = useTournamentStore();
+
+const game = ref(store.getGameById(props.gameId));
+console.log(game.value)
+const points = ref(game.value[4]);
+points[0] = 3;
 
 const gameRoute = computed(() => ({
   name: "edit-game",
@@ -50,7 +57,9 @@ const gameRoute = computed(() => ({
         </div>
 
         <p id="referee">Referee: Team {{ referee }}</p>
-        <p>Points: {{ points[0] }} : {{ points[1] }}</p>
+
+        <p>Points: <input type="number" :value="points[0]" @click.stop.prevent> :<input type="number" :value="points[1]"
+            @click.stop.prevent></p>
       </div>
     </div>
   </RouterLink>
@@ -65,6 +74,7 @@ const gameRoute = computed(() => ({
   margin-bottom: 0.2em;
 }
 
+
 #referee {
   font-size: 0.5em;
 }
@@ -76,7 +86,6 @@ const gameRoute = computed(() => ({
   width: 100%;
   text-decoration: none;
   cursor: pointer;
-  user-select: none;
   color: var(--font-color-main);
 }
 

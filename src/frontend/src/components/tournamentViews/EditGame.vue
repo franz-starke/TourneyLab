@@ -37,18 +37,18 @@ onBeforeMount(async function () {
     Object.keys(field).forEach((gameId) => {
       if (gameId == props.gameId) {
         game.value = field[gameId];
-        points.value = field[gameId][3];
+        points.value = field[gameId][4];
       }
     });
   });
 
 });
 
-
 watch(
   () => points.value,
   (newPoints) => {
 
+    console.log("Points updated to", newPoints);
     // TODO: call api if onLine at editGameScore
     if (navigator.onLine) {
       try {
@@ -59,15 +59,15 @@ watch(
       }
     }
 
-    console.log("Points updated to", newPoints);
     Object.values(store.tournament.games).forEach((field) => {
       Object.keys(field).forEach((gameId) => {
         if (gameId == props.gameId) {
-          field[gameId][3] = newPoints;
+          console.log("new points", newPoints)
+          field[gameId][4] = newPoints;
         }
       });
     });
-    console.log(store.tournamentData);
+    console.log(store.tournament);
   },
   { deep: true }
 );
