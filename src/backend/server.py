@@ -13,17 +13,17 @@ class Server:
         self.time_diff = self.time_window/self.max_calls
         self.last_created = 0.0
 
-    def create_tournament(self, name: str, teams: dict, games: dict, date: str) -> str|Error:
+    def create_tournament(self, name: str, date: str, teams: dict, games: dict) -> str|Error:
         """
         Creates a new tournament and stores it in a database. A new tournament can only be created every 12 seconds to prevent spamming the database.
 
         Args:
             name (str): The name of the tournament. 
+            date (str): The date of the tournament.
             teams (dict): A dictionary representing the groups of teams. 
                 Keys are group IDs ("1" for "Fun", "2" for "Schwitzer") and values are the number of teams in each group.
             games (dict): A dictionary representing the game schedule. 
-                Keys are field IDs, and values are dictionaries where each key is a game ID and the value is a list with match details: [team1_id, team2_id, game_time].
-            date (str): The date of the tournament.
+                Keys are field IDs, and values are dictionaries where each key is a game ID and the value is a list with match details: [team1_id, team2_id, referee_team_id, game_time].
 
         Returns:
             str: The unique identifier (UUID) of the newly created tournament if successful.
@@ -98,11 +98,9 @@ class Server:
                     ]
         except Exception:
             return Error(500, "An error occurred while preparing playing games data.")
-
+        
         # Save tournament to database
-        result = self.database.create_tournament(
-            uuid, name, len(fields), team_count, group_count, fields, team_data, group_data, playing_games, date
-        )
+        result = self.database.create_tournament(uuid, name, date, len(fields), team_count, group_count, fields, team_data, group_data, playing_games)
 
         if not result:
             return Error(500, "An error occurred while saving the tournament to the database.")
@@ -175,8 +173,8 @@ class Server:
             for game in field_data[0]:
                 return_data.append({
                     "id": game[0],
-                    "score": [game[5], game[6]],
-                    "time": game[7]
+                    "time": game[5],
+                    "score": [game[6], game[7]]
                 })
 
         except Exception as e:
