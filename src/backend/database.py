@@ -35,58 +35,62 @@ class Database:
     def create_tournament(self,
                           tournament_id:str,
                           name:str,
+                          date:str,
                           field_count:int,
                           team_count:int,
                           group_count:int,
                           fields:dict[str,str],
                           teams:dict[str,list[str|int]],
                           groups:dict[str,str],
-                          games:dict,
-                          date:str):
+                          games:dict):
         
         # Tournament config
         self.query(tournament_id,"""CREATE TABLE IF NOT EXISTS config (
-                               id           VARCHAR PRIMARY KEY,
-                               name         VARCHAR,
-                               field_count  INTEGER,
-                               team_count   INTEGER,
-                               group_count  INTEGER,
-                               date         VARCHAR)""")
+                                    id           VARCHAR PRIMARY KEY,
+                                    name         VARCHAR,
+                                    date         VARCHAR,
+                                    field_count  INTEGER,
+                                    team_count   INTEGER,
+                                    group_count  INTEGER)""")
         
         self.query(tournament_id,"""INSERT INTO config 
-                   (id,name,field_count,team_count,group_count,date)
-            VALUES (?,?,?,?,?,?)""",[tournament_id,name,field_count,team_count,group_count,date])
+                                    (id,name,date,field_count,team_count,group_count)
+                                    VALUES (?,?,?,?,?,?)""",
+                                [tournament_id,name,date,field_count,team_count,group_count])
 
         # Set groups
         self.query(tournament_id,"""CREATE TABLE IF NOT EXISTS groups (
-                               id           VARCHAR PRIMARY KEY,
-                               name         VARCHAR)""")
+                                    id           VARCHAR PRIMARY KEY,
+                                    name         VARCHAR)""")
         
         for group in groups:
             self.query(tournament_id,"""INSERT INTO groups 
-                   (id,name)
-            VALUES (?,?)""",[group,groups[group]])
+                                        (id,name)
+                                        VALUES (?,?)""",
+                                    [group,groups[group]])
 
         # Set teams
         self.query(tournament_id,"""CREATE TABLE IF NOT EXISTS teams (
-                               id           VARCHAR PRIMARY KEY,
-                               name         VARCHAR,
-                               group_id     VARCHAR)""")
+                                    id           VARCHAR PRIMARY KEY,
+                                    name         VARCHAR,
+                                    group_id     VARCHAR)""")
         
         for team in teams:
             self.query(tournament_id,"""INSERT INTO teams 
-                   (id,name,group_id)
-            VALUES (?,?,?)""",[team,teams[team][0],teams[team][1]])
+                                        (id,name,group_id)
+                                        VALUES (?,?,?)""",
+                                    [team,teams[team][0],teams[team][1]])
 
         # Set fields
         self.query(tournament_id,"""CREATE TABLE IF NOT EXISTS fields (
-                               id           VARCHAR PRIMARY KEY,
-                               name         VARCHAR)""")
+                                    id           VARCHAR PRIMARY KEY,
+                                    name         VARCHAR)""")
                 
         for field in fields:
             self.query(tournament_id,"""INSERT INTO fields 
-                   (id,name)
-            VALUES (?,?)""",[field,fields[field]])
+                                        (id,name)
+                                        VALUES (?,?)""",
+                                    [field,fields[field]])
 
         # Set games
         self.query(tournament_id,"""CREATE TABLE IF NOT EXISTS games (
@@ -95,13 +99,14 @@ class Database:
                                team1        VARCHAR,
                                team2        VARCHAR,
                                ref          VARCHAR,
+                               time         VARCHAR,
                                score1       INTEGER,
                                score2       INTEGER)""")
         
         for game in games:
             self.query(tournament_id,"""INSERT INTO games 
-                   (id,field_id,team1,team2,ref,score1,score2)
-            VALUES (?,?,?,?,?,?,?)""",[game,*games[game]])
+                   (id,field_id,team1,team2,ref,time,score1,score2)
+            VALUES (?,?,?,?,?,?,?,?)""",[game,*games[game]])
 
         return True
 
