@@ -64,7 +64,11 @@ def get_game_score(tournament_id: str, game_id: str):
 
 @api.put("/api/{tournament_id}/game/{game_id}")
 def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
+    
     score = data.score
+    if type(score) == Error:
+        return fastapi.HTTPException(status_code=score.code,detail=score.message)
+    
     status = server.set_game_score(tournament_id,game_id,score)
 
     if type(status) == Error:
