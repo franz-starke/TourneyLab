@@ -55,7 +55,7 @@ class Server:
         # Create the tournament database file
         try:
             open(os.path.join(DATABASE_PATH, f"{uuid}.db"), "w+")
-        except Exception:
+        except Exception as e:
             return Error(500, "An error occurred while creating a new tournament database file.")
 
         # Prepare game fields
@@ -80,7 +80,7 @@ class Server:
                 else:
                     schwitzer_id = int(team_id) - teams["1"]
                     team_data[team_id] = [f"Schwitzer {schwitzer_id}", 2]
-        except Exception:
+        except Exception as e:
             return Error(500, "An error occurred while preparing team data.")
 
         # Prepare playing games data
@@ -96,7 +96,7 @@ class Server:
                         0,
                         0
                     ]
-        except Exception:
+        except Exception as e:
             return Error(500, "An error occurred while preparing playing games data.")
         
         # Save tournament to database
