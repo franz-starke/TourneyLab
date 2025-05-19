@@ -70,8 +70,7 @@ def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
     if type(status) == Error:
         return fastapi.HTTPException(status_code=status.code,detail=status.message)
     else:
-        return {"detail": "Updated"}
-        return fastapi.HTTPException(status_code=200,detail="Updated game score")
+        return {"status_code":200,"detail":"Updated game score"}
 
 @api.get("/api/{tournament_id}/details")
 def get_tournament_details(tournament_id: str):
