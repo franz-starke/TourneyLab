@@ -102,7 +102,7 @@ class Server:
         # Save tournament to database
         result = self.database.create_tournament(uuid, name, date, len(fields), team_count, group_count, fields, team_data, group_data, playing_games)
 
-        if not result:
+        if result == None:
             return Error(500, "An error occurred while saving the tournament to the database.")
 
         return uuid
@@ -131,12 +131,12 @@ class Server:
                     config_data = self.database.get_config(uuid)
 
                     # Only add to the list if config data is valid and not empty
-                    if config_data:
+                    if config_data != None and type(config_data) == list:
                         data = config_data[0]
                         return_data.append({
                             "id": data[0],
                             "name": data[1],
-                            "date": data[5]
+                            "date": data[2]
                         })
 
         except Exception as e:
@@ -166,11 +166,11 @@ class Server:
             # Fetch the games associated with the specified field from the database
             field_data = self.database.get_games_from_field(tournament_id, field_id)
 
-            if not field_data or not field_data[0]:
+            if type(field_data) != list or field_data == None or len(field_data) == 0:
                 return Error(400, "There are no games associated with this field.")
 
             # Loop through each game and collect the required information
-            for game in field_data[0]:
+            for game in field_data:
                 return_data.append({
                     "id": game[0],
                     "time": game[5],
@@ -201,7 +201,7 @@ class Server:
             # Fetch the games associated with the specified field from the database
             score_data = self.database.get_game_score(tournament_id,game_id)
 
-            if not score_data or not score_data[0]:
+            if type(score_data) != list or score_data == None or len(score_data) == 0:
                 return Error(400, "Cannot get a score from the specified game.")
 
             data = score_data[0]
@@ -256,7 +256,7 @@ class Server:
         try:
             # Fetch config data from the database
             config_data = self.database.get_config(tournament_id)
-            if not config_data or not config_data[0]:
+            if type(config_data) != list or config_data == None or len(config_data) == 0:
                 return Error(400, "Cannot fetch information from this tournament.")
 
             data = config_data[0]
@@ -265,12 +265,12 @@ class Server:
 
             # Fetch all groups with their team sizes
             team_data = self.database.get_teams(tournament_id)
-            if not team_data or not team_data[0]:
+            if type(team_data) != list or team_data == None or len(team_data) == 0:
                 return Error(400, "Cannot fetch team information from this tournament.")
             
             # Fetch all fields with their games
             game_data = self.database.get_games(tournament_id)
-            if not game_data or not game_data[0]:
+            if type(game_data) != list or game_data == None or len(game_data) == 0:
                 return Error(400, "Cannot fetch game information from this tournament.")
             
         except Exception as e:
