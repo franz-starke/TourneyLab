@@ -5,7 +5,7 @@
 3. [Get game scores for a field](#get-game-scores-for-a-field)
 4. [Get a game score](#get-a-game-score)
 5. [Edit a game score](#edit-a-game-score)
-6. [get an old tournament details](#get-old-tournament-details)
+6. [Get tournament details](#get-tournament-details)
 
 ## Create a tournament
 
