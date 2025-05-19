@@ -1,5 +1,6 @@
-from server import *
 import fastapi
+
+from server import *
 from data.apiobjects.apiobjects import *
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -18,12 +19,13 @@ api.add_middleware(
 
 @api.post("/api/create")
 def create_tournaments(data: CreateTournament):
+    
     name = data.name
+    date = data.date
     teams = data.teams
     games = data.games
-    date = data.date
 
-    tournament_id = server.create_tournament(name,teams,games,date)
+    tournament_id = server.create_tournament(name,date,teams,games)
 
     if type(tournament_id) == Error:
         return fastapi.HTTPException(status_code=tournament_id.code,detail=tournament_id.message)
