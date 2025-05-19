@@ -1,10 +1,10 @@
 from pydantic import BaseModel, validator
-from typing import List
+from data.utils import *
 
 class CreateTournament(BaseModel):
     name: str
     teams: dict[str,int]
-    games: dict
+    games: dict[str,dict]
     date: str
 
 class ScoreUpdate(BaseModel):
@@ -13,9 +13,9 @@ class ScoreUpdate(BaseModel):
     @validator("score")
     def validate_score(cls, v):
         if not isinstance(v, list) or len(v) != 2:
-            raise ValueError("score must be a list of exactly two integers.")
+            return Error(400,"Score must be a list of exactly two integers.")
         if not all(isinstance(x, int) for x in v):
-            raise ValueError("both values in score must be integers.")
+            return Error(400,"Score values must be integer.")
         if any(x < 0 for x in v):
-            raise ValueError("score values must be non-negative.")
+            return Error(400,"Score values must not be negative.")
         return v
