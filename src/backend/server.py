@@ -269,18 +269,22 @@ class Server:
             if type(team_data) != list or team_data == None or len(team_data) == 0:
                 return Error(400, "Cannot fetch team information from this tournament.")
             
+            teams = {}
+            for i,team_id in enumerate(team_data):
+                teams[team_id[0]] = team_data[i][1]
+            
             # Fetch all fields with their games
             game_data = self.database.get_games(tournament_id)
             if type(game_data) != list or game_data == None or len(game_data) == 0:
                 return Error(400, "Cannot fetch game information from this tournament.")
-            
+                
         except Exception as e:
             return Error(500, "Error while retrieving tournament details.")
 
         return {
             "name": name,
             "date": date,
-            "teams": team_data,
+            "teams": teams,
             "games": game_data
         }
 
