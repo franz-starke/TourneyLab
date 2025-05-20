@@ -273,11 +273,25 @@ class Server:
             for i,team_id in enumerate(team_data):
                 teams[team_id[0]] = team_data[i][1]
             
-            # Fetch all fields with their games
-            game_data = self.database.get_games(tournament_id)
-            if type(game_data) != list or game_data == None or len(game_data) == 0:
+            # Fetch all fields
+            field_data = self.database.get_fields(tournament_id)
+            if type(field_data) != list or field_data == None or len(field_data) == 0:
                 return Error(400, "Cannot fetch game information from this tournament.")
-                
+            
+            games = {}
+            for field_id in field_data:
+                field_id = field_id[0]
+                games[field_id] = {}
+
+                # Fetch all games for every field
+                game_data = self.database.get_games_from_field(tournament_id, field_id)
+                if type(game_data) != list or game_data == None or len(game_data) == 0:
+                    return Error(400, "Cannot fetch game information from fields for this tournament.") 
+
+                # Created return structure for games
+                for game in game_data:
+                    games[field_id][game[0]] = [game[2],game[3],game[4],game[5],[game[6],game[7]]]
+
         except Exception as e:
             return Error(500, "Error while retrieving tournament details.")
 
@@ -285,7 +299,7 @@ class Server:
             "name": name,
             "date": date,
             "teams": teams,
-            "games": game_data
+            "games": games
         }
 
 
