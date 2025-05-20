@@ -249,9 +249,9 @@ class Server:
         Returns:
             dict: A dictionary containing:
                 - "name": The name of the tournament.
+                - "date": The date of the tournament.
                 - "teams": A list of teams participating in the tournament.
                 - "games": A list of games scheduled in the tournament.
-                - "date": The date of the tournament.
         """
 
         try:
@@ -262,7 +262,7 @@ class Server:
 
             data = config_data[0]
             name = data[1]
-            date = data[5]
+            date = data[2]
 
             # Fetch all groups with their team sizes
             team_data = self.database.get_teams(tournament_id)
