@@ -132,6 +132,6 @@ class Database:
         data = self.query(tournament_id, """SELECT group_id, COUNT(*) AS team_count FROM teams GROUP BY group_id;""")
         return data
     
-    def get_games(self, tournament_id: str):
-        data = self.query(tournament_id,"""SELECT * FROM games""")
+    def get_fields(self, tournament_id: str):
+        data = self.query(tournament_id,"""SELECT DISTINCT field_id FROM games""")
         return data
