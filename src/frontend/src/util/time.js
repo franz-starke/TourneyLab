@@ -1,16 +1,21 @@
-
 export function addMinutes(time, minutesAdd) {
   let [hours, minutes] = time.split(':').map(Number);
+
   if (minutesAdd > 500) {
-
-    console.error("this much minutes should not be added");
+    console.error("This many minutes should not be added");
+    return null;
   }
-  minutes += minutesAdd;
-  hours += (Math.floor(minutes / 60)) % 24;
 
-  minutes = minutes % 60;
+  let totalMinutes = hours * 60 + minutes + minutesAdd;
 
-  return `${hours}:${minutes}`
+  let newHours = Math.floor(totalMinutes / 60) % 24;
+  let newMinutes = totalMinutes % 60;
+
+  // Pad with leading zeros
+  let formattedHours = String(newHours).padStart(2, '0');
+  let formattedMinutes = String(newMinutes).padStart(2, '0');
+
+  return `${formattedHours}:${formattedMinutes}`;
 }
 
 

@@ -1,10 +1,6 @@
 <!-- TODO:
    + fill as per wireframe
    + list games per field via api calls or localstorage (pinia store)
-   + maybe create "editable Game"- component for listing Games
-      because user should be able to change Game State
-      => so when clicking on it, should open a Game-Editor where
-          points can be changed (maybe as router-links to a GameEdit.vue component)
 
 -->
 
@@ -12,6 +8,7 @@
 import { useTournamentStore } from "@/stores/tournamentStore";
 import Game from "../utilcomponents/Game.vue";
 import { ref, onMounted } from "vue";
+import api from "@/api/api.js";
 
 
 const activeFieldID = ref(1);
@@ -22,22 +19,34 @@ const store = useTournamentStore();
 // TODO: first fetch from api for newest tournamentData and write it into the store
 // then always use store to load data (also offline)
 if (navigator.onLine) {
-  onMounted(async function () {
+  onMounted(syncGamesForFieldFromAPI);
+  // console.log(store.tournament.games[activeFieldID]);
+}
+
+
+async function syncGamesForFieldFromAPI () {
     try {
       const response = await api.getGamesWithScoresFromField(store.tournament.id, activeFieldID.value);
       gamesOfActiveField.value = response.games;
-      // FIXME: see that correct data arrives first
-      console.log(response.games);
-      store.tournament.games[activeFieldID] = gamesOfActiveField.value;
+      
+      // assign each game in local store the data from the api
+      for (let game of response.games) {
+        store.tournament.games[activeFieldID.value][game.id][3] = game.time;
+        store.tournament.games[activeFieldID.value][game.id][4] = game.score;
+      }
+   
     } catch (error) {
+      console.error(error);
       console.error("API: Get games for field FAILED");
     }
-  });
 }
 
-function changeActiveField(fieldID) {
+
+async function changeActiveField(fieldID) {
   activeFieldID.value = fieldID;
-  console.log(fieldID);
+  if (navigator.onLine) {
+    await syncGamesForFieldFromAPI();
+  }
 }
 </script>
 
@@ -51,7 +60,7 @@ function changeActiveField(fieldID) {
 
   <div id="games-container">
     <div v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
-      <Game :team1="game[0]" :team2="game[1]" :referee="game[2]" :startTime="game[3]" :gameId="gameId" />
+      <Game :gameId="gameId"/>
     </div>
   </div>
 </template>
@@ -63,6 +72,7 @@ function changeActiveField(fieldID) {
 }
 
 #games-container {
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

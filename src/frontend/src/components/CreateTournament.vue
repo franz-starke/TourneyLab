@@ -129,6 +129,7 @@ async function generateTournament() {
   console.log("rounds ", rounds.value);
   // Check if any array has a 0 at index 2 <=> no referee assigned
   // and see which refs are available
+  // and if there are enough refs available
   let impossibleRefAssigning = false;
   Object.values(games.value).forEach((field) => {
     for (const [gameId, game] of Object.entries(field)) {
@@ -157,8 +158,6 @@ async function generateTournament() {
 
 
   // TODO: handle cases with manual referee assignment through modal dialog
-
-
   // const gameHasNoRef =  Object.values(games.value).forEach((field) => { for (const [gameId, game] of Object.entries(field)) {
   //
   //     let gameHasNoRefAndIsNoNullGame = game[2] === 0 && game[0] != 0 && game[1] != 0;
@@ -182,6 +181,7 @@ async function generateTournament() {
   //
 
   // prepare for server sync
+  // attach the start time of each game
   Object.keys(games.value).forEach((field) => {
     let roundTime = startTime.value;
     Object.keys(games.value[field]).forEach((gameId) => {
@@ -206,9 +206,7 @@ async function generateTournament() {
     tournamentId = undefined;
   }
 
-
   // init games with Points 0,0
-  // TODO: add the times to each game with startTime, roundDuration and breakDuration
   Object.keys(games.value).forEach((field) => {
     Object.keys(games.value[field]).forEach((gameId) => {
       if (games.value[field][gameId] !== emptyGame) {
@@ -222,10 +220,10 @@ async function generateTournament() {
   store.tournament.name = tournamentName.value;
   store.tournament.id = tournamentId; // can be undefined in which case as soon as a network connection establishes, a call to the api should happen to get one
 
-
   // Redirect to the tournament home page
   router.push({ name: "tournament-home" });
 }
+
 
 /** Methode, um nach erfolgter Turnierplanerstellung, die Daten mit dem Server zu synchronisieren.
 * falls das nicht möglich ist, sollten die Daten im localstorage via pinia aufbewahrt werden
@@ -252,47 +250,46 @@ async function syncTournament() {
 }
 
 
-/**
- * Function Name: openRefModal
- *
- * This function handles the opening of the modal dialog for manual referee assignment.
- * @returns Promise which resolves to the updated Games data structure
- */
-async function openRefModal() {
-  return new Promise((resolve) => {
-    showRefModal.value = true;
+// NOTE: The following code is for a modal dialog to handle manual referee assignment.
+// /**
+//  *
+//  * This function handles the opening of the modal dialog for manual referee assignment.
+//  * @returns Promise which resolves to the updated Games data structure
+//  */
+// async function openRefModal() {
+//   return new Promise((resolve) => {
+//     showRefModal.value = true;
 
-    resolvePromise = resolve; // Assign `resolve` to the shared variable
-    // Attach these functions to the modal's scope using refs
-  });
-}
+//     resolvePromise = resolve; // Assign `resolve` to the shared variable
+//     // Attach these functions to the modal's scope using refs
+//   });
+// }
 
-// Define submitForm and closeModal locally
-function submitRefModal() {
-  showRefModal.value = false;
-  if (resolvePromise) {
-    resolvePromise(games.value); // Resolve the promise with the updated games
-  }
-}
+// // Define submitForm and closeModal locally
+// function submitRefModal() {
+//   showRefModal.value = false;
+//   if (resolvePromise) {
+//     resolvePromise(games.value); // Resolve the promise with the updated games
+//   }
+// }
 
-function closeRefModal() {
-  console.log("Modal closed without saving changes.");
-  showRefModal.value = false;
-  if (resolvePromise) {
-    resolvePromise(null); // Resolve with `null` to indicate no changes
-  }
-}
+// function closeRefModal() {
+//   console.log("Modal closed without saving changes.");
+//   showRefModal.value = false;
+//   if (resolvePromise) {
+//     resolvePromise(null); // Resolve with `null` to indicate no changes
+//   }
+// }
 
-function updateFreeRefs(event, gameId, fieldNum) {
-  // function to update the free refs for the game
-  const selectedRef = event.target.value;
-  games.value[fieldNum][gameId][2] = selectedRef; // Update the referee in the games object
-  console.log("Selected Referee: ", selectedRef);
-}
+// function updateFreeRefs(event, gameId, fieldNum) {
+//   // function to update the free refs for the game
+//   const selectedRef = event.target.value;
+//   games.value[fieldNum][gameId][2] = selectedRef; // Update the referee in the games object
+//   console.log("Selected Referee: ", selectedRef);
+// }
 </script>
 
 <template>
-  <!-- Dashboard html -->
   <form v-if="!showRefModal">
     <input v-model="tournamentName" type="text" placeholder="Enter tournament name" maxlength="8" required /><br />
     <p>
@@ -342,7 +339,7 @@ function updateFreeRefs(event, gameId, fieldNum) {
     <div class="button" @click="generateTournament" type="submit">Create</div>
   </form>
 
-  <!-- Referee Assignment Dialog -->
+  <!-- Referee Assignment Dialog
   <Modal v-if="showRefModal" @close="closeRefModal">
     <h1>Handle manual referee assigning</h1>
     <div id="ref-modal-field-wrapper">
@@ -363,7 +360,7 @@ function updateFreeRefs(event, gameId, fieldNum) {
       </div>
     </div>
     <button @click="submitRefModal">Save Refs</button>
-  </Modal>
+  </Modal> -->
 </template>
 
 <style scoped>
