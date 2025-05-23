@@ -13,7 +13,7 @@ vom __date__
 - **Protokollant:** Sebastian Heber
 - **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber
 - **Abwesend:**  Ibrahim Braikeh, Mutaz Abuazizeh (entschuldigt wegen Arbeit), Jannis Wittchen (entschuldigt privater Termin), Ali Zeinelov 
-- **Wiederholt am 23.05.2025:** Alle Anwesend
+- **Wiederholt am 23.05.2025:** 
 
 == Agenda
 
@@ -72,22 +72,27 @@ vom __date__
 === TOP 1: Terminabsprache Coachmeeting, Ruben, gemeinsame Session 2.0
 
 Nächste Woche wann Zeit für Coach?
+Themen: Repo durchgehen was fehlt und muss ergänzt werden
+Woche danach
+
 Nächste Woche wann Zeit für Ruben?
+Mo nach unserem Meeting online oder Abends, Di ab 13 Uhr aber eher abends
+Themen: Struktur beim Styling (Selektoren), allgemeiner Aufbau/ Logik 
+
 Welcher Termin Coding Session?
 
 
 === TOP 2: Aktuellen Stand der Untergruppen besprechen
 
-
 Auswertungsalgorhytmus:
 
-Darstellung in App permanent
+Darstellung in App immer möglich sein
 
-Andere Ausgabe PDF?
+Ausgabe in PDF oder csv per button (issue 52) von Spielplan (prio 2) und Auswertung (prio 1)
 
 Frontend:
 
-- Zeitplan generieren (Runden-,  Pausenzeiten)
+- Zeitplan generieren (Runden-,  Pausenzeiten) API Anbindung funktioniert
 
 Mutaz Styling 
 
@@ -97,13 +102,17 @@ Ali Styling
 
 Backend:
 
-- Logging System / Hack proofing steht 
+- Logging System / Hack proofing steht fast 
 
 - Validierung der Eingabedaten / Zeiten richtig einspeichern ?
 
+- Merging am Sonntag in Main Branch
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 
+treffen Ali, Mutaz, Joshua für Git Einführung Terminfindung nächstes Teammeeting
+
+Treffen Ali und Joshua für Frontend Coding Session am 25.05. 14 Uhr
 
 
 == Aufgabenverteilung
@@ -113,8 +122,10 @@ Backend:
 |===
 |Wer |Aufgabe 
 
-|
-|
+|Joshua
+|Beitreten von Turnier über ID oder QR Code
+
+
 
 
 |===
