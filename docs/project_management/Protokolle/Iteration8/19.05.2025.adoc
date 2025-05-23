@@ -36,7 +36,7 @@ vom __date__
 |Sebastian
 
 |1
-|Terminabsprache Coachmeeting, gemeinsame Session 2.0
+|Terminabsprache Coachmeeting, Ruben, gemeinsame Session 2.0
 |10 Min.
 |
 |Alle
@@ -69,7 +69,7 @@ vom __date__
 
 == Besprechung der TOP's
 
-=== TOP 1: Terminabsprache Coachmeeting, gemeinsame Session 2.0
+=== TOP 1: Terminabsprache Coachmeeting, Ruben, gemeinsame Session 2.0
 
 Nächste Woche wann Zeit für Coach?
 Nächste Woche wann Zeit für Ruben?
