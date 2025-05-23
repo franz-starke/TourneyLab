@@ -1,1 +1,149 @@
 
+
+= Protokoll Weekly
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc: left
+:icons: font
+:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
+
+.generelle Informationen
+- **Zeit:** 09:45 - 11:00 Uhr 
+- **Ort:**  online via Discord
+- **Protokollant:** Sebastian Heber
+- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber
+- **Abwesend:**  Ibrahim Braikeh, Mutaz Abuazizeh (entschuldigt wegen Arbeit), Jannis Wittchen (entschuldigt privater Termin), Ali Zeinelov 
+
+== Agenda
+
+[cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
+|===
+|Nr. |Tagesordnungspunkt |Dauer |Ergebnis |Verantwortlich
+
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnigs
+// |Verantwortliche
+
+|0
+|Begrüßung und besprechen der Agenda
+|2 Min.
+|alle wissen wo's langeht und es geht los
+|Sebastian
+
+|1
+|Terminabsprache Coachmeeting, gemeinsame Session 2.0
+|10 Min.
+|
+|Alle
+
+|2
+|Aktuellen Stand der Untergruppen besprechen
+|45 Min.
+|
+|Alle
+
+
+|Abschluss
+|Terminabklärung und Aufgabenverteilung abschließen
+|3 Min.
+|Jeder weiß wann wir uns das nächste Mal treffen
+|Alle
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
+
+
+|===
+
+
+<<<
+
+== Besprechung der TOP's
+
+=== TOP 1: Terminabsprache Coachmeeting, gemeinsame Session 2.0
+
+
+
+=== TOP 2: Aktuellen Stand der Untergruppen besprechen
+
+Aufgaben bis Ende Iteration
+
+Auswertungsalgorhytmus:
+
+- Daten können grundsätzlich ausgewertet werden 
+
+- Darstellung von Ergebnissen
+
+Frontend:
+
+- Zeitplan generieren (Runden-,  Pausenzeiten)
+
+- Styling beginnen für Desktop / Smartphone Ansicht 
+
+
+Backend:
+
+- Logging System 
+
+- Validierung der Eingabedaten
+
+- Hack Proofing
+
+- Zeiten richtig einspeichern
+
+
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+
+14.05.2025  17:15 Uhr Treffen Auftraggeberin hybrid A106 / https://bbb.stura.uni-heidelberg.de/rooms/op5-sij-akq-uvl/join 
+
+== Aufgabenverteilung
+
+
+[cols="3s,7", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe 
+
+| Mutaz
+|Styling beginnen für Desktop  Ansicht 
+
+| Ali
+|Styling beginnen für Smartphone Ansicht 
+
+| Sebastian 
+| Idee für Darstellung von Ergebnissen
+
+| Janis
+| Auswertealgorhytmus fertigstellen
+
+| Joshua
+| Zeitplan generieren (Runden-,  Pausenzeiten)
+
+| Franz
+| Logging System erstellen
+
+| Franz
+| Timer für Turniererstellung (Hack Proofing)
+
+| Ibrahim 
+| korrekte Speicherung von Zeiten  
+
+| Ibrahim
+| Validierung der Eingabedaten 
+
+|===
+
+
+
+
+== Anhang
+- **Links und Dokumente:**
+
