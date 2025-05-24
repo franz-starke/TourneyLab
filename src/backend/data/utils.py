@@ -33,6 +33,12 @@ class COLOR:
 
 class Logger:
     def __init__(self) -> None:
+        """
+        Initializes the logger:
+        - Ensures the log directory exists.
+        - Creates a new 'latest.log' file.
+        - Rotates the existing 'latest.log' file if it exists.
+        """
 
         # Creating log directory if not existent 
         LOG_PATH.mkdir(parents=True, exist_ok=True)
@@ -62,6 +68,13 @@ class Logger:
             file.write(f"[LOG START] {datetime.datetime.now().strftime(LOG_FORMAT)}\n")
 
     def _log(self, level: str, message: str):
+        """
+        Internal method to format and output a log messages.
+
+        Args:
+            level (str): The log level ('INFO', 'WARNING', or 'ERROR').
+            message (str): The log message.
+        """
 
         timestamp = datetime.datetime.now().strftime(LOG_FORMAT)
         log_line = f"[{timestamp}] [{level.upper()}] {message}\n"
@@ -91,14 +104,32 @@ class Logger:
         print(f"{COLOR.GRAY}{timestamp} {color_map.get(level, COLOR.RESET)}{log_message}{COLOR.RESET}")
 
     def info(self, message: str = ""):
+        """
+        Logs an info message.
+
+        Args:
+            message (str): The message to log.
+        """
 
         self._log("INFO", message)
 
     def warning(self, message: str = ""):
+        """
+        Logs a warning message.
+
+        Args:
+            message (str): The message to log.
+        """
 
         self._log("WARNING", message)
 
     def error(self, message: str = ""):
+        """
+        Logs an error message with exception traceback information, if available. It automatically gets the latest exception.
+
+        Args:
+            message (str): An optional message to include alongside the traceback.
+        """
 
         ex_type, ex_value, ex_traceback = sys.exc_info()
 
