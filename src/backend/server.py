@@ -13,6 +13,8 @@ class Server:
         self.time_diff = self.time_window/self.max_calls
         self.last_created = 0.0
 
+        utils.LOGGER.info("Created server")
+
     def create_tournament(self, name: str, date: str, teams: dict, games: dict) -> str|utils.Error:
         """
         Creates a new tournament and stores it in a database. A new tournament can only be created every 12 seconds to prevent spamming the database.
