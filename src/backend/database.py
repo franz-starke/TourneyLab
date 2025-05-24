@@ -52,7 +52,7 @@ class Database:
         fields: dict[str, str],
         teams: dict[str, list[str|int]],
         groups: dict[str, str],
-        games: dict, ) -> bool:
+        games: dict) -> bool:
 
         """
         Initializes the database for a new tournament and inserts the provided data.
