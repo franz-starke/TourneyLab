@@ -1,6 +1,11 @@
-import os
+import sys
+import datetime
+import traceback
+from pathlib import Path
 
-DATABASE_PATH = os.path.join("data","databases")
+DATABASE_PATH = Path("data/databases")
+LOG_PATH = Path("data/logs")
+LOG_FORMAT = '%d.%m.%y %H-%M-%S'
 DEBUG = True
 
 class Error:
