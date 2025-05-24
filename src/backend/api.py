@@ -40,6 +40,7 @@ def handle_error(result) -> dict:
         raise HTTPException(status_code=result.code, detail=result.message)
     return result
 
+
 @api.post("/api/create", summary="Create a new tournament")
 def create_tournament(data: CreateTournament):
     """
@@ -57,6 +58,7 @@ def create_tournament(data: CreateTournament):
     result = handle_error(result)
     return {"tournament_id": result}
 
+
 @api.get("/api/tournaments", summary="List all tournaments")
 def get_tournaments():
     """
@@ -70,6 +72,7 @@ def get_tournaments():
     result = server.get_tournaments()
     result = handle_error(result)
     return {"tournaments": result}
+
 
 @api.get("/api/{tournament_id}/fields/{field_id}", summary="Get all games for a specific field")
 def get_field_games(tournament_id: str, field_id: str):
@@ -89,6 +92,7 @@ def get_field_games(tournament_id: str, field_id: str):
     result = handle_error(result)
     return {"games": result}
 
+
 @api.get("/api/{tournament_id}/game/{game_id}", summary="Get the score of a specific game")
 def get_game_score(tournament_id: str, game_id: str):
     """
@@ -106,6 +110,7 @@ def get_game_score(tournament_id: str, game_id: str):
     result = server.get_game_score(tournament_id, game_id)
     result = handle_error(result)
     return {"score": result}
+
 
 @api.put("/api/{tournament_id}/game/{game_id}", summary="Update the score of a game")
 def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
@@ -125,6 +130,7 @@ def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
     result = server.set_game_score(tournament_id, game_id, data.score)
     result = handle_error(result)
     return {"status_code": 200, "detail": "Updated game score"}
+
 
 @api.get("/api/{tournament_id}/details", summary="Get detailed tournament data")
 def get_tournament_details(tournament_id: str):

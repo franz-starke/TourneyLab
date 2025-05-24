@@ -41,6 +41,7 @@ class Database:
             utils.LOGGER.error(f"Cannot process query: {tournament_id}, {query}, {attributes}")
             return None
 
+
     def create_tournament(
         self,
         tournament_id: str,
@@ -135,30 +136,36 @@ class Database:
 
         return True
 
+
     def get_config(self, tournament_id: str) -> list|bool|None:
         """Returns the config of a tournament."""
 
         return self.query(tournament_id, "SELECT * FROM config")
+
 
     def get_games_from_field(self, tournament_id: str, field_id: str) -> list|bool|None:
         """Returns games for a specific field."""
 
         return self.query(tournament_id, "SELECT * FROM games WHERE field_id IS ?", [field_id])
 
+
     def get_game_score(self, tournament_id: str, game_id: str) -> list|bool|None:
         """Returns the score for a specific game."""
         
         return self.query(tournament_id, "SELECT score1, score2 FROM games WHERE id IS ?", [game_id])
+
 
     def set_game_score(self, tournament_id: str, game_id: str, score: list[int]) -> bool:
         """Updates the score of a game and returns whether it was successful."""
 
         return self.query(tournament_id, "UPDATE games SET score1 = ?, score2 = ? WHERE id = ?", [score[0], score[1], game_id]) is True
 
+
     def get_teams(self, tournament_id: str) -> list|bool|None:
         """Returns number of teams per group."""
 
         return self.query(tournament_id, "SELECT group_id, COUNT(*) AS team_count FROM teams GROUP BY group_id")
+
 
     def get_fields(self, tournament_id: str) -> list|bool|None:
         """Returns all unique field IDs."""
