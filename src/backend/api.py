@@ -18,20 +18,23 @@ api.add_middleware(
     allow_headers=["*"],
 )
 
-@api.post("/api/create")
-def create_tournaments(data: CreateTournament):
+def handle_error(result) -> dict:
+    """
+    Converts an `Error` object into an HTTPException.
     
-    name = data.name
-    date = data.date
-    teams = data.teams
-    games = data.games
+    Args:
+        result: The result returned by a server method.
 
-    tournament_id = server.create_tournament(name,date,teams,games)
+    Returns:
+        The original result if it's not an Error.
 
-    if type(tournament_id) == utils.Error:
-        return fastapi.HTTPException(status_code=tournament_id.code,detail=tournament_id.message)
-    else:
-        return {"tournamentid": tournament_id}
+    Raises:
+        HTTPException: If result is an instance of utils.Error.
+    """
+
+    if isinstance(result, utils.Error):
+        raise HTTPException(status_code=result.code, detail=result.message)
+    return result
 
 @api.get("/api/tournaments")
 def get_tournaments():
