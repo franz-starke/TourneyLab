@@ -31,3 +31,87 @@ class COLOR:
     RESET = '\033[0m'
     CRITICAL = '\033[91m\033[1m\033[4m'
 
+class Logger:
+    def __init__(self) -> None:
+
+        # Creating log directory if not existent 
+        LOG_PATH.mkdir(parents=True, exist_ok=True)
+        latest_log = LOG_PATH / "latest.log"
+
+        # If 'latest.log' exists, rotate it using its first line timestamp
+        if latest_log.exists():
+            
+            # Get timestamp of last log
+            with latest_log.open("r") as file:
+                first_line = file.readline().strip()
+
+            # Rename old latest.log file to timestamp logfile
+            if first_line.startswith("[LOG START] "):
+                timestamp = first_line.replace("[LOG START] ", "")
+                rotated_name = LOG_PATH / f"log-{timestamp}.log"
+                try:
+                    latest_log.rename(rotated_name)
+                except Exception:
+                    timestamp = datetime.datetime.now().strftime(LOG_FORMAT)
+                    ex_type, ex_value, _ = sys.exc_info()
+                    if ex_type is not None:
+                        print(f"{COLOR.CRITICAL} [{timestamp}] [CRITICAL] Could not rotate log file: {ex_type.__name__}: {ex_value}{COLOR.RESET}")
+
+        # Create a new latest.log file
+        with latest_log.open("w+") as file:
+            file.write(f"[LOG START] {datetime.datetime.now().strftime(LOG_FORMAT)}\n")
+
+    def _log(self, level: str, message: str):
+
+        timestamp = datetime.datetime.now().strftime(LOG_FORMAT)
+        log_line = f"[{timestamp}] [{level.upper()}] {message}\n"
+
+        # Write to log file
+        try:
+            with (LOG_PATH / "latest.log").open("a") as file:
+                file.write(log_line)
+        except PermissionError:
+            ex_type, ex_value, _ = sys.exc_info()
+            if ex_type is not None:
+                print(f"{COLOR.CRITICAL} [{timestamp}] [CRITICAL] Cannot log to logfile: {ex_type.__name__}: {ex_value}{COLOR.RESET}")
+
+        # Color mapping for log levels
+        color_map = {
+            "INFO": COLOR.RESET,
+            "WARNING": COLOR.YELLOW,
+            "ERROR": COLOR.RED,
+        }
+
+        # Format output
+        log_data = log_line.strip().split(" ", 2)
+        timestamp = " ".join(log_data[:2])
+        log_message = " ".join(log_data[2:])
+
+        # Print to console with color-coded formatting
+        print(f"{COLOR.GRAY}{timestamp} {color_map.get(level, COLOR.RESET)}{log_message}{COLOR.RESET}")
+
+    def info(self, message: str = ""):
+
+        self._log("INFO", message)
+
+    def warning(self, message: str = ""):
+
+        self._log("WARNING", message)
+
+    def error(self, message: str = ""):
+
+        ex_type, ex_value, ex_traceback = sys.exc_info()
+
+        if ex_type is not None and ex_traceback is not None:
+            trace = traceback.extract_tb(ex_traceback)[-1]
+            filename = Path(trace.filename).name
+            line_number = trace.lineno
+            function = trace.name
+            error_message = (f"Exception: {ex_type.__name__} | {ex_value} | File: {filename}, Line: {line_number}, Function: {function} | {message}")
+        else:
+            error_message = f"Error: {message}"
+
+        self._log("ERROR", error_message)
+
+# Create a global logger instance to be used
+LOGGER = Logger()
