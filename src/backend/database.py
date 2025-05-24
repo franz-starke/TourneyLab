@@ -38,7 +38,7 @@ class Database:
                 return None
 
         except Exception:
-            utils.LOGGER.error(f"Cannot process query: {tournament_id}, {query}, {attributes}")
+            utils.LOGGER.error(f"Cannot process query: {tournament_id}, {query}, {attributes}.")
             return None
 
 
