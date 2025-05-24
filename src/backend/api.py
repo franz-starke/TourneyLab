@@ -22,6 +22,8 @@ api.add_middleware(
     allow_headers=["*"],
 )
 
+utils.LOGGER.info("Started API")
+
 def handle_error(result) -> dict:
     """
     Converts an `Error` object into an HTTPException.
