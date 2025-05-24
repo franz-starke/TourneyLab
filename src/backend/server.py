@@ -3,7 +3,7 @@ import string
 import secrets
 import datetime
 from database import *
-from data.utils import *
+import data.utils as utils
 
 class Server:
     def __init__(self):
@@ -13,7 +13,7 @@ class Server:
         self.time_diff = self.time_window/self.max_calls
         self.last_created = 0.0
 
-    def create_tournament(self, name: str, date: str, teams: dict, games: dict) -> str|Error:
+    def create_tournament(self, name: str, date: str, teams: dict, games: dict) -> str|utils.Error:
         """
         Creates a new tournament and stores it in a database. A new tournament can only be created every 12 seconds to prevent spamming the database.
 
@@ -43,20 +43,20 @@ class Server:
 
         # Return an error when function was called in timeout interval
         if current_time - self.last_created <= self.time_diff:
-            return Error(400, "You are creating tournaments too fast.")
+            return utils.Error(400, "You are creating tournaments too fast.")
 
         self.last_created = current_time
 
         uuid = self.generate_unique_string()
 
         if type(uuid) != str:
-            return Error(500, "Could not create new unique ID in maximal iterations. Possibly all tournament ID slots are filled with content.")
+            return utils.Error(500, "Could not create new unique ID in maximal iterations. Possibly all tournament ID slots are filled with content.")
 
         # Create the tournament database file
         try:
-            open(os.path.join(DATABASE_PATH, f"{uuid}.db"), "w+")
+            open(os.path.join(utils.DATABASE_PATH, f"{uuid}.db"), "w+")
         except Exception as e:
-            return Error(500, "An error occurred while creating a new tournament database file.")
+            return utils.Error(500, "An error occurred while creating a new tournament database file.")
 
         # Prepare game fields
         fields = {}
@@ -81,7 +81,7 @@ class Server:
                     schwitzer_id = int(team_id) - teams["1"]
                     team_data[team_id] = [f"Schwitzer {schwitzer_id}", 2]
         except Exception as e:
-            return Error(500, "An error occurred while preparing team data.")
+            return utils.Error(500, "An error occurred while preparing team data.")
 
         # Prepare playing games data
         try:
@@ -98,18 +98,18 @@ class Server:
                         0
                     ]
         except Exception as e:
-            return Error(500, "An error occurred while preparing playing games data.")
+            return utils.Error(500, "An error occurred while preparing playing games data.")
         
         # Save tournament to database
         result = self.database.create_tournament(uuid, name, date, len(fields), team_count, group_count, fields, team_data, group_data, playing_games)
 
         if result == None:
-            return Error(500, "An error occurred while saving the tournament to the database.")
+            return utils.Error(500, "An error occurred while saving the tournament to the database.")
 
         return uuid
 
 
-    def get_tournaments(self) -> list|Error:
+    def get_tournaments(self) -> list|utils.Error:
         """
         Retrieves the configuration data for all tournaments stored in the database path.
 
@@ -124,7 +124,7 @@ class Server:
 
         try:
             # List all files in the database path
-            for file in os.listdir(DATABASE_PATH):
+            for file in os.listdir(utils.DATABASE_PATH):
 
                 # Check if the file is a valid database file (ends with .db and has 8-character UUID)
                 if file.endswith(".db") and len(file) == 11:
@@ -141,12 +141,12 @@ class Server:
                         })
 
         except Exception as e:
-            return Error(500, "An error occurred while retrieving tournament data.")
+            return utils.Error(500, "An error occurred while retrieving tournament data.")
 
         return return_data
 
 
-    def get_games_from_field(self, tournament_id: str, field_id: str) -> list|Error:
+    def get_games_from_field(self, tournament_id: str, field_id: str) -> list|utils.Error:
         """
         Retrieves all games associated with a specific field.
 
@@ -168,7 +168,7 @@ class Server:
             field_data = self.database.get_games_from_field(tournament_id, field_id)
 
             if type(field_data) != list or field_data == None or len(field_data) == 0:
-                return Error(400, "There are no games associated with this field.")
+                return utils.Error(400, "There are no games associated with this field.")
 
             # Loop through each game and collect the required information
             for game in field_data:
@@ -179,12 +179,12 @@ class Server:
                 })
 
         except Exception as e:
-            return Error(500, "An error occurred while retrieving field data.")
+            return utils.Error(500, "An error occurred while retrieving field data.")
 
         return return_data
 
 
-    def get_game_score(self,tournament_id: str, game_id: str) -> list|Error:
+    def get_game_score(self,tournament_id: str, game_id: str) -> list|utils.Error:
         """
         Retrieves the score from the specified game.
 
@@ -203,18 +203,18 @@ class Server:
             score_data = self.database.get_game_score(tournament_id,game_id)
 
             if type(score_data) != list or score_data == None or len(score_data) == 0:
-                return Error(400, "Cannot get a score from the specified game.")
+                return utils.Error(400, "Cannot get a score from the specified game.")
 
             data = score_data[0]
             return_data = [*data]
 
         except Exception as e:
-            return Error(500, "An error occurred while retrieving the game score.")
+            return utils.Error(500, "An error occurred while retrieving the game score.")
 
         return return_data
 
 
-    def set_game_score(self, tournament_id: str, game_id: str, score: list) -> bool|Error:
+    def set_game_score(self, tournament_id: str, game_id: str, score: list) -> bool|utils.Error:
         """
         Sets the score for a specific game in a tournament.
 
@@ -231,15 +231,15 @@ class Server:
             # Attempt to update the score in the database
             result = self.database.set_game_score(tournament_id, game_id, score)
             if not result:
-                return Error(400, "Cannot set new score for the specified game.")
+                return utils.Error(400, "Cannot set new score for the specified game.")
 
         except Exception as e:
-            return Error(500, "Cannot set new score for the specified game.")
+            return utils.Error(500, "Cannot set new score for the specified game.")
 
         return True
 
 
-    def get_tournament_details(self, tournament_id: str) -> dict|Error:
+    def get_tournament_details(self, tournament_id: str) -> dict|utils.Error:
         """
         Retrieves the detailed information of a specified tournament.
 
@@ -258,7 +258,7 @@ class Server:
             # Fetch config data from the database
             config_data = self.database.get_config(tournament_id)
             if type(config_data) != list or config_data == None or len(config_data) == 0:
-                return Error(400, "Cannot fetch information from this tournament.")
+                return utils.Error(400, "Cannot fetch information from this tournament.")
 
             data = config_data[0]
             name = data[1]
@@ -267,7 +267,7 @@ class Server:
             # Fetch all groups with their team sizes
             team_data = self.database.get_teams(tournament_id)
             if type(team_data) != list or team_data == None or len(team_data) == 0:
-                return Error(400, "Cannot fetch team information from this tournament.")
+                return utils.Error(400, "Cannot fetch team information from this tournament.")
             
             teams = {}
             for i,team_id in enumerate(team_data):
@@ -276,7 +276,7 @@ class Server:
             # Fetch all fields
             field_data = self.database.get_fields(tournament_id)
             if type(field_data) != list or field_data == None or len(field_data) == 0:
-                return Error(400, "Cannot fetch game information from this tournament.")
+                return utils.Error(400, "Cannot fetch game information from this tournament.")
             
             games = {}
             for field_id in field_data:
@@ -286,14 +286,14 @@ class Server:
                 # Fetch all games for every field
                 game_data = self.database.get_games_from_field(tournament_id, field_id)
                 if type(game_data) != list or game_data == None or len(game_data) == 0:
-                    return Error(400, "Cannot fetch game information from fields for this tournament.") 
+                    return utils.Error(400, "Cannot fetch game information from fields for this tournament.") 
 
                 # Created return structure for games
                 for game in game_data:
                     games[field_id][game[0]] = [game[2],game[3],game[4],game[5],[game[6],game[7]]]
 
         except Exception as e:
-            return Error(500, "Error while retrieving tournament details.")
+            return utils.Error(500, "Error while retrieving tournament details.")
 
         return {
             "name": name,
@@ -320,7 +320,7 @@ class Server:
 
         # Get all existing UUIDs from database files
         try:
-            files = os.listdir(DATABASE_PATH)
+            files = os.listdir(utils.DATABASE_PATH)
             for file in files:
                 if file.endswith(".db") and len(file) == length+3:
                     used_uuids.add(file[:-3])  # Remove the ".db" extension

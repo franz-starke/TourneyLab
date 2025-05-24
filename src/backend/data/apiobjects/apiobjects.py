@@ -1,5 +1,5 @@
 from pydantic import BaseModel, field_validator
-from data.utils import *
+import data.utils as utils
 
 class CreateTournament(BaseModel):
     name: str
@@ -66,16 +66,17 @@ class ScoreUpdate(BaseModel):
 
     @field_validator("score")
     def validate_score(cls, v):
-    # Check if the value is a list and contains exactly two elements
+
+        # Check if the value is a list and contains exactly two elements
         if not isinstance(v, list) or len(v) != 2:
-            return Error(400, "Score must be a list of exactly two integers.")
+            return utils.Error(400,"Score must be a list of exactly two integers.")
 
-    # Check if both elements in the list are integers
+        # Check if both elements in the list are integers
         if not all(isinstance(x, int) for x in v):
-            return Error(400, "Score values must be integer.")
+            return utils.Error(400,"Score values must be integer.")
 
-    # Check if any of the integers are negative
+        # Check if any of the integers are negative
         if any(x < 0 for x in v):
-            return Error(400, "Score values must not be negative.")
+            return utils.Error(400,"Score values must not be negative.")
 
         return v
