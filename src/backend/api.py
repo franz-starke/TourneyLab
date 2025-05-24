@@ -1,11 +1,13 @@
-import fastapi
 import data.utils as utils
 
-from server import *
-from data.apiobjects.apiobjects import *
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-api = fastapi.FastAPI()
+from server import Server
+from data.apiobjects.apiobjects import CreateTournament, ScoreUpdate
+
+# Create FastAPI and server instance
+api = FastAPI()
 server = Server()
 
 origins = ["*"]
@@ -36,57 +38,47 @@ def handle_error(result) -> dict:
         raise HTTPException(status_code=result.code, detail=result.message)
     return result
 
-@api.get("/api/tournaments")
-def get_tournaments():
-    
-    tournaments = server.get_tournaments()
 
-    if type(tournaments) == utils.Error:
-        return fastapi.HTTPException(status_code=tournaments.code,detail=tournaments.message)
-    else:
-        return {"tournaments": tournaments}
+    result = server.create_tournament(data.name, data.date, data.teams, data.games)
+    result = handle_error(result)
+    return {"tournament_id": result}
+
+def get_tournaments():
+
+    result = server.get_tournaments()
+    result = handle_error(result)
+    return {"tournaments": result}
 
 @api.get("/api/{tournament_id}/fields/{field_id}")
 def get_field_games(tournament_id: str, field_id: str):
     
     games = server.get_games_from_field(tournament_id,field_id)
 
-    if type(games) == utils.Error:
-        return fastapi.HTTPException(status_code=games.code,detail=games.message)
-    else:
-        return {"games":games}
+
+    result = server.get_games_from_field(tournament_id, field_id)
+    result = handle_error(result)
+    return {"games": result}
 
 @api.get("/api/{tournament_id}/game/{game_id}")
 def get_game_score(tournament_id: str, game_id: str):
-    
-    score = server.get_game_score(tournament_id,game_id)
 
-    if type(score) == utils.Error:
-        return fastapi.HTTPException(status_code=score.code,detail=score.message)
-    else:
-        return {"score": score}
+    result = server.get_game_score(tournament_id, game_id)
+    result = handle_error(result)
+    return {"score": result}
 
 @api.put("/api/{tournament_id}/game/{game_id}")
 def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
-    
-    score = data.score
-    if type(score) == utils.Error:
-        return fastapi.HTTPException(status_code=score.code,detail=score.message)
-    
-    status = server.set_game_score(tournament_id,game_id,score)
 
-    if type(status) == utils.Error:
-        return fastapi.HTTPException(status_code=status.code,detail=status.message)
-    else:
-        return {"status_code":200,"detail":"Updated game score"}
+    result = server.set_game_score(tournament_id, game_id, data.score)
+    result = handle_error(result)
+    return {"status_code": 200, "detail": "Updated game score"}
 
 @api.get("/api/{tournament_id}/details")
 def get_tournament_details(tournament_id: str):
 
     tournament_data = server.get_tournament_details(tournament_id)
 
-    if type(tournament_data) == utils.Error:
-        return fastapi.HTTPException(status_code=tournament_data.code,detail=tournament_data.message)
-    else:
-        return tournament_data
 
+    result = server.get_tournament_details(tournament_id)
+    result = handle_error(result)
+    return result
