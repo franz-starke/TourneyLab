@@ -45,6 +45,7 @@ class Server:
 
         # Return an error when function was called in timeout interval
         if current_time - self.last_created <= self.time_diff:
+            utils.LOGGER.warning("Creating tournaments to fast.")
             return utils.Error(400, "You are creating tournaments too fast.")
 
         self.last_created = current_time
@@ -57,7 +58,8 @@ class Server:
         # Create the tournament database file
         try:
             open(os.path.join(utils.DATABASE_PATH, f"{uuid}.db"), "w+")
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while creating new database file.")
             return utils.Error(500, "An error occurred while creating a new tournament database file.")
 
         # Prepare game fields
@@ -82,7 +84,8 @@ class Server:
                 else:
                     schwitzer_id = int(team_id) - teams["1"]
                     team_data[team_id] = [f"Schwitzer {schwitzer_id}", 2]
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while preparing team data.")
             return utils.Error(500, "An error occurred while preparing team data.")
 
         # Prepare playing games data
@@ -99,7 +102,8 @@ class Server:
                         0,
                         0
                     ]
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while preparing playing games data.")
             return utils.Error(500, "An error occurred while preparing playing games data.")
         
         # Save tournament to database
@@ -142,7 +146,8 @@ class Server:
                             "date": data[2]
                         })
 
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while retrieving tournament data.")
             return utils.Error(500, "An error occurred while retrieving tournament data.")
 
         return return_data
@@ -180,7 +185,8 @@ class Server:
                     "score": [game[6], game[7]]
                 })
 
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while retrieving field data.")
             return utils.Error(500, "An error occurred while retrieving field data.")
 
         return return_data
@@ -210,7 +216,8 @@ class Server:
             data = score_data[0]
             return_data = [*data]
 
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while retrieving game score.")
             return utils.Error(500, "An error occurred while retrieving the game score.")
 
         return return_data
@@ -235,7 +242,8 @@ class Server:
             if not result:
                 return utils.Error(400, "Cannot set new score for the specified game.")
 
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while setting new game score.")
             return utils.Error(500, "Cannot set new score for the specified game.")
 
         return True
@@ -294,7 +302,8 @@ class Server:
                 for game in game_data:
                     games[field_id][game[0]] = [game[2],game[3],game[4],game[5],[game[6],game[7]]]
 
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while retrieving tournament details.")
             return utils.Error(500, "Error while retrieving tournament details.")
 
         return {
@@ -326,7 +335,8 @@ class Server:
             for file in files:
                 if file.endswith(".db") and len(file) == length+3:
                     used_uuids.add(file[:-3])  # Remove the ".db" extension
-        except Exception as e:
+        except Exception:
+            utils.LOGGER.error("Error while getting already used uuids.")
             return None
 
         # Generate unique UUID
