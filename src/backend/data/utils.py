@@ -4,7 +4,13 @@ DATABASE_PATH = os.path.join("data","databases")
 DEBUG = True
 
 class Error:
-    def __init__(self,code:int,message:str) -> None:
+    def __init__(self, code: int, message: str) -> None:
+        """
+        Args:
+            code (int): Numerical error code.
+            message (str): Description of the error.
+        """
+
         self.code = code
         self.message = message
 
