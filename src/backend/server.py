@@ -57,6 +57,7 @@ class Server:
 
         # Create the tournament database file
         try:
+            utils.DATABASE_PATH.mkdir(parents=True, exist_ok=True)
             open(os.path.join(utils.DATABASE_PATH, f"{uuid}.db"), "w+")
         except Exception:
             utils.LOGGER.error("Error while creating new database file.")
@@ -130,6 +131,7 @@ class Server:
 
         try:
             # List all files in the database path
+            utils.DATABASE_PATH.mkdir(parents=True, exist_ok=True)
             for file in os.listdir(utils.DATABASE_PATH):
 
                 # Check if the file is a valid database file (ends with .db and has 8-character UUID)
@@ -331,6 +333,7 @@ class Server:
 
         # Get all existing UUIDs from database files
         try:
+            utils.DATABASE_PATH.mkdir(parents=True, exist_ok=True)
             files = os.listdir(utils.DATABASE_PATH)
             for file in files:
                 if file.endswith(".db") and len(file) == length+3:
