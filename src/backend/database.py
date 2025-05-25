@@ -56,7 +56,7 @@ class Database:
         fields: dict[str, str],
         teams: dict[str, list[str|int]],
         groups: dict[str, str],
-        games: dict) -> bool:
+        games: dict) -> bool|None:
 
         """
         Initializes the database for a new tournament and inserts the provided data.
@@ -77,50 +77,52 @@ class Database:
             bool: True if setup is successful.
         """
 
-        self.query(tournament_id, """
+        result = []
+
+        result.append(self.query(tournament_id, """
             CREATE TABLE IF NOT EXISTS config (
             id           TEXT PRIMARY KEY,
             name         TEXT,
             date         TEXT,
             field_count  INTEGER,
             team_count   INTEGER,
-            group_count  INTEGER)""")
+            group_count  INTEGER)"""))
 
-        self.query(tournament_id, """
+        result.append(self.query(tournament_id, """
             INSERT INTO config 
             (id, name, date, field_count, team_count, group_count)
             VALUES (?, ?, ?, ?, ?, ?)""", 
-            [tournament_id, name, date, field_count, team_count, group_count])
+            [tournament_id, name, date, field_count, team_count, group_count]))
 
-        self.query(tournament_id, """
+        result.append(self.query(tournament_id, """
             CREATE TABLE IF NOT EXISTS groups (
             id   TEXT PRIMARY KEY,
-            name TEXT)""")
+            name TEXT)"""))
 
         for group_id, group_name in groups.items():
-            self.query(tournament_id, """INSERT INTO groups (id, name) VALUES (?, ?)""", 
-                [group_id, group_name])
+            result.append(self.query(tournament_id, """INSERT INTO groups (id, name) VALUES (?, ?)""", 
+                [group_id, group_name]))
 
-        self.query(tournament_id, """
+        result.append(self.query(tournament_id, """
             CREATE TABLE IF NOT EXISTS teams (
             id       TEXT PRIMARY KEY,
             name     TEXT,
-            group_id TEXT)""")
+            group_id TEXT)"""))
 
         for team_id, (team_name, group_id) in teams.items():
-            self.query(tournament_id, """INSERT INTO teams (id, name, group_id) VALUES (?, ?, ?)""",
-                [team_id, team_name, group_id])
+            result.append(self.query(tournament_id, """INSERT INTO teams (id, name, group_id) VALUES (?, ?, ?)""",
+                [team_id, team_name, group_id]))
 
-        self.query(tournament_id, """
+        result.append(self.query(tournament_id, """
             CREATE TABLE IF NOT EXISTS fields (
             id   TEXT PRIMARY KEY,
-            name TEXT)""")
+            name TEXT)"""))
 
         for field_id, field_name in fields.items():
-            self.query(tournament_id, """INSERT INTO fields (id, name) VALUES (?, ?)""",
-                [field_id, field_name])
+            result.append(self.query(tournament_id, """INSERT INTO fields (id, name) VALUES (?, ?)""",
+                [field_id, field_name]))
 
-        self.query(tournament_id, """CREATE TABLE IF NOT EXISTS games (
+        result.append(self.query(tournament_id, """CREATE TABLE IF NOT EXISTS games (
             id       TEXT PRIMARY KEY,
             field_id TEXT,
             team1    TEXT,
@@ -128,15 +130,19 @@ class Database:
             ref      TEXT,
             time     TEXT,
             score1   INTEGER,
-            score2   INTEGER)""")
+            score2   INTEGER)"""))
 
         for game_id, game_data in games.items():
-            self.query(tournament_id, """
+            result.append(self.query(tournament_id, """
                 INSERT INTO games 
                 (id, field_id, team1, team2, ref, time, score1, score2)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)""", 
-                [game_id, *game_data])
+                [game_id, *game_data]))
 
+        for variable in result:
+            if variable == None:
+                return None
+            
         return True
 
 
