@@ -56,6 +56,9 @@ def create_tournament(data: CreateTournament):
     """
 
     # Create new tournament entry in server
+    for variable in data:
+        if type(variable[1]) == utils.Error:
+            return handle_error(variable[1])
     result = server.create_tournament(data.name, data.date, data.teams, data.games)
     result = handle_error(result)
     return {"tournament_id": result}
@@ -129,6 +132,8 @@ def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
     """
 
     # Change score for game
+    if type(data.score) == utils.Error:
+        return handle_error(data.score)
     result = server.set_game_score(tournament_id, game_id, data.score)
     result = handle_error(result)
     return {"status_code": 200, "detail": "Updated game score"}
