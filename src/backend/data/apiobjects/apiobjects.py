@@ -3,9 +3,9 @@ import data.utils as utils
 
 class CreateTournament(BaseModel):
     name: str
+    date: str
     teams: dict[str,int]
     games: dict[str,dict]
-    date: str
 
     @field_validator("name")
     def validate_name(cls, v):
