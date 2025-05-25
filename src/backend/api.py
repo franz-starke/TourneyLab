@@ -55,6 +55,10 @@ def create_tournament(data: CreateTournament):
         The tournament ID for the new tournament.
     """
 
+    # Logging for future debugging
+    if utils.DEBUG:
+        utils.LOGGER.info(f"API request to create a new tournament | {data}")
+
     # Create new tournament entry in server
     for variable in data:
         if type(variable[1]) == utils.Error:
@@ -72,6 +76,10 @@ def get_tournaments():
     Returns:
         A list of all tournaments that have been created.
     """
+
+    # Logging for future debugging
+    if utils.DEBUG:
+        utils.LOGGER.info("API request to list all tournaments.")
 
     # Fetch data for all tournaments
     result = server.get_tournaments()
@@ -92,6 +100,10 @@ def get_field_games(tournament_id: str, field_id: str):
         All games that are connected with this field.
     """
 
+    # Logging for future debugging
+    if utils.DEBUG:
+        utils.LOGGER.info(f"API request to get all games from a field | {tournament_id} | {field_id}")
+
     # Fetch data for all games in field
     result = server.get_games_from_field(tournament_id, field_id)
     result = handle_error(result)
@@ -110,6 +122,10 @@ def get_game_score(tournament_id: str, game_id: str):
     Returns:
         The game score.
     """
+
+    # Logging for future debugging
+    if utils.DEBUG:
+        utils.LOGGER.info(f"API request to get the score for a game | {tournament_id} | {game_id}")
 
     # Fetch data for score
     result = server.get_game_score(tournament_id, game_id)
@@ -131,6 +147,10 @@ def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
         A status code for the score change.
     """
 
+    # Logging for future debugging
+    if utils.DEBUG:
+        utils.LOGGER.info(f"API request to change the score of a game | {tournament_id} | {data.score}")
+
     # Change score for game
     if type(data.score) == utils.Error:
         return handle_error(data.score)
@@ -150,6 +170,10 @@ def get_tournament_details(tournament_id: str):
     Returns:
         All data for the already played tournament.
     """
+
+    # Logging for future debugging
+    if utils.DEBUG:
+        utils.LOGGER.info(f"API request to get tournament details | {tournament_id}")
 
     # Fetch data for tournament
     result = server.get_tournament_details(tournament_id)
