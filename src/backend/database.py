@@ -19,6 +19,9 @@ class Database:
         """
 
         try:
+            if not os.path.exists(os.path.join(utils.DATABASE_PATH, f"{tournament_id}.db")):
+                return None
+            
             with sqlite3.connect(os.path.join(utils.DATABASE_PATH, f"{tournament_id}.db")) as connection:
                 cursor = connection.cursor()
                 cursor.execute(query, attributes)
