@@ -1,5 +1,6 @@
-from pydantic import BaseModel, field_validator
+import re
 import data.utils as utils
+from pydantic import BaseModel, field_validator
 
 class CreateTournament(BaseModel):
     name: str
@@ -11,52 +12,57 @@ class CreateTournament(BaseModel):
     def validate_name(cls, v):
         # Check if name is not empty
         if not v.strip():
-            raise ValueError("Tournament name must not be empty.")
-        return v
-    
-    def validate_teams(cls, v):
-        # Check that each group ID maps to a positive integer number of teams
-        if not isinstance(v, dict):
-            raise ValueError("Teams must be a dictionary.")
-        for group_id, team_count in v.items():
-            if not isinstance(group_id, str):
-                raise ValueError("Team group IDs must be strings.")
-            if not isinstance(team_count, int) or team_count <= 0:
-                raise ValueError("Each team count must be a positive integer.")
+            return utils.Error(400,"Tournament name must not be empty.")
         return v
     
     @field_validator("date")
     def validate_date(cls, v):
         # Simple ISO date format check
-        import re
         if not re.match(r"^\d{4}-\d{2}-\d{2}$", v):
-            raise ValueError("Date must be in the format YYYY-MM-DD.")
+            return utils.Error(400,"Date must be in the format YYYY-MM-DD.")
+        return v
+    
+    @field_validator("teams")
+    def validate_teams(cls, v):
+        # Check that each group ID maps to a positive integer number of teams
+        if not isinstance(v, dict):
+            return utils.Error(400,"Teams must be an object.")
+        
+        # Check if at least 1 and at most 2 groups are present.
+        if len(v) != 1 and len(v) != 2:
+            return utils.Error(400,"Teams must must have at least 1 and at most 2 groups.")
+
+        # Check if teams structure is valid
+        for group_id, team_count in v.items():
+            if not isinstance(group_id, str):
+                return utils.Error(400,"Team group IDs must be strings.")
+            if not isinstance(team_count, int) or team_count <= 0:
+                return utils.Error(400,"Each team count must be a positive integer.")
         return v
     
     @field_validator("games")
     def validate_games(cls, v):
         # Check that the structure is correct
         if not isinstance(v, dict):
-            raise ValueError("Games must be a dictionary.")
+            return utils.Error(400,"Games must be an object.")
 
         for field_id, games_on_field in v.items():
             if not isinstance(games_on_field, dict):
-                raise ValueError(f"Games for field '{field_id}' must be a dictionary.")
+                return utils.Error(400,f"Games for field '{field_id}' must be an object.")
             
             for game_id, game_info in games_on_field.items():
                 if not isinstance(game_info, list) or len(game_info) != 4:
-                    raise ValueError(f"Game '{game_id}' in field '{field_id}' must be a list of four elements.")
+                    return utils.Error(400,f"Game '{game_id}' in field '{field_id}' must be a list of four elements.")
                 
                 team1, team2, ref, time = game_info
 
                 # Check types
                 if not all(isinstance(x, int) for x in [team1, team2, ref]):
-                    raise ValueError(f"Game '{game_id}' in field '{field_id}' must have team and ref IDs as integers.")
+                    return utils.Error(400,f"Game '{game_id}' in field '{field_id}' must have team and ref IDs as integers.")
                 
                 # Check time format (HH:MM)
-                import re
                 if not isinstance(time, str) or not re.match(r"^\d{2}:\d{2}$", time):
-                    raise ValueError(f"Game '{game_id}' in field '{field_id}' has invalid time format. Use 'HH:MM'.")
+                    return utils.Error(400,f"Game '{game_id}' in field '{field_id}' has invalid time format. Use 'HH:MM'.")
 
         return v
 
