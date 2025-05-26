@@ -56,4 +56,14 @@ function renderGamesForField(fieldID) {
 div.button {
   padding: 0.4em;
 }
+
+
+@media screen and (max-width: 480px) {
+  #games-for-field {
+  background-color: black;
+}
+
+
+  
+}
 </style>
