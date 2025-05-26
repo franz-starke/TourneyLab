@@ -95,6 +95,22 @@ watch(
   color: var(--font-color-main);
 }
 
+input[type="number"] {
+  -webkit-user-select: text; /* Chrome, Safari */
+  -moz-user-select: text;    /* Firefox */
+  -ms-user-select: text;     /* Internet Explorer/Edge */
+  user-select: text;         /* Standard syntax */
+}
+
+input {
+  width: 2em;
+  height: 1em;
+  text-align: center;
+  font-size: 1.5em;
+  border-radius: 10px;
+  border: none;
+}
+
 #info-container {
   /* width: 100%; */
   /* height: 100%; */

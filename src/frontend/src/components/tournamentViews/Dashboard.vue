@@ -2,17 +2,42 @@
 import QrcodeVue, { QrcodeCanvas, QrcodeSvg } from "qrcode.vue";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 import { ref } from "vue";
+import { useTournamentStore } from "@/stores/tournamentStore";
+import { gzip, ungzip } from 'pako';
+
+const store = useTournamentStore();
 
 const syncGames = ref(false);
 
-function onDetect(detectedCodes) {}
+// 1. Convert to JSON string
+const jsonStr = JSON.stringify(store.tournament);
+// Note: The `null, 2` is for pretty-printing the JSON with indentation
+// 2. Compress using GZIP
+const compressed = gzip(jsonStr);
+// 3. Encode to Base64 (QR-safe string)
+const base64Encoded = btoa(String.fromCharCode(...compressed));
+const qrvalue = ref(base64Encoded);
+function onDetect(detectedCodes) {
+  // detectedCodes is a Proxy Array
+  const rawValue = detectedCodes[0].rawValue;
+  const decoded = atob(rawValue);
+  const decompressed = ungzip(new Uint8Array([...decoded].map(c => c.charCodeAt(0))), { to: 'string' });
+  
+  // Parse the JSON string back to an object
+  const tournamentData = JSON.parse(decompressed);
+  
+  // Update the store with the new tournament data
+  store.updateTournament(tournamentData);
+  
+  console.log("Tournament data updated:", tournamentData);
+}
+
 function toggleSyncGames() {
   syncGames.value = !syncGames.value;
 }
 </script>
 
 <template>
-  <!-- ? maybe use dynamic component loading instead of conditional rendering -->
   <!-- Tournament Dashboard -->
   <div v-if="!syncGames" id="dashboard-container" class="flex-container">
     <h1>Dashboard</h1>
@@ -31,7 +56,7 @@ function toggleSyncGames() {
     <h2>QR-Generator for current Tournament Data:</h2>
     <qrcode-vue
       class="qr-code"
-      :value="value"
+      :value="qrvalue"
       :size="size"
       level="H"
       render-as="svg"
