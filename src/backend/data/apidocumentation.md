@@ -359,7 +359,10 @@ The `score` field is a required entry with 2 `integer`, which represent the game
 ### Response
 
 ```json
-HTTP/1.1 200 OK
+{
+    "status_code": 200,
+    "detail": "Updated game score"
+}
 ```
 
 The api will respond with a status code, dependent on the correctness of the change.
