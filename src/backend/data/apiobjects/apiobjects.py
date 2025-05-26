@@ -10,7 +10,7 @@ class CreateTournament(BaseModel):
 
     @field_validator("name")
     def validate_name(cls, v):
-        
+
         # Check if name is not empty
         if not v.strip():
             return utils.Error(400,"Tournament name must not be empty.")
@@ -46,6 +46,8 @@ class CreateTournament(BaseModel):
     @field_validator("games")
     def validate_games(cls, v):
 
+        game_ids = []
+
         # Check that the structure is correct
         if not isinstance(v, dict):
             return utils.Error(400,"Games must be an object.")
@@ -55,6 +57,13 @@ class CreateTournament(BaseModel):
                 return utils.Error(400,f"Games for field '{field_id}' must be an object.")
             
             for game_id, game_info in games_on_field.items():
+
+                # Check for duplicates and for correct game structure
+                if game_id not in game_ids:
+                    game_ids.append(game_id)
+                else:
+                    return utils.Error(400,f"Game id '{game_id}' is duplicate.")
+
                 if not isinstance(game_info, list) or len(game_info) != 4:
                     return utils.Error(400,f"Game '{game_id}' in field '{field_id}' must be a list of four elements.")
                 
