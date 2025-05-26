@@ -1,5 +1,5 @@
 <script setup>
-import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
+import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 import { ref } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
@@ -41,19 +41,8 @@ async function onDetect(detectedCodes) {
     <p>
       {{ debugInfo }}
     </p>
-
-    <input
-      id="enter-code"
-      type="text"
-      placeholder="Turnier-Code eingeben..."
-      v-model="tournamentName"
-    />
-    <RouterLink
-      class="router-link"
-      to="/tournament-home/dashboard"
-      @click.native="enterCodeEval"
-      >Beitreten</RouterLink
-    >
+    <input id="enter-code" type="text" placeholder="Turnier-Code eingeben..." v-model="tournamentName" />
+    <RouterLink class="router-link" to="/tournament-home/dashboard" @click="enterCodeEval">Beitreten</RouterLink>
   </div>
 </template>
 
@@ -62,9 +51,12 @@ async function onDetect(detectedCodes) {
 
 <style scoped>
 #qr-code-wrapper {
-  width: 30%; /* Set the width you desire */
-  height: 30%; /* Set the height you desire */
-  overflow: hidden; /* Prevent the content from spilling out */
+  width: 30%;
+  /* Set the width you desire */
+  height: 30%;
+  /* Set the height you desire */
+  overflow: hidden;
+  /* Prevent the content from spilling out */
 }
 
 #enter-code {

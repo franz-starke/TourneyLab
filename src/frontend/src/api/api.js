@@ -4,7 +4,7 @@
 import axios from "axios";
 
 // choose right server address for testing or deployment
-const localhost = "127.0.0.1";
+const localhost = "127.0.0.1:8000";
 const serverDomain = "htw-turnier.de";
 const testServer = "217.79.180.226:5400";
 const protocol = "http://";
@@ -32,12 +32,10 @@ class api {
   }
 
   async getOldTournaments() {
-    console.log(this.protocol);
 
     try {
-      return await axios.get(
-        `${this.protocol}${this.serverAddr}/api/tournaments`
-      );
+      this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/tournaments`);
+      return this.response.data;
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -45,9 +43,8 @@ class api {
 
   async getGamesWithScoresFromField(tournamentID, fieldID) {
     try {
-      return await axios.get(
-        `${this.protocol}${this.serverAddr}/api/${tournamentID}/fields/${fieldID}`
-      );
+      this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/${tournamentID}/fields/${fieldID}`);
+      return this.response.data;
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -55,9 +52,10 @@ class api {
 
   async getGameScore(tournamentID, gameID) {
     try {
-      return await axios.get(
-        `${this.protocol}${serverAddr}/api/${tournamentID}/game/${gameID}`
+      let response = await axios.get(
+        `${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`
       );
+      return response.data;
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -65,9 +63,19 @@ class api {
 
   async editGameScore(tournamentID, gameID, score) {
     try {
-      return await axios.post(
-        `${this.protocol}${serverAddr}/api/${tournamentID}/game/${gameID}`
+      const data = {"score": score};
+      return await axios.put(
+        `${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`, data
       );
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
+  }
+
+  async getTournament(tournamentID) {
+    try {
+      this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/${tournamentID}/details`);
+      return this.response.data;
     } catch (error) {
       console.error("There was an error!", error);
     }
