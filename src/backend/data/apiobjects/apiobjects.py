@@ -57,8 +57,9 @@ class CreateTournament(BaseModel):
                 team1, team2, ref, time = game_info
 
                 # Check types
-                if not all(isinstance(x, int) for x in [team1, team2, ref]):
-                    return utils.Error(400,f"Game '{game_id}' in field '{field_id}' must have team and ref IDs as integers.")
+                for x in [team1, team2, ref]:
+                    if not isinstance(x, int):
+                        return utils.Error(400,f"Game '{game_id}' in field '{field_id}' must have team and ref IDs as integers.")
                 
                 # Check time format (HH:MM)
                 if not isinstance(time, str) or not re.match(r"^\d{2}:\d{2}$", time):
