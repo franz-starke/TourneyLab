@@ -12,8 +12,9 @@ vom __date__
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
 - **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber
-- **Abwesend:**  Ibrahim Braikeh, Mutaz Abuazizeh (entschuldigt wegen Arbeit), Jannis Wittchen (entschuldigt privater Termin), Ali Zeinelov 
-- **Wiederholt am 23.05.2025:** 
+- **Abwesend:**  Ibrahim Braikeh  (entschuldigt wegen Arbeit), Mutaz Abuazizeh (entschuldigt wegen Arbeit), Jannis Wittchen (entschuldigt privater Termin), Ali Zeinelov 
+- **Wiederholt am 23.05.2025:** Joshua Heninger, Franz Starke, Sebastian Heber, Ali Zeinelov 
+- **Abwesend:** Mutaz Abuazizeh (entschuldigt), Jannis Wittchen(entschuldigt), Ibrahim Braikeh
 
 == Agenda
 
