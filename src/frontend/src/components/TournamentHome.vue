@@ -105,6 +105,7 @@ const store = useTournamentStore();
   width: 100%;
 }
 
+/* hdjshdj */
 
 
 #tournament-views {
