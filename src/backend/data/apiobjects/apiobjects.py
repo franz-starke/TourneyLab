@@ -10,6 +10,7 @@ class CreateTournament(BaseModel):
 
     @field_validator("name")
     def validate_name(cls, v):
+        
         # Check if name is not empty
         if not v.strip():
             return utils.Error(400,"Tournament name must not be empty.")
@@ -17,6 +18,7 @@ class CreateTournament(BaseModel):
     
     @field_validator("date")
     def validate_date(cls, v):
+
         # Simple ISO date format check
         if not re.match(r"^\d{4}-\d{2}-\d{2}$", v):
             return utils.Error(400,"Date must be in the format YYYY-MM-DD.")
@@ -24,6 +26,7 @@ class CreateTournament(BaseModel):
     
     @field_validator("teams")
     def validate_teams(cls, v):
+
         # Check that each group ID maps to a positive integer number of teams
         if not isinstance(v, dict):
             return utils.Error(400,"Teams must be an object.")
@@ -42,6 +45,7 @@ class CreateTournament(BaseModel):
     
     @field_validator("games")
     def validate_games(cls, v):
+
         # Check that the structure is correct
         if not isinstance(v, dict):
             return utils.Error(400,"Games must be an object.")
