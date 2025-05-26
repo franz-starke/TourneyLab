@@ -7,8 +7,38 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Allgemeine Informationen
 
-== Test Cases
+== Test Cases create_tournament
 
-=== Test Case 01
+[cols="1,1"]
+|===
+|Use cases |Description
+
+|test_create_tournament_success
+|Verifies creating a tournament successfully (returns status 200 and a tournament ID)
+
+|test_create_tournament_empty_body
+|Checks that an empty request body is properly rejected with a 422 Bad Request error.
+
+|test_create_tournament_invalid_team_type
+|Ensures the endpoint returns an error with code 422 when the teams field has an invalid type
+
+|test_create_tournament_invalid_games_type
+|Validates that an invalid type in the games field triggers a 422 Bad Request response.
+
+|test_create_tournament_missing_name
+|Confirms that submitting an empty tournament name results in a 400 error with the appropriate message.
+
+|test_create_tournament_invalid_date
+|Tests that an invalid date format is correctly rejected with a 400 error.
+
+|test_create_tournament_too_many_groups
+|Ensures that if the number of team groups exceeds the allowed limit (2), the request fails with a 400 error.
+
+|test_create_tournament_wrong_time_format
+|Verifies that improperly formatted game times are identified as invalid and cause a 400 response.
+
+
+|=== 
+=== Test Cases 
 
 === Test Case 02
