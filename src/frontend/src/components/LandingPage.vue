@@ -54,6 +54,10 @@
   color: #555;
 }
 
+test {
+  background-color: white;
+}
+
 .button-wrapper {
   display: flex;
   flex-direction: column;
