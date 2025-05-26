@@ -24,7 +24,7 @@ api.add_middleware(
 
 utils.LOGGER.info("Started API")
 
-def handle_error(result) -> dict:
+def handle_error(result) -> dict|utils.Error:
     """
     Converts an `Error` object into an HTTPException.
     
