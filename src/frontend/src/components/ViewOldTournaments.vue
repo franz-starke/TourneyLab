@@ -2,6 +2,12 @@
 import api from "@/api/api.js";
 import { ref, onBeforeMount } from "vue";
 import BackHeader from "./utilcomponents/BackHeader.vue";
+import { useRouter } from "vue-router";
+import { useTournamentStore } from "@/stores/tournamentStore.js";
+
+
+const router = useRouter();
+const store = useTournamentStore();
 
 const tournamentIds = ref([]);
 
@@ -18,8 +24,17 @@ onBeforeMount(async function () {
 // TODO: Get old Tournament details when user clicks on one
 async function getTournament(tid) {
   try {
-    const tdata = await api.getTournament(tid);
-    console.log(tdata);
+    const response = await api.getTournament(tid);
+
+    // set tournament data in the store
+    store.tournament.date = response.date;
+    store.tournament.id = response.id;
+    store.tournament.name = response.name;
+    store.tournament.groups = response.teams;
+    store.tournament.games = response.games;
+
+    // Navigate to the tournament home page
+    router.push("/tournament-home/dashboard");
   } catch (error) {
     console.error("get old tournaments failed");
   }
@@ -28,14 +43,14 @@ async function getTournament(tid) {
 
 <template>
   <BackHeader />
-  <h1>View old Tournaments Not Implemented</h1>
-  <div
+  <h1 class="underline">Old Tournaments</h1>
+  <div class="button"
     style="cursor: pointer"
     v-for="tourn in tournamentIds"
     :key="tourn.id"
     @click="getTournament(tourn.id)"
   >
-    {{ tourn.id }} {{ tourn.name }}
+  {{ tourn.name }}
   </div>
 </template>
 

@@ -9,6 +9,7 @@ export const useTournamentStore = defineStore("tournament", () => {
     name: "",
     id: "",
     groups: [],
+    date: "",
   });
 
   // Use local storage to persist tournament

@@ -24,7 +24,6 @@ class api {
         `${this.protocol}${this.serverAddr}/api/create`,
         tournamentData
       );
-      console.log("Response: ", this.response);
       return this.response.data;
     } catch (error) {
       console.error("API: ", error);

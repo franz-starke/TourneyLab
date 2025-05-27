@@ -113,6 +113,11 @@ All non-listed combinations are unproblematic
  *
  */
 async function generateTournament() {
+  if (tournamentName.value.trim() === "") {
+    alert("Please enter a tournament name.");
+    return;
+  }
+
   games.value = createTournamentAlgo(
     amountTeams1.value,
     amountTeams2.value,
@@ -293,7 +298,7 @@ async function syncTournament() {
 <template>
   <BackHeader></BackHeader>
   <form v-if="!showRefModal">
-    <input v-model="tournamentName" type="text" placeholder="Enter tournament name" maxlength="8" required /><br />
+    <input v-model="tournamentName" type="text" placeholder="Enter tournament name" maxlength="120" required /><br />
     <p>
       <label for="amountFields">Amount Fields: </label>
       <input id="amountFields" v-model="amountFields" type="number" min="1" max="4" required />
@@ -338,7 +343,7 @@ async function syncTournament() {
       <input type="number" id="input-break-duration" name="break-duration" v-model="breakDuration" min="0" />
     </p>
 
-    <div class="button" @click="generateTournament" type="submit">Create</div>
+    <div class="button"  @click="generateTournament" type="submit">Create</div>
   </form>
 
   <!-- Referee Assignment Dialog
