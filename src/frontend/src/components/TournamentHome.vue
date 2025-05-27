@@ -1,5 +1,6 @@
 <script setup>
 import { useTournamentStore } from "@/stores/tournamentStore";
+import BackHeader from "./utilcomponents/BackHeader.vue";
 
 // TODO: first fetch from api for newest tournamentData and write it into the store
 // if offline just use store
@@ -8,6 +9,7 @@ const store = useTournamentStore();
 </script>
 
 <template>
+  
   <div id="header">{{ store.tournament.name }}</div>
   <div id="tournament-views">
     <RouterView></RouterView>

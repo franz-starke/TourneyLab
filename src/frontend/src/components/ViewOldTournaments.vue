@@ -1,6 +1,7 @@
 <script setup>
 import api from "@/api/api.js";
 import { ref, onBeforeMount } from "vue";
+import BackHeader from "./utilcomponents/BackHeader.vue";
 
 const tournamentIds = ref([]);
 
@@ -26,6 +27,7 @@ async function getTournament(tid) {
 </script>
 
 <template>
+  <BackHeader />
   <h1>View old Tournaments Not Implemented</h1>
   <div
     style="cursor: pointer"

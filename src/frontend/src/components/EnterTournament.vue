@@ -3,6 +3,7 @@ import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 import { ref } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
+import BackHeader from "./utilcomponents/BackHeader.vue";
 
 const debugInfo = ref("degubingfo: pls scan a qr-code");
 const tournamentName = ref("test");
@@ -31,6 +32,7 @@ async function onDetect(detectedCodes) {
 </script>
 
 <template>
+  <BackHeader />
   <h2>Scan Tournament QR-Code</h2>
   <div class="flex-container">
     <div id="qr-code-wrapper">

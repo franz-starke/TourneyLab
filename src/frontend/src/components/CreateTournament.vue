@@ -11,6 +11,7 @@ import Modal from "@/components/utilcomponents/Modal.vue";
 import { useTournamentStore } from "@/stores/tournamentStore.js";
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import BackHeader from "./utilcomponents/BackHeader.vue";
 
 // * IMPORTANT SEMANTICS
 // * Treat a game with [0,0,0] as empty game
@@ -290,6 +291,7 @@ async function syncTournament() {
 </script>
 
 <template>
+  <BackHeader></BackHeader>
   <form v-if="!showRefModal">
     <input v-model="tournamentName" type="text" placeholder="Enter tournament name" maxlength="8" required /><br />
     <p>
@@ -364,10 +366,5 @@ async function syncTournament() {
 </template>
 
 <style scoped>
-#ref-modal-field-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-}
+
 </style>
