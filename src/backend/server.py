@@ -2,7 +2,7 @@ import os
 import string
 import secrets
 import datetime
-from database import *
+from database import Database
 from typing import Union, Dict, List, Optional, Any
 import data.utils as utils
 
@@ -72,7 +72,7 @@ class Server:
 
         uuid = self.generate_unique_string()
 
-        if type(uuid) != str:
+        if uuid is not str:
             return utils.Error(500, "Could not create new unique ID in maximal iterations. Possibly all tournament ID slots are filled with content.")
 
         # Create the tournament database file
@@ -131,7 +131,7 @@ class Server:
         result = self.database.create_tournament(uuid, name, date, len(
             fields), team_count, group_count, fields, team_data, group_data, playing_games)
 
-        if result == None:
+        if result is None:
             return utils.Error(500, "An error occurred while saving the tournament to the database.")
 
         return uuid
@@ -160,7 +160,7 @@ class Server:
                     config_data = self.database.get_config(uuid)
 
                     # Only add to the list if config data is valid and not empty
-                    if config_data != None and type(config_data) == list:
+                    if config_data is not None and isinstance(config_data, list):
                         data = config_data[0]
                         return_data.append({
                             "id": data[0],
@@ -196,7 +196,7 @@ class Server:
             field_data = self.database.get_games_from_field(
                 tournament_id, field_id)
 
-            if type(field_data) != list or field_data == None or len(field_data) == 0:
+            if not isinstance(field_data, list) or field_data is None or len(field_data) == 0:
                 return utils.Error(400, "There are no games associated with this field.")
 
             # Loop through each game and collect the required information
@@ -231,7 +231,7 @@ class Server:
             # Fetch the games associated with the specified field from the database
             score_data = self.database.get_game_score(tournament_id, game_id)
 
-            if type(score_data) != list or score_data == None or len(score_data) == 0:
+            if not isinstance(score_data, list) or score_data is None or len(score_data) == 0:
                 return utils.Error(400, "Cannot get a score from the specified game.")
 
             data = score_data[0]
@@ -287,7 +287,7 @@ class Server:
         try:
             # Fetch config data from the database
             config_data = self.database.get_config(tournament_id)
-            if type(config_data) != list or config_data == None or len(config_data) == 0:
+            if not isinstance(config_data, list) or config_data is None or len(config_data) == 0:
                 return utils.Error(400, "Cannot fetch information from this tournament.")
 
             data = config_data[0]
@@ -296,7 +296,7 @@ class Server:
 
             # Fetch all groups with their team sizes
             team_data = self.database.get_teams(tournament_id)
-            if type(team_data) != list or team_data == None or len(team_data) == 0:
+            if not isinstance(team_data, list) or team_data is None or len(team_data) == 0:
                 return utils.Error(400, "Cannot fetch team information from this tournament.")
 
             teams = {}
@@ -305,7 +305,7 @@ class Server:
 
             # Fetch all fields
             field_data = self.database.get_fields(tournament_id)
-            if type(field_data) != list or field_data == None or len(field_data) == 0:
+            if not isinstance(field_data, list) or field_data is None or len(field_data) == 0:
                 return utils.Error(400, "Cannot fetch game information from this tournament.")
 
             games = {}
@@ -316,7 +316,7 @@ class Server:
                 # Fetch all games for every field
                 game_data = self.database.get_games_from_field(
                     tournament_id, field_id)
-                if type(game_data) != list or game_data == None or len(game_data) == 0:
+                if not isinstance(game_data, list) or game_data is None or len(game_data) == 0:
                     return utils.Error(400, "Cannot fetch game information from fields for this tournament.")
 
                 # Created return structure for games
