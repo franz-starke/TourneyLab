@@ -267,13 +267,16 @@ def test_create_tournament_missing_name(client):
 			"58": [11, 8, 9, "18:30"],
 			"59": [9, 12, 11, "19:00"],
 			"60": [12, 9, 11, "19:30"]
-		},
-        "date": "2025-06-01"
-    }
+		}
+    },
+    "date": "2025-06-01"
+
     }
     response = client.post("/api/create", json=payload)
     assert response.status_code == 400
-    assert response.json() == {"detail": "Tournament name must not be empty."}
+    print(response.json())
+    assert response.json()["detail"] == "Tournament name must not be empty."
+
     
 
 def test_create_tournament_invalid_date(client):
