@@ -10,7 +10,7 @@ from data.apiobjects.apiobjects import CreateTournament, ScoreUpdate
 api = FastAPI()
 server = Server()
 
-# Only allowed origins to access the api 
+# Only allowed origins to access the api
 origins = ["*"]
 
 # Add CORS middleware to allow cross-origin requests
@@ -24,10 +24,11 @@ api.add_middleware(
 
 utils.LOGGER.info("Started API")
 
-def handle_error(result) -> dict|utils.Error:
+
+def handle_error(result) -> dict | utils.Error:
     """
     Converts an `Error` object into an HTTPException.
-    
+
     Args:
         result: The result returned by a server method.
 
@@ -61,9 +62,10 @@ def create_tournament(data: CreateTournament):
 
     # Create new tournament entry in server
     for variable in data:
-        if type(variable[1]) == utils.Error:
+        if isinstance(variable[1], utils.Error):
             return handle_error(variable[1])
-    result = server.create_tournament(data.name, data.date, data.teams, data.games)
+    result = server.create_tournament(
+        data.name, data.date, data.teams, data.games)
     result = handle_error(result)
     return {"tournament_id": result}
 
@@ -102,7 +104,8 @@ def get_field_games(tournament_id: str, field_id: str):
 
     # Logging for future debugging
     if utils.DEBUG:
-        utils.LOGGER.info(f"API request to get all games from a field | {tournament_id} | {field_id}")
+        utils.LOGGER.info(
+            f"API request to get all games from a field | {tournament_id} | {field_id}")
 
     # Fetch data for all games in field
     result = server.get_games_from_field(tournament_id, field_id)
@@ -125,7 +128,8 @@ def get_game_score(tournament_id: str, game_id: str):
 
     # Logging for future debugging
     if utils.DEBUG:
-        utils.LOGGER.info(f"API request to get the score for a game | {tournament_id} | {game_id}")
+        utils.LOGGER.info(
+            f"API request to get the score for a game | {tournament_id} | {game_id}")
 
     # Fetch data for score
     result = server.get_game_score(tournament_id, game_id)
@@ -149,10 +153,11 @@ def set_game_score(tournament_id: str, game_id: str, data: ScoreUpdate):
 
     # Logging for future debugging
     if utils.DEBUG:
-        utils.LOGGER.info(f"API request to change the score of a game | {tournament_id} | {data.score}")
+        utils.LOGGER.info(
+            f"API request to change the score of a game | {tournament_id} | {data.score}")
 
     # Change score for game
-    if type(data.score) == utils.Error:
+    if isinstance(data.score, utils.Error):
         return handle_error(data.score)
     result = server.set_game_score(tournament_id, game_id, data.score)
     result = handle_error(result)
@@ -173,7 +178,8 @@ def get_tournament_details(tournament_id: str):
 
     # Logging for future debugging
     if utils.DEBUG:
-        utils.LOGGER.info(f"API request to get tournament details | {tournament_id}")
+        utils.LOGGER.info(
+            f"API request to get tournament details | {tournament_id}")
 
     # Fetch data for tournament
     result = server.get_tournament_details(tournament_id)

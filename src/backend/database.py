@@ -1,9 +1,10 @@
 import os
 import sqlite3
 import data.utils as utils
+from typing import Union, List, Dict
 
 class Database:
-    def query(self, tournament_id="", query="", attributes=[]) -> list|bool|None:
+    def query(self, tournament_id="", query="", attributes=[]) -> Union[List, bool, None]:
         """
         Executes a SQL query on the tournaments database.
 
@@ -53,10 +54,10 @@ class Database:
         field_count: int,
         team_count: int,
         group_count: int,
-        fields: dict[str, str],
-        teams: dict[str, list[str|int]],
-        groups: dict[str, str],
-        games: dict) -> bool|None:
+        fields: Dict[str, str],
+        teams: Dict[str, List[Union[str, int]]],
+        groups: Dict[str, str],
+        games: Dict[str, List[Union[str, int]]]) -> Union[bool, None]:
 
         """
         Initializes the database for a new tournament and inserts the provided data.
@@ -140,25 +141,24 @@ class Database:
                 [game_id, *game_data]))
 
         for variable in result:
-            if variable == None:
+            if variable is None:
                 return None
             
         return True
 
-
-    def get_config(self, tournament_id: str) -> list|bool|None:
+    def get_config(self, tournament_id: str) -> Union[List, bool, None]:
         """Returns the config of a tournament."""
 
         return self.query(tournament_id, "SELECT * FROM config")
 
 
-    def get_games_from_field(self, tournament_id: str, field_id: str) -> list|bool|None:
+    def get_games_from_field(self, tournament_id: str, field_id: str) -> Union[List, bool, None]:
         """Returns games for a specific field."""
 
         return self.query(tournament_id, "SELECT * FROM games WHERE field_id IS ?", [field_id])
 
 
-    def get_game_score(self, tournament_id: str, game_id: str) -> list|bool|None:
+    def get_game_score(self, tournament_id: str, game_id: str) -> Union[List, bool, None]:
         """Returns the score for a specific game."""
         
         return self.query(tournament_id, "SELECT score1, score2 FROM games WHERE id IS ?", [game_id])
@@ -170,13 +170,13 @@ class Database:
         return self.query(tournament_id, "UPDATE games SET score1 = ?, score2 = ? WHERE id = ?", [score[0], score[1], game_id]) is True
 
 
-    def get_teams(self, tournament_id: str) -> list|bool|None:
+    def get_teams(self, tournament_id: str) -> Union[List, bool, None]:
         """Returns number of teams per group."""
 
         return self.query(tournament_id, "SELECT group_id, COUNT(*) AS team_count FROM teams GROUP BY group_id")
 
 
-    def get_fields(self, tournament_id: str) -> list|bool|None:
+    def get_fields(self, tournament_id: str) -> Union[List, bool, None]:
         """Returns all unique field IDs."""
 
         return self.query(tournament_id, "SELECT DISTINCT field_id FROM games")

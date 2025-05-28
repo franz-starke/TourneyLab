@@ -2,20 +2,40 @@ import os
 import string
 import secrets
 import datetime
-from database import *
+from database import Database
+from typing import Union, Dict, List, Optional, Any
 import data.utils as utils
+
 
 class Server:
     def __init__(self):
         self.database = Database()
         self.max_calls = 5
-        self.time_window = 60 # seconds
+        self.time_window = 60  # seconds
         self.time_diff = self.time_window/self.max_calls
         self.last_created = 0.0
 
         utils.LOGGER.info("Created server")
 
-    def create_tournament(self, name: str, date: str, teams: dict, games: dict) -> str|utils.Error:
+    def _check_database_result(self, result, error_message, log_message=None):
+        """Helper method to check database results and return appropriate Error objects"""
+        if result is None or (isinstance(result, list) and len(result) == 0):
+            if log_message:
+                utils.LOGGER.error(log_message)
+            return utils.Error(400, error_message)
+        return None
+
+    def _check_rate_limit(self) -> utils.Error | None:
+        """Check if requests are coming too fast and apply rate limiting"""
+        current_time = datetime.datetime.now().timestamp()
+        if current_time - self.last_created <= self.time_diff:
+            utils.LOGGER.warning("Creating tournaments too fast.")
+            return utils.Error(400, "You are creating tournaments too fast.")
+
+        self.last_created = current_time
+        return None
+
+    def create_tournament(self, name: str, date: str, teams: dict, games: dict) -> Union[str, utils.Error]:
         """
         Creates a new tournament and stores it in a database. A new tournament can only be created every 12 seconds to prevent spamming the database.
 
@@ -52,7 +72,7 @@ class Server:
 
         uuid = self.generate_unique_string()
 
-        if type(uuid) != str:
+        if uuid is not str:
             return utils.Error(500, "Could not create new unique ID in maximal iterations. Possibly all tournament ID slots are filled with content.")
 
         # Create the tournament database file
@@ -106,17 +126,17 @@ class Server:
         except Exception:
             utils.LOGGER.error("Error while preparing playing games data.")
             return utils.Error(500, "An error occurred while preparing playing games data.")
-        
-        # Save tournament to database
-        result = self.database.create_tournament(uuid, name, date, len(fields), team_count, group_count, fields, team_data, group_data, playing_games)
 
-        if result == None:
+        # Save tournament to database
+        result = self.database.create_tournament(uuid, name, date, len(
+            fields), team_count, group_count, fields, team_data, group_data, playing_games)
+
+        if result is None:
             return utils.Error(500, "An error occurred while saving the tournament to the database.")
 
         return uuid
 
-
-    def get_tournaments(self) -> list|utils.Error:
+    def get_tournaments(self) -> Union[List, utils.Error]:
         """
         Retrieves the configuration data for all tournaments stored in the database path.
 
@@ -140,7 +160,7 @@ class Server:
                     config_data = self.database.get_config(uuid)
 
                     # Only add to the list if config data is valid and not empty
-                    if config_data != None and type(config_data) == list:
+                    if config_data is not None and isinstance(config_data, list):
                         data = config_data[0]
                         return_data.append({
                             "id": data[0],
@@ -154,8 +174,7 @@ class Server:
 
         return return_data
 
-
-    def get_games_from_field(self, tournament_id: str, field_id: str) -> list|utils.Error:
+    def get_games_from_field(self, tournament_id: str, field_id: str) -> Union[List[Dict[str, Any]], utils.Error]:
         """
         Retrieves all games associated with a specific field.
 
@@ -169,14 +188,15 @@ class Server:
                 - "score": A list of scores for the game [team1_score, team2_score].
                 - "time": The start time of the game.
         """
-        
+
         return_data = []
 
         try:
             # Fetch the games associated with the specified field from the database
-            field_data = self.database.get_games_from_field(tournament_id, field_id)
+            field_data = self.database.get_games_from_field(
+                tournament_id, field_id)
 
-            if type(field_data) != list or field_data == None or len(field_data) == 0:
+            if not isinstance(field_data, list) or field_data is None or len(field_data) == 0:
                 return utils.Error(400, "There are no games associated with this field.")
 
             # Loop through each game and collect the required information
@@ -193,8 +213,7 @@ class Server:
 
         return return_data
 
-
-    def get_game_score(self,tournament_id: str, game_id: str) -> list|utils.Error:
+    def get_game_score(self, tournament_id: str, game_id: str) -> Union[List[int], utils.Error]:
         """
         Retrieves the score from the specified game.
 
@@ -210,9 +229,9 @@ class Server:
 
         try:
             # Fetch the games associated with the specified field from the database
-            score_data = self.database.get_game_score(tournament_id,game_id)
+            score_data = self.database.get_game_score(tournament_id, game_id)
 
-            if type(score_data) != list or score_data == None or len(score_data) == 0:
+            if not isinstance(score_data, list) or score_data is None or len(score_data) == 0:
                 return utils.Error(400, "Cannot get a score from the specified game.")
 
             data = score_data[0]
@@ -224,8 +243,7 @@ class Server:
 
         return return_data
 
-
-    def set_game_score(self, tournament_id: str, game_id: str, score: list) -> bool|utils.Error:
+    def set_game_score(self, tournament_id: str, game_id: str, score: list) -> Union[bool, utils.Error]:
         """
         Sets the score for a specific game in a tournament.
 
@@ -240,7 +258,8 @@ class Server:
 
         try:
             # Attempt to update the score in the database
-            result = self.database.set_game_score(tournament_id, game_id, score)
+            result = self.database.set_game_score(
+                tournament_id, game_id, score)
             if not result:
                 return utils.Error(400, "Cannot set new score for the specified game.")
 
@@ -250,8 +269,7 @@ class Server:
 
         return True
 
-
-    def get_tournament_details(self, tournament_id: str) -> dict|utils.Error:
+    def get_tournament_details(self, tournament_id: str) -> Union[Dict[str, Any], utils.Error]:
         """
         Retrieves the detailed information of a specified tournament.
 
@@ -269,7 +287,7 @@ class Server:
         try:
             # Fetch config data from the database
             config_data = self.database.get_config(tournament_id)
-            if type(config_data) != list or config_data == None or len(config_data) == 0:
+            if not isinstance(config_data, list) or config_data is None or len(config_data) == 0:
                 return utils.Error(400, "Cannot fetch information from this tournament.")
 
             data = config_data[0]
@@ -278,31 +296,33 @@ class Server:
 
             # Fetch all groups with their team sizes
             team_data = self.database.get_teams(tournament_id)
-            if type(team_data) != list or team_data == None or len(team_data) == 0:
+            if not isinstance(team_data, list) or team_data is None or len(team_data) == 0:
                 return utils.Error(400, "Cannot fetch team information from this tournament.")
-            
+
             teams = {}
-            for i,team_id in enumerate(team_data):
+            for i, team_id in enumerate(team_data):
                 teams[team_id[0]] = team_data[i][1]
-            
+
             # Fetch all fields
             field_data = self.database.get_fields(tournament_id)
-            if type(field_data) != list or field_data == None or len(field_data) == 0:
+            if not isinstance(field_data, list) or field_data is None or len(field_data) == 0:
                 return utils.Error(400, "Cannot fetch game information from this tournament.")
-            
+
             games = {}
             for field_id in field_data:
                 field_id = field_id[0]
                 games[field_id] = {}
 
                 # Fetch all games for every field
-                game_data = self.database.get_games_from_field(tournament_id, field_id)
-                if type(game_data) != list or game_data == None or len(game_data) == 0:
-                    return utils.Error(400, "Cannot fetch game information from fields for this tournament.") 
+                game_data = self.database.get_games_from_field(
+                    tournament_id, field_id)
+                if not isinstance(game_data, list) or game_data is None or len(game_data) == 0:
+                    return utils.Error(400, "Cannot fetch game information from fields for this tournament.")
 
                 # Created return structure for games
                 for game in game_data:
-                    games[field_id][game[0]] = [game[2],game[3],game[4],game[5],[game[6],game[7]]]
+                    games[field_id][game[0]] = [game[2], game[3],
+                                                game[4], game[5], [game[6], game[7]]]
 
         except Exception:
             utils.LOGGER.error("Error while retrieving tournament details.")
@@ -315,43 +335,30 @@ class Server:
             "games": games
         }
 
-
-    def generate_unique_string(self) -> str|None:
-        """
-        Generates a unique 8-character alphanumeric string that is not currently used as a filename in the specified database path.
-
-        Returns:
-            str: A unique 8-character string if successfully generated.
-            None: If all possible unique IDs are exhausted.
-        """
-
+    def generate_unique_string(self) -> Optional[str]:
+        """Generate a unique 8-character alphanumeric string for tournament IDs"""
         length = 8
         characters = string.ascii_letters + string.digits
-        max_iterations = len(characters) ** length
-        iteration = 0
-        used_uuids = set()
+        max_attempts = 100  # Reasonable limit to prevent infinite loops
 
-        # Get all existing UUIDs from database files
+        # Get existing UUIDs
+        used_uuids = set()
         try:
             utils.DATABASE_PATH.mkdir(parents=True, exist_ok=True)
-            files = os.listdir(utils.DATABASE_PATH)
-            for file in files:
+            for file in os.listdir(utils.DATABASE_PATH):
                 if file.endswith(".db") and len(file) == length+3:
-                    used_uuids.add(file[:-3])  # Remove the ".db" extension
+                    used_uuids.add(file[:-3])
         except Exception:
             utils.LOGGER.error("Error while getting already used uuids.")
             return None
 
-        # Generate unique UUID
-        while iteration < max_iterations:
-            new_uuid = ""
-            for i in range(length):
-                new_uuid += secrets.choice(characters)
-
+        # Try to generate unique UUID with reasonable attempts
+        for _ in range(max_attempts):
+            new_uuid = ''.join(secrets.choice(characters)
+                               for _ in range(length))
             if new_uuid not in used_uuids:
                 return new_uuid
-            
-            iteration += 1
 
-        # If all possible iterations are exhausted
+        utils.LOGGER.error(
+            "Failed to generate unique ID after maximum attempts.")
         return None
