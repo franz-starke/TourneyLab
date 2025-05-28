@@ -39,6 +39,30 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 |=== 
-=== Test Cases 
+
+== Test Cases get_tournament
+[cols="1,1"]
+|===
+|use cases |Description
+
+|test_get_tournaments_success
+|Verifies that the endpoint returns a list of tournaments correctly when data is present.
+
+|test_get_tournaments_empty
+|Checks that the API returns an empty list with status 200 when the server returns no tournaments.
+
+|test_get_tournaments_error
+|Checks that the endpoint returns a 500 error with a proper message when an Error object is returned.
+
+|test_get_multiple_tournaments
+|Confirms the endpoint correctly handles and returns multiple tournament entries.
+
+|test_get_tournaments_returns_none
+|Validates that the API responds with a 500 status code and appropriate message if None is returned.
+
+
+|test_get_tournaments_invalid_structure
+|Tests that invalid tournament data structure is handled without crashing and does not include unexpected fields.
+|=== 
 
 === Test Case 02
