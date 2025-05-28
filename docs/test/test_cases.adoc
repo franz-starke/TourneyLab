@@ -65,4 +65,34 @@ include::../_includes/default-attributes.inc.adoc[]
 |Tests that invalid tournament data structure is handled without crashing and does not include unexpected fields.
 |=== 
 
-=== Test Case 02
+== Test Cases get_field_games
+[cols="1,1"]
+|===
+
+|test_get_field_games_success
+|Tests that the endpoint returns a list of games successfully when valid tournament and field IDs are provided.
+
+|test_get_field_games_empty_list
+|Checks that a 400 error is returned if there are no games associated with the given field.
+
+|test_get_field_games_invalid_tournament
+|Ensures that the API returns a 404 error when the tournament ID does not exist.
+
+|test_get_field_games_invalid_field
+|Validates that a 404 error is returned when the field ID is invalid or not found.
+
+|test_get_field_games_server_exception
+|Simulates a server-side failure and verifies that a 500 error with a proper message is returned.
+
+|test_get_field_games_returns_none
+|Checks that a 500 error is returned if the function unexpectedly returns None instead of data or an error object.
+
+
+
+
+
+
+
+
+
+|===
