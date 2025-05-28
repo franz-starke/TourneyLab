@@ -3,6 +3,7 @@ import string
 import secrets
 import datetime
 from database import *
+from typing import Union, Dict, List, Optional, Any
 import data.utils as utils
 
 
@@ -16,7 +17,25 @@ class Server:
 
         utils.LOGGER.info("Created server")
 
-    def create_tournament(self, name: str, date: str, teams: dict, games: dict) -> str | utils.Error:
+    def _check_database_result(self, result, error_message, log_message=None):
+        """Helper method to check database results and return appropriate Error objects"""
+        if result is None or (isinstance(result, list) and len(result) == 0):
+            if log_message:
+                utils.LOGGER.error(log_message)
+            return utils.Error(400, error_message)
+        return None
+
+    def _check_rate_limit(self) -> utils.Error | None:
+        """Check if requests are coming too fast and apply rate limiting"""
+        current_time = datetime.datetime.now().timestamp()
+        if current_time - self.last_created <= self.time_diff:
+            utils.LOGGER.warning("Creating tournaments too fast.")
+            return utils.Error(400, "You are creating tournaments too fast.")
+
+        self.last_created = current_time
+        return None
+
+    def create_tournament(self, name: str, date: str, teams: dict, games: dict) -> Union[str, utils.Error]:
         """
         Creates a new tournament and stores it in a database. A new tournament can only be created every 12 seconds to prevent spamming the database.
 
@@ -117,7 +136,7 @@ class Server:
 
         return uuid
 
-    def get_tournaments(self) -> list | utils.Error:
+    def get_tournaments(self) -> Union[List, utils.Error]:
         """
         Retrieves the configuration data for all tournaments stored in the database path.
 
@@ -155,7 +174,7 @@ class Server:
 
         return return_data
 
-    def get_games_from_field(self, tournament_id: str, field_id: str) -> list | utils.Error:
+    def get_games_from_field(self, tournament_id: str, field_id: str) -> Union[List[Dict[str, Any]], utils.Error]:
         """
         Retrieves all games associated with a specific field.
 
@@ -194,7 +213,7 @@ class Server:
 
         return return_data
 
-    def get_game_score(self, tournament_id: str, game_id: str) -> list | utils.Error:
+    def get_game_score(self, tournament_id: str, game_id: str) -> Union[List[int], utils.Error]:
         """
         Retrieves the score from the specified game.
 
@@ -224,7 +243,7 @@ class Server:
 
         return return_data
 
-    def set_game_score(self, tournament_id: str, game_id: str, score: list) -> bool | utils.Error:
+    def set_game_score(self, tournament_id: str, game_id: str, score: list) -> Union[bool, utils.Error]:
         """
         Sets the score for a specific game in a tournament.
 
@@ -250,7 +269,7 @@ class Server:
 
         return True
 
-    def get_tournament_details(self, tournament_id: str) -> dict | utils.Error:
+    def get_tournament_details(self, tournament_id: str) -> Union[Dict[str, Any], utils.Error]:
         """
         Retrieves the detailed information of a specified tournament.
 
@@ -316,42 +335,30 @@ class Server:
             "games": games
         }
 
-    def generate_unique_string(self) -> str | None:
-        """
-        Generates a unique 8-character alphanumeric string that is not currently used as a filename in the specified database path.
-
-        Returns:
-            str: A unique 8-character string if successfully generated.
-            None: If all possible unique IDs are exhausted.
-        """
-
+    def generate_unique_string(self) -> Optional[str]:
+        """Generate a unique 8-character alphanumeric string for tournament IDs"""
         length = 8
         characters = string.ascii_letters + string.digits
-        max_iterations = len(characters) ** length
-        iteration = 0
-        used_uuids = set()
+        max_attempts = 100  # Reasonable limit to prevent infinite loops
 
-        # Get all existing UUIDs from database files
+        # Get existing UUIDs
+        used_uuids = set()
         try:
             utils.DATABASE_PATH.mkdir(parents=True, exist_ok=True)
-            files = os.listdir(utils.DATABASE_PATH)
-            for file in files:
+            for file in os.listdir(utils.DATABASE_PATH):
                 if file.endswith(".db") and len(file) == length+3:
-                    used_uuids.add(file[:-3])  # Remove the ".db" extension
+                    used_uuids.add(file[:-3])
         except Exception:
             utils.LOGGER.error("Error while getting already used uuids.")
             return None
 
-        # Generate unique UUID
-        while iteration < max_iterations:
-            new_uuid = ""
-            for i in range(length):
-                new_uuid += secrets.choice(characters)
-
+        # Try to generate unique UUID with reasonable attempts
+        for _ in range(max_attempts):
+            new_uuid = ''.join(secrets.choice(characters)
+                               for _ in range(length))
             if new_uuid not in used_uuids:
                 return new_uuid
 
-            iteration += 1
-
-        # If all possible iterations are exhausted
+        utils.LOGGER.error(
+            "Failed to generate unique ID after maximum attempts.")
         return None
