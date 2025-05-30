@@ -9,8 +9,8 @@ vom __date__
 - **Zeit:** 09:45 - 11:00 Uhr 
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
-- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber
-- **Abwesend:**  Ibrahim Braikeh  (entschuldigt wegen Arbeit), Mutaz Abuazizeh (entschuldigt wegen Arbeit), Jannis Wittchen (entschuldigt privater Termin), Ali Zeinelov 
+- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Ibrahim Braikeh, Jannis Wittchen, Ali Zeinelov
+- **Abwesend:** Mutaz Abuazizeh
 
 
 == Agenda
