@@ -6,7 +6,16 @@ import api from "@/api/api.js";
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { addMinutes } from "@/util/time.js"
 import { availableRefs, getRounds } from "@/util/tournamentDataStructureUtil.js"
-
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Checkbox } from '@/components/ui/checkbox'
+import {
+  NumberField,
+  NumberFieldContent,
+  NumberFieldDecrement,
+  NumberFieldIncrement,
+  NumberFieldInput,
+} from '@/components/ui/number-field'
 import Modal from "@/components/utilcomponents/Modal.vue";
 import { useTournamentStore } from "@/stores/tournamentStore.js";
 import { ref, watch } from "vue";
@@ -293,57 +302,110 @@ async function syncTournament() {
 //   games.value[fieldNum][gameId][2] = selectedRef; // Update the referee in the games object
 //   console.log("Selected Referee: ", selectedRef);
 // }
+
+
+watch(amountGroups, (newValue) => {
+  // Watcher to update amountTeams2 based on amountGroups
+  if (newValue === 1) {
+    amountTeams2.value = 0; // Reset amountTeams2 if only one group
+  } else if (newValue === 2 && amountTeams2.value < 3) {
+    amountTeams2.value = 3; // Ensure minimum of 3 teams in second group
+  }
+});
 </script>
 
 <template>
   <BackHeader></BackHeader>
-  <form v-if="!showRefModal">
-    <input v-model="tournamentName" type="text" placeholder="Enter tournament name" maxlength="120" required /><br />
+  <form v-if="!showRefModal" class="flex flex-col gap-4 p-4">
+
+
+    <Input type="text" v-model="tournamentName" placeholder="Enter tournament name" maxlength="120" required />
+
+
+    <NumberField id="amountFields" v-model="amountFields" :min="1" :max="4">
+      <Label for="amountFields">Amount Fields</Label>
+      <NumberFieldContent>
+        <NumberFieldDecrement />
+        <NumberFieldInput />
+        <NumberFieldIncrement />
+      </NumberFieldContent>
+    </NumberField>
+
+
+    <NumberField id="amountGroups" v-model="amountGroups" :min="1" :max="2">
+      <Label for="amountGroups">Amount Groups</Label>
+      <NumberFieldContent>
+        <NumberFieldDecrement />
+        <NumberFieldInput />
+        <NumberFieldIncrement />
+      </NumberFieldContent>
+    </NumberField>
+
+
+    <NumberField id="amountTeams1" v-model="amountTeams1" :min="3" :max="12">
+      <Label for="amountTeams1">Amount Teams {{ amountGroups == 1 ? "" : " Group 1" }}
+      </Label>
+      <NumberFieldContent>
+        <NumberFieldDecrement />
+        <NumberFieldInput />
+        <NumberFieldIncrement />
+      </NumberFieldContent>
+    </NumberField>
+
+
+    <NumberField id="amountTeams2" v-if="amountGroups == 2" v-model="amountTeams2" :min="amountGroups == 2 ? 3 : 0"
+      :max="12">
+      <Label for="amountTeams2">Amount Teams Group 2
+      </Label>
+      <NumberFieldContent>
+        <NumberFieldDecrement />
+        <NumberFieldInput />
+        <NumberFieldIncrement />
+      </NumberFieldContent>
+    </NumberField>
+
+
+
+
     <p>
-      <label for="amountFields">Amount Fields: </label>
-      <input id="amountFields" v-model="amountFields" type="number" min="1" max="4" required />
-    </p>
-    <p>
-      Amount Groups:
-      <input v-model="amountGroups" type="number" min="1" max="2" required />
-    </p>
-    <p>
-      <label for="amountTeams1">Amount Teams {{ amountGroups == 1 ? "" : " Group 1" }}:
-      </label>
-      <input id="amountTeams1" v-model="amountTeams1" type="number" min="3" max="12" required />
-    </p>
-    <p v-if="amountGroups == 2">
-      <!-- * Only show this input if there are 2 groups -->
-      <label for="amountTeams2">Amount Teams Group 2: </label>
-      <input id="amountTeams2" v-model="amountTeams2" type="number" min="3" max="12" required />
+      <Label for="withReturnGame">with Return Game </Label>
+      <input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" required />
     </p>
 
     <p>
-      <label for="withReturnGame">with Return Game </label>
-      <input id="withReturnGame" v-model="withReturnGame" type="checkbox" required />
-    </p>
-
-    <p>
-      <label for="date">Date:</label>
+      <Label for="input-date">Date:</Label>
       <input type="date" id="input-date" name="date" v-model="date" />
     </p>
 
     <p>
-      <label for="start-time">Start:</label>
+      <Label for="start-time">Start:</Label>
       <input type="time" id="input-start-time" name="start-time" v-model="startTime" />
     </p>
 
-    <p>
-      <label for="round-duration">Round duration (min):</label>
-      <input type="number" id="input-round-duration" name="round-duration" v-model="roundDuration" min="1" />
-    </p>
 
-    <p>
-      <label for="break-duration">Break duration (min):</label>
-      <input type="number" id="input-break-duration" name="break-duration" v-model="breakDuration" min="0" />
-    </p>
+    <NumberField id="input-round-duration" v-model="roundDuration" :min="5" :step="5">
+      <Label for="input-round-duration">Round duration (min)
+      </Label>
+      <NumberFieldContent>
+        <NumberFieldDecrement />
+        <NumberFieldInput />
+        <NumberFieldIncrement />
+      </NumberFieldContent>
+    </NumberField>
 
-    <div class="button"  @click="generateTournament" type="submit">Create</div>
+
+    <NumberField id="input-break-duration" v-model="breakDuration" :min="0" :step="5">
+      <Label for="input-break-duration">Break duration (min)
+      </Label>
+      <NumberFieldContent>
+        <NumberFieldDecrement />
+        <NumberFieldInput />
+        <NumberFieldIncrement />
+      </NumberFieldContent>
+    </NumberField>
+
+
+    <div class="button" @click="generateTournament" type="submit">Create</div>
   </form>
 
   <!-- Referee Assignment Dialog
@@ -371,5 +433,8 @@ async function syncTournament() {
 </template>
 
 <style scoped>
-
+.custom-checkbox {
+  width: 3em;
+  height: 1em;
+}
 </style>

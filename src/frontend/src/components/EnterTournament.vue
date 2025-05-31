@@ -8,7 +8,7 @@ import api from "@/api/api.js";
 import { useRouter } from "vue-router";
 
 const debugInfo = ref("degubingfo: pls scan a qr-code");
-const tournamentId= ref("");
+const tournamentId = ref("");
 
 const store = useTournamentStore();
 const router = useRouter();
@@ -25,7 +25,7 @@ async function enterTournament() {
 
   try {
     const response = await api.getTournament(tournamentId.value);
-    
+
     // set tournament data in the store
     store.tournament.date = response.date;
     store.tournament.id = response.id;
@@ -64,7 +64,8 @@ async function onDetect(detectedCodes) {
     <div>
       <div v-if="isOnline">
         <label for="enter-code">Enter Tournament Id</label>
-        <input id="enter-code" name="enter-code" type="text" placeholder="Turnier-Code eingeben..." v-model="tournamentId" />
+        <input id="enter-code" name="enter-code" type="text" placeholder="Turnier-Code eingeben..."
+          v-model="tournamentId" />
         <div id="button" class="button" @click="enterTournament">Enter</div>
       </div>
     </div>
