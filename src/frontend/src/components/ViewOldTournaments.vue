@@ -1,8 +1,8 @@
 <script setup>
 import api from "@/api/api.js";
 import { ref, onBeforeMount } from "vue";
-import BackHeader from "./utilcomponents/BackHeader.vue";
 import { useRouter } from "vue-router";
+import BackHeader from "./utilcomponents/BackHeader.vue";
 import { useTournamentStore } from "@/stores/tournamentStore.js";
 
 
@@ -44,13 +44,9 @@ async function getTournament(tid) {
 <template>
   <BackHeader />
   <h1 class="underline">Old Tournaments</h1>
-  <div class="button"
-    style="cursor: pointer"
-    v-for="tourn in tournamentIds"
-    :key="tourn.id"
-    @click="getTournament(tourn.id)"
-  >
-  {{ tourn.name }}
+  <div class="button" style="cursor: pointer" v-for="tourn in tournamentIds" :key="tourn.id"
+    @click="getTournament(tourn.id)">
+    {{ tourn.name }}
   </div>
 </template>
 

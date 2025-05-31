@@ -2,6 +2,7 @@
 import IconFlagGerman from '@/components/icons/IconFlagGerman.vue';
 import IconFlagUSA from '@/components/icons/IconFlagUSA.vue';
 import IconMoon from '@/components/icons/IconMoon.vue';
+import IconEnter from '@/components/icons/IconEnter.vue';
 </script>
 
 <template>
@@ -18,12 +19,10 @@ import IconMoon from '@/components/icons/IconMoon.vue';
   <main class="landing">
     <div class="button-wrapper">
       <RouterLink class="highlight-button" to="/enter-tournament">
-        <svg class="enter-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 ..." />
-          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 ..." />
-        </svg>
-        <span>Turnier beitreten</span>
+        <div class="flex items-center gap-2 flex-col">
+          <IconEnter />
+          <span>Turnier beitreten</span>
+        </div>
       </RouterLink>
 
       <RouterLink class="default-button" to="/create-tournament">Neues Turnier</RouterLink>
@@ -86,7 +85,8 @@ import IconMoon from '@/components/icons/IconMoon.vue';
   color: white;
 }
 
-.highlight-button:hover {
+.highlight-button:hover,
+.highlight-button:active {
   background-color: #2980b9;
 }
 
@@ -95,12 +95,8 @@ import IconMoon from '@/components/icons/IconMoon.vue';
   color: #2c3e50;
 }
 
-.default-button:hover {
+.default-button:hover,
+.default-button:active {
   background-color: #d0d7de;
-}
-
-.enter-icon {
-  width: 24px;
-  height: 24px;
 }
 </style>
