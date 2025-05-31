@@ -56,7 +56,7 @@ function toggleSyncGames() {
     <h2>QR-Generator for current Tournament Data:</h2>
     <qrcode-vue
       class="qr-code"
-      :value="qrvalue"
+      :value="qrvalue"`
       :size="size"
       level="H"
       render-as="svg"
