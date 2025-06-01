@@ -99,4 +99,11 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 .default-button:active {
   background-color: #d0d7de;
 }
+
+
+@media (min-width: 1000px) {
+  * {
+    background-color: blue;
+  }
+}
 </style>
