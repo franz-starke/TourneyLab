@@ -88,32 +88,31 @@ include::../_includes/default-attributes.inc.adoc[]
 |Checks that a 500 error is returned if the function unexpectedly returns None instead of data or an error object.
 |===
 
-== Test Cases get_tournament
+
+
+== Test Cases get_game_score
 [cols="1,1"]
 |===
 
-|test_get_tournaments_success
-|Verifies that the endpoint returns a list of tournaments correctly when data is present.
+|test_get_game_score_success
+|Verifies that the endpoint returns the correct score when valid tournament and game IDs are provided.
 
-|test_get_tournaments_empty
-|Ensures that the endpoint returns an empty list when no tournaments are available.
+|test_get_game_score_empty_result
+|Ensures a 400 error is returned when the game exists but has no stored score.
 
-|test_get_tournaments_error
-|Checks that the endpoint returns a 500 error with a proper message when an Error object is returned.
+|test_get_game_score_invalid_game_id
+|Checks that a 404 error is returned if the given game ID does not exist.
 
-|test_get_multiple_tournaments
-|Confirms the endpoint correctly handles and returns multiple tournament entries.
+|test_get_game_score_invalid_tournament_id
+|Confirms that a 404 error is returned for an invalid tournament ID.
 
-|test_get_tournaments_returns_none
-|Validates that the API responds with a 500 status code and appropriate message if None is returned
+|test_get_game_score_server_error
+|Verifies that a 500 error is returned when the server encounters an internal failure.
 
-|test_get_tournaments_invalid_structure
-|Tests that invalid tournament data structure is handled without crashing and does not include unexpected fields.
+|test_get_game_score_returns_none
+|Checks that a 500 error is returned if the method unexpectedly returns None instead of valid data or an error.
 |===
-
-
-
-== Test Cases get_field_games
+== Test Cases set_game_score
 [cols="1,1"]
 |===
 
@@ -134,4 +133,29 @@ include::../_includes/default-attributes.inc.adoc[]
 
 |test_set_game_score_server_error
 |Simulates a server exception (e.g., database failure) and verifies that a 500 Internal Server Error is returned.
+|===
+
+== Test Cases get_tournament_details
+[cols="1,1"]
+|===
+
+|test_get_tournament_details_success
+|Checks full and correct response when all data sources return valid info.
+
+|test_get_tournament_details_missing_config
+|Simulates missing config data and expects 400 with a clear error.
+
+|test_get_tournament_details_missing_teams
+|Ensures missing team info is correctly handled with a 400 error.
+
+|test_get_tournament_details_missing_fields
+|Triggers error when field data is not returned.
+
+|test_get_tournament_details_missing_games_from_field
+|Returns 400 if a field has no game data available.
+
+|test_get_tournament_details_exception_handling
+|Verifies generic exception handling for database failures.
+
+
 |===
