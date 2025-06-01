@@ -1,25 +1,43 @@
 <script setup>
-import { createTournamentAlgo } from "../tournamentalgo/tournamentalgo.js";
+import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
+import BackHeader from "./utilcomponents/BackHeader.vue";
+import api from "@/api/api.js";
+import { useRouter } from "vue-router";
 
 const debugInfo = ref("degubingfo: pls scan a qr-code");
-const tournamentName = ref("test");
+const tournamentId = ref("");
 
 const store = useTournamentStore();
+const router = useRouter();
 
-// FIXME: change function to enter tournament based on input field not only test data
-function enterCodeEval(event) {
-  // * handle enter tournament manually by input
-  // * only supports test data atm
-  store.setTournamentName(tournamentName.value); // or some user input
+const isOnline = computed(() => {
+  return navigator.onLine;
+});
 
-  if (tournamentName.value.toLowerCase() === "test") {
-    // ! static test tournament data here
-    store.updateTournament(createTournamentAlgo(3, 0, 1, 2, false));
-  } else {
-    console.log("Haven't implemented tournaments except for test");
+async function enterTournament() {
+  if (tournamentId.value === "") {
+    alert("Please enter a tournament code.");
+    return;
+  }
+
+  try {
+    const response = await api.getTournament(tournamentId.value);
+
+    // set tournament data in the store
+    store.tournament.date = response.date;
+    store.tournament.id = response.id;
+    store.tournament.name = response.name;
+    store.tournament.groups = response.teams;
+    store.tournament.games = response.games;
+
+    // Navigate to the tournament home page
+    router.push("/tournament-home/dashboard");
+  } catch (error) {
+    console.error("Error fetching tournament data:", error);
+    alert("Fehler beim Abrufen des Turniers. Bitte überprüfen Sie den Code.");
   }
 }
 
@@ -31,6 +49,7 @@ async function onDetect(detectedCodes) {
 </script>
 
 <template>
+  <BackHeader />
   <h2>Scan Tournament QR-Code</h2>
   <div class="flex-container">
     <div id="qr-code-wrapper">
@@ -41,8 +60,15 @@ async function onDetect(detectedCodes) {
     <p>
       {{ debugInfo }}
     </p>
-    <input id="enter-code" type="text" placeholder="Turnier-Code eingeben..." v-model="tournamentName" />
-    <RouterLink class="router-link" to="/tournament-home/dashboard" @click="enterCodeEval">Beitreten</RouterLink>
+
+    <div>
+      <div v-if="isOnline">
+        <label for="enter-code">Enter Tournament Id</label>
+        <input id="enter-code" name="enter-code" type="text" placeholder="Turnier-Code eingeben..."
+          v-model="tournamentId" />
+        <div id="button" class="button" @click="enterTournament">Enter</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -60,6 +86,7 @@ async function onDetect(detectedCodes) {
 }
 
 #enter-code {
+  border: 1px solid #ccc;
   border-radius: 30px;
 }
 

@@ -1,17 +1,29 @@
 <script setup>
+import IconFlagGerman from '@/components/icons/IconFlagGerman.vue';
+import IconFlagUSA from '@/components/icons/IconFlagUSA.vue';
+import IconMoon from '@/components/icons/IconMoon.vue';
+import IconEnter from '@/components/icons/IconEnter.vue';
 </script>
 
 <template>
-  <header class="page-header">
-    <h1>HTW Turnier App</h1>
+  <header class="flex items-center justify-between">
+    <div class="flex items-center gap-4 ">
+      <IconFlagGerman />
+      <IconFlagUSA />
+    </div>
+    <div class="flex items-center  justify-end ">
+      <IconMoon />
+    </div>
   </header>
 
   <main class="landing">
-  <div class="button-wrapper">
-    <RouterLink class="highlight-button" to="/enter-tournament">
-      <img class="enter-icon" src="@/assets/icons/entericon.svg" alt="EnterIcon"/>
-      Join Tournament
-    </RouterLink>
+    <div class="button-wrapper">
+      <RouterLink class="highlight-button" to="/enter-tournament">
+        <div class="flex items-center gap-2 flex-col">
+          <IconEnter />
+          <span>Turnier beitreten</span>
+        </div>
+      </RouterLink>
 
     <div class="secondary-buttons">
       <RouterLink class="default-button" to="/create-tournament">New Tournament</RouterLink>
@@ -21,6 +33,9 @@
 </main>
 
 </template>
+
+
+
 
 <style scoped>
 .page-header {
@@ -80,16 +95,41 @@ position: relative;
 
   align-items: center;
   justify-content: center;
-  text-align: center;
- 
- 
-  }
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
 
-  .default-button:hover {
+.highlight-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.highlight-button:hover,
+.highlight-button:active {
+  background-color: #2980b9;
+}
+
+.default-button {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+}
+
+  .default-button:hover,
+.default-button:active {
     background-color:#509F96;
     color: #ffffff;
     border: 2px solid #509F96;
   }
 
+
+@media (min-width: 1000px) {
+  * {
+    background-color: blue;
+  }
+}
 </style>
 <!-- linear-gradient(to right, #0DEEB9, #24EC3C) -->

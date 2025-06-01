@@ -1,8 +1,10 @@
 <script setup>
 import { useTournamentStore } from "@/stores/tournamentStore";
 import { onBeforeMount, ref, watch } from "vue";
+import api from "@/api/api.js";
 
 const store = useTournamentStore();
+
 
 const props = defineProps({
   gameId: {
@@ -10,7 +12,6 @@ const props = defineProps({
     required: true,
   },
 });
-
 const game = ref([]);
 const points = ref([]);
 
@@ -19,55 +20,42 @@ const points = ref([]);
 // if online: update pinia store
 // then always use pinia store for rendering
 onBeforeMount(async function () {
+
+  game.value = store.getGameById(props.gameId);
+
   if (navigator.onLine) {
     try {
       const response = await api.getGameScore(store.tournament.id, props.gameId);
 
-      // FIXME: see that correct data arrives first
-      console.log(response.score);
-      //TODO: update store here
+      // console.log("Server Points: ", response.score);
+
+      // update local store
+      game.value[4] = response.score;
+      store.setGameById(props.gameId, game.value);
 
     } catch (error) {
       console.error("get old tournaments failed");
     }
   }
 
-  console.log("gameId ", props.gameId);
-  Object.values(store.tournament.games).forEach((field) => {
-    Object.keys(field).forEach((gameId) => {
-      if (gameId == props.gameId) {
-        game.value = field[gameId];
-        points.value = field[gameId][3];
-      }
-    });
-  });
-
+  points.value = game.value[4];
 });
-
 
 watch(
   () => points.value,
   (newPoints) => {
+    game.value[4] = newPoints;
 
-    // TODO: call api if onLine at editGameScore
+    console.log("Points updated to", newPoints);
     if (navigator.onLine) {
       try {
-        // FIXME: test whether correct request is sent
         const response = api.editGameScore(store.tournament.id, props.gameId, newPoints);
       } catch (error) {
-        console.error("get old tournaments failed");
+        console.error("Edit games failed");
       }
     }
 
-    console.log("Points updated to", newPoints);
-    Object.values(store.tournament.games).forEach((field) => {
-      Object.keys(field).forEach((gameId) => {
-        if (gameId == props.gameId) {
-          field[gameId][3] = newPoints;
-        }
-      });
-    });
-    console.log(store.tournamentData);
+    store.setGameById(props.gameId, game.value);
   },
   { deep: true }
 );

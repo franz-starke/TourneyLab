@@ -24,7 +24,6 @@ class api {
         `${this.protocol}${this.serverAddr}/api/create`,
         tournamentData
       );
-      console.log("Response: ", this.response);
       return this.response.data;
     } catch (error) {
       console.error("API: ", error);
@@ -52,9 +51,10 @@ class api {
 
   async getGameScore(tournamentID, gameID) {
     try {
-      return await axios.get(
+      let response = await axios.get(
         `${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`
       );
+      return response.data;
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -62,8 +62,9 @@ class api {
 
   async editGameScore(tournamentID, gameID, score) {
     try {
-      return await axios.post(
-        `${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`
+      const data = {"score": score};
+      return await axios.put(
+        `${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`, data
       );
     } catch (error) {
       console.error("There was an error!", error);
@@ -80,4 +81,4 @@ class api {
   }
 }
 
-export default new api(localhost);
+export default new api(testServer);

@@ -1,5 +1,6 @@
 <script setup>
 import { useTournamentStore } from "@/stores/tournamentStore";
+import BackHeader from "./utilcomponents/BackHeader.vue";
 
 // TODO: first fetch from api for newest tournamentData and write it into the store
 // if offline just use store
@@ -8,8 +9,11 @@ const store = useTournamentStore();
 </script>
 
 <template>
-  <div id="header">Turniername: {{ store.tournamentName }}</div>
-  <RouterView></RouterView>
+  
+  <div id="header">{{ store.tournament.name }}</div>
+  <div id="tournament-views">
+    <RouterView></RouterView>
+  </div>
   <div id="navbar">
     <RouterLink class="router-link" to="/tournament-home/dashboard">
       <svg
@@ -72,27 +76,61 @@ const store = useTournamentStore();
 </template>
 
 <style scoped>
+
+#header,
+#navbar {
+  background-color: white;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  padding: 5px;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+}
+
 #navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-self: center;
+  align-items: center;
   height: 9vh;
+  bottom: 3em;
+  left: 0;
+  width: 100%;
 }
 
-#header,
-#navbar {
-  background-color: gray;
-  border-radius: 20px;
-  padding: 5px;
+/* hdjshdj */
+
+
+#tournament-views {
+  width: 100%;
+  height: 80vh;
+  overflow: scroll;
 }
 
 a.router-link {
+  margin: 0;
+  padding: 0;
   flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
 }
 
 .bi {
-  width: 90%;
-  height: 90%;
+  width: 50%;
+  height: 50%;
 }
+
+
+
 </style>
