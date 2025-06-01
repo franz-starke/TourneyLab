@@ -6,7 +6,7 @@ import { useTournamentStore } from "@/stores/tournamentStore";
 import { gzip, ungzip } from 'pako';
 
 const store = useTournamentStore();
-
+// commentary
 const syncGames = ref(false);
 
 // 1. Convert to JSON string
