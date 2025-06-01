@@ -86,7 +86,29 @@ include::../_includes/default-attributes.inc.adoc[]
 
 |test_get_field_games_returns_none
 |Checks that a 500 error is returned if the function unexpectedly returns None instead of data or an error object.
+|===
 
+== Test Cases get_tournament
+[cols="1,1"]
+|===
+
+|test_get_tournaments_success
+|Verifies that the endpoint returns a list of tournaments correctly when data is present.
+
+|test_get_tournaments_empty
+|Ensures that the endpoint returns an empty list when no tournaments are available.
+
+|test_get_tournaments_error
+|Checks that the endpoint returns a 500 error with a proper message when an Error object is returned.
+
+|test_get_multiple_tournaments
+|Confirms the endpoint correctly handles and returns multiple tournament entries.
+
+|test_get_tournaments_returns_none
+|Validates that the API responds with a 500 status code and appropriate message if None is returned
+
+|test_get_tournaments_invalid_structure
+|Tests that invalid tournament data structure is handled without crashing and does not include unexpected fields.
 
 
 
