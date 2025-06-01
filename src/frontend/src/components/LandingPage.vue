@@ -25,10 +25,13 @@ import IconEnter from '@/components/icons/IconEnter.vue';
         </div>
       </RouterLink>
 
-      <RouterLink class="default-button" to="/create-tournament">Neues Turnier</RouterLink>
-      <RouterLink class="default-button" to="/old-tournament">Altes Turnier</RouterLink>
+    <div class="secondary-buttons">
+      <RouterLink class="default-button" to="/create-tournament">New Tournament</RouterLink>
+      <RouterLink class="default-button" to="/old-tournament">Old Tournament</RouterLink>
     </div>
-  </main>
+  </div>
+</main>
+
 </template>
 
 
@@ -36,40 +39,60 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 
 <style scoped>
 .page-header {
+  
   text-align: center;
-  padding: 20px;
-  background-color: #2c3e50;
-  color: white;
+ 
+ 
+
+}
+.buttonwrapper {
+position: relative;
 }
 
-.landing {
-  display: flex;
+.secondary-buttons{
+  display:flex;
+  gap:2rem;                    /* space between the two small buttons */
+  justify-content:center;      /* keep them centered */
+  margin-top:40rem;            /* pushes them below the 320 px circle */
+ justify-content: center;
+ align-items: center;
+}
+
+.highlight-button {
+  
+  border-radius: 50px;
+  padding: 75px;
   flex-direction: column;
-  align-items: center;
+  font-family:Arial, Helvetica ;
+  text-decoration: none;
+  font-style: extra-bold;
+  font-size: 25px;
+  color: #ffffff;
+  display: flex;
   justify-content: center;
-  padding: 40px;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top:  50%;
+  width: 320px;
+  height: 320px;
+  transform: translate(-50%, -50%);
 }
-
-.landing h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.landing p {
-  margin-bottom: 30px;
-  color: #555;
-}
-
-.button-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 200px;
-}
-
-.highlight-button,
 .default-button {
-  display: flex;
+  background: #ffffff;
+  border: 2px solid #509F96;
+  display: inline-flex;
+  margin-right: 50px;
+  border-radius: 30px;
+  padding-right: 100px;
+  
+  padding-left: 100px;
+  font-family:Arial, Helvetica;
+  text-decoration: none;
+ 
+  font-size: 25px;
+  color: #000000;
+
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -95,10 +118,12 @@ import IconEnter from '@/components/icons/IconEnter.vue';
   color: #2c3e50;
 }
 
-.default-button:hover,
+  .default-button:hover,
 .default-button:active {
-  background-color: #d0d7de;
-}
+    background-color:#509F96;
+    color: #ffffff;
+    border: 2px solid #509F96;
+  }
 
 
 @media (min-width: 1000px) {
@@ -107,3 +132,4 @@ import IconEnter from '@/components/icons/IconEnter.vue';
   }
 }
 </style>
+<!-- linear-gradient(to right, #0DEEB9, #24EC3C) -->
