@@ -126,10 +126,6 @@ position: relative;
   }
 
 
-@media (min-width: 1000px) {
-  * {
-    background-color: blue;
-  }
-}
+
 </style>
 <!-- linear-gradient(to right, #0DEEB9, #24EC3C) -->
