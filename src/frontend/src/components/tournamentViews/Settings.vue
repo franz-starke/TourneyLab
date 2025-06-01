@@ -10,7 +10,6 @@ function exitTournament() {
   router.push({name: "landing"});
 }
 
-// Hier wird geändert
 
 </script>
 
