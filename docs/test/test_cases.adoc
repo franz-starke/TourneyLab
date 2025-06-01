@@ -109,12 +109,29 @@ include::../_includes/default-attributes.inc.adoc[]
 
 |test_get_tournaments_invalid_structure
 |Tests that invalid tournament data structure is handled without crashing and does not include unexpected fields.
+|===
 
 
 
+== Test Cases get_field_games
+[cols="1,1"]
+|===
 
+|test_set_game_score_success
+|Purpose: Verifies that the endpoint correctly updates the score when valid input is provided and returns a 200 OK status.
 
+|test_set_game_score_invalid_score_format
+|Purpose: Ensures the API returns a 400 Bad Request when the score format is invalid (e.g., a string instead of a list of two integers).
 
+|test_set_game_score_negative_values
+|Purpose: Checks that a 400 Bad Request is returned when the score contains negative values.
 
+|test_set_game_score_invalid_game_id
+|Purpose: Simulates an update attempt on a non-existent game ID and expects a 400 error response.
 
+|test_set_game_score_invalid_tournament_id
+|Purpose: Tests if a 404 error is raised when the tournament ID does not exist.
+
+|test_set_game_score_server_error
+|Simulates a server exception (e.g., database failure) and verifies that a 500 Internal Server Error is returned.
 |===
