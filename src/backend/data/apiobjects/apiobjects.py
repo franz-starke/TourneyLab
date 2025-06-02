@@ -33,7 +33,7 @@ class CreateTournament(BaseModel):
         
         # Check if at least 1 and at most 2 groups are present.
         if len(v) != 1 and len(v) != 2:
-            return utils.Error(400,"Teams must must have at least 1 and at most 2 groups.")
+            return utils.Error(400,"Teams must have at least 1 and at most 2 groups.")
 
         # Check if teams structure is valid
         for group_id, team_count in v.items():

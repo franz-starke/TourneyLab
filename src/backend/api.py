@@ -38,7 +38,9 @@ def handle_error(result) -> dict | utils.Error:
     Raises:
         HTTPException: If result is an instance of utils.Error.
     """
-
+    if result is None:
+        raise HTTPException(status_code=500, detail="Unexpected None response.")
+    
     if isinstance(result, utils.Error):
         raise HTTPException(status_code=result.code, detail=result.message)
     return result
