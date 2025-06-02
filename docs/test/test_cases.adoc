@@ -75,10 +75,10 @@ include::../_includes/default-attributes.inc.adoc[]
 |Checks that a 400 error is returned if there are no games associated with the given field.
 
 |test_get_field_games_invalid_tournament
-|Ensures that the API returns a 404 error when the tournament ID does not exist.
+|Ensures that the API returns a 400 error when the tournament ID does not exist.
 
 |test_get_field_games_invalid_field
-|Validates that a 404 error is returned when the field ID is invalid or not found.
+|Validates that a 400 error is returned when the field ID is invalid or not found.
 
 |test_get_field_games_server_exception
 |Simulates a server-side failure and verifies that a 500 error with a proper message is returned.
@@ -100,10 +100,10 @@ include::../_includes/default-attributes.inc.adoc[]
 |Ensures a 400 error is returned when the game exists but has no stored score.
 
 |test_get_game_score_invalid_game_id
-|Checks that a 404 error is returned if the given game ID does not exist.
+|Checks that a 400 error is returned if the given game ID does not exist.
 
 |test_get_game_score_invalid_tournament_id
-|Confirms that a 404 error is returned for an invalid tournament ID.
+|Confirms that a 400 error is returned for an invalid tournament ID.
 
 |test_get_game_score_server_error
 |Verifies that a 500 error is returned when the server encounters an internal failure.
@@ -128,7 +128,7 @@ include::../_includes/default-attributes.inc.adoc[]
 |Purpose: Simulates an update attempt on a non-existent game ID and expects a 400 error response.
 
 |test_set_game_score_invalid_tournament_id
-|Purpose: Tests if a 404 error is raised when the tournament ID does not exist.
+|Purpose: Tests if a 400 error is raised when the tournament ID does not exist.
 
 |test_set_game_score_server_error
 |Simulates a server exception (e.g., database failure) and verifies that a 500 Internal Server Error is returned.

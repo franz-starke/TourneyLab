@@ -31,17 +31,17 @@ def test_get_field_games_empty_list(client, mocker):
     assert response.json()["detail"] == "There are no games associated with this field."
 
 def test_get_field_games_invalid_tournament(client, mocker):
-    mocker.patch("api.server.get_games_from_field", return_value=Error(404, "Tournament not found."))
+    mocker.patch("api.server.get_games_from_field", return_value=Error(400, "Tournament not found."))
 
     response = client.get("/api/invalid-id/fields/field-1")
-    assert response.status_code == 404
+    assert response.status_code == 400
     assert response.json()["detail"] == "Tournament not found."
 
 def test_get_field_games_invalid_field(client, mocker):
-    mocker.patch("api.server.get_games_from_field", return_value=Error(404, "Field not found."))
+    mocker.patch("api.server.get_games_from_field", return_value=Error(400, "Field not found."))
 
     response = client.get("/api/test-tournament/fields/invalid-field")
-    assert response.status_code == 404
+    assert response.status_code == 400
     assert response.json()["detail"] == "Field not found."
 
 def test_get_field_games_server_exception(client, mocker):

@@ -29,19 +29,19 @@ def test_get_game_score_empty_result(client, mocker):
     assert response.json()["detail"] == "Cannot get a score from the specified game."
 
 def test_get_game_score_invalid_game_id(client, mocker):
-    """Returns 404 for an invalid game ID."""
-    mocker.patch("api.server.get_game_score", return_value=Error(404, "Game not found."))
+    """Returns 400 for an invalid game ID."""
+    mocker.patch("api.server.get_game_score", return_value=Error(400, "Game not found."))
 
     response = client.get("/api/test-tournament/game/invalid-id")
-    assert response.status_code == 404
+    assert response.status_code == 400
     assert response.json()["detail"] == "Game not found."
 
 def test_get_game_score_invalid_tournament_id(client, mocker):
-    """Returns 404 for an invalid tournament ID."""
-    mocker.patch("api.server.get_game_score", return_value=Error(404, "Tournament not found."))
+    """Returns 400 for an invalid tournament ID."""
+    mocker.patch("api.server.get_game_score", return_value=Error(400, "Tournament not found."))
 
     response = client.get("/api/invalid-tournament/game/game-1")
-    assert response.status_code == 404
+    assert response.status_code == 400
     assert response.json()["detail"] == "Tournament not found."
 
 def test_get_game_score_server_error(client, mocker):
