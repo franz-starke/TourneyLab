@@ -6,6 +6,43 @@ body {
   color: var(--font-color-main);
 }
 
+.highlighted-btn,
+.default-btn {
+  color: var(--font-color-main);
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  /* width: 100%; */
+  /* height: 100%; */
+  transition: background-color 0.3s;
+  /* Smooth color change on hover */
+  padding: 0.5rem 1rem;
+}
+
+.highlighted-btn {
+  background: var(--color-button-highlight);
+}
+
+.highlighted-btn:hover,
+.highlighted-btn:active,
+.highlighted-btn:focus {
+  background: var(--color-button-highlight-hover);
+}
+
+.default-btn {
+  background: var(--color-button-default);
+}
+
+.default-btn:hover,
+.default-btn:active,
+.default-btn:focus {
+  background: var(--color-button-default-hover);
+}
+
+
+
+
 #app {
   max-width: 1280px;
   margin: 0 auto;

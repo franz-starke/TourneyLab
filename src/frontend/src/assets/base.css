@@ -80,7 +80,6 @@
   /* Smooth color change on hover */
 }
 
-
 .highlighted-btn {
   background: var(--color-button-highlight);
 }
@@ -100,7 +99,6 @@
 .default-btn:focus {
   background: var(--color-button-default-hover);
 }
-
 
 /* ---break---  */
 

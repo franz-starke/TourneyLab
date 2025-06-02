@@ -16,7 +16,7 @@ import IconEnter from '@/components/icons/IconEnter.vue';
     </div>
   </header>
 
-  <main class="flex flex-col items-center justify-center gap-8">
+  <main class="flex flex-col items-stretch justify-center gap-8 ">
     <RouterLink class="flex flex-col items-center  highlighted-btn" to="/enter-tournament">
       <IconEnter />
       <span>Turnier beitreten</span>
