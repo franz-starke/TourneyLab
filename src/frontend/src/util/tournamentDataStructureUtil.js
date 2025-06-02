@@ -1,8 +1,13 @@
 
 /**
+ * convert the game data structure to rounds of games
  *
- * @param games Object of Fields with Games
- * @returns Array of Rounds with Arrays of Games in that round
+ * @param {Object} games Object of Fields with Games
+ * @param {Object} games.fieldId Object of Games with gameId as key and Array of Game-Arrays as value
+ * @param {Array} games.fieldId.gameId game Array with [team1, team2, referee]
+ * @returns {Array} Array of Rounds, where each Round is an Array of Games
+ * @returns {Array} rounds[roundIndex] Array of Games in that Round
+ * @returns {Array} rounds[roundIndex][gameIndex] game Array with [gameId, [team1, team2, referee]]
  */
 export function getRounds(games) {
   // function to get the rounds from the games
@@ -34,14 +39,16 @@ export function getRounds(games) {
 
 /**
  *
+ * 
+ * 
  * @returns Array of available Referee Teams for game with gameId
  */
-export function availableRefs(games, gameId) {
+export function availableRefsForGame(games, gameId, totalTeamAmount) {
 
   const rounds = getRounds(games);
 
   // find the round where the game is in
-  const round = rounds.value.find((r) =>
+  const round = rounds.find((r) =>
     r.some((g) => g[0] === gameId.toString())
   );
   // console.log("Round: ", round);
@@ -55,7 +62,7 @@ export function availableRefs(games, gameId) {
   });
   // console.log("Participants ", participants);
   let refs = Array.from(
-    { length: amountTeams1.value + amountTeams2.value },
+    { length: totalTeamAmount },
     (_, i) => i + 1
   );
   // console.log("all refs", refs);

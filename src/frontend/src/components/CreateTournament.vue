@@ -5,10 +5,10 @@
 import api from "@/api/api.js";
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { addMinutes } from "@/util/time.js"
-import { availableRefs, getRounds } from "@/util/tournamentDataStructureUtil.js"
+import { availableRefsForGame, getRounds } from "@/util/tournamentDataStructureUtil.js"
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Checkbox } from '@/components/ui/checkbox'
+import { checkTournamentParams, impossibleRefAssigning } from "@/util/tournamentParamCheck";
 import {
   NumberField,
   NumberFieldContent,
@@ -35,29 +35,24 @@ const amountFields = ref(1);
 const amountTeams1 = ref(3);
 const amountTeams2 = ref(0);
 const amountGroups = ref(1);
-const teamgroups = ref({}); // variable to hold the teams in the groups
 const withReturnGame = ref(false);
-const tournamentData = ref({});
 const games = ref({});
-const rounds = ref([]); // variable to hold the rounds of the tournament
-const showRefModal = ref(false); // variable to handle if there is a ref dialog going on (for conditional rendering with v-if)
 const date = ref((new Date()).toISOString().split('T')[0]);
 const startTime = ref("10:00");
 const roundDuration = ref(25);
 const breakDuration = ref(5);
 
 
+const teamgroups = ref({}); // variable to hold the teams in the groups
+const tournamentData = ref({});
+let rounds = []; // variable to hold the rounds of the tournament
 
 let resolvePromise; // Shared variable to hold the resolve function of a promise, used for the modal dialog
+const showRefModal = ref(false); // variable to handle if there is a ref dialog going on (for conditional rendering with v-if)
+
 
 /**
- * Function Name: generateTournament
- *
- * This function handles the User Input on the Tournament Parameters.
- * 1. It calls the Tournament Algorithm to generate the Tournament.
- *    Only valid values are allowed as user input which is handled via Html.
- * 2. After, if any games do not yet have referees assigned, a modal dialog
- *    is opened to assign referees.
+
 Combinations where referees can and have to be assigned are (some ranges include totally fine combinations but it easier to wrap them together here):
 
  Return game false:
@@ -82,51 +77,30 @@ Combinations where referees can and have to be assigned are (some ranges include
             Teams1 + Teams2 = 9 to 24
         fields 4:
             Teams1 + Teams2 = 12 to 24
+ */
 
-Then there are combinations, that are not sensible, or where the algorithm produces a schedule where
-games don't have a referee but there are not enough teams available to assign.
-All of the deprecated combinations include:
 
- Return Game false:
-    Groups 1:
-        fields 2:
-            Teams 3-5
-        fields 3:
-            Teams 3-8
-        fields 4:
-            Teams 3-11
-    Groups 2:
-        fields 3:
-            Teams1 + Teams2 < 9
-        fields 4:
-            Teams1 + Teams2 < 12
 
- Return Game true:
-    Groups 1:
-        fields 2:
-            Teams 3-5
-        fields 3:
-            Teams 3-8
-        fields 4:
-            Teams 3-11
-    Groups 2:
-        fields 3:
-            Teams1 + Teams2 = 3 to 8
-        fields 4:
-            Teams1 + Teams2 = 3 to 11
-
-All non-listed combinations are unproblematic
-
- * 3. If the modal returns successfully or it wasn't needed, the tournament data is
- *    synchronized with the server. And the user is redirected to the Tournament Home.
- *
+ /**
+ * Creates a tournament based on the user input.
+ * 
+ * @summary
+ * This function first validates the input data on unsupported parameter combinations. If the data is valid, it uses a tournament generation
+ * algorithm to create the tournament structure. Afterward, if any matches are missing referees,
+ * it opens a modal dialog prompting the user to assign them. If the modal returns successfully or it wasn't needed, the tournament data is
+ * synchronized with the server, which yields the tournamentId. And the user is redirected to the Tournament Home.
  */
 async function generateTournament() {
+
+  // tournament Name can't be empty
   if (tournamentName.value.trim() === "") {
-    alert("Please enter a tournament name.");
+    alert("Bitte geben Sie einen Turniernamen ein.");
     return;
   }
 
+
+
+  // run tournament algorithm
   games.value = createTournamentAlgo(
     amountTeams1.value,
     amountTeams2.value,
@@ -135,40 +109,18 @@ async function generateTournament() {
     withReturnGame.value
   );
 
-
-  //// TEST:-------------------------------
-  //=======================================================================
   console.log("Game plan: ", games.value);
-  rounds.value = getRounds(games.value);
 
-  console.log("rounds ", rounds.value);
-  // Check if any array has a 0 at index 2 <=> no referee assigned
-  // and see which refs are available
-  // and if there are enough refs available
-  let impossibleRefAssigning = false;
-  Object.values(games.value).forEach((field) => {
-    for (const [gameId, game] of Object.entries(field)) {
-      let gameHasNoRefAndIsNoNullGame = game[2] === 0 && game[0] != 0 && game[1] != 0;
-      if (!gameHasNoRefAndIsNoNullGame) continue;
-      // find the round where the game is in
-      const round = rounds.value.find((r) =>
-        r.some((g) => g[0] === gameId.toString())
-      );
-      let refNeeded = round.reduce((total, game) => {
-        if (game[1][2] == 0) {
-          return total + 1;
-        }
-        return total;
-      }, 0);
-      console.log("Refs needed", refNeeded);
-      let refsToassign = availableRefs(games.value, gameId);
-      console.log("no ref ", gameId, " available refs: ", refsToassign);
-      if (refsToassign.length < refNeeded) impossibleRefAssigning = true;
-    }
-  });
+  rounds = getRounds(games.value);
+  console.log("rounds ", rounds);
 
-  // TEST: if no refs available for a round with needed refs, then true
-  console.log("Impossible ref assigning: ", impossibleRefAssigning);
+  // check for sensible combinations of tournament parameters
+  // This is done by checking for unsupported combinations or if there are games where no referee can be assigned
+  if (checkTournamentParams(amountFields.value, amountGroups.value, amountTeams1.value, amountTeams2.value, withReturnGame.value) === false || impossibleRefAssigning(games.value, rounds, amountTeams1.value + amountTeams2.value)) {
+    alert("Die Kombination der Turnierparameter wird nicht unterstützt bzw. ist nicht sinnvoll. Bitte überprüfen Sie Ihre Eingaben.");
+    return;
+  }
+  return;
   //=======================================================================
 
 
@@ -244,6 +196,10 @@ async function generateTournament() {
 * falls das nicht möglich ist, sollten die Daten im localstorage via pinia aufbewahrt werden
 */
 async function syncTournament() {
+
+  // FXME: remove return
+  return;
+
   tournamentData.value = {
     name: tournamentName.value, // string
     teams: teamgroups.value,
@@ -316,8 +272,8 @@ watch(amountGroups, (newValue) => {
 
 <template>
   <BackHeader></BackHeader>
-  <form v-if="!showRefModal" class="flex flex-col gap-4 p-4">
-
+  <h1 class="text-2xl font-medium text-center">Turnier erstellen</h1>
+  <div v-if="!showRefModal" class="flex flex-col gap-4 p-4">
 
     <Input class="text-input" type="text" v-model="tournamentName" placeholder="Turniername" maxlength="120" required />
 
@@ -366,7 +322,7 @@ watch(amountGroups, (newValue) => {
 
     <div class="flex items-center justify-center">
       <label for="withReturnGame">Hin- und Rückspiel</label>
-      <input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" required />
+      <input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" />
     </div>
 
 
@@ -404,8 +360,8 @@ watch(amountGroups, (newValue) => {
     </NumberField>
 
 
-    <button class="default-btn" @click="generateTournament" type="submit">Create</button>
-  </form>
+    <button class="default-btn" @click="generateTournament">Create</button>
+  </div>
 
   <!-- Referee Assignment Dialog
   <Modal v-if="showRefModal" @close="closeRefModal">
