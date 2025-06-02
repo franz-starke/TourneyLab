@@ -1,5 +1,11 @@
 @import './base.css';
 
+
+body {
+  background-color: var(--color-background);
+  color: var(--font-color-main);
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -8,7 +14,7 @@
 }
 
 
-/* 
+/*
 @media (min-width: 1024px) {
   body {
     display: flex;
@@ -21,4 +27,3 @@
     padding: 0 2rem;
   }
 } */
-
