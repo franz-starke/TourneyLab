@@ -4,6 +4,7 @@
 body {
   background-color: var(--color-background);
   color: var(--font-color-main);
+  min-width: 380px;
 }
 
 
@@ -63,6 +64,17 @@ input:focus {
   outline: none;
 }
 
+.router-link-active {
+  background: var(--color-button-highlight);
+  color: white;
+}
+
+.router-link-active:hover,
+.router-link-active:active,
+.router-link-active:focus {
+  background: var(--color-button-highlight-hover);
+  color: white;
+}
 
 
 
