@@ -7,7 +7,7 @@ const router = useRouter();
 
 <template>
   <div id="wrapper">
-    <button id="back" class="flex " @click="router.back()">
+    <button id="back" class="default-btn" @click="router.back()">
       <div class="flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
           viewBox="0 0 16 16">
@@ -16,7 +16,7 @@ const router = useRouter();
         </svg>
       </div>
     </button>
-    <ThemeChangeBtn />
+    <!--    <ThemeChangeBtn />-->
   </div>
 
 </template>
