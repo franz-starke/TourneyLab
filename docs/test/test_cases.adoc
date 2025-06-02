@@ -17,13 +17,13 @@ include::../_includes/default-attributes.inc.adoc[]
 |Verifies creating a tournament successfully (returns status 200 and a tournament ID)
 
 |test_create_tournament_empty_body
-|Checks that an empty request body is properly rejected with a 422 Bad Request error.
+|Checks that an empty request body is properly rejected with a 422 Unprocessable Entity error.
 
 |test_create_tournament_invalid_team_type
 |Ensures the endpoint returns an error with code 422 when the teams field has an invalid type
 
 |test_create_tournament_invalid_games_type
-|Validates that an invalid type in the games field triggers a 422 Bad Request response.
+|Validates that an invalid type in the games field triggers a 422 Unprocessable Entity response.
 
 |test_create_tournament_missing_name
 |Confirms that submitting an empty tournament name results in a 400 error with the appropriate message.
@@ -39,7 +39,6 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 |=== 
-
 == Test Cases get_tournament
 [cols="1,1"]
 |===

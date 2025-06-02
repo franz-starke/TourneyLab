@@ -41,10 +41,10 @@ def test_set_game_score_invalid_game_id(client, mocker):
 
 def test_set_game_score_invalid_tournament_id(client, mocker):
     """Returns 404 when the tournament ID is invalid."""
-    mocker.patch("api.server.set_game_score", return_value=Error(404, "Tournament not found."))
+    mocker.patch("api.server.set_game_score", return_value=Error(400, "Tournament not found."))
 
     response = client.put("/api/invalid-tournament/game/game1", json={"score": [2, 2]})
-    assert response.status_code == 404
+    assert response.status_code == 400
     assert response.json()["detail"] == "Tournament not found."
 
 def test_set_game_score_server_error(client, mocker):
