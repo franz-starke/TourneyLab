@@ -1,4 +1,6 @@
 <script setup>
+// TODO: add a QR-Code scanner to enter a tournament via Tournament Code
+
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 import { ref, computed } from "vue";
@@ -17,15 +19,15 @@ const isOnline = computed(() => {
   return navigator.onLine;
 });
 
+
 async function enterTournament() {
   if (tournamentId.value === "") {
-    alert("Please enter a tournament code.");
+    alert("Bitte geben Sie einen Turnier-Code ein.");
     return;
   }
 
   try {
     const response = await api.getTournament(tournamentId.value);
-
     // set tournament data in the store
     store.tournament.date = response.date;
     store.tournament.id = response.id;
@@ -50,60 +52,22 @@ async function onDetect(detectedCodes) {
 
 <template>
   <BackHeader />
-  <h2>Scan Tournament QR-Code</h2>
-  <div class="flex-container">
-    <div id="qr-code-wrapper">
-      <qrcode-stream @detect="onDetect"></qrcode-stream>
-    </div>
+  <h1 class="text-2xl font-medium text-center">Turnier beitreten</h1>
 
-    <!-- output of what the qr-scanner scans -->
-    <p>
-      {{ debugInfo }}
-    </p>
-
-    <div>
-      <div v-if="isOnline">
-        <label for="enter-code">Enter Tournament Id</label>
-        <input id="enter-code" name="enter-code" type="text" placeholder="Turnier-Code eingeben..."
-          v-model="tournamentId" />
-        <div id="button" class="button" @click="enterTournament">Enter</div>
-      </div>
-    </div>
+  <p class="text-gray-700 text-xs text-center ">QR-Code scannen</p>
+  <div class="rounded-lg border-2 border-gray-300 p-4 mb-4">
+    <qrcode-stream @detect="onDetect"></qrcode-stream>
   </div>
+
+
+  <p for="enter-code" class="text-gray-700 font-medium text-xs text-center ">oder manuell eingeben</p>
+  <div v-if="isOnline" class="flex justify-center items-center">
+    <input id="enter-code" name="enter-code" type="text" placeholder="Turnier-Code eingeben..."
+      v-model="tournamentId" />
+  </div>
+
+  <div class="default-btn" @click="enterTournament">Enter</div>
 </template>
 
 
-
-
-<style scoped>
-#qr-code-wrapper {
-  width: 30%;
-  /* Set the width you desire */
-  height: 30%;
-  /* Set the height you desire */
-  overflow: hidden;
-  /* Prevent the content from spilling out */
-}
-
-#enter-code {
-  border: 1px solid #ccc;
-  border-radius: 30px;
-}
-
-div.flex-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-input.enter-code {
-  display: block;
-  flex-shrink: 0;
-  width: 70%;
-}
-
-a.router-link {
-  width: 100%;
-}
-</style>
+<style scoped></style>

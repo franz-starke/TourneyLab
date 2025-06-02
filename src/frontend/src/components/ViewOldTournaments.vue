@@ -25,7 +25,6 @@ onBeforeMount(async function () {
 async function getTournament(tid) {
   try {
     const response = await api.getTournament(tid);
-
     // set tournament data in the store
     store.tournament.date = response.date;
     store.tournament.id = response.id;
