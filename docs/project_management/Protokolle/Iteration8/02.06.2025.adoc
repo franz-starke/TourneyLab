@@ -1,0 +1,141 @@
+= Protokoll Weekly
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc: left
+:icons: font
+:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
+
+.generelle Informationen
+- **Zeit:** 09:45 - 11:00 Uhr 
+- **Ort:**  online via Discord
+- **Protokollant:** Sebastian Heber
+- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Ibrahim Braikeh, Jannis Wittchen, Ali Zeinelov, Mutaz Abuazizeh
+- **Abwesend:** 
+
+
+== Agenda
+
+[cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
+|===
+|Nr. |Tagesordnungspunkt |Dauer |Ergebnis |Verantwortlich
+
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnigs
+// |Verantwortliche
+
+|0
+|Begrüßung und besprechen der Agenda
+|2 Min.
+|alle wissen wo's langeht und es geht los
+|Sebastian
+
+|1
+|Terminabsprache Coachmeeting, Belegabgabe
+|10 Min.
+|
+|Alle
+
+|2
+|Aktuellen Stand der Untergruppen besprechen
+|45 Min.
+|
+|Alle
+
+
+|Abschluss
+|Terminabklärung und Aufgabenverteilung abschließen
+|3 Min.
+|Jeder weiß wann wir uns das nächste Mal treffen
+|Alle
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
+
+
+|===
+
+
+<<<
+
+== Besprechung der TOP's
+
+=== TOP 1: Terminabsprache Coachmeeting, Belegabgabe
+
+Folien in zu Belegabgabe lesen
+
+Treffen mit Ruben: 
+26.05. um 12 Uhr. Bib und discord
+Themen: 
+- Struktur beim Styling (Selektoren) 
+- allgemeiner Aufbau/ Logik
+- Dokumentation
+- Codereview Backend
+
+wann Zeit für Coach? Montag Abend?
+Themen: 
+- Repo durchgehen was fehlt und muss ergänzt werden
+- Gruppenreflexion
+- Allgemeiner Fahrplan
+
+
+
+=== TOP 2: Aktuellen Stand der Untergruppen besprechen
+
+Auswertungsalgorhytmus:
+
+Auswertealgorhytmus fertig?
+
+Ab jetzt Jannis Tests in JS übersetzen und dann Dokumentation
+
+Frontend:
+
+Beitreten von Turnier über ID oder QR Code?
+
+Unit Tests müssen geschrieben werden
+
+Mutaz Styling 
+
+Ali Styling 
+
+
+
+Backend:
+
+- Validierung der Eingabedaten / Zeiten richtig einspeichern? abgeschlossen
+
+- Merging nach review 
+
+- Unit Tests starten
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+
+
+== Aufgabenverteilung
+
+
+[cols="3s,7", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe 
+
+|
+|
+
+
+
+
+|===
+
+
+
+
+== Anhang
+- **Links und Dokumente:**
+
