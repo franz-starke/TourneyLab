@@ -7,7 +7,7 @@
  * @param {Array} games.fieldId.gameId game Array with [team1, team2, referee]
  * @returns {Array} Array of Rounds, where each Round is an Array of Games
  * @returns {Array} rounds[roundIndex] Array of Games in that Round
- * @returns {Array} rounds[roundIndex][gameIndex] game Array with [gameId, [team1, team2, referee]]
+ * @returns {Array} rounds[roundIndex][gameIndex] game Array with [gameId, [...gameData]]
  */
 export function getRounds(games) {
   // function to get the rounds from the games

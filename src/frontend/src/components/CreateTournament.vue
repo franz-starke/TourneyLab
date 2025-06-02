@@ -1,7 +1,7 @@
 <script setup>
 
-// TODO: manual ref assinging dialogue
-// TODO: disallow some combinations of tournament params
+// TODO: manual ref assinging dialogue 
+// TODO: disallow some combinations of tournament params (checkTournamentParams)
 import api from "@/api/api.js";
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { addMinutes } from "@/util/time.js"
@@ -36,48 +36,20 @@ const amountTeams1 = ref(3);
 const amountTeams2 = ref(0);
 const amountGroups = ref(1);
 const withReturnGame = ref(false);
-const games = ref({});
 const date = ref((new Date()).toISOString().split('T')[0]);
 const startTime = ref("10:00");
 const roundDuration = ref(25);
 const breakDuration = ref(5);
 
 
-const teamgroups = ref({}); // variable to hold the teams in the groups
-const tournamentData = ref({});
+let games = {};
+let teamgroups = {}; // variable to hold the teams in the groups
+let tournamentData = {};
 let rounds = []; // variable to hold the rounds of the tournament
 
+// * variables for the modal dialog to assign referees
 let resolvePromise; // Shared variable to hold the resolve function of a promise, used for the modal dialog
 const showRefModal = ref(false); // variable to handle if there is a ref dialog going on (for conditional rendering with v-if)
-
-
-/**
-
-Combinations where referees can and have to be assigned are (some ranges include totally fine combinations but it easier to wrap them together here):
-
- Return game false:
-     Groups 2:
-        fields 2:
-            Teams1: 3
-                Teams2: 4,5
-            Teams1: 4
-                Teams2: 5
-        fields 3:
-            Teams1 + Teams2 >= 9
-        fields 4:
-            Teams1 + Teams2 >=12
-
- Return Game true:
-     Groups 2:
-        fields 1:
-            Teams1 + Teams2 = 6 to 24
-        fields 2:
-            Teams1 + Teams2 = 6 to 24
-        fields 3:
-            Teams1 + Teams2 = 9 to 24
-        fields 4:
-            Teams1 + Teams2 = 12 to 24
- */
 
 
 
@@ -98,10 +70,8 @@ async function generateTournament() {
     return;
   }
 
-
-
   // run tournament algorithm
-  games.value = createTournamentAlgo(
+  games = createTournamentAlgo(
     amountTeams1.value,
     amountTeams2.value,
     amountGroups.value,
@@ -109,21 +79,21 @@ async function generateTournament() {
     withReturnGame.value
   );
 
-  console.log("Game plan: ", games.value);
+  console.log("Game plan: ", games);
 
-  rounds = getRounds(games.value);
+  rounds = getRounds(games);
   console.log("rounds ", rounds);
 
   // check for sensible combinations of tournament parameters
   // This is done by checking for unsupported combinations or if there are games where no referee can be assigned
-  if (!checkTournamentParams(amountFields.value, amountGroups.value, amountTeams1.value, amountTeams2.value, withReturnGame.value) || impossibleRefAssigning(games.value, rounds, amountTeams1.value + amountTeams2.value)) {
+  if (!checkTournamentParams(amountFields.value, amountGroups.value, amountTeams1.value, amountTeams2.value, withReturnGame.value) || impossibleRefAssigning(games, rounds, amountTeams1.value + amountTeams2.value)) {
     alert("Die Kombination der Turnierparameter wird nicht unterstützt bzw. ist nicht sinnvoll. Bitte überprüfen Sie Ihre Eingaben.");
     return;
   }
   
 
   // TODO: handle cases with manual referee assignment through modal dialog
-  if (someGameInGamesHasNoRef(games.value)) {
+  if (someGameInGamesHasNoRef(games)) {
     // TODO: Open the modal dialog to assign referees
     if (await openRefModal()) {
       console.log("Referees assigned successfully.");
@@ -132,28 +102,39 @@ async function generateTournament() {
       return; // Exit if the user cancels the referee assignment
     }
   }
-  
+
+
+  // TODO: yet another dialog to add or change time slots
+
 
   // prepare for server sync
-  // attach the start time of each game
-  Object.keys(games.value).forEach((field) => {
+  // attach the start-time of each game to each game-Array
+  Object.keys(games).forEach((field) => {
     let roundTime = startTime.value;
-    Object.keys(games.value[field]).forEach((gameId) => {
-      games.value[field][gameId][3] = roundTime;
+    Object.keys(games[field]).forEach((gameId) => {
+      games[field][gameId][3] = roundTime;
       roundTime = addMinutes(roundTime, roundDuration.value + breakDuration.value);
     });
   });
 
-  teamgroups.value = {
+
+  teamgroups = {
     1: amountTeams1.value,
-    2: amountTeams2.value,
+
   };
+  if (amountTeams2.value > 0) {
+    teamgroups[2] = amountTeams2.value; // Add second group only if it has teams
+  }
 
   // if online, then sync this data to the server
-  let tournamentId;
+  let tournamentId = undefined; // Initialize tournamentId to undefined
   if (navigator.onLine) {
     console.log("Online: Synchronizing tournament data with the server...");
     tournamentId = await syncTournament();
+    if (tournamentId === undefined) {
+      alert("Fehler beim Synchronisieren des Turniers mit dem Server. Netzwerkverbindung überprüfen.");
+      return;
+    }
   }
   else {
     console.log("Offline: no server sync");
@@ -161,59 +142,58 @@ async function generateTournament() {
   }
 
   // init games with Points 0,0
-  Object.keys(games.value).forEach((field) => {
-    Object.keys(games.value[field]).forEach((gameId) => {
-      if (games.value[field][gameId] !== emptyGame) {
-        games.value[field][gameId][4] = [0, 0]; // Add points [0, 0] to each game
+  Object.keys(games).forEach((field) => {
+    Object.keys(games[field]).forEach((gameId) => {
+      if (games[field][gameId] !== emptyGame) {
+        games[field][gameId][4] = [0, 0]; // Add points [0, 0] to each game
       }
     });
   });
 
   // store Tournament data in localstorage via pinia
-  store.tournament.games = games.value;
-  store.tournament.name = tournamentName.value;
-  store.tournament.id = tournamentId; // can be undefined in which case as soon as a network connection establishes, a call to the api should happen to get one
+  store.tournament.games = games;
+  store.tournament.name = tournamentName.value; 
+  store.tournament.id = tournamentId; 
+  store.tournament.groups = teamgroups;
 
   // Redirect to the tournament home page
   router.push({ name: "tournament-home" });
 }
 
 
-/** Methode, um nach erfolgter Turnierplanerstellung, die Daten mit dem Server zu synchronisieren.
-* falls das nicht möglich ist, sollten die Daten im localstorage via pinia aufbewahrt werden
+
+/** 
+* Nach erfolgter Turnierplanerstellung, die Daten mit dem Server synchronisieren.
+*
+* @returns {Promise<string>} Returns the tournament ID if successful, otherwise undefined.
 */
 async function syncTournament() {
 
-  // FXME: remove return
-  return;
-
-  tournamentData.value = {
+  tournamentData = {
     name: tournamentName.value, // string
-    teams: teamgroups.value,
-    games: games.value,
+    teams: teamgroups,
+    games: games,
     date: date.value, // string ex: "2025-04-26"
   };
 
-  console.log("Request data: ", tournamentData.value);
-
   // FIXME: continous testing
   // call API at create
-  let tId = await api.createTournament(tournamentData.value);
+  let tId = await api.createTournament(tournamentData);
   if (tId == undefined) {
     console.error("Api access error in syncTournament");
-    return;
+    return undefined;
   }
 
-  return tId.tournamentid;
+  return tId.tournament_id;
 }
 
 
-// NOTE: The following code is for a modal dialog to handle manual referee assignment.
-// /**
-//  *
-//  * This function handles the opening of the modal dialog for manual referee assignment.
-//  * @returns Promise which resolves to the updated Games data structure
-//  */
+
+/**
+ * This function handles the opening of the modal dialog for manual referee assignment.
+ * 
+ * @returns Promise which resolves to the updated Games data structure
+ */
 async function openRefModal() {
   console.log("Opening referee assignment modal...");
   return new Promise((resolve) => {
