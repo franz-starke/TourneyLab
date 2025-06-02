@@ -5,7 +5,7 @@
 import api from "@/api/api.js";
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { addMinutes } from "@/util/time.js"
-import { availableRefsForGame, getRounds } from "@/util/tournamentDataStructureUtil.js"
+import { availableRefsForGame, getRounds, someGameInGamesHasNoRef } from "@/util/tournamentDataStructureUtil.js"
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { checkTournamentParams, impossibleRefAssigning } from "@/util/tournamentParamCheck";
@@ -116,36 +116,23 @@ async function generateTournament() {
 
   // check for sensible combinations of tournament parameters
   // This is done by checking for unsupported combinations or if there are games where no referee can be assigned
-  if (checkTournamentParams(amountFields.value, amountGroups.value, amountTeams1.value, amountTeams2.value, withReturnGame.value) === false || impossibleRefAssigning(games.value, rounds, amountTeams1.value + amountTeams2.value)) {
+  if (!checkTournamentParams(amountFields.value, amountGroups.value, amountTeams1.value, amountTeams2.value, withReturnGame.value) || impossibleRefAssigning(games.value, rounds, amountTeams1.value + amountTeams2.value)) {
     alert("Die Kombination der Turnierparameter wird nicht unterstützt bzw. ist nicht sinnvoll. Bitte überprüfen Sie Ihre Eingaben.");
     return;
   }
-  return;
-  //=======================================================================
-
+  
 
   // TODO: handle cases with manual referee assignment through modal dialog
-  // const gameHasNoRef =  Object.values(games.value).forEach((field) => { for (const [gameId, game] of Object.entries(field)) {
-  //
-  //     let gameHasNoRefAndIsNoNullGame = game[2] === 0 && game[0] != 0 && game[1] != 0;
-  //     if (!gameHasNoRefAndIsNoNullGame) continue;
-  //
-  //     let refsToassign = availableRefs(gameId);
-  //     console.log(gameId, refsToassign);
-  //
-  //   }
-  // });
-  //
-  //   console.log(gameHasNoRef);
-  //
-  //
-  //
-  // if (gameHasNoRef) {
-  //   // Open the modal dialog to assign referees
-  //   rounds.value = getRounds(games.value);
-  //   games.value = await openRefModal();
-  // }
-  //
+  if (someGameInGamesHasNoRef(games.value)) {
+    // TODO: Open the modal dialog to assign referees
+    if (await openRefModal()) {
+      console.log("Referees assigned successfully.");
+    } else {
+      console.log("Referee assignment was cancelled.");
+      return; // Exit if the user cancels the referee assignment
+    }
+  }
+  
 
   // prepare for server sync
   // attach the start time of each game
@@ -227,38 +214,30 @@ async function syncTournament() {
 //  * This function handles the opening of the modal dialog for manual referee assignment.
 //  * @returns Promise which resolves to the updated Games data structure
 //  */
-// async function openRefModal() {
-//   return new Promise((resolve) => {
-//     showRefModal.value = true;
+async function openRefModal() {
+  console.log("Opening referee assignment modal...");
+  return new Promise((resolve) => {
+    showRefModal.value = true;
 
-//     resolvePromise = resolve; // Assign `resolve` to the shared variable
-//     // Attach these functions to the modal's scope using refs
-//   });
-// }
+    resolvePromise = resolve; // Assign `resolve` to the shared variable
+  });
+}
 
-// // Define submitForm and closeModal locally
-// function submitRefModal() {
-//   showRefModal.value = false;
-//   if (resolvePromise) {
-//     resolvePromise(games.value); // Resolve the promise with the updated games
-//   }
-// }
+// Define submitForm and closeModal locally
+function submitRefModal() {
+  showRefModal.value = false;
+  if (resolvePromise) {
+    resolvePromise(true); // Resolve the promise with the updated games
+  }
+}
 
-// function closeRefModal() {
-//   console.log("Modal closed without saving changes.");
-//   showRefModal.value = false;
-//   if (resolvePromise) {
-//     resolvePromise(null); // Resolve with `null` to indicate no changes
-//   }
-// }
-
-// function updateFreeRefs(event, gameId, fieldNum) {
-//   // function to update the free refs for the game
-//   const selectedRef = event.target.value;
-//   games.value[fieldNum][gameId][2] = selectedRef; // Update the referee in the games object
-//   console.log("Selected Referee: ", selectedRef);
-// }
-
+function closeRefModal() {
+  console.log("Modal closed without saving changes.");
+  showRefModal.value = false;
+  if (resolvePromise) {
+    resolvePromise(false); 
+  }
+}
 
 watch(amountGroups, (newValue) => {
   // Watcher to update amountTeams2 based on amountGroups
@@ -363,28 +342,10 @@ watch(amountGroups, (newValue) => {
     <button class="default-btn" @click="generateTournament">Create</button>
   </div>
 
-  <!-- Referee Assignment Dialog
-  <Modal v-if="showRefModal" @close="closeRefModal">
-    <h1>Handle manual referee assigning</h1>
-    <div id="ref-modal-field-wrapper">
-      <div v-for="(field, fieldNum) in games" :key="fieldNum">
-        <h2>Field {{ fieldNum }}</h2>
-        <div v-for="(game, gameId) in field" :key="gameId">
-          <div v-if="game[2] === 0 && game !== emptyGame">
-            Game {{ gameId }}: Team {{ game[0] }} vs. Team {{ game[1] }}
-            <br />
-            Referee:
-            <select @change="updateFreeRefs($event, gameId, fieldNum)">
-              <option v-for="ref in availableRefs(gameId)" :key="ref" :value="ref">
-                {{ ref }}
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button @click="submitRefModal">Save Refs</button>
-  </Modal> -->
+  <!-- Referee Assignment Dialog -->
+  <Modal v-if="showRefModal" @close="closeRefModal"  @submit="submitRefModal">
+    <h1 class="text-center font-medium">manual referee assigning not implemented</h1>
+  </Modal>
 </template>
 
 <style scoped>

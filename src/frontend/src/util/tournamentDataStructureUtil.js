@@ -74,3 +74,30 @@ export function availableRefsForGame(games, gameId, totalTeamAmount) {
 }
 
 
+
+/** 
+* Brief description of the function here.
+* @param {Object} games Object of Fields with Games
+* @param {Object} games.fieldId Object of Games with gameId as key and Array of Game-Arrays as value
+* @param {Array} games.fieldId.gameId game Array with [team1, team2, referee]
+* @return {Boolean} true if some game in games has no referee, false otherwise
+*/
+export function someGameInGamesHasNoRef(games) {
+  for (const fieldGames of Object.values(games)) {
+    for (const game of Object.values(fieldGames)) {
+      // game: [team1, team2, referee]
+      console.log("game",game);
+      if (
+        game[2] === 0 && // referee is 0
+        game[0] !== 0 && // team1 is not 0
+        game[1] !== 0    // team2 is not 0
+      ) {
+        return true; // Found a game with no referee
+      }
+    }
+  }
+  return false; // No game found with no referee
+}
+ 
+
+

@@ -2,7 +2,10 @@
     <div class="modal-overlay" @click.self="close">
       <div class="modal-content">
         <slot></slot>
-        <button class="close-button" @click="close">Close</button>
+        <div class="flex flex-row items-center justify-between">
+          <button class="close-button" @click="close">Close</button>
+          <button class="default-btn submit-button" @click="submit">Save Refs</button>
+        </div>
       </div>
     </div>
   </template>
@@ -10,10 +13,14 @@
   <script setup>
   import { defineEmits } from "vue";
   
-  const emit = defineEmits(["close"]);
+  const emit = defineEmits(["close", "submit"]);
   
   function close() {
     emit("close");
+  }
+
+  function submit() {
+    emit("submit");
   }
   </script>
   
@@ -48,4 +55,9 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  </style>
+
+  .submit-button {
+    background: var(--color-stura-main);
+  }
+
+</style>
