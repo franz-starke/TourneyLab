@@ -5,6 +5,10 @@
 
 /* color palette  */
 :root {
+
+  --color-stura-main-lighter: #58AAA0;
+  --color-stura-main: #387D75;
+
   /* base colors light */
   --color-background-light: rgb(231, 233, 246);
   --color-button-light: white;
@@ -65,39 +69,11 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-
-
-.highlighted-btn,
-.default-btn {
+::selection {
+  background-color: var(--color-stura-main-lighter);
+  /* Change this to any color you want */
   color: var(--font-color-main);
-  border-radius: 10px;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  /* width: 100%; */
-  /* height: 100%; */
-  transition: background-color 0.3s;
-  /* Smooth color change on hover */
-}
-
-.highlighted-btn {
-  background: var(--color-button-highlight);
-}
-
-.highlighted-btn:hover,
-.highlighted-btn:active,
-.highlighted-btn:focus {
-  background: var(--color-button-highlight-hover);
-}
-
-.default-btn {
-  background: var(--color-button-default);
-}
-
-.default-btn:hover,
-.default-btn:active,
-.default-btn:focus {
-  background: var(--color-button-default-hover);
+  /* Text color when selected */
 }
 
 /* ---break---  */

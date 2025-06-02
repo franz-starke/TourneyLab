@@ -319,11 +319,11 @@ watch(amountGroups, (newValue) => {
   <form v-if="!showRefModal" class="flex flex-col gap-4 p-4">
 
 
-    <Input type="text" v-model="tournamentName" placeholder="Enter tournament name" maxlength="120" required />
+    <Input class="text-input" type="text" v-model="tournamentName" placeholder="Turniername" maxlength="120" required />
 
 
     <NumberField id="amountFields" v-model="amountFields" :min="1" :max="4">
-      <Label for="amountFields">Amount Fields</Label>
+      <Label for="amountFields">Anzahl Felder</Label>
       <NumberFieldContent>
         <NumberFieldDecrement />
         <NumberFieldInput />
@@ -333,7 +333,7 @@ watch(amountGroups, (newValue) => {
 
 
     <NumberField id="amountGroups" v-model="amountGroups" :min="1" :max="2">
-      <Label for="amountGroups">Amount Groups</Label>
+      <Label for="amountGroups">Anzahl Leistungsgruppen</Label>
       <NumberFieldContent>
         <NumberFieldDecrement />
         <NumberFieldInput />
@@ -343,7 +343,7 @@ watch(amountGroups, (newValue) => {
 
 
     <NumberField id="amountTeams1" v-model="amountTeams1" :min="3" :max="12">
-      <Label for="amountTeams1">Amount Teams {{ amountGroups == 1 ? "" : " Group 1" }}
+      <Label for="amountTeams1">Anzahl Teams {{ amountGroups == 1 ? "" : " Gruppe 1" }}
       </Label>
       <NumberFieldContent>
         <NumberFieldDecrement />
@@ -355,7 +355,7 @@ watch(amountGroups, (newValue) => {
 
     <NumberField id="amountTeams2" v-if="amountGroups == 2" v-model="amountTeams2" :min="amountGroups == 2 ? 3 : 0"
       :max="12">
-      <Label for="amountTeams2">Amount Teams Group 2
+      <Label for="amountTeams2">Anzahl Teams Gruppe 2
       </Label>
       <NumberFieldContent>
         <NumberFieldDecrement />
@@ -364,27 +364,26 @@ watch(amountGroups, (newValue) => {
       </NumberFieldContent>
     </NumberField>
 
-
-
-
-    <p>
-      <Label for="withReturnGame">with Return Game </Label>
+    <div class="flex items-center justify-center">
+      <label for="withReturnGame">Hin- und Rückspiel</label>
       <input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" required />
-    </p>
+    </div>
 
-    <p>
-      <Label for="input-date">Date:</Label>
+
+    <br />
+    <Label for="input-date">Datum:</Label>
+    <div class="flex items-center justify-center">
       <input type="date" id="input-date" name="date" v-model="date" />
-    </p>
+    </div>
 
-    <p>
-      <Label for="start-time">Start:</Label>
+    <Label for="start-time">Start:</Label>
+    <div class="flex items-center justify-center">
       <input type="time" id="input-start-time" name="start-time" v-model="startTime" />
-    </p>
+    </div>
 
 
     <NumberField id="input-round-duration" v-model="roundDuration" :min="5" :step="5">
-      <Label for="input-round-duration">Round duration (min)
+      <Label for="input-round-duration">Rundendauer (min)
       </Label>
       <NumberFieldContent>
         <NumberFieldDecrement />
@@ -395,7 +394,7 @@ watch(amountGroups, (newValue) => {
 
 
     <NumberField id="input-break-duration" v-model="breakDuration" :min="0" :step="5">
-      <Label for="input-break-duration">Break duration (min)
+      <Label for="input-break-duration">Pausendauer (min)
       </Label>
       <NumberFieldContent>
         <NumberFieldDecrement />
@@ -405,7 +404,7 @@ watch(amountGroups, (newValue) => {
     </NumberField>
 
 
-    <div class="button" @click="generateTournament" type="submit">Create</div>
+    <button class="default-btn" @click="generateTournament" type="submit">Create</button>
   </form>
 
   <!-- Referee Assignment Dialog

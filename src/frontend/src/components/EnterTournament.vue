@@ -61,12 +61,12 @@ async function onDetect(detectedCodes) {
 
 
   <p for="enter-code" class="text-gray-700 font-medium text-xs text-center ">oder manuell eingeben</p>
-  <div v-if="isOnline" class="flex justify-center items-center">
-    <input id="enter-code" name="enter-code" type="text" placeholder="Turnier-Code eingeben..."
+  <div v-if="isOnline" class="flex flex-col  items-stretch justify-center gap-4">
+    <input id="enter-code" class="text-input" name="enter-code" type="text" placeholder="Turnier-Code eingeben..."
       v-model="tournamentId" />
+    <div class="default-btn" @click="enterTournament">Enter</div>
   </div>
 
-  <div class="default-btn" @click="enterTournament">Enter</div>
 </template>
 
 

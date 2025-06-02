@@ -6,6 +6,12 @@ body {
   color: var(--font-color-main);
 }
 
+
+input[type="checkbox"] {
+  accent-color: var(--color-stura-main);
+}
+
+
 .highlighted-btn,
 .default-btn {
   color: var(--font-color-main);
@@ -39,6 +45,24 @@ body {
 .default-btn:focus {
   background: var(--color-button-default-hover);
 }
+
+
+.text-input {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  border-radius: 50px;
+  background: white;
+  text-align: center;
+  color: var(--font-color-main);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: var(--color-stura-main);
+  box-shadow: 0 0 4px var(--color-stura-main);
+  outline: none;
+}
+
 
 
 
