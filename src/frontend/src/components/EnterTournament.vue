@@ -45,8 +45,15 @@ async function enterTournament() {
 
 async function onDetect(detectedCodes) {
   // detectedCodes is a Proxy Array
-  debugInfo.value = await JSON.parse(detectedCodes[0].rawValue);
-  console.log(JSON.stringify(debugInfo.value, null, 2));
+  let qrvalue = await detectedCodes[0].rawValue;
+  console.log("QR: ", qrvalue);
+  if (qrvalue === "") {
+    alert("Bitte scannen Sie einen gültigen QR-Code.");
+    return;
+  }
+  tournamentId.value = qrvalue;
+  enterTournament();
+
 }
 </script>
 

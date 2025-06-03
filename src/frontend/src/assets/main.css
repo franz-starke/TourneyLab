@@ -1,5 +1,4 @@
-@import './base.css';
-
+@import "./base.css";
 
 body {
   background-color: var(--color-background);
@@ -7,11 +6,9 @@ body {
   min-width: 380px;
 }
 
-
 input[type="checkbox"] {
   accent-color: var(--color-stura-main);
 }
-
 
 .highlighted-btn,
 .default-btn {
@@ -48,7 +45,6 @@ input[type="checkbox"] {
   background: var(--color-button-default-hover);
 }
 
-
 .text-input {
   box-sizing: border-box;
   padding: 0.5rem;
@@ -77,16 +73,12 @@ input:focus {
   color: white;
 }
 
-
-
-
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
   font-weight: normal;
 }
-
 
 /*
 @media (min-width: 1024px) {

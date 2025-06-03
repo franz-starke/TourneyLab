@@ -1,11 +1,11 @@
 <script setup>
 import QrcodeVue, { QrcodeCanvas, QrcodeSvg } from "qrcode.vue";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
-import { ref } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
 import IconQrCode from "../icons/IconQrCode.vue";
 import IconTrophy from "../icons/IconTrophy.vue";
-import { gzip, ungzip } from 'pako';
+import { gzip, ungzip } from "pako";
 
 const store = useTournamentStore();
 
@@ -25,15 +25,18 @@ const evalShow = ref(false);
 //   const rawValue = detectedCodes[0].rawValue;
 //   const decoded = atob(rawValue);
 //   const decompressed = ungzip(new Uint8Array([...decoded].map(c => c.charCodeAt(0))), { to: 'string' });
-  
+
 //   // Parse the JSON string back to an object
 //   const tournamentData = JSON.parse(decompressed);
-  
+
 //   // Update the store with the new tournament data
 //   store.updateTournament(tournamentData);
-  
+
 //   console.log("Tournament data updated:", tournamentData);
 // }
+
+const qrvalue = ref(store.tournament.id);
+console.log("QR Value: ", qrvalue.value);
 
 function toggleSyncGames() {
   syncGames.value = !syncGames.value;
@@ -42,10 +45,7 @@ function toggleSyncGames() {
 function evalTournament() {
   console.log("Evaluating Tournament...");
   evalShow.value = true;
-  console.log(evalShow.value);
 }
-
-
 </script>
 
 <template>
@@ -54,46 +54,46 @@ function evalTournament() {
     <h2>Turnier Auswertung kommt noch</h2>
   </div>
 
-  <div v-else-if="!syncGames" id="dashboard-container" class="flex flex-col align-center justify-between gap-4 h-full p-4">
-    <button class="highlighted-btn flex flex-row items-center justify-center gap-4" @click="toggleSyncGames">
-      <span class="block text-xl font-bold">Spielstände Sync.</span> 
-      <IconQrCode  />
+  <div
+    v-else-if="!syncGames"
+    id="dashboard-container"
+    class="flex flex-col align-center justify-between gap-4 h-full p-4"
+  >
+    <button
+      class="highlighted-btn flex flex-row items-center justify-center gap-4"
+      @click="toggleSyncGames"
+    >
+      <span class="block text-xl font-bold">Spielstände Sync.</span>
+      <IconQrCode />
     </button>
 
-    
-    <button class="highlighted-btn flex flex-row items-center justify-center gap-4 " @click="evalTournament">
-      <span class="block text-xl font-bold">Turnier auswerten</span> 
-      <IconTrophy  />
+    <button
+      class="highlighted-btn flex flex-row items-center justify-center gap-4"
+      @click="evalTournament"
+    >
+      <span class="block text-xl font-bold">Turnier auswerten</span>
+      <IconTrophy />
     </button>
   </div>
 
   <!-- Dialog for syncing Games  -->
   <div v-else id="synchronize-games-container" class="flex-container">
-    <div class="highlight-button" @click="toggleSyncGames">Dashboard</div>
 
-    <h2>QR-Scanner for offline updating Tournament Data:</h2>
-    <div id="qr-code-wrapper">
+    <!-- <h2>QR-Scanner for offline updating Tournament Data:</h2> -->
+    <!-- <div id="qr-code-wrapper">
       <qrcode-stream @detect="onDetect"></qrcode-stream>
-    </div>
+    </div> -->
 
-    <h2>QR-Generator for current Tournament Data:</h2>
-    <qrcode-vue
-      class="qr-code"
-      :value="qrvalue"`
-      :size="size"
-      level="H"
-      render-as="svg"
-    />
+   
+    <div class="flex flex-col items-center justify-center gap-4">
+       <h2 class="font-medium">Turnier QR-Code: <span class="text-blue-500">{{ qrvalue }}</span></h2>
+      <qrcode-vue class="rounded-md " :value="qrvalue" :size="200" level="H" render-as="svg" />
+    </div>
   </div>
 </template>
 
 <style scoped>
 
 
-#qr-code-wrapper {
-  width: 30%; /* Set the width you desire */
-  height: 30%; /* Set the height you desire */
-  overflow: hidden; /* Prevent the content from spilling out */
-}
 
 </style>

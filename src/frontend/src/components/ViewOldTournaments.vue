@@ -27,7 +27,7 @@ async function getTournament(tid) {
     const response = await api.getTournament(tid);
     // set tournament data in the store
     store.tournament.date = response.date;
-    store.tournament.id = response.id;
+    store.tournament.id = tid;
     store.tournament.name = response.name;
     store.tournament.groups = response.teams;
     store.tournament.games = response.games;

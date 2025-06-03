@@ -76,6 +76,11 @@ const store = useTournamentStore();
   overflow: scroll;
 }
 
+.default.btn {
+    transition: background-color 0s;
+ 
+}
+
 
 
 </style>
