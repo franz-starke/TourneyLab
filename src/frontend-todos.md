@@ -6,6 +6,5 @@
 + Teams.vue implementieren
 + Settings.vue implementieren
 + App Sprache auf englisch ändern können
-+ Suchfunktion in Old Tournaments
 + Games.vue und Games stylen, Edit Games entfernen oder schöner machen
-
++ wenn man auf Home navbutton bei Tournament home clickt während man im Dashboard ist soll sich das normale Dashboard öffnen
