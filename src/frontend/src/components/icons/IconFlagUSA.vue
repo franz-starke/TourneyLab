@@ -77,8 +77,5 @@ const props = defineProps({
   fill: #3C3B6E;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
+
 </style>

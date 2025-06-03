@@ -4,11 +4,13 @@ import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 import { ref } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
 import IconQrCode from "../icons/IconQrCode.vue";
+import IconTrophy from "../icons/IconTrophy.vue";
 import { gzip, ungzip } from 'pako';
 
 const store = useTournamentStore();
 
 const syncGames = ref(false);
+const evalShow = ref(false);
 
 // // 1. Convert to JSON string
 // const jsonStr = JSON.stringify(store.tournament);
@@ -36,16 +38,33 @@ const syncGames = ref(false);
 function toggleSyncGames() {
   syncGames.value = !syncGames.value;
 }
+
+function evalTournament() {
+  console.log("Evaluating Tournament...");
+  evalShow.value = true;
+  console.log(evalShow.value);
+}
+
+
 </script>
 
 <template>
   <!-- Tournament Dashboard -->
-  <div v-if="!syncGames" id="dashboard-container" class="flex flex-col align-center justify-center gap-4">
+  <div v-if="evalShow" id="eval-dialog">
+    <h2>Turnier Auswertung kommt noch</h2>
+  </div>
+
+  <div v-else-if="!syncGames" id="dashboard-container" class="flex flex-col align-center justify-between gap-4 h-full p-4">
     <button class="highlighted-btn flex flex-row items-center justify-center gap-4" @click="toggleSyncGames">
-      <span class="block">Spielstände Sync.</span> 
+      <span class="block text-xl font-bold">Spielstände Sync.</span> 
       <IconQrCode  />
     </button>
+
     
+    <button class="highlighted-btn flex flex-row items-center justify-center gap-4 " @click="evalTournament">
+      <span class="block text-xl font-bold">Turnier auswerten</span> 
+      <IconTrophy  />
+    </button>
   </div>
 
   <!-- Dialog for syncing Games  -->
@@ -77,7 +96,4 @@ function toggleSyncGames() {
   overflow: hidden; /* Prevent the content from spilling out */
 }
 
-.highlighted-btn {
-  margin-top: 1em;
-}
 </style>
