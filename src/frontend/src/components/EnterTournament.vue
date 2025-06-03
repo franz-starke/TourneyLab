@@ -8,6 +8,7 @@ import { useTournamentStore } from "@/stores/tournamentStore";
 import BackHeader from "./utilcomponents/BackHeader.vue";
 import api from "@/api/api.js";
 import { useRouter } from "vue-router";
+import { gzip, ungzip } from "pako";
 
 const debugInfo = ref("degubingfo: pls scan a qr-code");
 const tournamentId = ref("");
@@ -43,17 +44,28 @@ async function enterTournament() {
   }
 }
 
-async function onDetect(detectedCodes) {
-  // detectedCodes is a Proxy Array
-  let qrvalue = await detectedCodes[0].rawValue;
-  console.log("QR: ", qrvalue);
-  if (qrvalue === "") {
+function onDetect(detectedCodes) {
+  let rawValue = detectedCodes[0].rawValue;
+  if (rawValue === "") {
     alert("Bitte scannen Sie einen gültigen QR-Code.");
     return;
   }
-  tournamentId.value = qrvalue;
-  enterTournament();
+  const decoded = atob(rawValue);
+  const decompressed = ungzip(new Uint8Array([...decoded].map(c => c.charCodeAt(0))), { to: 'string' });
 
+  // Parse the JSON string back to an object
+  const tournamentData = JSON.parse(decompressed);
+  tournamentId.value = tournamentData.id;
+
+  if(navigator.onLine) {
+    enterTournament();
+  } else {
+
+  // Update the store with the new tournament data
+  store.tournament = tournamentData;
+  console.log("Tournament data updated:", tournamentData);
+  router.push("/tournament-home/dashboard");
+  }
 }
 </script>
 

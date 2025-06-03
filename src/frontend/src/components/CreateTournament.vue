@@ -157,7 +157,7 @@ async function generateTournament() {
   store.tournament.groups = teamgroups;
 
   // Redirect to the tournament home page
-  router.push({ name: "tournament-home" });
+  router.push({ name: "tournament-home/dashboard" });
 }
 
 
