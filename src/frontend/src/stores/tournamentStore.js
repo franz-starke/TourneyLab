@@ -22,7 +22,7 @@ export const useTournamentStore = defineStore("tournament", () => {
   }
 
 
-  // FIXME: check if correct
+  // FIXME: check if correct`
 function setGameById(gameId, updatedGame) {
   for (const [field, gamesOnField] of Object.entries(tournament.value.games)) {
     if (gameId in gamesOnField) {
