@@ -13,7 +13,11 @@ const store = useTournamentStore();
 
 <template>
   
-  <div id="header">{{ store.tournament.name }}</div>
+  <header id="header" class="w-full">
+    <h1 id="tournament-name" class="text-center ">
+      {{ store.tournament.name }}
+    </h1>
+  </header>
   <div id="tournament-views">
     <RouterView></RouterView>
   </div>

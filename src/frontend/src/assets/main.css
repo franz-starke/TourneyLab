@@ -29,6 +29,7 @@ input[type="checkbox"] {
 
 .highlighted-btn {
   background: var(--color-button-highlight);
+  color: white;
 }
 
 .highlighted-btn:hover,
@@ -82,7 +83,7 @@ input:focus {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   font-weight: normal;
 }
 
