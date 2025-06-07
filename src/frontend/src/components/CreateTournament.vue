@@ -10,11 +10,11 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { checkTournamentParams, impossibleRefAssigning } from "@/util/tournamentParamCheck";
 import {
-  NumberField,
-  NumberFieldContent,
-  NumberFieldDecrement,
-  NumberFieldIncrement,
-  NumberFieldInput,
+	NumberField,
+	NumberFieldContent,
+	NumberFieldDecrement,
+	NumberFieldIncrement,
+	NumberFieldInput,
 } from '@/components/ui/number-field'
 import Modal from "@/components/utilcomponents/Modal.vue";
 import { useTournamentStore } from "@/stores/tournamentStore.js";
@@ -53,111 +53,111 @@ const showRefModal = ref(false); // variable to handle if there is a ref dialog 
 
 
 
- /**
- * Creates a tournament based on the user input.
- * 
- * @summary
- * This function first validates the input data on unsupported parameter combinations. If the data is valid, it uses a tournament generation
- * algorithm to create the tournament structure. Afterward, if any matches are missing referees,
- * it opens a modal dialog prompting the user to assign them. If the modal returns successfully or it wasn't needed, the tournament data is
- * synchronized with the server, which yields the tournamentId. And the user is redirected to the Tournament Home.
- */
+/**
+* Creates a tournament based on the user input.
+* 
+* @summary
+* This function first validates the input data on unsupported parameter combinations. If the data is valid, it uses a tournament generation
+* algorithm to create the tournament structure. Afterward, if any matches are missing referees,
+* it opens a modal dialog prompting the user to assign them. If the modal returns successfully or it wasn't needed, the tournament data is
+* synchronized with the server, which yields the tournamentId. And the user is redirected to the Tournament Home.
+*/
 async function generateTournament() {
 
-  // tournament Name can't be empty
-  if (tournamentName.value.trim() === "") {
-    alert("Bitte geben Sie einen Turniernamen ein.");
-    return;
-  }
+	// tournament Name can't be empty
+	if (tournamentName.value.trim() === "") {
+		alert("Bitte geben Sie einen Turniernamen ein.");
+		return;
+	}
 
-  // run tournament algorithm
-  games = createTournamentAlgo(
-    amountTeams1.value,
-    amountTeams2.value,
-    amountGroups.value,
-    amountFields.value,
-    withReturnGame.value
-  );
+	// run tournament algorithm
+	games = createTournamentAlgo(
+		amountTeams1.value,
+		amountTeams2.value,
+		amountGroups.value,
+		amountFields.value,
+		withReturnGame.value
+	);
 
-  console.log("Game plan: ", games);
+	console.log("Game plan: ", games);
 
-  rounds = getRounds(games);
-  console.log("rounds ", rounds);
+	rounds = getRounds(games);
+	console.log("rounds ", rounds);
 
-  // check for sensible combinations of tournament parameters
-  // This is done by checking for unsupported combinations or if there are games where no referee can be assigned
-  if (!checkTournamentParams(amountFields.value, amountGroups.value, amountTeams1.value, amountTeams2.value, withReturnGame.value) || impossibleRefAssigning(games, rounds, amountTeams1.value + amountTeams2.value)) {
-    alert("Die Kombination der Turnierparameter wird nicht unterstützt bzw. ist nicht sinnvoll. Bitte überprüfen Sie Ihre Eingaben.");
-    return;
-  }
-  
-
-  // TODO: handle cases with manual referee assignment through modal dialog
-  if (someGameInGamesHasNoRef(games)) {
-    // TODO: Open the modal dialog to assign referees
-    if (await openRefModal()) {
-      console.log("Referees assigned successfully.");
-    } else {
-      console.log("Referee assignment was cancelled.");
-      return; // Exit if the user cancels the referee assignment
-    }
-  }
+	// check for sensible combinations of tournament parameters
+	// This is done by checking for unsupported combinations or if there are games where no referee can be assigned
+	if (!checkTournamentParams(amountFields.value, amountGroups.value, amountTeams1.value, amountTeams2.value, withReturnGame.value) || impossibleRefAssigning(games, rounds, amountTeams1.value + amountTeams2.value)) {
+		alert("Die Kombination der Turnierparameter wird nicht unterstützt bzw. ist nicht sinnvoll. Bitte überprüfen Sie Ihre Eingaben.");
+		return;
+	}
 
 
-  // TODO: yet another dialog to add or change time slots
+	// TODO: handle cases with manual referee assignment through modal dialog
+	if (someGameInGamesHasNoRef(games)) {
+		// TODO: Open the modal dialog to assign referees
+		if (await openRefModal()) {
+			console.log("Referees assigned successfully.");
+		} else {
+			console.log("Referee assignment was cancelled.");
+			return; // Exit if the user cancels the referee assignment
+		}
+	}
 
 
-  // prepare for server sync
-  // attach the start-time of each game to each game-Array
-  Object.keys(games).forEach((field) => {
-    let roundTime = startTime.value;
-    Object.keys(games[field]).forEach((gameId) => {
-      games[field][gameId][3] = roundTime;
-      roundTime = addMinutes(roundTime, roundDuration.value + breakDuration.value);
-    });
-  });
+	// TODO: yet another dialog to add or change time slots
 
 
-  teamgroups = {
-    1: amountTeams1.value,
+	// prepare for server sync
+	// attach the start-time of each game to each game-Array
+	Object.keys(games).forEach((field) => {
+		let roundTime = startTime.value;
+		Object.keys(games[field]).forEach((gameId) => {
+			games[field][gameId][3] = roundTime;
+			roundTime = addMinutes(roundTime, roundDuration.value + breakDuration.value);
+		});
+	});
 
-  };
-  if (amountTeams2.value > 0) {
-    teamgroups[2] = amountTeams2.value; // Add second group only if it has teams
-  }
 
-  // if online, then sync this data to the server
-  let tournamentId = undefined; // Initialize tournamentId to undefined
-  if (navigator.onLine) {
-    console.log("Online: Synchronizing tournament data with the server...");
-    tournamentId = await syncTournament();
-    if (tournamentId === undefined) {
-      alert("Fehler beim Synchronisieren des Turniers mit dem Server. Netzwerkverbindung überprüfen.");
-      return;
-    }
-  }
-  else {
-    console.log("Offline: no server sync");
-    tournamentId = undefined;
-  }
+	teamgroups = {
+		1: amountTeams1.value,
 
-  // init games with Points 0,0
-  Object.keys(games).forEach((field) => {
-    Object.keys(games[field]).forEach((gameId) => {
-      if (games[field][gameId] !== emptyGame) {
-        games[field][gameId][4] = [0, 0]; // Add points [0, 0] to each game
-      }
-    });
-  });
+	};
+	if (amountTeams2.value > 0) {
+		teamgroups[2] = amountTeams2.value; // Add second group only if it has teams
+	}
 
-  // store Tournament data in localstorage via pinia
-  store.tournament.games = games;
-  store.tournament.name = tournamentName.value; 
-  store.tournament.id = tournamentId; 
-  store.tournament.groups = teamgroups;
+	// if online, then sync this data to the server
+	let tournamentId = undefined; // Initialize tournamentId to undefined
+	if (navigator.onLine) {
+		console.log("Online: Synchronizing tournament data with the server...");
+		tournamentId = await syncTournament();
+		if (tournamentId === undefined) {
+			alert("Fehler beim Synchronisieren des Turniers mit dem Server. Netzwerkverbindung überprüfen.");
+			return;
+		}
+	}
+	else {
+		console.log("Offline: no server sync");
+		tournamentId = undefined;
+	}
 
-  // Redirect to the tournament home page
-  router.push({ name: "tournament-home/dashboard" });
+	// init games with Points 0,0
+	Object.keys(games).forEach((field) => {
+		Object.keys(games[field]).forEach((gameId) => {
+			if (games[field][gameId] !== emptyGame) {
+				games[field][gameId][4] = [0, 0]; // Add points [0, 0] to each game
+			}
+		});
+	});
+
+	// store Tournament data in localstorage via pinia
+	store.tournament.games = games;
+	store.tournament.name = tournamentName.value;
+	store.tournament.id = tournamentId;
+	store.tournament.groups = teamgroups;
+
+	// Redirect to the tournament home page
+	router.push({ name: "tournament-home/dashboard" });
 }
 
 
@@ -169,22 +169,22 @@ async function generateTournament() {
 */
 async function syncTournament() {
 
-  tournamentData = {
-    name: tournamentName.value, // string
-    teams: teamgroups,
-    games: games,
-    date: date.value, // string ex: "2025-04-26"
-  };
+	tournamentData = {
+		name: tournamentName.value, // string
+		teams: teamgroups,
+		games: games,
+		date: date.value, // string ex: "2025-04-26"
+	};
 
-  // FIXME: continous testing
-  // call API at create
-  let tId = await api.createTournament(tournamentData);
-  if (tId == undefined) {
-    console.error("Api access error in syncTournament");
-    return undefined;
-  }
+	// FIXME: continous testing
+	// call API at create
+	let tId = await api.createTournament(tournamentData);
+	if (tId == undefined) {
+		console.error("Api access error in syncTournament");
+		return undefined;
+	}
 
-  return tId.tournament_id;
+	return tId.tournament_id;
 }
 
 
@@ -195,142 +195,143 @@ async function syncTournament() {
  * @returns Promise which resolves to the updated Games data structure
  */
 async function openRefModal() {
-  console.log("Opening referee assignment modal...");
-  return new Promise((resolve) => {
-    showRefModal.value = true;
+	console.log("Opening referee assignment modal...");
+	return new Promise((resolve) => {
+		showRefModal.value = true;
 
-    resolvePromise = resolve; // Assign `resolve` to the shared variable
-  });
+		resolvePromise = resolve; // Assign `resolve` to the shared variable
+	});
 }
 
 // Define submitForm and closeModal locally
 function submitRefModal() {
-  showRefModal.value = false;
-  if (resolvePromise) {
-    resolvePromise(true); // Resolve the promise with the updated games
-  }
+	showRefModal.value = false;
+	if (resolvePromise) {
+		resolvePromise(true); // Resolve the promise with the updated games
+	}
 }
 
 function closeRefModal() {
-  console.log("Modal closed without saving changes.");
-  showRefModal.value = false;
-  if (resolvePromise) {
-    resolvePromise(false); 
-  }
+	console.log("Modal closed without saving changes.");
+	showRefModal.value = false;
+	if (resolvePromise) {
+		resolvePromise(false);
+	}
 }
 
 watch(amountGroups, (newValue) => {
-  // Watcher to update amountTeams2 based on amountGroups
-  if (newValue === 1) {
-    amountTeams2.value = 0; // Reset amountTeams2 if only one group
-  } else if (newValue === 2 && amountTeams2.value < 3) {
-    amountTeams2.value = 3; // Ensure minimum of 3 teams in second group
-  }
+	// Watcher to update amountTeams2 based on amountGroups
+	if (newValue === 1) {
+		amountTeams2.value = 0; // Reset amountTeams2 if only one group
+	} else if (newValue === 2 && amountTeams2.value < 3) {
+		amountTeams2.value = 3; // Ensure minimum of 3 teams in second group
+	}
 });
 </script>
 
 <template>
-  <BackHeader></BackHeader>
-  <h1 class="text-2xl font-medium text-center">Turnier erstellen</h1>
-  <div v-if="!showRefModal" class="flex flex-col gap-4 p-4">
+	<BackHeader></BackHeader>
+	<h1 class="text-2xl font-medium text-center">Turnier erstellen</h1>
+	<div v-if="!showRefModal" class="flex flex-col gap-4 p-4">
 
-    <Input class="text-input" type="text" v-model="tournamentName" placeholder="Turniername" maxlength="120" required />
-
-
-    <NumberField id="amountFields" v-model="amountFields" :min="1" :max="4">
-      <Label for="amountFields">Anzahl Felder</Label>
-      <NumberFieldContent>
-        <NumberFieldDecrement />
-        <NumberFieldInput />
-        <NumberFieldIncrement />
-      </NumberFieldContent>
-    </NumberField>
+		<Input class="text-input" type="text" v-model="tournamentName" placeholder="Turniername" maxlength="120"
+			required />
 
 
-    <NumberField id="amountGroups" v-model="amountGroups" :min="1" :max="2">
-      <Label for="amountGroups">Anzahl Leistungsgruppen</Label>
-      <NumberFieldContent>
-        <NumberFieldDecrement />
-        <NumberFieldInput />
-        <NumberFieldIncrement />
-      </NumberFieldContent>
-    </NumberField>
+		<NumberField id="amountFields" v-model="amountFields" :min="1" :max="4">
+			<Label for="amountFields">Anzahl Felder</Label>
+			<NumberFieldContent>
+				<NumberFieldDecrement />
+				<NumberFieldInput />
+				<NumberFieldIncrement />
+			</NumberFieldContent>
+		</NumberField>
 
 
-    <NumberField id="amountTeams1" v-model="amountTeams1" :min="3" :max="12">
-      <Label for="amountTeams1">Anzahl Teams {{ amountGroups == 1 ? "" : " Gruppe 1" }}
-      </Label>
-      <NumberFieldContent>
-        <NumberFieldDecrement />
-        <NumberFieldInput />
-        <NumberFieldIncrement />
-      </NumberFieldContent>
-    </NumberField>
+		<NumberField id="amountGroups" v-model="amountGroups" :min="1" :max="2">
+			<Label for="amountGroups">Anzahl Leistungsgruppen</Label>
+			<NumberFieldContent>
+				<NumberFieldDecrement />
+				<NumberFieldInput />
+				<NumberFieldIncrement />
+			</NumberFieldContent>
+		</NumberField>
 
 
-    <NumberField id="amountTeams2" v-if="amountGroups == 2" v-model="amountTeams2" :min="amountGroups == 2 ? 3 : 0"
-      :max="12">
-      <Label for="amountTeams2">Anzahl Teams Gruppe 2
-      </Label>
-      <NumberFieldContent>
-        <NumberFieldDecrement />
-        <NumberFieldInput />
-        <NumberFieldIncrement />
-      </NumberFieldContent>
-    </NumberField>
-
-    <div class="flex items-center justify-center">
-      <label for="withReturnGame">Hin- und Rückspiel</label>
-      <input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" />
-    </div>
+		<NumberField id="amountTeams1" v-model="amountTeams1" :min="3" :max="12">
+			<Label for="amountTeams1">Anzahl Teams {{ amountGroups == 1 ? "" : " Gruppe 1" }}
+			</Label>
+			<NumberFieldContent>
+				<NumberFieldDecrement />
+				<NumberFieldInput />
+				<NumberFieldIncrement />
+			</NumberFieldContent>
+		</NumberField>
 
 
-    <br />
-    <Label for="input-date">Datum:</Label>
-    <div class="flex items-center justify-center">
-      <input type="date" id="input-date" name="date" v-model="date" />
-    </div>
+		<NumberField id="amountTeams2" v-if="amountGroups == 2" v-model="amountTeams2" :min="amountGroups == 2 ? 3 : 0"
+			:max="12">
+			<Label for="amountTeams2">Anzahl Teams Gruppe 2
+			</Label>
+			<NumberFieldContent>
+				<NumberFieldDecrement />
+				<NumberFieldInput />
+				<NumberFieldIncrement />
+			</NumberFieldContent>
+		</NumberField>
 
-    <Label for="start-time">Start:</Label>
-    <div class="flex items-center justify-center">
-      <input type="time" id="input-start-time" name="start-time" v-model="startTime" />
-    </div>
-
-
-    <NumberField id="input-round-duration" v-model="roundDuration" :min="5" :step="5">
-      <Label for="input-round-duration">Rundendauer (min)
-      </Label>
-      <NumberFieldContent>
-        <NumberFieldDecrement />
-        <NumberFieldInput />
-        <NumberFieldIncrement />
-      </NumberFieldContent>
-    </NumberField>
+		<div class="flex items-center justify-center">
+			<label for="withReturnGame">Hin- und Rückspiel</label>
+			<input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" />
+		</div>
 
 
-    <NumberField id="input-break-duration" v-model="breakDuration" :min="0" :step="5">
-      <Label for="input-break-duration">Pausendauer (min)
-      </Label>
-      <NumberFieldContent>
-        <NumberFieldDecrement />
-        <NumberFieldInput />
-        <NumberFieldIncrement />
-      </NumberFieldContent>
-    </NumberField>
+		<br />
+		<Label for="input-date">Datum:</Label>
+		<div class="flex items-center justify-center">
+			<input type="date" id="input-date" name="date" v-model="date" />
+		</div>
+
+		<Label for="start-time">Start:</Label>
+		<div class="flex items-center justify-center">
+			<input type="time" id="input-start-time" name="start-time" v-model="startTime" />
+		</div>
 
 
-    <button class="default-btn" @click="generateTournament">Create</button>
-  </div>
+		<NumberField id="input-round-duration" v-model="roundDuration" :min="5" :step="5">
+			<Label for="input-round-duration">Rundendauer (min)
+			</Label>
+			<NumberFieldContent>
+				<NumberFieldDecrement />
+				<NumberFieldInput />
+				<NumberFieldIncrement />
+			</NumberFieldContent>
+		</NumberField>
 
-  <!-- Referee Assignment Dialog -->
-  <Modal v-if="showRefModal" @close="closeRefModal"  @submit="submitRefModal">
-    <h1 class="text-center font-medium">manual referee assigning not implemented</h1>
-  </Modal>
+
+		<NumberField id="input-break-duration" v-model="breakDuration" :min="0" :step="5">
+			<Label for="input-break-duration">Pausendauer (min)
+			</Label>
+			<NumberFieldContent>
+				<NumberFieldDecrement />
+				<NumberFieldInput />
+				<NumberFieldIncrement />
+			</NumberFieldContent>
+		</NumberField>
+
+
+		<button class="default-btn" @click="generateTournament">Create</button>
+	</div>
+
+	<!-- Referee Assignment Dialog -->
+	<Modal v-if="showRefModal" @close="closeRefModal" @submit="submitRefModal">
+		<h1 class="text-center font-medium">manual referee assigning not implemented</h1>
+	</Modal>
 </template>
 
 <style scoped>
 .custom-checkbox {
-  width: 3em;
-  height: 1em;
+	width: 3em;
+	height: 1em;
 }
 </style>

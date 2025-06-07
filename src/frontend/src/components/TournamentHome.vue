@@ -36,84 +36,76 @@ const store = useTournamentStore();
 </script>
 
 <template>
-  
-  <header id="header" class="w-full">
-    <h1
-      id="tournament-name"
-      class="text-center overflow-x-auto whitespace-nowrap max-w-full inline-block"
-      
-      ref="tournamentName"
-      @mounted="() => { tournamentName.scrollLeft = tournamentName.scrollWidth; }"
-    >
-      {{ store.tournament.name }}
-    </h1>
-  </header>
-  <div id="tournament-views">
-    <RouterView></RouterView>
-  </div>
-  <div id="navbar" class="flex flex-row justify-between items-center gap-2">
 
-    <RouterLink class="default-btn w-full h-full"  to="/tournament-home/dashboard">
-      <div class="flex basis-1/5 p-0 items-center justify-center"> 
-        <IconHome />
-      </div>
-    </RouterLink>
-    
-    <RouterLink class="default-btn w-full h-full" to="/tournament-home/games">
-      <div class="flex basis-1/5 p-0 items-center justify-center"> 
-        <IconTournTree/>
-      </div>
-    </RouterLink>
+	<header id="header" class="w-full">
+		<h1 id="tournament-name" class="text-center overflow-x-auto whitespace-nowrap max-w-full inline-block"
+			ref="tournamentName" @mounted="() => { tournamentName.scrollLeft = tournamentName.scrollWidth; }">
+			{{ store.tournament.name }}
+		</h1>
+	</header>
+	<div id="tournament-views">
+		<RouterView></RouterView>
+	</div>
+	<div id="navbar" class="flex flex-row justify-between items-center gap-2">
 
-    <RouterLink class="default-btn w-full h-full" to="/tournament-home/teams">
-      <div class="flex basis-1/5 p-0 items-center justify-center"> 
-        <IconTeam />
-      </div>
-    </RouterLink>
-    <RouterLink class="default-btn w-full h-full" to="/tournament-home/settings">
-      <div class="flex basis-1/5 p-0 items-center justify-center"> 
-        <IconSettings />
-      </div>
-    </RouterLink>
-  </div>
+		<RouterLink class="default-btn w-full h-full" to="/tournament-home/dashboard">
+			<div class="flex basis-1/5 p-0 items-center justify-center">
+				<IconHome />
+			</div>
+		</RouterLink>
+
+		<RouterLink class="default-btn w-full h-full" to="/tournament-home/games">
+			<div class="flex basis-1/5 p-0 items-center justify-center">
+				<IconTournTree />
+			</div>
+		</RouterLink>
+
+		<RouterLink class="default-btn w-full h-full" to="/tournament-home/teams">
+			<div class="flex basis-1/5 p-0 items-center justify-center">
+				<IconTeam />
+			</div>
+		</RouterLink>
+		<RouterLink class="default-btn w-full h-full" to="/tournament-home/settings">
+			<div class="flex basis-1/5 p-0 items-center justify-center">
+				<IconSettings />
+			</div>
+		</RouterLink>
+	</div>
 </template>
 
 <style scoped>
-
 #header,
 #navbar {
-  background-color: white;
-  /* border: 1px solid black; */
-  border-radius: 20px;
-  padding: 5px;
+	background-color: white;
+	/* border: 1px solid black; */
+	border-radius: 20px;
+	padding: 5px;
 }
 
 #header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 5vh;
-  font-size: 2em;
-  font-weight: bold;
-  color: #333;
-  padding: 0.7em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5vh;
+	font-size: 2em;
+	font-weight: bold;
+	color: #333;
+	padding: 0.7em;
 
 }
 
 #tournament-views {
-  width: 100%;
-  height: 80vh;
-  overflow: scroll;
+	width: 100%;
+	height: 80vh;
+	overflow: scroll;
 }
 
 .default.btn {
-    transition: background-color 0s;
- 
+	transition: background-color 0s;
+
 }
+
 #tournament-name {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
-
-
-
 </style>

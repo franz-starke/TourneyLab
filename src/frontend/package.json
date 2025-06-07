@@ -1,42 +1,42 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "devLocal": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test:unit": "vitest"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.7",
-    "@vueuse/core": "^13.3.0",
-    "axios": "^1.8.4",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.511.0",
-    "pako": "^2.1.0",
-    "pinia": "^3.0.2",
-    "qrcode.vue": "^3.6.0",
-    "reka-ui": "^2.3.0",
-    "tailwind-merge": "^3.3.0",
-    "tw-animate-css": "^1.3.2",
-    "vue": "^3.5.13",
-    "vue-qrcode": "^2.2.2",
-    "vue-qrcode-reader": "^5.7.1",
-    "vue-router": "^4.5.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/test-utils": "^2.4.6",
-    "autoprefixer": "^10.4.21",
-    "jsdom": "^26.0.0",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.7",
-    "vite": "^6.2.1",
-    "vite-plugin-vue-devtools": "^7.7.2",
-    "vitest": "^3.0.8"
-  }
+	"name": "frontend",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"devLocal": "vite --host",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test:unit": "vitest"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.7",
+		"@vueuse/core": "^13.3.0",
+		"axios": "^1.8.4",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-vue-next": "^0.511.0",
+		"pako": "^2.1.0",
+		"pinia": "^3.0.2",
+		"qrcode.vue": "^3.6.0",
+		"reka-ui": "^2.3.0",
+		"tailwind-merge": "^3.3.0",
+		"tw-animate-css": "^1.3.2",
+		"vue": "^3.5.13",
+		"vue-qrcode": "^2.2.2",
+		"vue-qrcode-reader": "^5.7.1",
+		"vue-router": "^4.5.0"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^5.2.1",
+		"@vue/test-utils": "^2.4.6",
+		"autoprefixer": "^10.4.21",
+		"jsdom": "^26.0.0",
+		"postcss": "^8.5.3",
+		"tailwindcss": "^4.1.7",
+		"vite": "^6.2.1",
+		"vite-plugin-vue-devtools": "^7.7.2",
+		"vitest": "^3.0.8"
+	}
 }

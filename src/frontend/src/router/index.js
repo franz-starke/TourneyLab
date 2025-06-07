@@ -11,60 +11,60 @@ import Teams from '@/components/tournamentViews/Teams.vue'
 import EditGame from '@/components/tournamentViews/EditGame.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'landing',
-      component: LandingPage,
-    },
-    {
-      path: '/enter-tournament',
-      name: 'enter-tournament',
-      component: EnterTournament,
-    },
-    {
-      path: '/create-tournament',
-      name: 'create-tournament',
-      component: CreateTournament,
-    },
-    {
-      path: '/old-tournament',
-      name: 'old-tournament',
-      component: ViewOldTournaments,
-    },
-    {
-      path: '/tournament-home',
-      name: 'tournament-home',
-      component: TournamentHome,
-      children: [
-        {
-          path: 'dashboard',
-          component: Dashboard,
-        },
-        {
-          path: 'games',
-          component: Games,
-        },
-        {
-          path: 'teams',
-          component: Teams,
-        },
-        {
-          path: 'settings',
-          component: Settings,
-        },
-        {
-          path: 'edit-game/:gameId',
-          component: EditGame,
-          name: 'edit-game',
-          props: route => ({
-            gameId: Number(route.params.gameId),
-          })
-        }
-      ],
-    },
-  ],
+	history: createWebHistory(import.meta.env.BASE_URL),
+	routes: [
+		{
+			path: '/',
+			name: 'landing',
+			component: LandingPage,
+		},
+		{
+			path: '/enter-tournament',
+			name: 'enter-tournament',
+			component: EnterTournament,
+		},
+		{
+			path: '/create-tournament',
+			name: 'create-tournament',
+			component: CreateTournament,
+		},
+		{
+			path: '/old-tournament',
+			name: 'old-tournament',
+			component: ViewOldTournaments,
+		},
+		{
+			path: '/tournament-home',
+			name: 'tournament-home',
+			component: TournamentHome,
+			children: [
+				{
+					path: 'dashboard',
+					component: Dashboard,
+				},
+				{
+					path: 'games',
+					component: Games,
+				},
+				{
+					path: 'teams',
+					component: Teams,
+				},
+				{
+					path: 'settings',
+					component: Settings,
+				},
+				{
+					path: 'edit-game/:gameId',
+					component: EditGame,
+					name: 'edit-game',
+					props: route => ({
+						gameId: Number(route.params.gameId),
+					})
+				}
+			],
+		},
+	],
 })
 
 export default router

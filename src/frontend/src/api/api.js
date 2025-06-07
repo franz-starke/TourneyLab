@@ -11,74 +11,74 @@ const protocol = "http://";
 
 // Create Tournament
 class api {
-  constructor(domain = localhost) {
-    this.serverAddr = domain;
-    this.protocol = protocol;
-    this.response = null;
-    console.log("Api requests go to: " + protocol + this.serverAddr);
-  }
+	constructor(domain = localhost) {
+		this.serverAddr = domain;
+		this.protocol = protocol;
+		this.response = null;
+		console.log("Api requests go to: " + protocol + this.serverAddr);
+	}
 
-  async createTournament(tournamentData) {
-    try {
-      this.response = await axios.post(
-        `${this.protocol}${this.serverAddr}/api/create`,
-        tournamentData
-      );
-      return this.response.data;
-    } catch (error) {
-      console.error("API: ", error);
-    }
-  }
+	async createTournament(tournamentData) {
+		try {
+			this.response = await axios.post(
+				`${this.protocol}${this.serverAddr}/api/create`,
+				tournamentData
+			);
+			return this.response.data;
+		} catch (error) {
+			console.error("API: ", error);
+		}
+	}
 
-  async getOldTournaments() {
+	async getOldTournaments() {
 
-    try {
-      this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/tournaments`);
-      return this.response.data;
-    } catch (error) {
-      console.error("There was an error!", error);
-    }
-  }
+		try {
+			this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/tournaments`);
+			return this.response.data;
+		} catch (error) {
+			console.error("There was an error!", error);
+		}
+	}
 
-  async getGamesWithScoresFromField(tournamentID, fieldID) {
-    try {
-      this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/${tournamentID}/fields/${fieldID}`);
-      return this.response.data;
-    } catch (error) {
-      console.error("There was an error!", error);
-    }
-  }
+	async getGamesWithScoresFromField(tournamentID, fieldID) {
+		try {
+			this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/${tournamentID}/fields/${fieldID}`);
+			return this.response.data;
+		} catch (error) {
+			console.error("There was an error!", error);
+		}
+	}
 
-  async getGameScore(tournamentID, gameID) {
-    try {
-      let response = await axios.get(
-        `${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`
-      );
-      return response.data;
-    } catch (error) {
-      console.error("There was an error!", error);
-    }
-  }
+	async getGameScore(tournamentID, gameID) {
+		try {
+			let response = await axios.get(
+				`${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`
+			);
+			return response.data;
+		} catch (error) {
+			console.error("There was an error!", error);
+		}
+	}
 
-  async editGameScore(tournamentID, gameID, score) {
-    try {
-      const data = {"score": score};
-      return await axios.put(
-        `${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`, data
-      );
-    } catch (error) {
-      console.error("There was an error!", error);
-    }
-  }
+	async editGameScore(tournamentID, gameID, score) {
+		try {
+			const data = { "score": score };
+			return await axios.put(
+				`${this.protocol}${this.serverAddr}/api/${tournamentID}/game/${gameID}`, data
+			);
+		} catch (error) {
+			console.error("There was an error!", error);
+		}
+	}
 
-  async getTournament(tournamentID) {
-    try {
-      this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/${tournamentID}/details`);
-      return this.response.data;
-    } catch (error) {
-      console.error("There was an error!", error);
-    }
-  }
+	async getTournament(tournamentID) {
+		try {
+			this.response = await axios.get(`${this.protocol}${this.serverAddr}/api/${tournamentID}/details`);
+			return this.response.data;
+		} catch (error) {
+			console.error("There was an error!", error);
+		}
+	}
 }
 
 export default new api(testServer);

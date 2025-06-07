@@ -1,83 +1,83 @@
 @import "./base.css";
 
 body {
-  background-color: var(--color-background);
-  color: var(--font-color-main);
-  min-width: 380px;
+	background-color: var(--color-background);
+	color: var(--font-color-main);
+	min-width: 380px;
 }
 
 input[type="checkbox"] {
-  accent-color: var(--color-stura-main);
+	accent-color: var(--color-stura-main);
 }
 
 .highlighted-btn,
 .default-btn {
-  color: var(--font-color-main);
-  border-radius: 10px;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  /* width: 100%; */
-  /* height: 100%; */
-  transition: background-color 0.3s;
-  /* Smooth color change on hover */
-  padding: 0.5rem 1rem;
+	color: var(--font-color-main);
+	border-radius: 10px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	/* width: 100%; */
+	/* height: 100%; */
+	transition: background-color 0.3s;
+	/* Smooth color change on hover */
+	padding: 0.5rem 1rem;
 }
 
 .highlighted-btn {
-  background: var(--color-button-highlight);
-  color: white;
+	background: var(--color-button-highlight);
+	color: white;
 }
 
 .highlighted-btn:hover,
 .highlighted-btn:active,
 .highlighted-btn:focus {
-  background: var(--color-button-highlight-hover);
+	background: var(--color-button-highlight-hover);
 }
 
 .default-btn {
-  background: var(--color-button-default);
+	background: var(--color-button-default);
 }
 
 .default-btn:hover,
 .default-btn:active,
 .default-btn:focus {
-  background: var(--color-button-default-hover);
+	background: var(--color-button-default-hover);
 }
 
 .text-input {
-  box-sizing: border-box;
-  padding: 0.5rem;
-  border-radius: 50px;
-  background: white;
-  text-align: center;
-  color: var(--font-color-main);
-  transition: border-color 0.3s, box-shadow 0.3s;
+	box-sizing: border-box;
+	padding: 0.5rem;
+	border-radius: 50px;
+	background: white;
+	text-align: center;
+	color: var(--font-color-main);
+	transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus {
-  border-color: var(--color-stura-main);
-  box-shadow: 0 0 4px var(--color-stura-main);
-  outline: none;
+	border-color: var(--color-stura-main);
+	box-shadow: 0 0 4px var(--color-stura-main);
+	outline: none;
 }
 
 .router-link-active {
-  background: var(--color-button-highlight);
-  color: white;
+	background: var(--color-button-highlight);
+	color: white;
 }
 
 .router-link-active:hover,
 .router-link-active:active,
 .router-link-active:focus {
-  background: var(--color-button-highlight-hover);
-  color: white;
+	background: var(--color-button-highlight-hover);
+	color: white;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  font-weight: normal;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 1rem;
+	font-weight: normal;
 }
 
 /*

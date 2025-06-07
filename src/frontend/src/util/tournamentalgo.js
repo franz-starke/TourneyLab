@@ -61,7 +61,7 @@ function getGamesWeighted(numTeams, groupName) {
 
         // Falls eines der Teams im letzten Spiel war und wir >= 6 Teams haben
         if (lastMatch && (team1 === lastMatch[0] || team1 === lastMatch[1] ||
-                          team2 === lastMatch[0] || team2 === lastMatch[1])) {
+            team2 === lastMatch[0] || team2 === lastMatch[1])) {
 
             // Wenn weniger als 6 Teams -> direkt hintereinander spielen erlaubt
             if (numTeams < 6) {
@@ -1180,17 +1180,17 @@ export function createTournamentAlgo(numTeams1, numTeams2, numGroups, numFields,
     let globalId = 1;
 
     for (const field of Object.keys(fieldsNew)) {
-    numericSchedule[field] = {};
+        numericSchedule[field] = {};
 
-    for (const match of fieldsNew[field]) {
-        const [t1, t2, r] = match;
-        numericSchedule[field][globalId] = [
-        nameToNumber[t1] || 0,
-        nameToNumber[t2] || 0,
-        nameToNumber[r] || 0
-        ];
-        globalId++; // <-- wichtig!
-    }
+        for (const match of fieldsNew[field]) {
+            const [t1, t2, r] = match;
+            numericSchedule[field][globalId] = [
+                nameToNumber[t1] || 0,
+                nameToNumber[t2] || 0,
+                nameToNumber[r] || 0
+            ];
+            globalId++; // <-- wichtig!
+        }
     }
 
 

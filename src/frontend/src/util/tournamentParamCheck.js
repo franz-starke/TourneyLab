@@ -44,8 +44,8 @@ import { availableRefsForGame } from "@/util/tournamentDataStructureUtil.js"
 * @return {Boolean} true if the parameters are supported, false otherwise
 */
 export function checkTournamentParams(amountFields, amountGroups, amountTeams1, amountTeams2, withReturnGame) {
-  console.log("checktournamentParams not implemented yet");
-  return true; // Placeholder return value
+	console.log("checktournamentParams not implemented yet");
+	return true; // Placeholder return value
 }
 
 
@@ -64,28 +64,28 @@ export function checkTournamentParams(amountFields, amountGroups, amountTeams1, 
 * @return {Boolean} true if it is impossible to assign referees, false otherwise
 */
 export function impossibleRefAssigning(games, rounds, totalTeamAmount) {
-  let impossibleRefAssigning = false;
-  Object.values(games).forEach((field) => {
-    for (const [gameId, game] of Object.entries(field)) {
-      let gameHasNoRefAndIsNoNullGame = game[2] === 0 && game[0] != 0 && game[1] != 0;
-      if (!gameHasNoRefAndIsNoNullGame) continue;
-      // find the round where the game is in
-      const round = rounds.find((r) =>
-        r.some((g) => g[0] === gameId.toString())
-      );
-      
-      let refNeeded = round.reduce((total, game) => {
-        if (game[1][2] == 0) {
-          return total + 1;
-        }
-        return total;
-      }, 0);
+	let impossibleRefAssigning = false;
+	Object.values(games).forEach((field) => {
+		for (const [gameId, game] of Object.entries(field)) {
+			let gameHasNoRefAndIsNoNullGame = game[2] === 0 && game[0] != 0 && game[1] != 0;
+			if (!gameHasNoRefAndIsNoNullGame) continue;
+			// find the round where the game is in
+			const round = rounds.find((r) =>
+				r.some((g) => g[0] === gameId.toString())
+			);
 
-      console.log("Refs needed", refNeeded);
-      let refsToassign = availableRefsForGame(games, gameId, totalTeamAmount);
-      console.log("no ref ", gameId, " available refs: ", refsToassign);
-      if (refsToassign.length < refNeeded) impossibleRefAssigning = true;
-    }
-  });
-    return impossibleRefAssigning;
+			let refNeeded = round.reduce((total, game) => {
+				if (game[1][2] == 0) {
+					return total + 1;
+				}
+				return total;
+			}, 0);
+
+			console.log("Refs needed", refNeeded);
+			let refsToassign = availableRefsForGame(games, gameId, totalTeamAmount);
+			console.log("no ref ", gameId, " available refs: ", refsToassign);
+			if (refsToassign.length < refNeeded) impossibleRefAssigning = true;
+		}
+	});
+	return impossibleRefAssigning;
 }

@@ -4,14 +4,14 @@ import IconMoon from "@/components/icons/IconMoon.vue";
 </script>
 
 <template>
-  <button>
-    <IconMoon />
-  </button>
+	<button>
+		<IconMoon />
+	</button>
 
 </template>
 
 <style scoped>
 button {
-  background: none;
+	background: none;
 }
 </style>
