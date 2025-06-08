@@ -5,7 +5,8 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 </script>
 
 <template>
-	<div class="flex flex-col h-[100svh] overflow-hidden touch-none">
+	<div class="flex flex-col h-[100svh] overflow-hidden">
+
 		<header class="flex items-center justify-between pt-4 px-4">
 			<LanguageSelectBtn />
 			<ThemeChangeBtn />
@@ -25,5 +26,6 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 				<span> Alte Turniere Einsehen </span>
 			</RouterLink>
 		</main>
+		
 	</div>
 </template>

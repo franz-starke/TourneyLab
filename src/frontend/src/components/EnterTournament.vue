@@ -71,8 +71,10 @@ function onDetect(detectedCodes) {
 </script>
 
 <template>
-	<div class="flex flex-col h-[100svh] overflow-hidden touch-none">
+	<div class="flex flex-col h-[100svh] overflow-hidden">
+
 		<BackHeader />
+
 		<main class="flex flex-col flex-1 justify-evenly items-center px-8">
 			<h1 class="text-2xl font-bold text-center">Turnier Beitreten</h1>
 

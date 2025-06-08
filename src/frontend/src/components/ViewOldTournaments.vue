@@ -54,7 +54,7 @@ function filteredTournaments() {
 
 
 <template>
-	<div class="flex flex-col h-[100svh] overflow-hidden touch-none">
+	<div class="flex flex-col h-[100svh] overflow-hidden">
 		<BackHeader />
 
 		<main class="flex flex-col flex-1 items-center px-8">
@@ -82,5 +82,6 @@ function filteredTournaments() {
 				</div>
 			</div>
 		</main>
+		
 	</div>
 </template>

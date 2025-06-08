@@ -14,7 +14,7 @@ const store = useTournamentStore();
 </script>
 
 <template>
-	<div class="flex flex-col h-[100svh] overflow-hidden touch-none">
+	<div class="flex flex-col h-[100svh] overflow-hidden">
 
 		<header class="sticky top-0 pt-[env(safe-area-inset-top)] px-4 pb-2 mt-4 mb-4">
 			<h1 id="tournament-name"
