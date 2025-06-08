@@ -4,6 +4,7 @@ body {
 	background-color: var(--color-background);
 	color: var(--font-color-main);
 	min-width: 380px;
+	font-family: 'Inter', Verdana;
 }
 
 input[type="checkbox"] {
