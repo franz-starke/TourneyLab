@@ -62,60 +62,34 @@ watch(
 </script>
 
 <template>
-	<h2>Schiedsrichter: {{ game[2] }}</h2>
-	<div id="t1-points">
-		<p>Team {{ game[0] }}</p>
-		<h1>{{ points[0] }}</h1>
-
-		<div id="points-buttons">
-			<button @click="points[0] > 0 ? (points[0] -= 1) : points[0]" class="float-left">
-				-
-			</button>
-			<button @click="points[0] += 1" class="float-right">+</button>
-		</div>
+	<div class="flex flex-col w-full justify-center items-center">
+		<h2 class="text-xl font-bold">Schiedsrichter: {{ game[2] }}</h2>
+		<span class="font-bold text-gray-500"> {{ game[3] }}</span>
 	</div>
-	<div id="t2-points">
-		<p>Team {{ game[1] }}</p>
-		<h1>{{ points[1] }}</h1>
 
-		<div id="points-buttons">
-			<button @click="points[1] > 0 ? (points[1] -= 1) : points[1]" class="float-left">
-				-
-			</button>
-			<button @click="points[1] += 1" class="float-right">+</button>
+	<div class="flex flex-col h-full justify-evenly">
+		<div class="flex flex-col w-full justify-center items-center rounded-3xl p-2 bg-white">
+			<span class="text-xl font-bold text-gray-500">Team {{ game[0] }}</span>
+			<span class="text-8xl font-bold">{{ points[0] }}</span>
+
+			<div class="flex w-full justify-between">
+				<button @click="points[0] > 0 ? (points[0] -= 1) : points[0]"
+					class="flex justify-center items-center w-15 h-15 rounded-full text-4xl bg-gray-300">-</button>
+				<button @click="points[0] += 1"
+					class="flex justify-center items-center w-15 h-15 rounded-full text-4xl bg-gray-300">+</button>
+			</div>
+		</div>
+
+		<div class="flex flex-col w-full justify-center items-center rounded-3xl p-2 bg-white">
+			<span class="text-xl font-bold text-gray-500">Team {{ game[1] }}</span>
+			<span class="text-8xl font-bold">{{ points[1] }}</span>
+
+			<div class="flex w-full justify-between">
+				<button @click="points[1] > 0 ? (points[1] -= 1) : points[1]"
+					class="flex justify-center items-center w-15 h-15 rounded-full text-4xl bg-gray-300">-</button>
+				<button @click="points[1] += 1"
+					class="flex justify-center items-center w-15 h-15 rounded-full text-4xl bg-gray-300">+</button>
+			</div>
 		</div>
 	</div>
 </template>
-
-<style scoped>
-#t1-points,
-#t2-points {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border: 1px solid black;
-	margin: 1em;
-}
-
-#points-buttons {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	/* align-items: center; */
-}
-
-.float-left {
-	float: left;
-}
-
-.float-right {
-	float: right;
-}
-
-button {
-	border-radius: 30px;
-	width: 4em;
-	height: 4em;
-}
-</style>
