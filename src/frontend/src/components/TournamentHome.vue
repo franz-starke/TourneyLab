@@ -16,19 +16,19 @@ const store = useTournamentStore();
 <template>
 	<div class="flex flex-col h-[100svh] overflow-hidden">
 
-		<header class="sticky top-0 pt-[env(safe-area-inset-top)] px-4 pb-2 mt-4 mb-4">
-			<h1 id="tournament-name"
-				class="flex w-full h-12 justify-center items-center rounded-full text-2xl font-bold bg-white"
+		<header class="sticky top-0 pt-[env(safe-area-inset-top)] px-4 pb-2 mt-4 mb-2">
+			<h1 class="flex w-full h-12 justify-center items-center rounded-full text-2xl font-bold bg-white"
 				ref="tournamentName">
 				{{ store.tournament.name }}
 			</h1>
 		</header>
 
-		<div id="tournament-views" class="flex-1 px-4">
+		<div class="flex flex-1 flex-col overflow-hidden px-4">
 			<RouterView />
 		</div>
 
-		<div class="sticky bottom-0 px-4 pt-2 pb-[calc(env(safe-area-inset-bottom))] mt-4 mb-4">
+		<nav
+			class="sticky bottom-0 px-4 pt-2 pb-[calc(env(safe-area-inset-bottom)+1rem)] mt-2">
 			<div class="flex w-full h-18 justify-between items-center rounded-3xl bg-white">
 				<RouterLink class="navbarItem" to="/tournament-home/dashboard">
 					<IconHome />
@@ -43,6 +43,7 @@ const store = useTournamentStore();
 					<IconSettings />
 				</RouterLink>
 			</div>
-		</div>
+		</nav>
+
 	</div>
 </template>

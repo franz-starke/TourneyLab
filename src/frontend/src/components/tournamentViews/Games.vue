@@ -51,45 +51,22 @@ async function changeActiveField(fieldID) {
 </script>
 
 <template>
-	<div id="fields-container">
-		<div class="button" v-for="field in Object.keys(store.tournament.games)" :key="field"
-			@click="changeActiveField(field)">
-			Field {{ field }}
-		</div>
-	</div>
+	<div class="flex flex-col flex-1 overflow-hidden">
 
-	<div id="games-container">
-		<div v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
-			<Game :gameId="gameId" />
+		<div class="sticky top-0 bg-[var(--color-background)] py-2">
+			<div class="flex flex-wrap w-full justify-center items-center gap-2">
+				<div class="flex bg-white px-4 py-2 rounded-full text-base font-bold"
+					v-for="field in Object.keys(store.tournament.games)" :key="field" @click="changeActiveField(field)">
+					<span class="whitespace-nowrap">Feld {{ field }}</span>
+				</div>
+			</div>
 		</div>
+
+		<div class="flex-1 overflow-y-auto flex flex-col gap-2 py-2">
+			<div class="flex w-full" v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
+				<Game :gameId="gameId" class="flex w-full" />
+			</div>
+		</div>
+
 	</div>
 </template>
-
-<style scoped>
-#fields-container {
-	display: flex;
-	justify-content: space-evenly;
-}
-
-#games-container {
-	overflow: scroll;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-div.button {
-	padding: 0.4em;
-}
-
-
-@media screen and (max-width: 480px) {
-	#games-for-field {
-		background-color: black;
-	}
-
-
-
-}
-</style>
