@@ -121,3 +121,7 @@ input:focus {
 .landingButton span {
   	@apply text-xl font-bold transition-colors group-hover:text-white;
 }
+
+.navbarItem {
+	@apply flex h-full aspect-square justify-center items-center rounded-3xl
+}
