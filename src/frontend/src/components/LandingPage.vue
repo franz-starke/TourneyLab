@@ -14,21 +14,15 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 		<main class="flex flex-col flex-1 justify-center items-center gap-8 px-8">
 			<RouterLink to="/enter-tournament" class="enterButton group">
 				<IconEnter class="w-50 h-50 text-white mb-2 group-hover:text-black duration-200 ease-in-out" />
-				<span class="text-xl font-bold text-white group-hover:text-black duration-200 ease-in-out">
-					Turnier beitreten
-				</span>
+				<span> Turnier beitreten </span>
 			</RouterLink>
 
 			<RouterLink to="/create-tournament" class="landingButton group">
-				<span class="text-xl font-bold z-10 transition-colors duration-300 group-hover:text-white">
-					Neue Turniere Erstellen
-				</span>
+				<span> Neue Turniere Erstellen </span>
 			</RouterLink>
 
 			<RouterLink to="/old-tournament" class="landingButton group">
-				<span class="text-xl font-bold z-10 transition-colors duration-300 group-hover:text-white">
-					Alte Turniere Einsehen
-				</span>
+				<span> Alte Turniere Einsehen </span>
 			</RouterLink>
 		</main>
 	</div>
