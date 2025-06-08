@@ -2,29 +2,21 @@
 const props = defineProps({
 	width: {
 		type: String,
-		default: "2em" // or something like "55.2px"
+		default: "50px"
 	},
 	height: {
 		type: String,
-		default: "2em"
+		default: "50px"
 	}
 });
 </script>
 
 <template>
-	<div :width="width" :height="height" className="flex items-center justify-between mb-8 pt-4">
-		<div className="w-10 h-7 rounded-md overflow-hidden ">
-			<div className="h-1/3 bg-black"></div>
-			<div className="h-1/3 bg-red-600"></div>
-			<div className="h-1/3 bg-yellow-400"></div>
+	<div :width="width" :height="height" class="flex items-center justify-between">
+		<div class="rounded-md overflow-hidden" :style="{ width: props.width, height: props.height }">
+			<div class="h-1/3 bg-black"></div>
+			<div class="h-1/3 bg-red-600"></div>
+			<div class="h-1/3 bg-yellow-400"></div>
 		</div>
 	</div>
 </template>
-
-
-<style scoped>
-* {
-	margin: 0;
-	padding: 0;
-}
-</style>
