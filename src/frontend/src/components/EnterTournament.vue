@@ -6,6 +6,7 @@ import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 import { ref, computed } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
 import BackHeader from "./utilcomponents/BackHeader.vue";
+import IconCamera from "./icons/IconCamera.vue";
 import api from "@/api/api.js";
 import { useRouter } from "vue-router";
 import { gzip, ungzip } from "pako";
@@ -76,19 +77,21 @@ function onDetect(detectedCodes) {
 			<h1 class="text-2xl font-bold text-center">Turnier Beitreten</h1>
 
 			<div class="flex flex-col w-full">
-				<p class="text-gray-800 text-s font-bold text-center mb-1">QR-Code Scannen</p>
+				<p class="text-gray-800 text-base font-bold text-center mb-1">QR-Code Scannen</p>
 				<div
 					class="flex flex-col items-center justify-center w-full aspect-square rounded-4xl bg-white duration-200">
-					<qrcode-stream @detect="onDetect"></qrcode-stream>
+					<IconCamera class="w-30 h-30">
+						<qrcode-stream @detect="onDetect"></qrcode-stream>
+					</IconCamera>
 				</div>
 			</div>
 
 			<div class="flex flex-col w-full">
-				<p for="enter-code" class="text-gray-600 text-s font-bold text-center mb-2">Oder Manuell Eingeben</p>
+				<p for="enter-code" class="text-gray-600 text-base font-bold text-center mb-2">Oder Manuell Eingeben</p>
 
 				<div v-if="isOnline" class="flex flex-col justify-center w-full gap-4">
-					<input id="enter-code" class="flex bg-white p-4 rounded-full font-bold text-center text-gray-500" name="enter-code" type="text"
-						placeholder="Turnier-Code Eingeben..." v-model="tournamentId" />
+					<input id="enter-code" class="flex bg-white p-4 rounded-full font-bold text-center text-gray-500 text-xl"
+						name="enter-code" type="text" placeholder="Turnier-Code Eingeben..." v-model="tournamentId" />
 
 					<div class="colorButton" @click="enterTournament">
 						<span>Beitreten</span>
