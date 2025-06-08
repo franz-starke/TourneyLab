@@ -2,11 +2,11 @@
 const props = defineProps({
 	width: {
 		type: String,
-		default: "50px"
+		default: "40px"
 	},
 	height: {
 		type: String,
-		default: "50px"
+		default: "40px"
 	}
 });
 
@@ -24,7 +24,7 @@ function starPoints(cx, cy, r) {
 </script>
 
 <template>
-	<svg width="50" height="50" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"
+	<svg :width="width" :height="width" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"
 		style="border-radius: calc(var(--radius) /* 0.25rem = 4px */ - 2px)">
 		<rect width="40" height="40" fill="#B22234" />
 

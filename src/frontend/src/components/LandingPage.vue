@@ -6,7 +6,7 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 
 <template>
 	<div class="flex flex-col min-h-[100svh] overflow-hidden touch-none overscroll-none">
-		<header class="flex items-center justify-between p-4">
+		<header class="flex items-center justify-between pt-4 px-4">
 			<LanguageSelectBtn />
 			<ThemeChangeBtn />
 		</header>
@@ -14,7 +14,7 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 		<main class="flex flex-col flex-1 justify-center items-center gap-8 px-8">
 			<RouterLink to="/enter-tournament" class="enterButton group">
 				<IconEnter class="w-50 h-50 text-white mb-2 group-hover:text-black duration-200 ease-in-out" />
-				<span> Turnier beitreten </span>
+				<span> Turnier Beitreten </span>
 			</RouterLink>
 
 			<RouterLink to="/create-tournament" class="landingButton group">
