@@ -1,20 +1,14 @@
 <script setup>
-import IconFlagGerman from '@/components/icons/IconFlagGerman.vue';
-import IconFlagUSA from '@/components/icons/IconFlagUSA.vue';
-import IconMoon from '@/components/icons/IconMoon.vue';
+import LanguageSelectBtn from './utilcomponents/LanguageSelectBtn.vue';
+import ThemeChangeBtn from './utilcomponents/ThemeChangeBtn.vue';
 import IconEnter from '@/components/icons/IconEnter.vue';
 </script>
 
 <template>
 	<div class="flex flex-col min-h-[100svh] overflow-hidden touch-none overscroll-none">
 		<header class="flex items-center justify-between p-4">
-			<div class="flex items-center gap-4">
-				<IconFlagGerman />
-				<IconFlagUSA />
-			</div>
-			<div class="flex items-center justify-end">
-				<IconMoon />
-			</div>
+			<LanguageSelectBtn />
+			<ThemeChangeBtn />
 		</header>
 
 		<main class="flex flex-col flex-1 justify-center items-center gap-8 px-8">

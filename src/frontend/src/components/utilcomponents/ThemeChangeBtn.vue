@@ -1,17 +1,9 @@
 <script setup>
-
 import IconMoon from "@/components/icons/IconMoon.vue";
 </script>
 
 <template>
-	<button>
+	<div class="flex items-center justify-end">
 		<IconMoon />
-	</button>
-
+	</div>
 </template>
-
-<style scoped>
-button {
-	background: none;
-}
-</style>
