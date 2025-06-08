@@ -66,7 +66,8 @@ export function evaluateTournamentData(tournamentData) {
   let teamCounter = 1;
 
   // Initialize teams and groups
-  Object.entries(groups).forEach((groupId, count) => {
+  Object.entries(groups).forEach((groupEntry) => {
+    const [groupId, count] = groupEntry; 
     teams[groupId] = count;
 
     const teamIds = [];
@@ -140,6 +141,7 @@ export function evaluateTournamentData(tournamentData) {
     groups: []
   };
 
+  console.log("groupteams", groupTeams);
   // Build group ranking
   Object.entries(groupTeams).forEach(([groupId, teamIds]) => {
     const sorted = [...teamIds]
