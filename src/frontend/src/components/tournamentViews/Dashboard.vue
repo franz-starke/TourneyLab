@@ -6,7 +6,7 @@ import { useTournamentStore } from "@/stores/tournamentStore";
 import IconQrCode from "../icons/IconQrCode.vue";
 import IconTrophy from "../icons/IconTrophy.vue";
 import { gzip, ungzip } from "pako";
-import { evaluateTournamentData } from "@/util/tournamentEvaluation.js" 
+import { evaluateTournamentData } from "@/util/tournamentEvaluation.js"
 
 const store = useTournamentStore();
 
@@ -61,58 +61,53 @@ function toggleSyncGames() {
 
 const leaderboard = ref({});
 function evalTournament() {
-  console.log("Evaluating Tournament...");
-  leaderboard.value = evaluateTournamentData(store.tournament);
-  console.log("Leaderboard: ", leaderboard);
-  evalShow.value = true;
+	console.log("Evaluating Tournament...");
+	leaderboard.value = evaluateTournamentData(store.tournament);
+	console.log("Leaderboard: ", leaderboard);
+	evalShow.value = true;
 }
 
 
 
 const activeGroup = ref(0);
 function setActiveGroup(groupIndex) {
-  activeGroup.value  = groupIndex;
+	activeGroup.value = groupIndex;
 }
 </script>
 
 <template>
-  <!-- Tournament Dashboard -->
-  <div v-if="evalShow" id="eval-dialog" class="p-2">
-    <div class="flex items-center justify-evenly">
-      <button  class="default-btn" @click="setActiveGroup(0)">Fun</button>
-      <button v-if="leaderboard.groups.length == 2" class="default-btn" @click="setActiveGroup(1)">Schwitzer</button>
-    </div>
+	<!-- Tournament Dashboard -->
+	<div v-if="evalShow" id="eval-dialog" class="p-2">
+		<div class="flex items-center justify-evenly">
+			<button class="default-btn" @click="setActiveGroup(0)">Fun</button>
+			<button v-if="leaderboard.groups.length == 2" class="default-btn"
+				@click="setActiveGroup(1)">Schwitzer</button>
+		</div>
 
-    <div class="grid grid-cols-4 justify-center text-center mt-4 gap-4">
-      <div id="leaderboard-header" class="contents ">
-        <h3 class="font-bold">Platz</h3>
-        <h3 class="font-bold">Team</h3>
-        <h3 class="font-bold">Siege</h3>
-        <h3 class="font-bold">Punkte</h3>
-      </div>
+		<div class="grid grid-cols-4 justify-center text-center mt-4 gap-4">
+			<div id="leaderboard-header" class="contents ">
+				<h3 class="font-bold">Platz</h3>
+				<h3 class="font-bold">Team</h3>
+				<h3 class="font-bold">Siege</h3>
+				<h3 class="font-bold">Punkte</h3>
+			</div>
 
-      <div  class="contents" v-for="team in leaderboard.groups[activeGroup].teams">
-        <h3 class="font-bold">{{ team.rank }}</h3>
-        <h3 class="font-bold">{{ team.id }}</h3>
-        <h3 class="font-bold">{{ team.wins }}</h3>
-        <h3 class="font-bold">{{ team.points }}</h3>
-      </div>
+			<div class="contents" v-for="team in leaderboard.groups[activeGroup].teams">
+				<h3 class="font-bold">{{ team.rank }}</h3>
+				<h3 class="font-bold">{{ team.id }}</h3>
+				<h3 class="font-bold">{{ team.wins }}</h3>
+				<h3 class="font-bold">{{ team.points }}</h3>
+			</div>
 
-    </div>
-  </div>
+		</div>
+	</div>
 
-  <div
-    v-else-if="!syncGames"
-    id="dashboard-container"
-    class="flex flex-col align-center justify-between gap-4 h-full p-4"
-  >
-    <button
-      class="highlighted-btn flex flex-row items-center justify-center gap-4"
-      @click="toggleSyncGames"
-    >
-      <span class="block text-xl font-bold">Spielstände Sync.</span>
-      <IconQrCode />
-    </button>
+	<div v-else-if="!syncGames" id="dashboard-container"
+		class="flex flex-col w-full align-center justify-between h-full">
+		<button class="colorButton" @click="toggleSyncGames">
+			<span>Spielstände Sync.</span>
+			<IconQrCode />
+		</button>
 
 		<button class="colorButton" @click="evalTournament">
 			<span>Turnier auswerten</span>
