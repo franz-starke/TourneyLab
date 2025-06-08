@@ -1,51 +1,23 @@
 @import "./base.css";
 
 body {
-	background-color: var(--color-background);
-	color: var(--font-color-main);
-	min-width: 380px;
+	@apply bg-[var(--color-background)] text-[var(--font-color-main)] min-w-[380px];
 	font-family: 'Inter', Verdana;
 }
 
+#app {
+	@apply m-0 p-0 max-w-[1280px] font-normal;
+}
+
 input[type="checkbox"] {
-	accent-color: var(--color-stura-main);
+	@apply accent-[var(--color-stura-main)];
 }
 
-.highlighted-btn,
-.default-btn {
-	color: var(--font-color-main);
-	border-radius: 10px;
-	text-decoration: none;
-	text-align: center;
-	cursor: pointer;
-	/* width: 100%; */
-	/* height: 100%; */
-	transition: background-color 0.3s;
-	/* Smooth color change on hover */
-	padding: 0.5rem 1rem;
+input:focus {
+	@apply outline-none shadow-[0_0_4px_var(--color-stura-main)];
 }
 
-.highlighted-btn {
-	background: var(--color-button-highlight);
-	color: white;
-}
-
-.highlighted-btn:hover,
-.highlighted-btn:active,
-.highlighted-btn:focus {
-	background: var(--color-button-highlight-hover);
-}
-
-.default-btn {
-	background: var(--color-button-default);
-}
-
-.default-btn:hover,
-.default-btn:active,
-.default-btn:focus {
-	background: var(--color-button-default-hover);
-}
-
+/* MARKED FOR DELETION DO NOT FURTHER USE */
 .text-input {
 	box-sizing: border-box;
 	padding: 0.5rem;
@@ -55,45 +27,6 @@ input[type="checkbox"] {
 	color: var(--font-color-main);
 	transition: border-color 0.3s, box-shadow 0.3s;
 }
-
-input:focus {
-	border-color: var(--color-stura-main);
-	box-shadow: 0 0 4px var(--color-stura-main);
-	outline: none;
-}
-
-.router-link-active {
-	background: var(--color-button-highlight);
-	color: white;
-}
-
-.router-link-active:hover,
-.router-link-active:active,
-.router-link-active:focus {
-	background: var(--color-button-highlight-hover);
-	color: white;
-}
-
-#app {
-	max-width: 1280px;
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
-}
-
-/*
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-} */
 
 /* ################# Tailwindcss custom classes ####################### */
 
@@ -122,6 +55,11 @@ input:focus {
   	@apply text-xl font-bold transition-colors group-hover:text-white;
 }
 
+/* Dashboard */
 .navbarItem {
 	@apply flex h-full aspect-square justify-center items-center rounded-3xl
+}
+
+.router-link-active {
+	@apply bg-[#5aa49c] text-white;
 }
