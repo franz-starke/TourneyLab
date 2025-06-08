@@ -36,6 +36,7 @@
 	--text-color-light: black;
 	--text-color-dark: white;
 
+	/* dynamic styles */
 	--color-background: var(--background-light);
 	--color-text: var(--text-color-light);
 	--color-text-alt: var(--text-color-dark);

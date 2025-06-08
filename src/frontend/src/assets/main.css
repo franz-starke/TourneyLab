@@ -57,7 +57,7 @@ input:focus {
 
 /* Dashboard */
 .navbarItem {
-	@apply flex h-full aspect-square justify-center items-center rounded-3xl
+	@apply flex h-full aspect-square justify-center items-center rounded-3xl;
 }
 
 .router-link-active {
@@ -66,17 +66,17 @@ input:focus {
 
 /* Settings */
 .settingsSection {
-	@apply flex flex-col items-center mb-2
+	@apply flex flex-col items-center mb-2;
 }
 
 .settingsSection span {
-	@apply font-bold text-xl mb-2
+	@apply font-bold text-xl mb-2;
 }
 
 .settingsTheme {
-	@apply flex px-8 py-2 rounded-full
+	@apply flex px-8 py-2 rounded-full;
 }
 
 .settingsAccentColor {
-	@apply flex w-12 h-12 rounded-full
+	@apply flex w-12 h-12 rounded-full;
 }
