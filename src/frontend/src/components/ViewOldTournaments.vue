@@ -23,7 +23,6 @@ onBeforeMount(async function () {
 	}
 });
 
-
 async function getTournament(tid) {
 	try {
 		const response = await api.getTournament(tid);
@@ -55,32 +54,33 @@ function filteredTournaments() {
 
 
 <template>
-	<BackHeader />
-	<h1 class="text-2xl font-medium text-center m-4">Erstellte Turniere</h1>
+	<div class="flex flex-col h-[100svh] overflow-hidden touch-none">
+		<BackHeader />
 
-	<div class="flex items-center justify-center sticky top-0">
-		<Input class="text-input m-4" type="text" v-model="tournamentName" placeholder="Suche Turniername"
-			maxlength="120" required />
-	</div>
+		<main class="flex flex-col flex-1 items-center px-8">
+			<h1 class="text-2xl font-bold text-center mt-8 mb-4">Vergangene Turniere</h1>
 
-	<div class="flex flex-col items-stretch  gap-4 overflow-scroll h-[calc(100vh-15rem)]">
-		<div class="grid grid-cols-2 grid-rows-2  default-btn" style="cursor: pointer"
-			v-for="tourn in filteredTournaments()" :key="tourn.id" @click="getTournament(tourn.id)">
-			<p
-				class="place-self-start text-lg font-semibold text-left inline-block overflow-x-auto max-w-[11em] whitespace-nowrap">
-				{{ tourn.name }}</p>
-			<IconEnter class="row-span-2 place-self-end" />
-			<p class="place-self-start text-left text-zinc-500 font-medium">{{ tourn.date }}</p>
-		</div>
-		<div class="" v-if="tournamentName && !filteredTournaments().length">
-			<p>No results found!</p>
-		</div>
+			<input class="bg-white p-4 rounded-full font-bold text-center text-gray-500 text-xl mb-4 w-full" type="text"
+				v-model="tournamentName" placeholder="Suche Turniername..." maxlength="120" required />
+
+			<div class="w-full overflow-y-auto flex flex-col gap-2 pb-4 h-[65svh]">
+				<div class="grid grid-cols-2 grid-rows-2 bg-white rounded-3xl py-2 px-4 cursor-pointer"
+					v-for="tourn in filteredTournaments()" :key="tourn.id" v-if="filteredTournaments().length > 0"
+					@click="getTournament(tourn.id)">
+					<p
+						class="place-self-start text-lg font-semibold text-left inline-block overflow-x-clip max-w-[11em] whitespace-nowrap">
+						{{ tourn.name }}
+					</p>
+					<IconEnter class="row-span-2 place-self-end" />
+					<p class="place-self-start text-left text-gray-400 font-medium">
+						{{ tourn.date }}
+					</p>
+				</div>
+
+				<div class="flex w-full justify-center mt-50" v-if="filteredTournaments().length == 0">
+					<p class="text-xl font-bold">Keine Turniere gefunden...</p>
+				</div>
+			</div>
+		</main>
 	</div>
 </template>
-
-<style scoped>
-.default-btn {
-	margin: 0 2em;
-	border-radius: 20px;
-}
-</style>
