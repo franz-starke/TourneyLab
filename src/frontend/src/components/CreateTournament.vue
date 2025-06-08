@@ -6,8 +6,6 @@ import api from "@/api/api.js";
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { addMinutes } from "@/util/time.js"
 import { availableRefsForGame, getRounds, someGameInGamesHasNoRef } from "@/util/tournamentDataStructureUtil.js"
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { checkTournamentParams, impossibleRefAssigning } from "@/util/tournamentParamCheck";
 import {
 	NumberField,
@@ -229,108 +227,106 @@ watch(amountGroups, (newValue) => {
 </script>
 
 <template>
-	<BackHeader></BackHeader>
-	<h1 class="text-2xl font-medium text-center">Turnier erstellen</h1>
-	<div v-if="!showRefModal" class="flex flex-col gap-4 p-4">
+	<div class="flex flex-col h-[100svh] overflow-hidden">
 
-		<Input class="text-input" type="text" v-model="tournamentName" placeholder="Turniername" maxlength="120"
-			required />
+		<BackHeader />
 
+		<main class="flex flex-col h-full px-8">
+			<h1 class="text-2xl font-bold text-center mb-4 sticky top-0 pt-[env(safe-area-inset-top)] px-4">Turnier Erstellen</h1>
 
-		<NumberField id="amountFields" v-model="amountFields" :min="1" :max="4">
-			<Label for="amountFields">Anzahl Felder</Label>
-			<NumberFieldContent>
-				<NumberFieldDecrement />
-				<NumberFieldInput />
-				<NumberFieldIncrement />
-			</NumberFieldContent>
-		</NumberField>
+			<div v-if="!showRefModal" class="flex-1 flex flex-col gap-4 overflow-y-auto relative pb-[calc(env(safe-area-inset-bottom)+5rem)]">
 
+				<input class="flex bg-white p-2 rounded-full font-bold text-center placeholder:text-gray-500 text-xl"
+					type="text" v-model="tournamentName" placeholder="Turniername..." maxlength="120" required />
 
-		<NumberField id="amountGroups" v-model="amountGroups" :min="1" :max="2">
-			<Label for="amountGroups">Anzahl Leistungsgruppen</Label>
-			<NumberFieldContent>
-				<NumberFieldDecrement />
-				<NumberFieldInput />
-				<NumberFieldIncrement />
-			</NumberFieldContent>
-		</NumberField>
+				<NumberField id="amountFields" v-model="amountFields" :min="1" :max="4">
+					<span class="sectionSpan">Anzahl Felder</span>
+					<NumberFieldContent class="numberInputBox">
+						<NumberFieldDecrement />
+						<NumberFieldInput />
+						<NumberFieldIncrement />
+					</NumberFieldContent>
+				</NumberField>
 
+				<NumberField id="amountGroups" v-model="amountGroups" :min="1" :max="2">
+					<span class="sectionSpan">Anzahl Leistungsgruppen</span>
+					<NumberFieldContent class="numberInputBox">
+						<NumberFieldDecrement />
+						<NumberFieldInput />
+						<NumberFieldIncrement />
+					</NumberFieldContent>
+				</NumberField>
 
-		<NumberField id="amountTeams1" v-model="amountTeams1" :min="3" :max="12">
-			<Label for="amountTeams1">Anzahl Teams {{ amountGroups == 1 ? "" : " Gruppe 1" }}
-			</Label>
-			<NumberFieldContent>
-				<NumberFieldDecrement />
-				<NumberFieldInput />
-				<NumberFieldIncrement />
-			</NumberFieldContent>
-		</NumberField>
+				<NumberField id="amountTeams1" v-model="amountTeams1" :min="3" :max="12">
+					<span class="sectionSpan">Anzahl Teams {{ amountGroups == 1 ? "" : " Gruppe 1"
+					}}</span>
+					<NumberFieldContent class="numberInputBox">
+						<NumberFieldDecrement />
+						<NumberFieldInput />
+						<NumberFieldIncrement />
+					</NumberFieldContent>
+				</NumberField>
 
+				<NumberField id="amountTeams2" v-if="amountGroups == 2" v-model="amountTeams2"
+					:min="amountGroups == 2 ? 3 : 0" :max="12">
+					<span class="sectionSpan">Anzahl Teams Gruppe 2</span>
+					<NumberFieldContent class="numberInputBox">
+						<NumberFieldDecrement />
+						<NumberFieldInput />
+						<NumberFieldIncrement />
+					</NumberFieldContent>
+				</NumberField>
 
-		<NumberField id="amountTeams2" v-if="amountGroups == 2" v-model="amountTeams2" :min="amountGroups == 2 ? 3 : 0"
-			:max="12">
-			<Label for="amountTeams2">Anzahl Teams Gruppe 2
-			</Label>
-			<NumberFieldContent>
-				<NumberFieldDecrement />
-				<NumberFieldInput />
-				<NumberFieldIncrement />
-			</NumberFieldContent>
-		</NumberField>
+				<div class="flex items-center justify-center">
+					<span class="sectionSpan mr-4">Hin- und Rückspiel</span>
+					<input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" />
+				</div>
 
-		<div class="flex items-center justify-center">
-			<label for="withReturnGame">Hin- und Rückspiel</label>
-			<input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" />
-		</div>
+				<div class="flex flex-row justify-between w-full">
+					<div class="flex flex-col justify-center">
+						<span class="sectionSpan">Datum:</span>
+						<div class="flex items-center justify-center">
+							<input class="numberInputBox" type="date" id="input-date" name="date" v-model="date" />
+						</div>
+					</div>
 
+					<div class="flex flex-col justify-center">
+						<span class="sectionSpan" for="start-time">Start Zeit:</span>
+						<div class="flex items-center justify-center">
+							<input class="numberInputBox" type="time" id="input-start-time" name="start-time"
+								v-model="startTime" />
+						</div>
+					</div>
 
-		<br />
-		<Label for="input-date">Datum:</Label>
-		<div class="flex items-center justify-center">
-			<input type="date" id="input-date" name="date" v-model="date" />
-		</div>
+				</div>
 
-		<Label for="start-time">Start:</Label>
-		<div class="flex items-center justify-center">
-			<input type="time" id="input-start-time" name="start-time" v-model="startTime" />
-		</div>
+				<NumberField id="input-round-duration" v-model="roundDuration" :min="5" :step="5">
+					<span class="sectionSpan">Rundendauer (min)</span>
+					<NumberFieldContent class="numberInputBox">
+						<NumberFieldDecrement />
+						<NumberFieldInput />
+						<NumberFieldIncrement />
+					</NumberFieldContent>
+				</NumberField>
 
+				<NumberField id="input-break-duration" v-model="breakDuration" :min="0" :step="5">
+					<span class="sectionSpan">Pausendauer (min)</span>
+					<NumberFieldContent class="numberInputBox">
+						<NumberFieldDecrement />
+						<NumberFieldInput />
+						<NumberFieldIncrement />
+					</NumberFieldContent>
+				</NumberField>
+			</div>
 
-		<NumberField id="input-round-duration" v-model="roundDuration" :min="5" :step="5">
-			<Label for="input-round-duration">Rundendauer (min)
-			</Label>
-			<NumberFieldContent>
-				<NumberFieldDecrement />
-				<NumberFieldInput />
-				<NumberFieldIncrement />
-			</NumberFieldContent>
-		</NumberField>
+			<button class="colorButton px-4 pt-2 pb-4 mt-2 mb-[calc(env(safe-area-inset-bottom)+4.5rem)]" @click="generateTournament">
+				<span>Erstellen</span>
+			</button>
 
-
-		<NumberField id="input-break-duration" v-model="breakDuration" :min="0" :step="5">
-			<Label for="input-break-duration">Pausendauer (min)
-			</Label>
-			<NumberFieldContent>
-				<NumberFieldDecrement />
-				<NumberFieldInput />
-				<NumberFieldIncrement />
-			</NumberFieldContent>
-		</NumberField>
-
-
-		<button class="default-btn" @click="generateTournament">Create</button>
+			<!-- Referee Assignment Dialog -->
+			<Modal v-if="showRefModal" @close="closeRefModal" @submit="submitRefModal">
+				<h1 class="text-center font-medium">manual referee assigning not implemented</h1>
+			</Modal>
+		</main>
 	</div>
-
-	<!-- Referee Assignment Dialog -->
-	<Modal v-if="showRefModal" @close="closeRefModal" @submit="submitRefModal">
-		<h1 class="text-center font-medium">manual referee assigning not implemented</h1>
-	</Modal>
 </template>
-
-<style scoped>
-.custom-checkbox {
-	width: 3em;
-	height: 1em;
-}
-</style>

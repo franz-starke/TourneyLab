@@ -17,17 +17,6 @@ input:focus {
 	@apply outline-none shadow-[0_0_4px_var(--color-stura-main)];
 }
 
-/* MARKED FOR DELETION DO NOT FURTHER USE */
-.text-input {
-	box-sizing: border-box;
-	padding: 0.5rem;
-	border-radius: 50px;
-	background: white;
-	text-align: center;
-	color: var(--font-color-main);
-	transition: border-color 0.3s, box-shadow 0.3s;
-}
-
 /* ################# Tailwindcss custom classes ####################### */
 
 /* Utils */
@@ -53,6 +42,15 @@ input:focus {
 
 .landingButton span {
   	@apply text-xl font-bold;
+}
+
+/* Create new tournament */
+.sectionSpan {
+	@apply text-gray-500 font-bold text-sm;
+}
+
+.numberInputBox {
+	@apply bg-white p-1 rounded-full font-bold;
 }
 
 /* Dashboard */
