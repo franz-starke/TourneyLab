@@ -25,7 +25,7 @@ function starPoints(cx, cy, r) {
 
 <template>
 	<svg :width="width" :height="width" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"
-		style="border-radius: calc(var(--radius) /* 0.25rem = 4px */ - 2px)">
+		style="border-radius: calc(0.625rem /* 0.25rem = 4px */ - 2px)">
 		<rect width="40" height="40" fill="#B22234" />
 
 		<g fill="#FFFFFF">
