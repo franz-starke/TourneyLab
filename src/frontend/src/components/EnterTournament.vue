@@ -70,23 +70,32 @@ function onDetect(detectedCodes) {
 </script>
 
 <template>
-	<BackHeader />
-	<h1 class="text-2xl font-medium text-center">Turnier beitreten</h1>
+	<div class="flex flex-col min-h-[100svh] overflow-hidden touch-none overscroll-none">
+		<BackHeader />
+		<main class="flex flex-col flex-1 justify-evenly items-center px-8">
+			<h1 class="text-2xl font-bold text-center">Turnier Beitreten</h1>
 
-	<p class="text-gray-700 text-xs text-center ">QR-Code scannen</p>
-	<div class="rounded-lg border-2 border-gray-300 p-4 mb-4">
-		<qrcode-stream @detect="onDetect"></qrcode-stream>
-	</div>
+			<div class="flex flex-col w-full">
+				<p class="text-gray-800 text-s font-bold text-center mb-1">QR-Code Scannen</p>
+				<div
+					class="flex flex-col items-center justify-center w-full aspect-square rounded-4xl bg-white duration-200">
+					<qrcode-stream @detect="onDetect"></qrcode-stream>
+				</div>
+			</div>
 
+			<div class="flex flex-col w-full">
+				<p for="enter-code" class="text-gray-600 text-s font-bold text-center mb-2">Oder Manuell Eingeben</p>
 
-	<p for="enter-code" class="text-gray-700 font-medium text-xs text-center ">oder manuell eingeben</p>
-	<div v-if="isOnline" class="flex flex-col  items-stretch justify-center gap-4">
-		<input id="enter-code" class="text-input" name="enter-code" type="text" placeholder="Turnier-Code eingeben..."
-			v-model="tournamentId" />
-		<div class="default-btn" @click="enterTournament">Enter</div>
+				<div v-if="isOnline" class="flex flex-col justify-center w-full gap-4">
+					<input id="enter-code" class="flex bg-white p-4 rounded-full font-bold text-center text-gray-500" name="enter-code" type="text"
+						placeholder="Turnier-Code Eingeben..." v-model="tournamentId" />
+
+					<div class="colorButton" @click="enterTournament">
+						<span>Beitreten</span>
+					</div>
+				</div>
+			</div>
+		</main>
 	</div>
 
 </template>
-
-
-<style scoped></style>

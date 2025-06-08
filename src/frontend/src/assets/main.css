@@ -101,6 +101,9 @@ input:focus {
 .colorButton {
 	@apply flex items-center justify-center w-full h-20 rounded-4xl bg-[#5aa49c] duration-200 hover:bg-white
 }
+.colorButton span {
+  	@apply text-xl font-bold transition-colors text-white group-hover:text-white;
+}
 
 /* Landing page */
 .enterButton {
@@ -116,5 +119,5 @@ input:focus {
 }
 
 .landingButton span {
-  	@apply text-xl font-bold z-10 transition-colors group-hover:text-white;
+  	@apply text-xl font-bold transition-colors group-hover:text-white;
 }
