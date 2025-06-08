@@ -9,7 +9,7 @@ import { unref } from "vue";
  * {
  *   name: "Tournament Name",
  *   date: "YYYY-MM-DD",
- *   groups: [6, 6], // Number of teams per group
+ *   groups: {1:6, 2:6}, // Number of teams per group
  *   games: {
  *     "1": {
  *       "1": [1, 2, 0, [5, 3], "10:00"], // [teamA, teamB, field, [scoreA, scoreB], time]
@@ -54,6 +54,8 @@ export function evaluateTournamentData(tournamentData) {
   const games = tournament.games || {};
   const groups = tournament.groups || [];
 
+  console.log(tournament);
+
   // groupId => team count
   const teams = {};
   // teamId => stats
@@ -64,8 +66,7 @@ export function evaluateTournamentData(tournamentData) {
   let teamCounter = 1;
 
   // Initialize teams and groups
-  groups.forEach((count, index) => {
-    const groupId = String(index + 1);
+  Object.entries(groups).forEach((groupId, count) => {
     teams[groupId] = count;
 
     const teamIds = [];
@@ -87,13 +88,14 @@ export function evaluateTournamentData(tournamentData) {
   });
 
   // Evaluate games
-  Object.values(games).forEach((groupGames) => {
-    Object.values(groupGames).forEach((game) => {
+  Object.values(games).forEach((fieldGames) => {
+    Object.values(fieldGames).forEach((game) => {
       const [teamA, teamB, , [scoreA, scoreB]] = game;
       const idA = String(teamA);
       const idB = String(teamB);
 
       [idA, idB].forEach((tid) => {
+      // init stats for each team if not in Teamstats
         if (!(tid in teamStats)) {
           teamStats[tid] = {
             games_played: 0,
