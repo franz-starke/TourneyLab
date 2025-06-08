@@ -64,6 +64,27 @@ input:focus {
 	@apply bg-[var(--color-accent)] text-[var(--color-text-alt)];
 }
 
+/* Games */
+.editScoreField {
+	@apply flex flex-col w-full h-full justify-between items-center rounded-3xl p-2 bg-white;
+}
+
+.editScoreTeam {
+	@apply text-xl font-bold text-gray-500;
+}
+
+.editScorePoints {
+	@apply text-8xl font-bold;
+}
+
+.editScoreActions {
+	@apply flex w-full justify-between
+}
+
+.editScoreButton {
+	@apply flex justify-center items-center w-15 h-15 rounded-full text-4xl font-bold bg-gray-300;
+}
+
 /* Settings */
 .settingsSection {
 	@apply flex flex-col items-center mb-2;

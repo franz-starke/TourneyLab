@@ -67,28 +67,24 @@ watch(
 		<span class="font-bold text-gray-500"> {{ game[3] }}</span>
 	</div>
 
-	<div class="flex flex-col h-full justify-evenly">
-		<div class="flex flex-col w-full justify-center items-center rounded-3xl p-2 bg-white">
-			<span class="text-xl font-bold text-gray-500">Team {{ game[0] }}</span>
-			<span class="text-8xl font-bold">{{ points[0] }}</span>
+	<div class="flex flex-col h-full justify-evenly gap-2">
+		<div class="editScoreField">
+			<span class="editScoreTeam">Team {{ game[0] }}</span>
+			<span class="editScorePoints">{{ points[0] }}</span>
 
-			<div class="flex w-full justify-between">
-				<button @click="points[0] > 0 ? (points[0] -= 1) : points[0]"
-					class="flex justify-center items-center w-15 h-15 rounded-full text-4xl bg-gray-300">-</button>
-				<button @click="points[0] += 1"
-					class="flex justify-center items-center w-15 h-15 rounded-full text-4xl bg-gray-300">+</button>
+			<div class="editScoreActions">
+				<button @click="points[0] > 0 ? (points[0] -= 1) : points[0]" class="editScoreButton">-</button>
+				<button @click="points[0] += 1" class="editScoreButton">+</button>
 			</div>
 		</div>
 
-		<div class="flex flex-col w-full justify-center items-center rounded-3xl p-2 bg-white">
-			<span class="text-xl font-bold text-gray-500">Team {{ game[1] }}</span>
-			<span class="text-8xl font-bold">{{ points[1] }}</span>
+		<div class="editScoreField">
+			<span class="editScoreTeam">Team {{ game[1] }}</span>
+			<span class="editScorePoints">{{ points[1] }}</span>
 
-			<div class="flex w-full justify-between">
-				<button @click="points[1] > 0 ? (points[1] -= 1) : points[1]"
-					class="flex justify-center items-center w-15 h-15 rounded-full text-4xl bg-gray-300">-</button>
-				<button @click="points[1] += 1"
-					class="flex justify-center items-center w-15 h-15 rounded-full text-4xl bg-gray-300">+</button>
+			<div class="editScoreActions">
+				<button @click="points[1] > 0 ? (points[1] -= 1) : points[1]" class="editScoreButton">-</button>
+				<button @click="points[1] += 1" class="editScoreButton">+</button>
 			</div>
 		</div>
 	</div>
