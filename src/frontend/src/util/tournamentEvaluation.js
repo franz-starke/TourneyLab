@@ -63,10 +63,10 @@ export function evaluateTournamentData(tournamentData) {
 
 	let teamCounter = 1;
 
-  // Initialize teams and groups
-  Object.entries(groups).forEach((groupEntry) => {
-    const [groupId, count] = groupEntry; 
-    teams[groupId] = count;
+	// Initialize teams and groups
+	Object.entries(groups).forEach((groupEntry) => {
+		const [groupId, count] = groupEntry;
+		teams[groupId] = count;
 
 		const teamIds = [];
 		for (let i = 0; i < count; i++) {
@@ -86,34 +86,34 @@ export function evaluateTournamentData(tournamentData) {
 		teamCounter += count;
 	});
 
-  // Evaluate games
-  Object.values(games).forEach((fieldGames) => {
-    Object.values(fieldGames).forEach((game) => {
-      const [teamA, teamB, , ,[scoreA, scoreB]] = game;
-      const idA = String(teamA);
-      const idB = String(teamB);
+	// Evaluate games
+	Object.values(games).forEach((fieldGames) => {
+		Object.values(fieldGames).forEach((game) => {
+			const [teamA, teamB, , , [scoreA, scoreB]] = game;
+			const idA = String(teamA);
+			const idB = String(teamB);
 
-      [idA, idB].forEach((tid) => {
-      // init stats for each team if not in Teamstats
-        if (!(tid in teamStats)) {
-          teamStats[tid] = {
-            games_played: 0,
-            wins: 0,
-            draws: 0,
-            losses: 0,
-            points: 0,
-            score_diff: 0
-          };
-        }
-      });
+			[idA, idB].forEach((tid) => {
+				// init stats for each team if not in Teamstats
+				if (!(tid in teamStats)) {
+					teamStats[tid] = {
+						games_played: 0,
+						wins: 0,
+						draws: 0,
+						losses: 0,
+						points: 0,
+						score_diff: 0
+					};
+				}
+			});
 
 
-      // // don't eval, if scores: 0 to 0
-      if (scoreA == 0 && scoreB == 0) return;
+			// // don't eval, if scores: 0 to 0
+			if (scoreA == 0 && scoreB == 0) return;
 
-      // Update match statistics
-      teamStats[idA].games_played += 1;
-      teamStats[idA].score_diff += scoreA - scoreB;
+			// Update match statistics
+			teamStats[idA].games_played += 1;
+			teamStats[idA].score_diff += scoreA - scoreB;
 
 			teamStats[idB].games_played += 1;
 			teamStats[idB].score_diff += scoreB - scoreA;
