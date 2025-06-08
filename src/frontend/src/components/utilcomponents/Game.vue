@@ -66,9 +66,11 @@ watch(
 				</div>
 
 				<div class="flex flex-row w-30 justify-evenly items-center bg-gray-300 p-2 rounded-full">
-					<input class="flex w-8 text-center text-2xl font-bold" min="0" type="number" v-model.number="points[0]" @click.stop.prevent />
+					<input class="flex w-8 text-center text-2xl font-bold" min="0" type="number"
+						v-model.number="points[0]" @click.stop.prevent />
 					:
-					<input class="flex w-8 text-center text-2xl font-bold" min="0" type="number" v-model.number="points[1]" @click.stop.prevent />
+					<input class="flex w-8 text-center text-2xl font-bold" min="0" type="number"
+						v-model.number="points[1]" @click.stop.prevent />
 				</div>
 			</div>
 		</div>
