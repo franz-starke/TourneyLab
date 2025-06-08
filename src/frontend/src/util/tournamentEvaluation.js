@@ -91,7 +91,7 @@ export function evaluateTournamentData(tournamentData) {
   // Evaluate games
   Object.values(games).forEach((fieldGames) => {
     Object.values(fieldGames).forEach((game) => {
-      const [teamA, teamB, , [scoreA, scoreB]] = game;
+      const [teamA, teamB, , ,[scoreA, scoreB]] = game;
       const idA = String(teamA);
       const idB = String(teamB);
 
@@ -108,6 +108,10 @@ export function evaluateTournamentData(tournamentData) {
           };
         }
       });
+
+
+      // // don't eval, if scores: 0 to 0
+      if (scoreA == 0 && scoreB == 0) return;
 
       // Update match statistics
       teamStats[idA].games_played += 1;
@@ -141,7 +145,6 @@ export function evaluateTournamentData(tournamentData) {
     groups: []
   };
 
-  console.log("groupteams", groupTeams);
   // Build group ranking
   Object.entries(groupTeams).forEach(([groupId, teamIds]) => {
     const sorted = [...teamIds]
