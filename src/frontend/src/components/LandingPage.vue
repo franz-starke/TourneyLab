@@ -5,7 +5,7 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 </script>
 
 <template>
-	<div class="flex flex-col min-h-[100svh] overflow-hidden touch-none overscroll-none">
+	<div class="flex flex-col min-h-[100svh] overflow-hidden touch-none">
 		<header class="flex items-center justify-between pt-4 px-4">
 			<LanguageSelectBtn />
 			<ThemeChangeBtn />
