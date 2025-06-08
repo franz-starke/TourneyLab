@@ -94,3 +94,14 @@ input:focus {
     padding: 0 2rem;
   }
 } */
+
+/* ################# Tailwindcss custom classes ####################### */
+
+/* Landing page */
+.enterButton {
+	@apply flex flex-col items-center justify-center w-full aspect-square rounded-4xl bg-[#5aa49c] hover:bg-white duration-200
+}
+
+.landingButton {
+	@apply flex items-center justify-center w-full h-20 rounded-4xl bg-white duration-200 hover:bg-[#5aa49c]
+}
