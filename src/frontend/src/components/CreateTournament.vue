@@ -120,7 +120,6 @@ async function generateTournament() {
 
   teamgroups = {
     1: amountTeams1.value,
-
   };
   if (amountTeams2.value > 0) {
     teamgroups[2] = amountTeams2.value; // Add second group only if it has teams
@@ -156,8 +155,9 @@ async function generateTournament() {
   store.tournament.id = tournamentId; 
   store.tournament.groups = teamgroups;
 
+  console.log("hello")
   // Redirect to the tournament home page
-  router.push({ name: "tournament-home/dashboard" });
+  router.push("/tournament-home/dashboard");
 }
 
 
