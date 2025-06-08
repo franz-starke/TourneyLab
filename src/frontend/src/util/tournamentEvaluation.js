@@ -9,7 +9,7 @@ import { unref } from "vue";
  * {
  *   name: "Tournament Name",
  *   date: "YYYY-MM-DD",
- *   groups: [6, 6], // Number of teams per group
+ *   groups: {1:6, 2:6}, // Number of teams per group
  *   games: {
  *     "1": {
  *       "1": [1, 2, 0, [5, 3], "10:00"], // [teamA, teamB, field, [scoreA, scoreB], time]
@@ -63,10 +63,10 @@ export function evaluateTournamentData(tournamentData) {
 
 	let teamCounter = 1;
 
-	// Initialize teams and groups
-	groups.forEach((count, index) => {
-		const groupId = String(index + 1);
-		teams[groupId] = count;
+  // Initialize teams and groups
+  Object.entries(groups).forEach((groupEntry) => {
+    const [groupId, count] = groupEntry; 
+    teams[groupId] = count;
 
 		const teamIds = [];
 		for (let i = 0; i < count; i++) {
@@ -86,29 +86,34 @@ export function evaluateTournamentData(tournamentData) {
 		teamCounter += count;
 	});
 
-	// Evaluate games
-	Object.values(games).forEach((groupGames) => {
-		Object.values(groupGames).forEach((game) => {
-			const [teamA, teamB, , [scoreA, scoreB]] = game;
-			const idA = String(teamA);
-			const idB = String(teamB);
+  // Evaluate games
+  Object.values(games).forEach((fieldGames) => {
+    Object.values(fieldGames).forEach((game) => {
+      const [teamA, teamB, , ,[scoreA, scoreB]] = game;
+      const idA = String(teamA);
+      const idB = String(teamB);
 
-			[idA, idB].forEach((tid) => {
-				if (!(tid in teamStats)) {
-					teamStats[tid] = {
-						games_played: 0,
-						wins: 0,
-						draws: 0,
-						losses: 0,
-						points: 0,
-						score_diff: 0
-					};
-				}
-			});
+      [idA, idB].forEach((tid) => {
+      // init stats for each team if not in Teamstats
+        if (!(tid in teamStats)) {
+          teamStats[tid] = {
+            games_played: 0,
+            wins: 0,
+            draws: 0,
+            losses: 0,
+            points: 0,
+            score_diff: 0
+          };
+        }
+      });
 
-			// Update match statistics
-			teamStats[idA].games_played += 1;
-			teamStats[idA].score_diff += scoreA - scoreB;
+
+      // // don't eval, if scores: 0 to 0
+      if (scoreA == 0 && scoreB == 0) return;
+
+      // Update match statistics
+      teamStats[idA].games_played += 1;
+      teamStats[idA].score_diff += scoreA - scoreB;
 
 			teamStats[idB].games_played += 1;
 			teamStats[idB].score_diff += scoreB - scoreA;

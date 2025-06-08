@@ -118,13 +118,12 @@ async function generateTournament() {
 	});
 
 
-	teamgroups = {
-		1: amountTeams1.value,
-
-	};
-	if (amountTeams2.value > 0) {
-		teamgroups[2] = amountTeams2.value; // Add second group only if it has teams
-	}
+  teamgroups = {
+    1: amountTeams1.value,
+  };
+  if (amountTeams2.value > 0) {
+    teamgroups[2] = amountTeams2.value; // Add second group only if it has teams
+  }
 
 	// if online, then sync this data to the server
 	let tournamentId = undefined; // Initialize tournamentId to undefined
@@ -156,8 +155,8 @@ async function generateTournament() {
 	store.tournament.id = tournamentId;
 	store.tournament.groups = teamgroups;
 
-	// Redirect to the tournament home page
-	router.push({ name: "tournament-home/dashboard" });
+  // Redirect to the tournament home page
+  router.push("/tournament-home/dashboard");
 }
 
 

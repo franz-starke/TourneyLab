@@ -6,6 +6,7 @@ import { useTournamentStore } from "@/stores/tournamentStore";
 import IconQrCode from "../icons/IconQrCode.vue";
 import IconTrophy from "../icons/IconTrophy.vue";
 import { gzip, ungzip } from "pako";
+import { evaluateTournamentData } from "@/util/tournamentEvaluation.js" 
 
 const store = useTournamentStore();
 
@@ -17,9 +18,10 @@ onMounted(() => {
 	qrSize.value = minSize * 0.7;
 });
 
-// // 1. Convert to JSON string
-// qr code can hold max of 1273 characters at Level H and 2953 at Level L
 
+// QrCode data for offline sync
+// 1. Convert to JSON string
+// qr code can hold max of 1273 characters at Level H and 2953 at Level L
 const jsonStr = JSON.stringify(store.tournament);
 console.log("Tournament JSON String: ", jsonStr, "Length: ", jsonStr.length);
 // 2. Compress using GZIP
@@ -30,6 +32,8 @@ const base64Encoded = btoa(String.fromCharCode(...compressed));
 console.log("Base64 Encoded:", base64Encoded, "Length: ", base64Encoded.length);
 const qrvalue = ref(base64Encoded); // this works, because the longest possible Tournament Json String results to 2756 characters,which is in the Limits of an L level QR Code
 
+
+// Qr scanner function
 function onDetect(detectedCodes) {
 	// detectedCodes is a Proxy Array
 	const rawValue = detectedCodes[0].rawValue;
@@ -50,31 +54,65 @@ function onDetect(detectedCodes) {
 }
 
 
-// qrval is only tournament id: 
-// const qrvalue = ref(store.tournament.id);
-
-
-// console.log("QR Value: ", qrvalue.value);
-
-
-
 function toggleSyncGames() {
 	syncGames.value = !syncGames.value;
 }
 
+
+const leaderboard = ref({});
 function evalTournament() {
-	console.log("Evaluating Tournament...");
-	evalShow.value = true;
+  console.log("Evaluating Tournament...");
+  leaderboard.value = evaluateTournamentData(store.tournament);
+  console.log("Leaderboard: ", leaderboard);
+  evalShow.value = true;
+}
+
+
+
+const activeGroup = ref(0);
+function setActiveGroup(groupIndex) {
+  activeGroup.value  = groupIndex;
 }
 </script>
 
 <template>
-	<div v-if="!syncGames" id="dashboard-container"
-		class="flex flex-col w-full align-center justify-between h-full">
-		<button class="colorButton" @click="toggleSyncGames">
-			<span>Spielstände Sync.</span>
-			<IconQrCode />
-		</button>
+  <!-- Tournament Dashboard -->
+  <div v-if="evalShow" id="eval-dialog" class="p-2">
+    <div class="flex items-center justify-evenly">
+      <button  class="default-btn" @click="setActiveGroup(0)">Fun</button>
+      <button v-if="leaderboard.groups.length == 2" class="default-btn" @click="setActiveGroup(1)">Schwitzer</button>
+    </div>
+
+    <div class="grid grid-cols-4 justify-center text-center mt-4 gap-4">
+      <div id="leaderboard-header" class="contents ">
+        <h3 class="font-bold">Platz</h3>
+        <h3 class="font-bold">Team</h3>
+        <h3 class="font-bold">Siege</h3>
+        <h3 class="font-bold">Punkte</h3>
+      </div>
+
+      <div  class="contents" v-for="team in leaderboard.groups[activeGroup].teams">
+        <h3 class="font-bold">{{ team.rank }}</h3>
+        <h3 class="font-bold">{{ team.id }}</h3>
+        <h3 class="font-bold">{{ team.wins }}</h3>
+        <h3 class="font-bold">{{ team.points }}</h3>
+      </div>
+
+    </div>
+  </div>
+
+  <div
+    v-else-if="!syncGames"
+    id="dashboard-container"
+    class="flex flex-col align-center justify-between gap-4 h-full p-4"
+  >
+    <button
+      class="highlighted-btn flex flex-row items-center justify-center gap-4"
+      @click="toggleSyncGames"
+    >
+      <span class="block text-xl font-bold">Spielstände Sync.</span>
+      <IconQrCode />
+    </button>
 
 		<button class="colorButton" @click="evalTournament">
 			<span>Turnier auswerten</span>
