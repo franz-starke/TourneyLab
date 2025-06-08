@@ -32,10 +32,10 @@ input:focus {
 
 /* Utils */
 .colorButton {
-	@apply flex items-center justify-center w-full h-18 rounded-4xl bg-[#5aa49c] duration-200 hover:bg-white
+	@apply flex w-full h-18 justify-evenly items-center rounded-4xl bg-[#5aa49c] text-white duration-200 hover:bg-white hover:text-black;
 }
 .colorButton span {
-  	@apply text-2xl font-bold transition-colors text-white group-hover:text-white;
+  	@apply text-2xl font-bold;
 }
 
 /* Landing page */

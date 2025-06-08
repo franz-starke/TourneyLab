@@ -69,22 +69,22 @@ function evalTournament() {
 </script>
 
 <template>
-	<!-- Tournament Dashboard -->
-	<div v-if="evalShow" id="eval-dialog">
-		<h2>Turnier Auswertung kommt noch</h2>
-	</div>
-
-	<div v-else-if="!syncGames" id="dashboard-container"
-		class="flex flex-col align-center justify-between gap-4 h-full p-4">
-		<button class="highlighted-btn flex flex-row items-center justify-center gap-4" @click="toggleSyncGames">
-			<span class="block text-xl font-bold">Spielstände Sync.</span>
+	<div v-if="!syncGames" id="dashboard-container"
+		class="flex flex-col w-full align-center justify-between h-full">
+		<button class="colorButton" @click="toggleSyncGames">
+			<span>Spielstände Sync.</span>
 			<IconQrCode />
 		</button>
 
-		<button class="highlighted-btn flex flex-row items-center justify-center gap-4" @click="evalTournament">
-			<span class="block text-xl font-bold">Turnier auswerten</span>
+		<button class="colorButton" @click="evalTournament">
+			<span>Turnier auswerten</span>
 			<IconTrophy />
 		</button>
+	</div>
+
+	<!-- Tournament Dashboard -->
+	<div v-else-if="evalShow" id="eval-dialog">
+		<h2>Turnier Auswertung kommt noch</h2>
 	</div>
 
 	<!-- Dialog for syncing Games  -->
@@ -102,5 +102,3 @@ function evalTournament() {
 		</div>
 	</div>
 </template>
-
-<style scoped></style>
