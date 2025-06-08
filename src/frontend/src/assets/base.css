@@ -42,3 +42,9 @@
 	--color-text-alt: var(--text-color-dark);
 	--color-accent: var(--color-green);
 }
+
+@layer base {
+	html, body {
+		@apply h-full overflow-hidden touch-none;
+	}
+}
