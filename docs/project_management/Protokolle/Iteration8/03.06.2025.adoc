@@ -1,0 +1,13 @@
+= Protokoll Coachmeeting
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc: left
+:icons: font
+:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
+
+.generelle Informationen
+- **Zeit:** 17:30 - 19:00 Uhr 
+- **Ort:**  HTWD Bib 302b / online
+- **Protokollant:** Sebastian Heber
+- **Anwesend:**  Joshua Heninger, Ali Zeinelov, Sebastian Heber, Jannis Wittchen, Mutaz Abuazizeh
+- **Abwesend:**  Franz Starke (Arbeit), Ibrahim Braikeh (krank)
