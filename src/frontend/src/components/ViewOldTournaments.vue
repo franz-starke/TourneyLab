@@ -5,7 +5,6 @@ import { useRouter } from "vue-router";
 import BackHeader from "./utilcomponents/BackHeader.vue";
 import { useTournamentStore } from "@/stores/tournamentStore.js";
 import IconEnter from '@/components/icons/IconEnter.vue';
-import Input from "@/components/ui/input/Input.vue";
 
 const router = useRouter();
 const store = useTournamentStore();

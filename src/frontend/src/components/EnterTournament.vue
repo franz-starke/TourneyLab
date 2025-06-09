@@ -3,7 +3,7 @@
 
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useTournamentStore } from "@/stores/tournamentStore";
 import BackHeader from "./utilcomponents/BackHeader.vue";
 import IconCamera from "./icons/IconCamera.vue";
@@ -16,10 +16,19 @@ const tournamentId = ref("");
 
 const store = useTournamentStore();
 const router = useRouter();
+const scannerActive = ref(false);
 
 const isOnline = computed(() => {
 	return navigator.onLine;
 });
+
+
+onMounted(() => {
+  // Start scanner after 2 seconds (adjust as needed)
+  setTimeout(() => {
+    scannerActive.value = true
+  }, 2000)
+})
 
 
 async function enterTournament() {
@@ -82,9 +91,8 @@ function onDetect(detectedCodes) {
 				<p class="text-gray-800 text-base font-bold text-center mb-1">QR-Code Scannen</p>
 				<div
 					class="flex flex-col items-center justify-center w-full aspect-square rounded-4xl bg-white duration-200">
-					<IconCamera class="w-30 h-30">
-						<qrcode-stream @detect="onDetect"></qrcode-stream>
-					</IconCamera>
+					<IconCamera v-if="!scannerActive" class="w-30 h-30"></IconCamera>
+					<qrcode-stream v-else @detect="onDetect"></qrcode-stream>
 				</div>
 			</div>
 
