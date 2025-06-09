@@ -1,0 +1,101 @@
+@import "./base.css";
+
+body {
+	@apply bg-[var(--color-background)] text-[var(--color-text)] min-w-[380px];
+	font-family: 'Inter', Verdana;
+}
+
+#app {
+	@apply m-0 p-0 max-w-[1280px] font-normal;
+}
+
+input[type="checkbox"] {
+	@apply accent-[var(--color-stura-main)];
+}
+
+input:focus {
+	@apply outline-none shadow-[0_0_4px_var(--color-stura-main)];
+}
+
+/* ################# Tailwindcss custom classes ####################### */
+
+/* Utils */
+.colorButton {
+	@apply flex w-full h-18 justify-evenly items-center rounded-4xl bg-[var(--color-accent)] text-[var(--color-text-alt)] duration-200 hover:bg-white hover:text-[var(--color-text)];
+}
+.colorButton span {
+  	@apply text-2xl font-bold;
+}
+
+/* Landing page */
+.enterButton {
+	@apply flex flex-col w-full justify-center items-center aspect-square rounded-4xl bg-[var(--color-accent)] text-[var(--color-text-alt)] duration-200 hover:bg-white hover:text-[var(--color-text)];
+}
+
+.enterButton span {
+	@apply text-xl font-bold;
+}
+
+.landingButton {
+	@apply flex items-center justify-center w-full h-18 rounded-4xl bg-white duration-200 hover:bg-[var(--color-accent)] hover:text-[var(--color-text-alt)];
+}
+
+.landingButton span {
+  	@apply text-xl font-bold;
+}
+
+/* Create new tournament */
+.sectionSpan {
+	@apply text-gray-500 font-bold text-sm;
+}
+
+.numberInputBox {
+	@apply bg-white p-1 rounded-full font-bold;
+}
+
+/* Dashboard */
+.navbarItem {
+	@apply flex h-full aspect-square justify-center items-center rounded-3xl;
+}
+
+.router-link-active {
+	@apply bg-[var(--color-accent)] text-[var(--color-text-alt)];
+}
+
+/* Games */
+.editScoreField {
+	@apply flex flex-col w-full h-full justify-between items-center rounded-3xl p-2 bg-white;
+}
+
+.editScoreTeam {
+	@apply text-xl font-bold text-gray-500;
+}
+
+.editScorePoints {
+	@apply text-8xl font-bold;
+}
+
+.editScoreActions {
+	@apply flex w-full justify-between
+}
+
+.editScoreButton {
+	@apply flex justify-center items-center w-15 h-15 rounded-full text-4xl font-bold bg-gray-300;
+}
+
+/* Settings */
+.settingsSection {
+	@apply flex flex-col items-center mb-2;
+}
+
+.settingsSection span {
+	@apply font-bold text-xl mb-2;
+}
+
+.settingsTheme {
+	@apply flex px-8 py-2 rounded-full;
+}
+
+.settingsAccentColor {
+	@apply flex w-12 h-12 rounded-full;
+}

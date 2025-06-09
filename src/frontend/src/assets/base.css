@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+/* ---break---  */
+@custom-variant dark (&:is(.dark *));
+
+/* color palette  */
+:root {
+
+	/* accent colors */
+	/* green */
+	--color-green-light: #58AAA0;
+	--color-green-dark: #387D75;
+	--color-green: #5aa49c;
+
+	/* blue */
+	--color-blue-light: #0DCCEE;
+	--color-blue-dark: #2445EC;
+	--color-blue: #1988ED;
+
+	/* red */
+	--color-red-light: #EE980D;
+	--color-red-dark: #EC2424;
+	--color-red: #ED4E1C;
+
+	/* purple */
+	--color-purple-light: #EE0DD7;
+	--color-purple-dark: #A324EC;
+	--color-purple: #A324EC;
+
+	/* background */
+	--background-light: #E7E9F6;
+	--background-dark: #020618;
+
+	/* text color */
+	--text-color-light: black;
+	--text-color-dark: white;
+
+	/* dynamic styles */
+	--color-background: var(--background-light);
+	--color-text: var(--text-color-light);
+	--color-text-alt: var(--text-color-dark);
+	--color-accent: var(--color-green);
+}
+
+@layer base {
+	html, body {
+		@apply h-full overflow-hidden touch-none;
+	}
+}
