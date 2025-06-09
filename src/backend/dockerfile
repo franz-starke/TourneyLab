@@ -10,21 +10,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-COPY requirements.txt .
+COPY src/backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Create necessary directories
-RUN mkdir -p /app/data/db
-
-# Copy application code
-COPY ./ /app/src/
-
+# Copy backend code
+COPY src/backend /app
 # Set environment variables
-ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
-# Expose default port 
+# Create necessary directories (optional)
+RUN mkdir -p /app/data/db
+
+# Expose FastAPI port
 EXPOSE 8000
 
-# Start development server with hot reload
-CMD ["fastapi", "run", "--host", "0.0.0.0", "--port", "8000", "--reload", "/app/src/api.py"]
+# Start FastAPI with auto-reload (only for dev)
+CMD ["uvicorn", "api:api", "--host", "0.0.0.0", "--port", "8000", "--reload"]
