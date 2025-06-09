@@ -1,1 +1,128 @@
+= Protokoll Weekly
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc: left
+:icons: font
+:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
+
+.generelle Informationen
+- **Zeit:** 14:00 - 15:00 Uhr 
+- **Ort:**  online via Discord
+- **Protokollant:** Sebastian Heber
+- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Ibrahim Braikeh, Jannis Wittchen, Mutaz Abuazizeh,Ali Zeinelov 
+- **Abwesend:** 
+
+
+== Agenda
+
+[cols="<1,<5,<1,<3,<3", frame="none", grid="rows"]
+|===
+|Nr. |Tagesordnungspunkt |Dauer |Ergebnis |Verantwortlich
+
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnigs
+// |Verantwortliche
+
+|0
+|Begrüßung und besprechen der Agenda
+|2 Min.
+|alle wissen wo's langeht und es geht los
+|Sebastian
+
+|1
+|Besprechung Fachaustausch / Coachmeeting
+|15 Min.
+|
+|Alle
+
+|2
+|Gruppen und Einzelreflexionen 
+|15 Min.
+|
+|Alle
+
+|3
+|Aktuellen Stand der Untergruppen besprechen
+|30 Min.
+|
+|Alle
+
+
+|Abschluss
+|Terminabklärung und Aufgabenverteilung abschließen
+|3 Min.
+|Jeder weiß wann wir uns das nächste Mal treffen
+|Alle
+
+//neue Zeile einfügen:
+// |Nr
+// |Tagesordnungspunkt
+// |Dauer
+// |Ergebnis
+// |Verantwortliche
+
+
+|===
+
+
+<<<
+
+== Besprechung der TOP's
+
+=== TOP 1: Besprechung Fachaustausch
+
+
+=== TOP 2: Gruppen und Einzelreflexionen
+
+
+
+=== TOP 3: Aktuellen Stand der Untergruppen besprechen
+
+Auswertungsalgorhytmus:
+
+
+Frontend:
+
+
+Backend:
+
+
+
+Dokumentaton:
+
+Testing:
+
+
+=== Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+
+
+
+
+== Aufgabenverteilung
+
+
+[cols="3s,7", caption="", frame="none", grid="rows" ]
+|===
+|Wer |Aufgabe 
+
+| Alle 
+| Gruppenreflexion in shared Dokument
+
+
+
+
+
+
+|===
+
+
+
+
+== Anhang
+- **Links und Dokumente:**
+
 
