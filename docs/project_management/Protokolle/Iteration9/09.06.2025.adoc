@@ -9,8 +9,8 @@ vom __date__
 - **Zeit:** 14:00 - 15:00 Uhr 
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
-- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Ibrahim Braikeh, Jannis Wittchen, Mutaz Abuazizeh,Ali Zeinelov 
-- **Abwesend:** 
+- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Jannis Wittchen, Mutaz Abuazizeh,Ali Zeinelov 
+- **Abwesend:** Ibrahim Braikeh
 
 
 == Agenda
@@ -36,7 +36,7 @@ vom __date__
 |1
 |Besprechung Fachaustausch / Coachmeeting
 |15 Min.
-|
+|alle auf aktuellen Stand
 |Alle
 
 |2
@@ -73,12 +73,15 @@ vom __date__
 
 == Besprechung der TOP's
 
-=== TOP 1: Besprechung Fachaustausch
+=== TOP 1: Besprechung Fachaustausch / Coachmeeting
+
 
 
 === TOP 2: Gruppen und Einzelreflexionen
 
+- jeder kümemrt sich um Einzelreflexion 
 
+- Treffen am 10.06. um 19 uhr online für Gruppenreflexion. Bis dahin Stichpunkte in gemeinsamen Dokument schreiben 
 
 === TOP 3: Aktuellen Stand der Untergruppen besprechen
 
@@ -87,14 +90,18 @@ Auswertungsalgorhytmus:
 
 Frontend:
 
+Teams Ansicht erstellen
+
+Styling von Ergebnisseite
+
+PDF Erstellung von Ergebnissen 
+
+Einstellungsseite
+
+Eventuell in Aussicht: Dashboard mit aktuellen Spielen
 
 Backend:
 
-
-
-Dokumentaton:
-
-Testing:
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
@@ -112,9 +119,23 @@ Testing:
 | Alle 
 | Gruppenreflexion in shared Dokument
 
+|Franz 
+|Einstellungsseite
 
+|Joshua 
+|Teamsansicht
 
+|Ali
+|Styling von Ergebnisseite, Teamsansicht
 
+|Mutaz
+|Desktop Styling
+
+|Jannis
+|PDF Ausgabe auf Ergebnisseite
+
+|Sebastian
+|Treffen mit Auftraggeberin
 
 
 |===
