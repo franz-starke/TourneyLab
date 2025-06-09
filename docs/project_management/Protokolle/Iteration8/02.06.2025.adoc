@@ -76,7 +76,7 @@ Treffen mit Ruben:
 - Struktur beim Styling (Selektoren) -> Tailwind verwenden
 - Codereview Backend
 
-wann Zeit für Coach? Montag Abend?
+Coach Meeting Dienstag 03.06.
 Themen: 
 - Repo durchgehen was fehlt und muss ergänzt werden
 - Gruppenreflexion
