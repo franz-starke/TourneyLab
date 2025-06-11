@@ -1,7 +1,7 @@
 @import "./base.css";
 
 body {
-	@apply bg-[var(--color-background)] text-[var(--color-text)] min-w-[380px];
+	@apply bg-[var(--color-background)] text-[var(--color-text)] min-w-[380px] duration-200;
 	font-family: 'Inter', Verdana;
 }
 
@@ -21,7 +21,7 @@ input:focus {
 
 /* Utils */
 .colorButton {
-	@apply flex w-full h-18 justify-evenly items-center rounded-4xl bg-[var(--color-accent)] text-[var(--color-text-alt)] duration-200 hover:bg-white hover:text-[var(--color-text)];
+	@apply flex w-full h-18 justify-evenly items-center rounded-4xl bg-[var(--color-accent)] text-[var(--color-text-alt)] hover:bg-[var(--color-element)] duration-200 hover:text-[var(--color-text)];
 }
 .colorButton span {
   	@apply text-2xl font-bold;
@@ -29,7 +29,7 @@ input:focus {
 
 /* Landing page */
 .enterButton {
-	@apply flex flex-col w-full max-w-200 justify-center items-center aspect-square rounded-4xl bg-[var(--color-accent)] text-[var(--color-text-alt)] duration-200 hover:bg-white hover:text-[var(--color-text)] lg:max-w-100;
+	@apply flex flex-col w-full max-w-200 justify-center items-center aspect-square rounded-4xl bg-[var(--color-accent)] text-[var(--color-text-alt)] duration-200 hover:bg-[var(--color-element)] hover:text-[var(--color-text)] lg:max-w-100;
 }
 
 .enterButton span {
@@ -37,7 +37,7 @@ input:focus {
 }
 
 .landingButton {
-	@apply flex items-center justify-center w-full h-18 rounded-4xl bg-white duration-200 hover:bg-[var(--color-accent)] hover:text-[var(--color-text-alt)];
+	@apply flex items-center justify-center w-full h-18 rounded-4xl bg-[var(--color-element)] duration-200 hover:bg-[var(--color-accent)] hover:text-[var(--color-text-alt)];
 }
 
 .landingButton span {
@@ -50,7 +50,7 @@ input:focus {
 }
 
 .numberInputBox {
-	@apply bg-white p-1 rounded-full font-bold;
+	@apply bg-[var(--color-element)] p-1 rounded-full font-bold;
 }
 
 /* Dashboard */
@@ -64,7 +64,7 @@ input:focus {
 
 /* Games */
 .editScoreField {
-	@apply flex flex-col w-full h-full justify-between items-center rounded-3xl p-2 bg-white;
+	@apply flex flex-col w-full h-full justify-between items-center rounded-3xl p-2 bg-[var(--color-element)];
 }
 
 .editScoreTeam {
@@ -80,7 +80,7 @@ input:focus {
 }
 
 .editScoreButton {
-	@apply flex justify-center items-center w-15 h-15 rounded-full text-4xl font-bold bg-gray-300;
+	@apply flex justify-center items-center w-15 h-15 rounded-full text-4xl font-bold bg-[var(--color-sub-element)];
 }
 
 /* Settings */
