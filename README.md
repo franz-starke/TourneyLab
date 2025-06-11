@@ -20,13 +20,9 @@
   <img src="https://img.shields.io/github/contributors/franz-starke/SE-Volleyball-Turnier-Belegprojekt" alt="Contributors">
 </p>
 
----
-
 ## ✨ Overview
 
 **TourneyLab** is a full-featured tournament manager built to simplify event setup, scheduling, and scoring. It’s ideal for **clubs**, **schools**, **sports events**, and **local competitions**. Designed with **volleyball** in mind, but adaptable to any team sport or competitive bracket structure.
-
----
 
 ## 🔧 Features
 
@@ -37,8 +33,6 @@
 - 🌐 **REST API**: FastAPI-powered endpoints for integration and automation
 - 🎨 **Modern UI**: Built with Vue 3, Pinia, and Tailwind CSS
 - 📱 **Responsive Design**: Works on desktop, tablet, and mobile
-
----
 
 ## 🚀 Getting Started
 
