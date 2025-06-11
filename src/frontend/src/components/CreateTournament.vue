@@ -236,7 +236,7 @@ watch(amountGroups, (newValue) => {
 
 			<div v-if="!showRefModal" class="flex-1 flex flex-col gap-4 overflow-y-auto relative pb-[calc(env(safe-area-inset-bottom)+5rem)]">
 
-				<input class="flex bg-white p-2 rounded-full font-bold text-center placeholder:text-gray-500 text-xl"
+				<input class="flex bg-[var(--color-element)] p-2 rounded-full font-bold text-center placeholder:text-gray-500 text-xl"
 					type="text" v-model="tournamentName" placeholder="Turniername..." maxlength="120" required />
 
 				<NumberField id="amountFields" v-model="amountFields" :min="1" :max="4">

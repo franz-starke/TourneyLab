@@ -59,11 +59,11 @@ function filteredTournaments() {
 		<main class="flex flex-col flex-1 items-center px-8">
 			<h1 class="text-2xl font-bold text-center mt-8 mb-4">Vergangene Turniere</h1>
 
-			<input class="bg-white p-4 rounded-full font-bold text-center text-gray-500 text-xl mb-4 w-full" type="text"
+			<input class="bg-[var(--color-element)] p-4 rounded-full font-bold text-center text-gray-500 text-xl mb-4 w-full" type="text"
 				v-model="tournamentName" placeholder="Suche Turniername..." maxlength="120" required />
 
 			<div class="w-full overflow-y-auto flex flex-col gap-2 pb-4 h-[65svh]">
-				<div class="grid grid-cols-2 grid-rows-2 bg-white rounded-3xl py-2 px-4 cursor-pointer"
+				<div class="grid grid-cols-2 grid-rows-2 bg-[var(--color-element)] rounded-3xl py-2 px-4 cursor-pointer"
 					v-for="tourn in filteredTournaments()" :key="tourn.id" v-if="filteredTournaments().length > 0"
 					@click="getTournament(tourn.id)">
 					<p

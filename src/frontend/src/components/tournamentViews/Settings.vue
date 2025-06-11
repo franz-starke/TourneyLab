@@ -23,10 +23,10 @@ function exitTournament() {
 		<div class="settingsSection">
 			<span>App Aussehen:</span>
 			<div class="flex flex-row gap-4">
-				<div class="settingsTheme text-white bg-[var(--color-accent)]">
+				<div class="settingsTheme text-[var(--color-text)] bg-[var(--color-element)]" :class="{ '!bg-[var(--color-accent)] !text-[var(--color-text-alt)]' : settings.appTheme == 'light'}" @click="settings.setAppTheme('light')">
 					<IconSun />
 				</div>
-				<div class="settingsTheme text-black bg-white">
+				<div class="settingsTheme text-[var(--color-text)] bg-[var(--color-element)]" :class="{ '!bg-[var(--color-accent)]' : settings.appTheme == 'dark'}" @click="settings.setAppTheme('dark')">
 					<IconMoon />
 				</div>
 			</div>
@@ -43,7 +43,7 @@ function exitTournament() {
 		</div>
 
 		<div class="settingsSection w-full">
-			<span class="font-bold text-xl mb-2">Turnier Verlassen:</span>
+			<div class="flex w-full h-18 justify-evenly items-center text-2xl font-bold bg-red-500 text-white rounded-4xl mt-8"
 			<div class="flex w-full h-18 justify-evenly items-center text-2xl font-bold bg-red-500 text-white rounded-3xl" @click="exitTournament">
 				<span class="mb-0!">Turnier Verlassen</span>
 				<IconLeave />

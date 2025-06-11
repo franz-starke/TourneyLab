@@ -90,7 +90,7 @@ function onDetect(detectedCodes) {
 			<div class="flex flex-col w-full">
 				<p class="text-gray-800 text-base font-bold text-center mb-1">QR-Code Scannen</p>
 				<div
-					class="flex flex-col items-center justify-center w-full aspect-square rounded-4xl bg-white duration-200">
+					class="flex flex-col items-center justify-center w-full aspect-square rounded-4xl bg-[var(--color-element)]">
 					<IconCamera v-if="!scannerActive" class="w-30 h-30"></IconCamera>
 					<qrcode-stream v-else @detect="onDetect"></qrcode-stream>
 				</div>
@@ -100,8 +100,8 @@ function onDetect(detectedCodes) {
 				<p for="enter-code" class="text-gray-600 text-base font-bold text-center mb-2">Oder Manuell Eingeben</p>
 
 				<div v-if="isOnline" class="flex flex-col justify-center w-full gap-4">
-					<input id="enter-code" class="flex bg-white p-4 rounded-full font-bold text-center text-gray-500 text-xl"
-						name="enter-code" type="text" placeholder="Turnier-Code Eingeben..." v-model="tournamentId" />
+					<input id="enter-code"
+						class="flex bg-[var(--color-element)] p-4 rounded-full font-bold text-center text-gray-500 text-xl"
 
 					<div class="colorButton" @click="enterTournament">
 						<span>Beitreten</span>

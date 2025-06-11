@@ -8,7 +8,7 @@ const router = useRouter();
 <template>
 	<header class="flex items-center justify-between pt-4 px-4">
 		<div class="flex items-center justify-center">
-			<div class="bg-white rounded-full hover:bg-gray-300 duration-200" @click="router.back()">
+			<div class="bg-[var(--color-element)] rounded-full hover:bg-[var(--color-sub-element)]" @click="router.back()">
 				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
 					class="bi bi-arrow-left-short" viewBox="0 0 16 16">
 					<path fill-rule="evenodd"
