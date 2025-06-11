@@ -92,6 +92,10 @@ Backend runs at `http://localhost:8000`
     └── frontend
 ```
 
+## 🛡 License
+
+This project is licensed under the [MIT License](LICENSE).
+
 ## 🤝 Contributing
 
 We welcome contributions!
