@@ -32,12 +32,22 @@
 	--background-light: #E7E9F6;
 	--background-dark: #020618;
 
+	/* element */
+	--element-light: #ffffff;
+	--element-dark: #0f172b;
+
+	/* sub-element */
+	--sub-element-light: #d1d5dc;
+	--sub-element-dark: #1d293d;
+
 	/* text color */
 	--text-color-light: black;
 	--text-color-dark: white;
 
 	/* dynamic styles */
 	--color-background: var(--background-light);
+	--color-element: var(--element-light);
+	--color-sub-element: var(--sub-element-light);
 	--color-text: var(--text-color-light);
 	--color-text-alt: var(--text-color-dark);
 	--color-accent: var(--color-green);
