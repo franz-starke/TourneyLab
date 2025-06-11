@@ -1,16 +1,19 @@
 <script setup>
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
+import { useThemeStore } from '@/stores/userTheme.js';
+
 import LanguageSelectBtn from "../utilcomponents/LanguageSelectBtn.vue";
 import IconMoon from "../icons/IconMoon.vue";
 import IconSun from "../icons/IconSun.vue";
 import IconLeave from "../icons/IconLeave.vue";
 
 const router = useRouter();
+const settings = useThemeStore();
 
 function exitTournament() {
-	// Logic to exit the tournament can be added here if needed
 	router.push({ name: "landing" });
 }
+
 </script>
 
 <template>
@@ -35,10 +38,18 @@ function exitTournament() {
 		<div class="settingsSection">
 			<span>Akzent Farbe:</span>
 			<div class="flex flex-row gap-4">
-				<div class="settingsAccentColor bg-[var(--color-green)] border-3"></div>
-				<div class="settingsAccentColor bg-[var(--color-blue)]"></div>
-				<div class="settingsAccentColor bg-[var(--color-red)]"></div>
-				<div class="settingsAccentColor bg-[var(--color-purple)]"></div>
+				<div class="settingsAccentColor bg-[var(--color-green)]"
+					:class="{ 'ring-4 ring-[var(--color-text)]': settings.accentColor === 'green' }"
+					@click="settings.setAccentColor('green')"></div>
+				<div class="settingsAccentColor bg-[var(--color-blue)]"
+					:class="{ 'ring-4 ring-[var(--color-text)]': settings.accentColor === 'blue' }"
+					@click="settings.setAccentColor('blue')"></div>
+				<div class="settingsAccentColor bg-[var(--color-red)]"
+					:class="{ 'ring-4 ring-[var(--color-text)]': settings.accentColor === 'red' }"
+					@click="settings.setAccentColor('red')"></div>
+				<div class="settingsAccentColor bg-[var(--color-purple)]"
+					:class="{ 'ring-4 ring-[var(--color-text)]': settings.accentColor === 'purple' }"
+					@click="settings.setAccentColor('purple')"></div>
 			</div>
 		</div>
 
