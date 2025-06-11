@@ -19,12 +19,12 @@ function exitTournament() {
 <template>
 	<div class="flex flex-col w-full h-full justify-start items-center gap-4">
 		<div class="settingsSection">
-			<span>App Sprache:</span>
+			<span>{{ $t('settings.lang') }}</span>
 			<LanguageSelectBtn />
 		</div>
 
 		<div class="settingsSection">
-			<span>App Aussehen:</span>
+			<span>{{ $t('settings.appe') }}</span>
 			<div class="flex flex-row gap-4">
 				<div class="settingsTheme text-[var(--color-text)] bg-[var(--color-element)]" :class="{ '!bg-[var(--color-accent)] !text-[var(--color-text-alt)]' : settings.appTheme == 'light'}" @click="settings.setAppTheme('light')">
 					<IconSun />
@@ -36,7 +36,7 @@ function exitTournament() {
 		</div>
 
 		<div class="settingsSection">
-			<span>Akzent Farbe:</span>
+			<span>{{ $t('settings.accent') }}</span>
 			<div class="flex flex-row gap-4">
 				<div class="settingsAccentColor bg-[var(--color-green)]"
 					:class="{ 'ring-4 ring-[var(--color-text)]': settings.accentColor === 'green' }"
@@ -55,8 +55,8 @@ function exitTournament() {
 
 		<div class="settingsSection w-full">
 			<div class="flex w-full h-18 justify-evenly items-center text-2xl font-bold bg-red-500 text-white rounded-4xl mt-8"
-			<div class="flex w-full h-18 justify-evenly items-center text-2xl font-bold bg-red-500 text-white rounded-3xl" @click="exitTournament">
-				<span class="mb-0!">Turnier Verlassen</span>
+				@click="exitTournament">
+				<span class="mb-0!">{{ $t('settings.leave') }}</span>
 				<IconLeave />
 			</div>
 		</div>

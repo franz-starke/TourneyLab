@@ -57,7 +57,7 @@ async function changeActiveField(fieldID) {
 			<div class="flex flex-wrap w-full justify-center items-center gap-2">
 				<div class="flex bg-[var(--color-element)] px-4 py-2 rounded-full text-base font-bold"
 					v-for="field in Object.keys(store.tournament.games)" :key="field" @click="changeActiveField(field)">
-					<span class="whitespace-nowrap">Feld {{ field }}</span>
+					<span class="whitespace-nowrap">{{ $t('games.field') }} {{ field }}</span>
 				</div>
 			</div>
 		</div>

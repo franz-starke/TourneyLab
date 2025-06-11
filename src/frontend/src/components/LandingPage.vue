@@ -16,17 +16,17 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 			<span class="hidden font-bold text-7xl mb-8 lg:flex">TourneyLab</span>			
 
 			<RouterLink to="/enter-tournament" class="enterButton group">
-				<IconEnter class="w-50 h-50 text-white mb-2 group-hover:text-black duration-200 ease-in-out" />
-				<span> Turnier Beitreten </span>
+				<IconEnter class="w-50 h-50 mb-2 ease-in-out" />
+				<span>{{ $t('landing.enter') }}</span>
 			</RouterLink>
 
 			<div class="flex flex-col w-full gap-8 lg:max-w-300 lg:flex-row lg:mt-8 lg:gap-16">
 				<RouterLink to="/create-tournament" class="landingButton group">
-					<span> Neue Turniere Erstellen </span>
+					<span>{{ $t('landing.create') }}</span>
 				</RouterLink>
 
 				<RouterLink to="/old-tournament" class="landingButton group">
-					<span> Alte Turniere Einsehen </span>
+					<span>{{ $t('landing.old') }}</span>
 				</RouterLink>
 			</div>
 			

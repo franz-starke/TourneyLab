@@ -1,6 +1,10 @@
 <script setup>
+import { useThemeStore } from '@/stores/userTheme.js';
+
 import IconFlagGerman from '@/components/icons/IconFlagGerman.vue';
 import IconFlagUSA from '@/components/icons/IconFlagUSA.vue';
+
+const settings = useThemeStore();
 </script>
 
 <template>

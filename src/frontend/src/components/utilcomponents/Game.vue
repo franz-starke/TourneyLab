@@ -56,16 +56,16 @@ watch(
 		<div class="flex flex-col w-full justify-center items-center">
 			<p class="font-bold text-gray-500">{{ startTime }}</p>
 			<div class="null-game" v-if="team1 == 0 || team2 == 0">--</div>
-			<div class="flex flex-row justify-between items-center w-full px-4 py-2 bg-white rounded-3xl" v-else>
+			<div class="flex flex-row justify-between items-center w-full px-4 py-2 bg-[var(--color-element)] rounded-3xl" v-else>
 				<div class="flex flex-col">
 					<div>
-						<p class="text-lg font-bold">Team {{ team1 }} vs. Team {{ team2 }}</p>
+						<p class="text-lg font-bold">{{ $t('games.team') }} {{ team1 }} vs. {{ $t('games.team') }} {{ team2 }}</p>
 					</div>
 
-					<p class="text-sm font-bold text-gray-500">Schiedsrichter: Team {{ referee }}</p>
+					<p class="text-sm font-bold text-gray-500">{{ $t('games.ref') }}: {{ $t('games.team') }} {{ referee }}</p>
 				</div>
 
-				<div class="flex flex-row w-30 justify-evenly items-center bg-gray-300 p-2 rounded-full">
+				<div class="flex flex-row w-30 justify-evenly items-center bg-[var(--color-sub-element)] p-2 rounded-full">
 					<input class="flex w-8 text-center text-2xl font-bold" min="0" type="number"
 						v-model.number="points[0]" @click.stop.prevent />
 					:

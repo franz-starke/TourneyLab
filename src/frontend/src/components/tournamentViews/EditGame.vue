@@ -63,13 +63,13 @@ watch(
 
 <template>
 	<div class="flex flex-col w-full justify-center items-center">
-		<h2 class="text-xl font-bold">Schiedsrichter: {{ game[2] }}</h2>
+		<h2 class="text-xl font-bold">{{ $t('games.ref') }}: {{ game[2] }}</h2>
 		<span class="font-bold text-gray-500"> {{ game[3] }}</span>
 	</div>
 
 	<div class="flex flex-col h-full justify-evenly gap-2">
 		<div class="editScoreField">
-			<span class="editScoreTeam">Team {{ game[0] }}</span>
+			<span class="editScoreTeam">{{ $t('games.team') }} {{ game[0] }}</span>
 			<span class="editScorePoints">{{ points[0] }}</span>
 
 			<div class="editScoreActions">
@@ -79,7 +79,7 @@ watch(
 		</div>
 
 		<div class="editScoreField">
-			<span class="editScoreTeam">Team {{ game[1] }}</span>
+			<span class="editScoreTeam">{{ $t('games.team') }} {{ game[1] }}</span>
 			<span class="editScorePoints">{{ points[1] }}</span>
 
 			<div class="editScoreActions">

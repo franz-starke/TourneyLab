@@ -232,15 +232,15 @@ watch(amountGroups, (newValue) => {
 		<BackHeader />
 
 		<main class="flex flex-col h-full px-8">
-			<h1 class="text-2xl font-bold text-center mb-4 sticky top-0 pt-[env(safe-area-inset-top)] px-4">Turnier Erstellen</h1>
+			<h1 class="text-2xl font-bold text-center mb-4 sticky top-0 pt-[env(safe-area-inset-top)] px-4">{{ $t('create.createT') }}</h1>
 
 			<div v-if="!showRefModal" class="flex-1 flex flex-col gap-4 overflow-y-auto relative pb-[calc(env(safe-area-inset-bottom)+5rem)]">
 
 				<input class="flex bg-[var(--color-element)] p-2 rounded-full font-bold text-center placeholder:text-gray-500 text-xl"
-					type="text" v-model="tournamentName" placeholder="Turniername..." maxlength="120" required />
+					type="text" v-model="tournamentName" :placeholder="$t('create.name')" maxlength="120" required />
 
 				<NumberField id="amountFields" v-model="amountFields" :min="1" :max="4">
-					<span class="sectionSpan">Anzahl Felder</span>
+					<span class="sectionSpan">{{ $t('create.fields') }}</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
 						<NumberFieldInput />
@@ -249,7 +249,7 @@ watch(amountGroups, (newValue) => {
 				</NumberField>
 
 				<NumberField id="amountGroups" v-model="amountGroups" :min="1" :max="2">
-					<span class="sectionSpan">Anzahl Leistungsgruppen</span>
+					<span class="sectionSpan">{{ $t('create.groups') }}</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
 						<NumberFieldInput />
@@ -258,8 +258,9 @@ watch(amountGroups, (newValue) => {
 				</NumberField>
 
 				<NumberField id="amountTeams1" v-model="amountTeams1" :min="3" :max="12">
-					<span class="sectionSpan">Anzahl Teams {{ amountGroups == 1 ? "" : " Gruppe 1"
-					}}</span>
+					<span class="sectionSpan">
+						{{ $t('create.teams') }} <span v-if="amountGroups == 2"> {{ $t('create.group') }} 1</span>
+					</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
 						<NumberFieldInput />
@@ -269,7 +270,7 @@ watch(amountGroups, (newValue) => {
 
 				<NumberField id="amountTeams2" v-if="amountGroups == 2" v-model="amountTeams2"
 					:min="amountGroups == 2 ? 3 : 0" :max="12">
-					<span class="sectionSpan">Anzahl Teams Gruppe 2</span>
+					<span class="sectionSpan">{{ $t('create.teams') }} {{ $t('create.group') }} 2</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
 						<NumberFieldInput />
@@ -278,20 +279,20 @@ watch(amountGroups, (newValue) => {
 				</NumberField>
 
 				<div class="flex items-center justify-center">
-					<span class="sectionSpan mr-4">Hin- und Rückspiel</span>
+					<span class="sectionSpan mr-4">{{ $t('create.return') }}</span>
 					<input id="withReturnGame" class="custom-checkbox" v-model="withReturnGame" type="checkbox" />
 				</div>
 
 				<div class="flex flex-row justify-between w-full">
 					<div class="flex flex-col justify-center">
-						<span class="sectionSpan">Datum:</span>
+						<span class="sectionSpan">{{ $t('create.date') }}</span>
 						<div class="flex items-center justify-center">
 							<input class="numberInputBox" type="date" id="input-date" name="date" v-model="date" />
 						</div>
 					</div>
 
 					<div class="flex flex-col justify-center">
-						<span class="sectionSpan" for="start-time">Start Zeit:</span>
+						<span class="sectionSpan" for="start-time">{{ $t('create.time') }}</span>
 						<div class="flex items-center justify-center">
 							<input class="numberInputBox" type="time" id="input-start-time" name="start-time"
 								v-model="startTime" />
@@ -301,7 +302,7 @@ watch(amountGroups, (newValue) => {
 				</div>
 
 				<NumberField id="input-round-duration" v-model="roundDuration" :min="5" :step="5">
-					<span class="sectionSpan">Rundendauer (min)</span>
+					<span class="sectionSpan">{{ $t('create.round') }}</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
 						<NumberFieldInput />
@@ -310,7 +311,7 @@ watch(amountGroups, (newValue) => {
 				</NumberField>
 
 				<NumberField id="input-break-duration" v-model="breakDuration" :min="0" :step="5">
-					<span class="sectionSpan">Pausendauer (min)</span>
+					<span class="sectionSpan">{{ $t('create.break') }}</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
 						<NumberFieldInput />
@@ -320,7 +321,7 @@ watch(amountGroups, (newValue) => {
 			</div>
 
 			<button class="colorButton px-4 pt-2 pb-4 mt-2 mb-[calc(env(safe-area-inset-bottom)+4.5rem)]" @click="generateTournament">
-				<span>Erstellen</span>
+				<span>{{ $t('create.create') }}</span>
 			</button>
 
 			<!-- Referee Assignment Dialog -->

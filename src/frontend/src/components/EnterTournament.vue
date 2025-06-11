@@ -24,10 +24,10 @@ const isOnline = computed(() => {
 
 
 onMounted(() => {
-  // Start scanner after 2 seconds (adjust as needed)
-  setTimeout(() => {
-    scannerActive.value = true
-  }, 2000)
+	// Start scanner after 2 seconds (adjust as needed)
+	setTimeout(() => {
+		scannerActive.value = true
+	}, 2000)
 })
 
 
@@ -85,10 +85,10 @@ function onDetect(detectedCodes) {
 		<BackHeader />
 
 		<main class="flex flex-col flex-1 justify-evenly items-center px-8">
-			<h1 class="text-2xl font-bold text-center">Turnier Beitreten</h1>
+			<h1 class="text-2xl font-bold text-center">{{ $t('enter.joinT') }}</h1>
 
 			<div class="flex flex-col w-full">
-				<p class="text-gray-800 text-base font-bold text-center mb-1">QR-Code Scannen</p>
+				<p class="text-gray-500 text-base font-bold text-center mb-1">{{ $t('enter.scan') }}</p>
 				<div
 					class="flex flex-col items-center justify-center w-full aspect-square rounded-4xl bg-[var(--color-element)]">
 					<IconCamera v-if="!scannerActive" class="w-30 h-30"></IconCamera>
@@ -97,14 +97,16 @@ function onDetect(detectedCodes) {
 			</div>
 
 			<div class="flex flex-col w-full">
-				<p for="enter-code" class="text-gray-600 text-base font-bold text-center mb-2">Oder Manuell Eingeben</p>
+				<p for="enter-code" class="text-gray-500 text-base font-bold text-center mb-2">{{ $t('enter.manual') }}
+				</p>
 
 				<div v-if="isOnline" class="flex flex-col justify-center w-full gap-4">
 					<input id="enter-code"
 						class="flex bg-[var(--color-element)] p-4 rounded-full font-bold text-center text-gray-500 text-xl"
+						name="enter-code" type="text" :placeholder="$t('enter.code')" v-model="tournamentId" />
 
 					<div class="colorButton" @click="enterTournament">
-						<span>Beitreten</span>
+						<span>{{ $t('enter.join') }}</span>
 					</div>
 				</div>
 			</div>

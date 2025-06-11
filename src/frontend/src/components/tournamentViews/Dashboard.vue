@@ -86,10 +86,10 @@ function setActiveGroup(groupIndex) {
 
 		<div class="grid grid-cols-4 justify-center text-center mt-4 gap-4">
 			<div id="leaderboard-header" class="contents ">
-				<h3 class="font-bold">Platz</h3>
-				<h3 class="font-bold">Team</h3>
-				<h3 class="font-bold">Siege</h3>
-				<h3 class="font-bold">Punkte</h3>
+				<h3 class="font-bold">{{ $t('result.placement') }}</h3>
+				<h3 class="font-bold">{{ $t('result.team') }}</h3>
+				<h3 class="font-bold">{{ $t('result.win') }}</h3>
+				<h3 class="font-bold">{{ $t('result.points') }}</h3>
 			</div>
 
 			<div class="contents" v-for="team in leaderboard.groups[activeGroup].teams">
@@ -105,12 +105,12 @@ function setActiveGroup(groupIndex) {
 	<div v-else-if="!syncGames" id="dashboard-container"
 		class="flex flex-col w-full align-center justify-between h-full">
 		<button class="colorButton" @click="toggleSyncGames">
-			<span>Spielstände Sync.</span>
+			<span>{{ $t('home.sync') }}</span>
 			<IconQrCode />
 		</button>
 
 		<button class="colorButton" @click="evalTournament">
-			<span>Turnier auswerten</span>
+			<span>{{ $t('home.results') }}</span>
 			<IconTrophy />
 		</button>
 	</div>
@@ -123,14 +123,14 @@ function setActiveGroup(groupIndex) {
 	<!-- Dialog for syncing Games  -->
 	<div v-else id="synchronize-games-container" class="flex-container">
 
-		<h2>QR-Scanner for offline updating Tournament Data:</h2>
+		<h2>{{ $t('sync.offline') }}</h2>
 		<div id="qr-code-wrapper">
 			<qrcode-stream @detect="onDetect"></qrcode-stream>
 		</div>
 
 		<!-- TODO: if online, we can use smaller Qrcodes -->
 		<div class="flex flex-col items-center justify-center gap-4">
-			<h2 class="font-medium">Turnier QR-Code: <span class="text-blue-500">{{ store.tournament.id }}</span></h2>
+			<h2 class="font-medium">{{ $t('sync.code') }} <span class="text-blue-500">{{ store.tournament.id }}</span></h2>
 			<qrcode-vue class="" :value="qrvalue" :size="qrSize" level="L" render-as="svg" />
 		</div>
 	</div>
