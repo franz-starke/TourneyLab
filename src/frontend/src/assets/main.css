@@ -6,7 +6,7 @@ body {
 }
 
 #app {
-	@apply m-0 p-0 max-w-[1280px] font-normal;
+	@apply m-0 p-0 font-normal;
 }
 
 input[type="checkbox"] {
@@ -29,7 +29,7 @@ input:focus {
 
 /* Landing page */
 .enterButton {
-	@apply flex flex-col w-full justify-center items-center aspect-square rounded-4xl bg-[var(--color-accent)] text-[var(--color-text-alt)] duration-200 hover:bg-white hover:text-[var(--color-text)];
+	@apply flex flex-col w-full max-w-200 justify-center items-center aspect-square rounded-4xl bg-[var(--color-accent)] text-[var(--color-text-alt)] duration-200 hover:bg-white hover:text-[var(--color-text)] lg:max-w-100;
 }
 
 .enterButton span {
