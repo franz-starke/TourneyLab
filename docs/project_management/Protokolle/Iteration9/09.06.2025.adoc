@@ -6,11 +6,11 @@ vom __date__
 :last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
 
 .generelle Informationen
-- **Zeit:** 09:45 - 11:00 Uhr 
+- **Zeit:** 14:00 - 15:00 Uhr 
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
-- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Ibrahim Braikeh, Jannis Wittchen, Mutaz Abuazizeh
-- **Abwesend:** Ali Zeinelov (Arzttermin) 
+- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Jannis Wittchen, Mutaz Abuazizeh,Ali Zeinelov 
+- **Abwesend:** Ibrahim Braikeh
 
 
 == Agenda
@@ -34,14 +34,20 @@ vom __date__
 |Sebastian
 
 |1
-|Terminabsprache Coachmeeting, Belegabgabe
-|10 Min.
-|
+|Besprechung Fachaustausch / Coachmeeting
+|15 Min.
+|alle auf aktuellen Stand
 |Alle
 
 |2
+|Gruppen und Einzelreflexionen 
+|15 Min.
+|
+|Alle
+
+|3
 |Aktuellen Stand der Untergruppen besprechen
-|45 Min.
+|30 Min.
 |
 |Alle
 
@@ -67,47 +73,40 @@ vom __date__
 
 == Besprechung der TOP's
 
-=== TOP 1: Terminabsprache Coachmeeting, Belegabgabe
-
-Folien in zu Belegabgabe lesen
-
-Treffen mit Ruben: 
- 
-- Struktur beim Styling (Selektoren) -> Tailwind verwenden
-- Codereview Backend
-
-Coach Meeting Dienstag 03.06.
-Themen: 
-- Repo durchgehen was fehlt und muss ergänzt werden
-- Gruppenreflexion
-- Allgemeiner Fahrplan
+=== TOP 1: Besprechung Fachaustausch / Coachmeeting
 
 
 
-=== TOP 2: Aktuellen Stand der Untergruppen besprechen
+=== TOP 2: Gruppen und Einzelreflexionen
+
+- jeder kümemrt sich um Einzelreflexion 
+
+- Treffen am 10.06. um 19 uhr online für Gruppenreflexion. Bis dahin Stichpunkte in gemeinsamen Dokument schreiben 
+
+=== TOP 3: Aktuellen Stand der Untergruppen besprechen
 
 Auswertungsalgorhytmus:
-
-Auswertealgorhytmus fertig dokumentiert 
 
 
 Frontend:
 
-Beitreten von Turnier über ID oder QR Code?
-Online möglich, Offline nicht umsetzbar 
+Teams Ansicht erstellen
 
-Unit Tests für Backend geschrieben
+Styling von Ergebnisseite
 
-Ali? Bisher in Git eingearbeitet, aber keinen Beitrag geleistet
+PDF Erstellung von Ergebnissen 
 
+Einstellungsseite
 
+Eventuell in Aussicht: Dashboard mit aktuellen Spielen
 
 Backend:
 
-- Impressum in Txt datei auslagern und offen lassen für StuRa
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
+
+
 
 
 == Aufgabenverteilung
@@ -118,9 +117,25 @@ Backend:
 |Wer |Aufgabe 
 
 | Alle 
-| Einzelreflexion beginnen
+| Gruppenreflexion in shared Dokument
 
+|Franz 
+|Einstellungsseite
 
+|Joshua 
+|Teamsansicht
+
+|Ali
+|Styling von Ergebnisseite, Teamsansicht
+
+|Mutaz
+|Desktop Styling
+
+|Jannis
+|PDF Ausgabe auf Ergebnisseite
+
+|Sebastian
+|Treffen mit Auftraggeberin
 
 
 |===
@@ -130,4 +145,5 @@ Backend:
 
 == Anhang
 - **Links und Dokumente:**
+
 

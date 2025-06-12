@@ -1,0 +1,20 @@
+services:
+    backend:
+        build:
+            context: .
+            dockerfile: src/backend/Dockerfile
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./src/backend:/app
+        depends_on:
+            - frontend
+
+    frontend:
+        build:
+            context: .
+            dockerfile: src/frontend/Dockerfile
+        ports:
+            - "8080:80"
+        volumes:
+            - ./src/frontend:/app

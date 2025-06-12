@@ -1,0 +1,63 @@
+= Protokoll Coachmeeting
+vom __date__
+:toc-title: Inhaltsverzeichnis
+:toc: left
+:icons: font
+:last-Protokoll: ./Protokolle/Iteration4/Protokoll_14.01.2024.adoc
+
+.generelle Informationen
+- **Zeit:** 17:30 - 19:00 Uhr 
+- **Ort:**  HTWD Bib 302b / online
+- **Protokollant:** Sebastian Heber
+- **Anwesend:**  Joshua Heninger, Ali Zeinelov, Sebastian Heber, Jannis Wittchen, Mutaz Abuazizeh
+- **Abwesend:**  Franz Starke (Arbeit), Ibrahim Braikeh (krank)
+
+= Themen
+
+Gruppenleistung ganz wichtig!, es geht um den Prozess, Format: .adoc
+
+mögliche Themen:
+
+-Arbeit mit Auftraggeber
+
+-Versionsverwaltung
+
+-Kommunikation
+
+-Anforderungsanalyse
+
+-Fehlende Programmierkenntnis
+
+-mögliche Miserfolge: nicht jeder kennt sich mit der Code-base aus
+
+-Erfolge: Aufgabenverteilung, gute Rollenzuweisung, Teammitglieder mit einbeziehen so gut wie  möglich
+
+
+Retrospektive:
+
+-Was würde ich jetzt anders machen?
+    
+
+Anforderungsspezifikation:
+
+-einfach überarbeiten
+
+-Architecture notebook
+
+
+Entwicklerdoku: easy, macht jeder, der gecoded hat
+
+
+Testdoku: jeder der getestet hat
+
+
+Anwenderdoku: 
+
+-was muss ich zum benutzen der App wissen?
+
+-Bilder(Screenshots) und kleine Erklärung 
+
+
+Betriebsdoku: wie bringe ich euer Produkt zum laufen (schwieriger, also mal schauen)
+
+Entwufs Fachaustausch
