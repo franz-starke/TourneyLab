@@ -4,6 +4,7 @@
 .DS_Store
 *~
 .vscode
+reflexion.adoc
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
