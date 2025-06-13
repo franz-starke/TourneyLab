@@ -13,7 +13,6 @@ const settings = useThemeStore();
 function exitTournament() {
 	router.push({ name: "landing" });
 }
-
 </script>
 
 <template>

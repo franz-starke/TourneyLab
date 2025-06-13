@@ -1,7 +1,9 @@
+<!-- TODO: include unmount hook to sync data with server and or button-->
+
 <script setup>
 import { useTournamentStore } from "@/stores/tournamentStore";
 import Game from "../utilcomponents/Game.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import api from "@/api/api.js";
 
 const activeFieldID = ref(1);

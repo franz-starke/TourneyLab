@@ -62,6 +62,9 @@ const i18n = createI18n({
                 team: "Team",
                 ref: "Schiedsrichter"
             },
+			teams: {
+				pro: "Schwitzer"
+			},
             settings: {
                 lang: "App Sprache:",
                 appe: "App Aussehen:",
@@ -119,6 +122,9 @@ const i18n = createI18n({
                 team: "Team",
                 ref: "Referee"
             },
+			teams: {
+				pro: "Tryhards"
+			},
             settings: {
                 lang: "App Language:",
                 appe: "App Appearance:",
