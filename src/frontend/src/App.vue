@@ -15,5 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-	<RouterView />
+  <div class="min-h-screen w-full max-w-full bg-gray-50">
+    <RouterView />
+  </div>
 </template>

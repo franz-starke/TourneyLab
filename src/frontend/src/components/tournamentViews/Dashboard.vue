@@ -18,7 +18,6 @@ onMounted(() => {
 	qrSize.value = minSize * 0.7;
 });
 
-
 // QrCode data for offline sync
 // 1. Convert to JSON string
 // qr code can hold max of 1273 characters at Level H and 2953 at Level L
@@ -31,7 +30,6 @@ console.log("Compressed:", compressed, "Compressed Length: ", compressed.length)
 const base64Encoded = btoa(String.fromCharCode(...compressed));
 console.log("Base64 Encoded:", base64Encoded, "Length: ", base64Encoded.length);
 const qrvalue = ref(base64Encoded); // this works, because the longest possible Tournament Json String results to 2756 characters,which is in the Limits of an L level QR Code
-
 
 // Qr scanner function
 function onDetect(detectedCodes) {
@@ -53,11 +51,9 @@ function onDetect(detectedCodes) {
 	console.log("Tournament data updated:", tournamentData);
 }
 
-
 function toggleSyncGames() {
 	syncGames.value = !syncGames.value;
 }
-
 
 const leaderboard = ref({});
 function evalTournament() {
@@ -67,8 +63,6 @@ function evalTournament() {
 	evalShow.value = true;
 }
 
-
-
 const activeGroup = ref(0);
 function setActiveGroup(groupIndex) {
 	activeGroup.value = groupIndex;
@@ -76,62 +70,67 @@ function setActiveGroup(groupIndex) {
 </script>
 
 <template>
-	<!-- Tournament Dashboard -->
-	<div v-if="evalShow" id="eval-dialog" class="p-2">
-		<div class="flex items-center justify-evenly">
-			<button class="default-btn" @click="setActiveGroup(0)">Fun</button>
-			<button v-if="leaderboard.groups.length == 2" class="default-btn"
-				@click="setActiveGroup(1)">Schwitzer</button>
-		</div>
+  <div>
+    <!-- Tournament Dashboard -->
+    <div v-if="evalShow" id="eval-dialog" class="p-2">
+      <div class="flex items-center justify-evenly mb-4">
+        <button class="default-btn rounded-full px-6 py-2 bg-green-500 text-white font-semibold" style="background-color: #63a69f;" @click="setActiveGroup(0)">Fun</button>
+        <button v-if="leaderboard.groups.length == 2"
+                class="default-btn rounded-full px-6 py-2 bg-gray-200 font-semibold"
+                @click="setActiveGroup(1)">Schwitzer</button>
+      </div>
+      <div class="grid grid-cols-1 gap-3">
+        <div class="grid grid-cols-4 font-semibold bg-white rounded-xl py-2 px-4 text-center shadow-md">
+          <div>{{ $t('result.placement') }}</div>
+          <div>{{ $t('result.team') }}</div>
+          <div>{{ $t('result.win') }}</div>
+          <div>{{ $t('result.points') }}</div>
+        </div>
+        <div v-for="team in leaderboard.groups[activeGroup].teams"
+             class="grid grid-cols-4 items-center bg-white rounded-xl py-2 px-4 text-center shadow-md">
+          <div class="rounded-full w-8 h-8 mx-auto flex items-center justify-center"
+               :class="{
+                 'bg-yellow-500 text-white': team.rank === 1,
+                 'bg-gray-300': team.rank === 2,
+                 'bg-amber-700 text-white': team.rank === 3,
+                 'bg-gray-200': team.rank > 3
+               }">
+            {{ team.rank }}
+          </div>
+          <div>{{ team.id }}</div>
+          <div>{{ team.wins }}</div>
+          <div :class="{
+                'text-green-500': team.points > 0,
+                'text-red-500': team.points < 0,
+                'text-gray-500': team.points === 0
+              }">
+            {{ team.points > 0 ? '+' : '' }}{{ team.points }}
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<div class="grid grid-cols-4 justify-center text-center mt-4 gap-4">
-			<div id="leaderboard-header" class="contents ">
-				<h3 class="font-bold">{{ $t('result.placement') }}</h3>
-				<h3 class="font-bold">{{ $t('result.team') }}</h3>
-				<h3 class="font-bold">{{ $t('result.win') }}</h3>
-				<h3 class="font-bold">{{ $t('result.points') }}</h3>
-			</div>
+    <div v-else-if="!syncGames" id="dashboard-container"
+      class="flex flex-col w-full align-center justify-between h-full">
+      <button class="colorButton" @click="toggleSyncGames">
+        <span>{{ $t('home.sync') }}</span>
+        <IconQrCode />
+      </button>
+      <button class="colorButton" @click="evalTournament">
+        <span>{{ $t('home.results') }}</span>
+        <IconTrophy />
+      </button>
+    </div>
 
-			<div class="contents" v-for="team in leaderboard.groups[activeGroup].teams">
-				<h3 class="font-bold">{{ team.rank }}</h3>
-				<h3 class="font-bold">{{ team.id }}</h3>
-				<h3 class="font-bold">{{ team.wins }}</h3>
-				<h3 class="font-bold">{{ team.points }}</h3>
-			</div>
-
-		</div>
-	</div>
-
-	<div v-else-if="!syncGames" id="dashboard-container"
-		class="flex flex-col w-full align-center justify-between h-full">
-		<button class="colorButton" @click="toggleSyncGames">
-			<span>{{ $t('home.sync') }}</span>
-			<IconQrCode />
-		</button>
-
-		<button class="colorButton" @click="evalTournament">
-			<span>{{ $t('home.results') }}</span>
-			<IconTrophy />
-		</button>
-	</div>
-
-	<!-- Tournament Dashboard -->
-	<div v-else-if="evalShow" id="eval-dialog">
-		<h2>Turnier Auswertung kommt noch</h2>
-	</div>
-
-	<!-- Dialog for syncing Games  -->
-	<div v-else id="synchronize-games-container" class="flex-container">
-
-		<h2>{{ $t('sync.offline') }}</h2>
-		<div id="qr-code-wrapper">
-			<qrcode-stream @detect="onDetect"></qrcode-stream>
-		</div>
-
-		<!-- TODO: if online, we can use smaller Qrcodes -->
-		<div class="flex flex-col items-center justify-center gap-4">
-			<h2 class="font-medium">{{ $t('sync.code') }} <span class="text-blue-500">{{ store.tournament.id }}</span></h2>
-			<qrcode-vue class="" :value="qrvalue" :size="qrSize" level="L" render-as="svg" />
-		</div>
-	</div>
+    <div v-else id="synchronize-games-container" class="flex-container">
+      <h2>{{ $t('sync.offline') }}</h2>
+      <div id="qr-code-wrapper">
+        <qrcode-stream @detect="onDetect"></qrcode-stream>
+      </div>
+      <div class="flex flex-col items-center justify-center gap-4">
+        <h2 class="font-medium">{{ $t('sync.code') }} <span class="text-blue-500">{{ store.tournament.id }}</span></h2>
+        <qrcode-vue class="" :value="qrvalue" :size="qrSize" level="L" render-as="svg" />
+      </div>
+    </div>
+  </div>
 </template>
