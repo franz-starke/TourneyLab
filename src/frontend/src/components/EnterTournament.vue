@@ -94,9 +94,11 @@ function onDetect(detectedCodes) {
 				<p class="text-gray-500 text-base font-bold text-center mb-1">
 					{{ $t("enter.scan") }}
 				</p>
-				<div
-					class="flex flex-col items-center justify-center w-full aspect-square rounded-4xl bg-[var(--color-element)]"
-				>
+				
+<div class="flex justify-center items-center w-full">
+<div class="flex flex-col items-center justify-center w-full max-w-[500px] aspect-square md:aspect-[4/3] rounded-4xl bg-[var(--color-element)]"
+>
+
 					<IconCamera
 						v-if="!scannerActive"
 						class="w-30 h-30"
@@ -104,6 +106,9 @@ function onDetect(detectedCodes) {
 					<qrcode-stream v-else @detect="onDetect"></qrcode-stream>
 				</div>
 			</div>
+</div>
+
+
 
 			<div class="flex flex-col w-full">
 				<p
