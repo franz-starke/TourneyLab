@@ -111,11 +111,10 @@ function setActiveGroup(groupIndex) {
 		</div>
 	</div>
 
-	<!-- FIXME: make sync Dialog scrollable so QR doesn't cut off -->
 	<div
 		v-else-if="!syncGames"
 		id="dashboard-container"
-		class="flex flex-col w-full align-center justify-between h-full"
+		class="flex flex-col w-full align-center justify-between h-full "
 	>
 		<button class="colorButton" @click="toggleSyncGames">
 			<span>{{ $t("home.sync") }}</span>
@@ -134,7 +133,7 @@ function setActiveGroup(groupIndex) {
 	</div>
 
 	<!-- Dialog for syncing Games  -->
-	<div v-else id="synchronize-games-container" class="flex-container">
+	<div v-else id="synchronize-games-container" class="flex-container overflow-y-auto">
 		<h2>{{ $t("sync.offline") }}</h2>
 		<div id="qr-code-wrapper">
 			<qrcode-stream @detect="onDetect"></qrcode-stream>
