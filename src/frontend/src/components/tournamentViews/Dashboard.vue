@@ -148,11 +148,11 @@ function setActiveGroup(groupIndex) {
 			id="dashboard-container"
 			class="flex flex-col w-full align-center justify-between h-full"
 		>
-			<button class="colorButton" @click="toggleSyncGames">
+			<button class="colorButton cursor-pointer" @click="toggleSyncGames">
 				<span>{{ $t("home.sync") }}</span>
 				<IconQrCode />
 			</button>
-			<button class="colorButton" @click="evalTournament">
+			<button class="colorButton cursor-pointer" @click="evalTournament">
 				<span>{{ $t("home.results") }}</span>
 				<IconTrophy />
 			</button>
