@@ -18,6 +18,7 @@
 		"clsx": "^2.1.1",
 		"lucide-vue-next": "^0.511.0",
 		"pako": "^2.1.0",
+		"pdf-lib": "^1.17.1",
 		"pinia": "^3.0.2",
 		"qrcode.vue": "^3.6.0",
 		"reka-ui": "^2.3.0",

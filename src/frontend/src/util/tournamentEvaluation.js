@@ -52,7 +52,8 @@ export function evaluateTournamentData(tournamentData) {
 	const name = tournament.name || "(no name)";
 	const date = tournament.date || "(no date)";
 	const games = tournament.games || {};
-	const groups = tournament.groups || [];
+	const groups = tournament.groups || {};
+
 
 	// groupId => team count
 	const teams = {};
@@ -154,16 +155,32 @@ export function evaluateTournamentData(tournamentData) {
 				return b[1].score_diff - a[1].score_diff;
 			});
 
-		const group = {
-			groupId,
-			teams: sorted.map(([tid, stats], rank) => ({
-				id: tid,
-				...stats,
-				rank: rank + 1
-			}))
-		};
+		const teamsWithRanks = [];
+		let currentRank = 1;
+		let previousStats = null;
 
-		result.groups.push(group);
+		sorted.forEach(([tid, stats], idx) => {
+		if (
+			idx > 0 &&
+			stats.points === previousStats.points &&
+			stats.score_diff === previousStats.score_diff
+		) {
+			// Gleichstand – gleicher Rang wie vorher
+		} else {
+			// Neuer Rang
+			currentRank = idx + 1;
+		}
+
+		teamsWithRanks.push({ id: tid, ...stats, rank: currentRank });
+		previousStats = stats;
+		});
+
+
+
+		result.groups.push({
+			groupId,
+			teams: teamsWithRanks
+		});
 	});
 
 	return result;
