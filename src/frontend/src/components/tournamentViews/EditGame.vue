@@ -16,7 +16,7 @@ const game = ref([]);
 const points = ref([]);
 
 
-// TODO: get this games score from api first if online
+// get this games score from api first if online
 // if online: update pinia store
 // then always use pinia store for rendering
 onBeforeMount(async function () {

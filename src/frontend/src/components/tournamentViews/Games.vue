@@ -1,5 +1,3 @@
-<!-- TODO: include unmount hook to sync data with server and or button-->
-
 <script setup>
 import { useTournamentStore } from "@/stores/tournamentStore";
 import Game from "../utilcomponents/Game.vue";

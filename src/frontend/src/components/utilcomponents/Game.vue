@@ -21,7 +21,6 @@ const startTime = game[3];
 const points = ref(game[4]);
 
 
-
 const gameRoute = computed(() => ({
 	name: "edit-game",
 	params: { gameId: props.gameId },
@@ -31,11 +30,8 @@ watch(
 	() => points.value,
 	(newPoints) => {
 
-		// console.log("Points updated to", newPoints);
-		// TODO: call api if onLine at editGameScore
 		if (navigator.onLine) {
 			try {
-				// FIXME: test whether correct request is sent
 				const response = api.editGameScore(store.tournament.id, props.gameId, newPoints);
 			} catch (error) {
 				console.error("get old tournaments failed");
