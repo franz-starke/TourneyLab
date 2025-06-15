@@ -1,8 +1,7 @@
 <!-- TODO:
-	+ fill as per wireframe
- 	+ list teams per Group
+	+ make possible to change points of a game here as well
 
- 	+ make function to build Object of the form: Groups.Teams.Games = [Team1, Team2, RefTeam, start-time, Points, field]
+ 	+
 	+ or function to extract from one group
 -->
 
@@ -21,6 +20,8 @@ function setActiveGroup(groupIndex) {
 	activeGroup.value = groupIndex;
 }
 
+
+// Groups.TeamsPerGroup.GamesPerTeam = [Team1, Team2, RefTeam, start-time, Points, field]
 let teams = {};
 
 // build up current Infos on Teams
