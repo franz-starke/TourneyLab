@@ -6,7 +6,7 @@ import { useTournamentStore } from "@/stores/tournamentStore";
 import IconQrCode from "../icons/IconQrCode.vue";
 import IconTrophy from "../icons/IconTrophy.vue";
 import { gzip, ungzip } from "pako";
-import { evaluateTournamentData } from "@/util/tournamentEvaluation.js"
+import { evaluateTournamentData } from "@/util/tournamentEvaluation.js";
 
 const store = useTournamentStore();
 
@@ -25,7 +25,12 @@ const jsonStr = JSON.stringify(store.tournament);
 console.log("Tournament JSON String: ", jsonStr, "Length: ", jsonStr.length);
 // 2. Compress using GZIP
 const compressed = gzip(jsonStr);
-console.log("Compressed:", compressed, "Compressed Length: ", compressed.length);
+console.log(
+	"Compressed:",
+	compressed,
+	"Compressed Length: ",
+	compressed.length
+);
 // 3. Encode to Base64 (QR-safe string)
 const base64Encoded = btoa(String.fromCharCode(...compressed));
 console.log("Base64 Encoded:", base64Encoded, "Length: ", base64Encoded.length);
@@ -40,7 +45,10 @@ function onDetect(detectedCodes) {
 		return;
 	}
 	const decoded = atob(rawValue);
-	const decompressed = ungzip(new Uint8Array([...decoded].map(c => c.charCodeAt(0))), { to: 'string' });
+	const decompressed = ungzip(
+		new Uint8Array([...decoded].map((c) => c.charCodeAt(0))),
+		{ to: "string" }
+	);
 
 	// Parse the JSON string back to an object
 	const tournamentData = JSON.parse(decompressed);
@@ -122,7 +130,7 @@ function setActiveGroup(groupIndex) {
       </button>
     </div>
 
-    <div v-else id="synchronize-games-container" class="flex-container">
+    <div v-else id="synchronize-games-container" class="flex-container overflow-y-auto">
       <h2>{{ $t('sync.offline') }}</h2>
       <div id="qr-code-wrapper">
         <qrcode-stream @detect="onDetect"></qrcode-stream>
