@@ -10,8 +10,8 @@ const settings = useThemeStore();
 <template>
 	<div class="flex items-center justify-end">
 		<div id="themeIcon" @click="settings.toggleAppTheme()">
-			<IconMoon :class="{'hidden':settings.appTheme == 'dark'}" />
-			<IconSun :class="{'hidden':settings.appTheme == 'light'}" />
+			<IconMoon :class="{ 'hidden': settings.appTheme == 'dark' }" />
+			<IconSun :class="{ 'hidden': settings.appTheme == 'light' }" />
 		</div>
 	</div>
 </template>

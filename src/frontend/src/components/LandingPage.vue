@@ -12,8 +12,8 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 		</header>
 
 		<main class="flex flex-col flex-1 w-full justify-center items-center gap-8 px-8">
-			
-			<span class="hidden font-bold text-7xl mb-8 lg:flex">TourneyLab</span>			
+
+			<span class="hidden font-bold text-7xl mb-8 lg:flex">TourneyLab</span>
 
 			<RouterLink to="/enter-tournament" class="enterButton group">
 				<IconEnter class="w-50 h-50 mb-2 ease-in-out" />
@@ -29,7 +29,7 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 					<span>{{ $t('landing.old') }}</span>
 				</RouterLink>
 			</div>
-			
+
 		</main>
 
 	</div>
