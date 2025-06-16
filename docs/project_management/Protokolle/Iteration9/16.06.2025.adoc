@@ -88,6 +88,8 @@ Dashboard mit aktuellen Spielen
 
 Entwicklerdoku und Arcitecture Notebook
 
+Betriebsdokumentation Sytemvoraussetung und Systembetreuung (bei marlene nachfragen, eventuell Vorlagen aus letzten Jahren) 
+
 
 === TOP 3: Fragen an Auftraggeberin 
 
@@ -118,6 +120,10 @@ Heute 16.06. um 17:30 Uhr hybrid im Raum A105/106 und BBB
 
 |Jannis
 |PDF Ausgabe auf Ergebnisseite stylen
+
+|Ali, Mutaz
+|Anwenderdoku
+
 
 
 |===
