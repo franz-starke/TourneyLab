@@ -125,12 +125,12 @@ function setActiveGroup(groupIndex) {
 		</div>
 
 		<div v-else-if="!syncGames" id="dashboard-container"
-			class="flex flex-col w-full align-center justify-between h-full">
-			<button class="colorButton cursor-pointer" @click="toggleSyncGames">
+			class="flex flex-col w-full align-center justify-between items-center h-full">
+			<button class="colorButton cursor-pointer w-full max-w-100" @click="toggleSyncGames">
 				<span>{{ $t("home.sync") }}</span>
 				<IconQrCode />
 			</button>
-			<button class="colorButton cursor-pointer" @click="evalTournament">
+			<button class="colorButton cursor-pointer w-full max-w-100" @click="evalTournament">
 				<span>{{ $t("home.results") }}</span>
 				<IconTrophy />
 			</button>
