@@ -69,7 +69,8 @@ const i18n = createI18n({
                 lang: "App Sprache:",
                 appe: "App Aussehen:",
                 accent: "Akzent Farbe:",
-                leave: "Turnier Verlassen"
+                leave: "Turnier Verlassen",
+                imprint: "Impressum"
             }
         },
         en: {
@@ -129,7 +130,8 @@ const i18n = createI18n({
                 lang: "App Language:",
                 appe: "App Appearance:",
                 accent: "Accent Color:",
-                leave: "Leave Tournament"
+                leave: "Leave Tournament",
+                imprint: "Imprint"
             }
         }
     }
