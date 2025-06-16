@@ -74,27 +74,24 @@ vom __date__
 
 === TOP 1: Besprechung Fachaustausch
 
+Ibrahim und Jannis tragen vor. Franz und Joshua helfen bei vorbereitung 
 
 === TOP 2: Aktuellen Stand der Untergruppen besprechen
 
-
-
 Frontend:
 
-Einstellungsseite
+Styling von Desktopseite 
 
-Teams Ansicht erstellen
+PDF Erstellung von Ergebnissen eventuell stylen 
 
-Styling von Ergebnisseite
+Dashboard mit aktuellen Spielen
 
-PDF Erstellung von Ergebnissen 
-
-
-Eventuell in Aussicht: Dashboard mit aktuellen Spielen
-
+Entwicklerdoku und Arcitecture Notebook
 
 
 === TOP 3: Fragen an Auftraggeberin 
+
+Dashboard Seite mit baldigen Spielen?
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
@@ -109,26 +106,18 @@ Heute 16.06. um 17:30 Uhr hybrid im Raum A105/106 und BBB
 |===
 |Wer |Aufgabe 
 
-| Alle 
-| Gruppenreflexion in shared Dokument
 
-|Franz 
-|Einstellungsseite
+|Ali, Joshua
+|Dashboard mit aktuellen Spielen
 
-|Joshua 
-|Teamsansicht
-
-|Ali
-|Styling von Ergebnisseite, Teamsansicht
-
-|Mutaz
+|Franz
 |Desktop Styling
 
-|Jannis
-|PDF Ausgabe auf Ergebnisseite
+|Franz
+|Entwicklerdoku und Arcitecture Notebook
 
-|Sebastian
-|Treffen mit Auftraggeberin
+|Jannis
+|PDF Ausgabe auf Ergebnisseite stylen
 
 
 |===
