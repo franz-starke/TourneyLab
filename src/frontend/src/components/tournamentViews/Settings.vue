@@ -52,7 +52,7 @@ function exitTournament() {
 			</div>
 		</div>
 
-		<div class="settingsSection w-full">
+		<div class="settingsSection w-full max-w-100">
 			<div class="flex w-full h-18 justify-evenly items-center text-2xl font-bold bg-red-500 text-white rounded-4xl mt-8"
 				@click="exitTournament">
 				<span class="mb-0!">{{ $t('settings.leave') }}</span>
