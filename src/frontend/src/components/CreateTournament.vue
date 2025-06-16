@@ -231,12 +231,12 @@ watch(amountGroups, (newValue) => {
 
 		<BackHeader />
 
-		<main class="flex flex-col h-full px-8">
+		<main class="flex flex-col items-center h-full px-8 lg:mt-16">
 			<h1 class="text-2xl font-bold text-center mb-4 sticky top-0 pt-[env(safe-area-inset-top)] px-4">{{
 				$t('create.createT') }}</h1>
 
 			<div v-if="!showRefModal"
-				class="flex-1 flex flex-col gap-4 overflow-y-auto relative pb-[calc(env(safe-area-inset-bottom)+5rem)]">
+				class="flex-1 flex flex-col gap-4 overflow-y-auto relative pb-[calc(env(safe-area-inset-bottom)+5rem)] lg:w-150">
 
 				<input
 					class="flex bg-[var(--color-element)] p-2 rounded-full font-bold text-center placeholder:text-gray-500 text-xl"
@@ -323,10 +323,12 @@ watch(amountGroups, (newValue) => {
 				</NumberField>
 			</div>
 
-			<button class="colorButton px-4 pt-2 pb-4 mt-2 mb-[calc(env(safe-area-inset-bottom)+4.5rem)]"
-				@click="generateTournament">
-				<span>{{ $t('create.create') }}</span>
-			</button>
+			<div class="w-full px-4 pt-2 pb-4 mt-2 mb-[calc(env(safe-area-inset-bottom)+4.5rem)] lg:w-200">
+				<button class="colorButton " @click="generateTournament">
+					<span>{{ $t('create.create') }}</span>
+				</button>
+			</div>
+
 
 			<!-- Referee Assignment Dialog -->
 			<Modal v-if="showRefModal" @close="closeRefModal" @submit="submitRefModal">
