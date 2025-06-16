@@ -9,6 +9,7 @@
 import Game from "../utilcomponents/Game.vue";
 
 import { useTournamentStore } from "@/stores/tournamentStore";
+import IconEnter from "../icons/IconEnter.vue";
 import { ref, onMounted, onBeforeMount } from "vue";
 
 const store = useTournamentStore();
@@ -71,60 +72,46 @@ function selectTeam(teamId) {
 </script>
 
 <template>
-	<div v-if="!teamSelected">
-		<div class="sticky top-0 bg-[var(--color-background)] py-2">
-			<div
-				class="flex flex-wrap w-full justify-center items-center gap-2"
-			>
-				<div
-					class="flex cursor-pointer px-4 py-2 rounded-full text-base font-bold"
-					:class="
-						activeGroup === 1
-							? 'bg-[var(--color-accent)] text-[var(--color-text-alt)]'
-							: 'bg-[var(--color-element)] text-[var(--color-text)]'
-					"
-					@click="setActiveGroup(1)"
-				>
+	<div v-if="!teamSelected" class="flex flex-col h-[100svh] overflow-hidden">
+
+		<div class="sticky top-0 bg-[var(--color-background)] py-2 z-10">
+			<div class="flex flex-wrap w-full justify-center items-center gap-2">
+				<div class="flex cursor-pointer px-4 py-2 rounded-full text-base font-bold" :class="activeGroup === 1
+					? 'bg-[var(--color-accent)] text-[var(--color-text-alt)]'
+					: 'bg-[var(--color-element)] text-[var(--color-text)]'" @click="setActiveGroup(1)">
 					<span class="whitespace-nowrap">Fun</span>
 				</div>
-				<div
-					v-if="Object.keys(store.tournament.groups).length == 2"
-					class="flex cursor-pointer px-4 py-2 rounded-full text-base font-bold"
-					:class="
-						activeGroup === 2
-							? 'bg-[var(--color-accent)] text-[var(--color-text-alt)]'
-							: 'bg-[var(--color-element)] text-[var(--color-text)]'
-					"
-					@click="setActiveGroup(2)"
-				>
+				<div v-if="Object.keys(store.tournament.groups).length == 2"
+					class="flex cursor-pointer px-4 py-2 rounded-full text-base font-bold" :class="activeGroup === 2
+						? 'bg-[var(--color-accent)] text-[var(--color-text-alt)]'
+						: 'bg-[var(--color-element)] text-[var(--color-text)]'" @click="setActiveGroup(2)">
 					<span class="whitespace-nowrap">{{ $t("teams.pro") }}</span>
 				</div>
 			</div>
 		</div>
 
-		<div class="w-full overflow-y-auto flex flex-col gap-2 pb-4 h-[65svh]">
-			<div
-				class="grid grid-cols-2 grid-rows-2 bg-[var(--color-element)] rounded-3xl py-2 px-4 cursor-pointer"
-				v-for="(gamesOfTeam1, teamId) in teams[activeGroup]"
-				:key="teamId"
-				@click="selectTeam(teamId)"
-			>
-				{{ activeGroup === 1 ? "Fun" : $t("teams.pro") }} {{ teamId }}
+		<div
+			class="flex-1 overflow-y-auto scrollbar-hidden flex flex-col gap-2 px-4 pb-[calc(env(safe-area-inset-bottom)+2rem)]">
+			<div class="flex flex-row h-18 font-bold text-lg bg-[var(--color-element)] rounded-3xl py-2 px-4 cursor-pointer"
+				v-for="(gamesOfTeam1, teamId) in teams[activeGroup]" :key="teamId" @click="selectTeam(teamId)">
+				<div class="flex flex-row w-full items-center justify-between">
+					<span>{{ activeGroup === 1 ? "Fun" : $t("teams.pro") }} {{ teamId }}</span>
+					<IconEnter />
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div v-else class="w-full overflow-y-auto flex flex-col gap-2 pb-4 h-[65svh]">
-		<h1 class="text-center font-bold text-4xl">
-			{{ activeGroup === 1 ? "Fun" : $t("teams.pro") }}
-			{{ selectedTeamId }}
-		</h1>
+
+	<div v-else class="flex flex-col h-[100svh] overflow-hidden">
 		<div
-			class="flex w-full"
-			v-for="(game, gameId) in teams[activeGroup][selectedTeamId]"
-			:key="gameId"
-		>
-			<Game :gameId="gameId" class="flex w-full" />
+			class="flex-1 overflow-y-auto scrollbar-hidden flex flex-col gap-2 px-4 pb-[calc(env(safe-area-inset-bottom)+2rem)]">
+			<h1 class="text-center font-bold text-4xl pt-4">
+				{{ activeGroup === 1 ? "Fun" : $t("teams.pro") }} {{ selectedTeamId }}
+			</h1>
+			<div class="flex w-full" v-for="(game, gameId) in teams[activeGroup][selectedTeamId]" :key="gameId">
+				<Game :gameId="gameId" class="flex w-full" />
+			</div>
 		</div>
 	</div>
 </template>
