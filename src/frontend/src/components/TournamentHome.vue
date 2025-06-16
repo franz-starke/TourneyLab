@@ -18,7 +18,7 @@ const store = useTournamentStore();
 			</h1>
 		</header>
 
-		<div class="flex flex-1 flex-col overflow-hidden px-4 lg:w-250">
+		<div class="flex flex-1 flex-col overflow-hidden px-4 lg:w-200">
 			<RouterView />
 		</div>
 
