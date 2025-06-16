@@ -11,7 +11,6 @@ onMounted(() => {
 	settings.applyAppTheme();
 	settings.applyLanguage(settings.language);
 });
-
 </script>
 
 <template>
