@@ -56,7 +56,7 @@ async function changeActiveField(fieldID) {
 			</div>
 		</div>
 
-		<div class="flex-1 overflow-y-auto flex flex-col gap-2 py-2">
+		<div class="flex-1 overflow-y-auto flex flex-col gap-2 py-2 scrollbar-hidden">
 			<div class="flex w-full" v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
 				<Game :gameId="gameId" class="flex w-full" />
 			</div>
