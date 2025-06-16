@@ -236,7 +236,7 @@ watch(amountGroups, (newValue) => {
 				$t('create.createT') }}</h1>
 
 			<div v-if="!showRefModal"
-				class="flex-1 flex flex-col gap-4 overflow-y-auto relative pb-[calc(env(safe-area-inset-bottom)+5rem)] lg:w-150">
+				class="flex-1 overflow-y-auto scrollbar-none flex flex-col gap-4 px-1 pb-[calc(env(safe-area-inset-bottom)+2rem)] lg:w-150">
 
 				<input
 					class="flex bg-[var(--color-element)] p-2 rounded-full font-bold text-center placeholder:text-gray-500 text-xl"
