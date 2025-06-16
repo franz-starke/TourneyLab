@@ -56,16 +56,16 @@ function filteredTournaments() {
 	<div class="flex flex-col h-[100svh] overflow-hidden">
 		<BackHeader />
 
-		<main class="flex flex-col flex-1 items-center px-8">
+		<main class="flex flex-col flex-1 items-center px-8 overflow-hidden scrollbar-none">
 			<h1 class="text-2xl font-bold text-center mt-8 mb-4">{{ $t('old.oldT') }}</h1>
 
-			<input class="bg-[var(--color-element)] p-4 rounded-full font-bold text-center text-gray-500 text-xl mb-4 w-full" type="text"
-				v-model="tournamentName" :placeholder="$t('old.search')" maxlength="120" required />
+			<input
+				class="bg-[var(--color-element)] p-4 rounded-full font-bold text-center text-gray-500 text-xl mb-4 w-full lg:w-200 lg:mb-10"
+				type="text" v-model="tournamentName" :placeholder="$t('old.search')" maxlength="120" required />
 
-			<div class="w-full overflow-y-auto flex flex-col gap-2 pb-4 h-[65svh]">
+			<div class="w-full flex-1 overflow-y-auto scroll-smooth scrollbar-hidden flex flex-col gap-2 pb-4 mb-4 lg:w-150">
 				<div class="grid grid-cols-2 grid-rows-2 bg-[var(--color-element)] rounded-3xl py-2 px-4 cursor-pointer"
-					v-for="tourn in filteredTournaments()" :key="tourn.id" v-if="filteredTournaments().length > 0"
-					@click="getTournament(tourn.id)">
+					v-for="tourn in filteredTournaments()" :key="tourn.id" @click="getTournament(tourn.id)">
 					<p
 						class="place-self-start text-lg font-semibold text-left inline-block overflow-x-clip max-w-[11em] whitespace-nowrap">
 						{{ tourn.name }}
@@ -81,6 +81,6 @@ function filteredTournaments() {
 				</div>
 			</div>
 		</main>
-		
+
 	</div>
 </template>
