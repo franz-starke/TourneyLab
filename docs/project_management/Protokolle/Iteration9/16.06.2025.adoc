@@ -9,8 +9,8 @@ vom __date__
 - **Zeit:** 09:45 - 11:00 Uhr 
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
-- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Jannis Wittchen, Mutaz Abuazizeh,Ali Zeinelov, Ibrahim Braikeh 
-- **Abwesend:** 
+- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Jannis Wittchen, Ali Zeinelov
+- **Abwesend:** Mutaz Abuazizeh, Ibrahim Braikeh 
 
 
 == Agenda
@@ -117,6 +117,9 @@ Heute 16.06. um 17:30 Uhr hybrid im Raum A105/106 und BBB
 
 |Franz
 |Entwicklerdoku und Arcitecture Notebook
+
+|Franz
+|Betriebsdokumentation Sytemvoraussetung und Systembetreuung
 
 |Jannis
 |PDF Ausgabe auf Ergebnisseite stylen
