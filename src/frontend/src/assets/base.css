@@ -54,7 +54,14 @@
 }
 
 @layer base {
-	html, body {
+
+	html,
+	body {
 		@apply h-full overflow-hidden touch-none;
+	}
+
+	.scrollbar-hidden {
+		@apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+
 	}
 }
