@@ -56,7 +56,7 @@ function filteredTournaments() {
 	<div class="flex flex-col h-[100svh] overflow-hidden">
 		<BackHeader />
 
-		<main class="flex flex-col flex-1 items-center px-8 overflow-hidden scrollbar-none">
+		<main class="flex flex-col flex-1 items-center px-8 overflow-hidden scrollbar-hidden">
 			<h1 class="text-2xl font-bold text-center mt-8 mb-4">{{ $t('old.oldT') }}</h1>
 
 			<input
