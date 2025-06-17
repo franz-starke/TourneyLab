@@ -49,10 +49,10 @@ import { unref } from "vue";
  */
 export function evaluateTournamentData(tournamentData) {
 	const tournament = unref(tournamentData);
-	const name = tournament.name || "(no name)";
-	const date = tournament.date || "(no date)";
-	const games = tournament.games || {};
-	const groups = tournament.groups || {};
+	const name       = tournament.name  || "(no name)";
+	const date       = tournament.date  || "(no date)";
+	const games      = tournament.games || {};
+	const groups     = tournament.groups || {};
 
 
 	// groupId => team count
@@ -64,52 +64,49 @@ export function evaluateTournamentData(tournamentData) {
 
 	let teamCounter = 1;
 
-	// Initialize teams and groups
-	Object.entries(groups).forEach((groupEntry) => {
-		const [groupId, count] = groupEntry;
-		teams[groupId] = count;
-
-		const teamIds = [];
-		for (let i = 0; i < count; i++) {
-			const teamId = String(teamCounter + i);
-			teamIds.push(teamId);
-			teamStats[teamId] = {
-				games_played: 0,
-				wins: 0,
-				draws: 0,
-				losses: 0,
-				points: 0,
-				score_diff: 0
-			};
-		}
-
-		groupTeams[groupId] = teamIds;
-		teamCounter += count;
+	// Initialize teams and group mappings
+	Object.entries(groups).forEach(([groupId, count]) => {
+	teams[groupId] = count;
+	const teamIds = [];
+	for (let i = 0; i < count; i++) {
+		const teamId = String(teamCounter + i);
+		teamIds.push(teamId);
+		teamStats[teamId] = {
+		games_played: 0,
+		wins:         0,
+		draws:        0,
+		losses:       0,
+		points:       0,
+		score_diff:   0
+		};
+	}
+	groupTeams[groupId] = teamIds;
+	teamCounter += count;
 	});
 
 	// Evaluate games
-	Object.values(games).forEach((fieldGames) => {
-		Object.values(fieldGames).forEach((game) => {
-			const [teamA, teamB, , , [scoreA, scoreB]] = game;
-			const idA = String(teamA);
-			const idB = String(teamB);
+	Object.values(games).forEach(fieldGames => {
+		Object.values(fieldGames).forEach(game => {
+			// game[3] is [scoreA, scoreB], game[4] is the time
+			const [teamA, teamB, , [scoreA, scoreB]] = game;
+			const idA = String(teamA), idB = String(teamB);
 
-			[idA, idB].forEach((tid) => {
+			
+			[idA, idB].forEach(tid => {
 				// init stats for each team if not in Teamstats
 				if (!(tid in teamStats)) {
 					teamStats[tid] = {
-						games_played: 0,
-						wins: 0,
-						draws: 0,
-						losses: 0,
-						points: 0,
-						score_diff: 0
+					games_played: 0,
+					wins:         0,
+					draws:        0,
+					losses:       0,
+					points:       0,
+					score_diff:   0
 					};
 				}
 			});
 
-
-			// // don't eval, if scores: 0 to 0
+			// don't eval, if scores: 0 to 0
 			if (scoreA == 0 && scoreB == 0) return;
 
 			// Update match statistics
@@ -144,43 +141,40 @@ export function evaluateTournamentData(tournamentData) {
 		groups: []
 	};
 
-	// Build group ranking
+	// Build and rank each group
 	Object.entries(groupTeams).forEach(([groupId, teamIds]) => {
-		const sorted = [...teamIds]
-			.map((tid) => [tid, teamStats[tid]])
-			.sort((a, b) => {
-				if (b[1].points !== a[1].points) {
-					return b[1].points - a[1].points;
-				}
-				return b[1].score_diff - a[1].score_diff;
-			});
-
-		const teamsWithRanks = [];
-		let currentRank = 1;
-		let previousStats = null;
-
-		sorted.forEach(([tid, stats], idx) => {
-		if (
-			idx > 0 &&
-			stats.points === previousStats.points &&
-			stats.score_diff === previousStats.score_diff
-		) {
-			// Gleichstand – gleicher Rang wie vorher
-		} else {
-			// Neuer Rang
-			currentRank = idx + 1;
+	// Sort by points, then by score difference (both descending)
+	const sorted = [...teamIds]
+		.map(tid => [tid, teamStats[tid]])
+		.sort((a, b) => {
+		if (b[1].points !== a[1].points) {
+			return b[1].points - a[1].points;
 		}
+		return b[1].score_diff - a[1].score_diff;
+		});
 
+	const teamsWithRanks = [];
+	let currentRank    = 1;
+	let previousPoints = null;
+	let previousDiff   = null;
+
+	sorted.forEach(([tid, stats], idx) => {
+		if (
+		idx > 0 &&
+		stats.points     === previousPoints &&
+		stats.score_diff === previousDiff
+		) {
+		// Tie: keep the same rank
+		} else {
+		// New rank = idx+1
+		currentRank = idx + 1;
+		}
 		teamsWithRanks.push({ id: tid, ...stats, rank: currentRank });
-		previousStats = stats;
-		});
+		previousPoints = stats.points;
+		previousDiff   = stats.score_diff;
+	});
 
-
-
-		result.groups.push({
-			groupId,
-			teams: teamsWithRanks
-		});
+	result.groups.push({ groupId, teams: teamsWithRanks });
 	});
 
 	return result;
