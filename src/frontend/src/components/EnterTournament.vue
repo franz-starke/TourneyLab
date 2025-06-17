@@ -94,42 +94,26 @@ function onDetect(detectedCodes) {
 				<p class="text-gray-500 text-base font-bold text-center mb-1">
 					{{ $t("enter.scan") }}
 				</p>
-				
-<div class="flex justify-center items-center w-full">
-<div class="flex flex-col items-center justify-center w-full max-w-[500px] aspect-square md:aspect-[4/3] rounded-4xl bg-[var(--color-element)]"
->
 
-					<IconCamera
-						v-if="!scannerActive"
-						class="w-30 h-30"
-					></IconCamera>
-					<qrcode-stream v-else @detect="onDetect"></qrcode-stream>
+				<div class="flex justify-center items-center w-full">
+					<div
+						class="flex flex-col items-center justify-center w-full max-w-[500px] aspect-square rounded-4xl bg-[var(--color-element)]">
+
+						<IconCamera v-if="!scannerActive" class="w-30 h-30"></IconCamera>
+						<qrcode-stream v-else @detect="onDetect"></qrcode-stream>
+					</div>
 				</div>
 			</div>
-</div>
 
-
-
-			<div class="flex flex-col w-full">
-				<p
-					for="enter-code"
-					class="text-gray-500 text-base font-bold text-center mb-2"
-				>
+			<div class="flex flex-col w-full lg:max-w-150">
+				<p for="enter-code" class="text-gray-500 text-base font-bold text-center mb-2">
 					{{ $t("enter.manual") }}
 				</p>
 
-				<div
-					v-if="isOnline"
-					class="flex flex-col justify-center w-full gap-4"
-				>
-					<input
-						id="enter-code"
+				<div v-if="isOnline" class="flex flex-col justify-center w-full gap-4">
+					<input id="enter-code"
 						class="flex bg-[var(--color-element)] p-4 rounded-full font-bold text-center text-gray-500 text-xl"
-						name="enter-code"
-						type="text"
-						:placeholder="$t('enter.code')"
-						v-model="tournamentId"
-					/>
+						name="enter-code" type="text" :placeholder="$t('enter.code')" v-model="tournamentId" />
 
 					<div class="colorButton" @click="enterTournament">
 						<span>{{ $t("enter.join") }}</span>

@@ -45,33 +45,19 @@ async function changeActiveField(fieldID) {
 <template>
 	<div class="flex flex-col flex-1 overflow-hidden">
 		<div class="sticky top-0 bg-[var(--color-background)] py-2">
-			<div
-				class="flex flex-wrap w-full justify-center items-center gap-2"
-			>
-				<div
-					class="flex cursor-pointer px-4 py-2 rounded-full text-base font-bold"
-					v-for="field in Object.keys(store.tournament.games)"
-					:class="
-						field == activeFieldID
+			<div class="flex flex-wrap w-full justify-center items-center gap-2">
+				<div class="flex cursor-pointer px-4 py-2 rounded-full text-base font-bold"
+					v-for="field in Object.keys(store.tournament.games)" :class="field == activeFieldID
 							? 'bg-[var(--color-accent)] text-[var(--color-text-alt)]'
 							: 'bg-[var(--color-element)] text-[var(--color-text)]'
-					"
-					:key="field"
-					@click="changeActiveField(field)"
-				>
-					<span class="whitespace-nowrap"
-						>{{ $t("games.field") }} {{ field }}</span
-					>
+						" :key="field" @click="changeActiveField(field)">
+					<span class="whitespace-nowrap">{{ $t("games.field") }} {{ field }}</span>
 				</div>
 			</div>
 		</div>
 
-		<div class="flex-1 overflow-y-auto flex flex-col gap-2 py-2">
-			<div
-				class="flex w-full"
-				v-for="(game, gameId) in store.tournament.games[activeFieldID]"
-				:key="gameId"
-			>
+		<div class="flex-1 overflow-y-auto flex flex-col gap-2 py-2 scrollbar-hidden">
+			<div class="flex w-full" v-for="(game, gameId) in store.tournament.games[activeFieldID]" :key="gameId">
 				<Game :gameId="gameId" class="flex w-full" />
 			</div>
 		</div>

@@ -155,7 +155,7 @@ All fields must at least provide one game and none should be empty.
 
 ```json
 {
-  "tournament_id":"XYZ"
+  "tournament_id":"123"
 }
 ```
 
@@ -196,9 +196,9 @@ This endpoint does not need any parameters and is meant to return a list of all 
 ```json
 {
   "tournaments":[
-	{"id":"XYZ","name":"Sommer Turnier 2025","date":"2025-06-20"},
-	{"id":"ABC","name":"Nikolaus Turnier 2025","date":"2025-12-06"},
-	{"id":"KLM","name":"Winter Turnier 2025","date":"2025-02-15"},
+	{"id":"123","name":"Sommer Turnier 2025","date":"2025-06-20"},
+	{"id":"456","name":"Nikolaus Turnier 2025","date":"2025-12-06"},
+	{"id":"789","name":"Winter Turnier 2025","date":"2025-02-15"},
   ]
 }
 ```

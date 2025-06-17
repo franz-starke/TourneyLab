@@ -72,7 +72,7 @@ class Server:
 
         uuid = self.generate_unique_string()
 
-        if uuid is not str:
+        if type(uuid) is not str:
             return utils.Error(500, "Could not create new unique ID in maximal iterations. Possibly all tournament ID slots are filled with content.")
 
         # Create the tournament database file
@@ -336,9 +336,9 @@ class Server:
         }
 
     def generate_unique_string(self) -> Optional[str]:
-        """Generate a unique 8-character alphanumeric string for tournament IDs"""
+        """Generate a unique 8-character numeric string for tournament IDs"""
         length = 8
-        characters = string.ascii_letters + string.digits
+        characters = string.digits
         max_attempts = 100  # Reasonable limit to prevent infinite loops
 
         # Get existing UUIDs
