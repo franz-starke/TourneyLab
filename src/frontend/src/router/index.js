@@ -7,6 +7,7 @@ import TournamentHome from '@/components/TournamentHome.vue'
 import Dashboard from '@/components/tournamentViews/Dashboard.vue'
 import Games from '@/components/tournamentViews/Games.vue'
 import Settings from '@/components/tournamentViews/Settings.vue'
+import Imprint from '@/components/tournamentViews/Imprint.vue'
 import Teams from '@/components/tournamentViews/Teams.vue'
 import EditGame from '@/components/tournamentViews/EditGame.vue'
 
@@ -53,6 +54,10 @@ const router = createRouter({
 				{
 					path: 'settings',
 					component: Settings,
+				},
+				{
+					path: 'imprint',
+					component: Imprint,
 				},
 				{
 					path: 'edit-game/:gameId',

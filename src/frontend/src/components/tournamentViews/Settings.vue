@@ -68,7 +68,9 @@ function exitTournament() {
 			</div>
 
 			<div class="flex w-full justify-center">
-				<span class="text-2xl font-bold underline text-gray-500">{{ $t('settings.imprint') }}</span>
+				<RouterLink to="/tournament-home/imprint">
+					<span class="text-2xl font-bold underline text-gray-500">{{ $t('settings.imprint') }}</span>
+				</RouterLink>
 			</div>
 		</div>
 	</div>
