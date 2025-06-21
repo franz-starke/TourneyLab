@@ -14,6 +14,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@b613/utils": "^1.0.0",
     "@tailwindcss/vite": "^4.1.7",
     "@vueuse/core": "^13.3.0",
     "axios": "^1.8.4",
@@ -37,13 +38,17 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
+    "@vuedoc/md": "^4.0.0-beta8",
+    "@vuedoc/parser": "^4.0.0-beta14",
     "autoprefixer": "^10.4.21",
+    "jsdoc-to-markdown": "^9.1.1",
     "jsdom": "^26.0.0",
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8",
     "vite": "^6.2.1",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vitepress": "^1.6.3",
-    "vitest": "^3.0.8"
+    "vitest": "^3.0.8",
+    "vue-docgen-cli": "^4.79.0"
   }
 }
