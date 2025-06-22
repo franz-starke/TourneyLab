@@ -22,7 +22,15 @@ function setActiveGroup(groupIndex) {
 }
 
 
-// Groups.TeamsPerGroup.GamesPerTeam = [Team1, Team2, RefTeam, start-time, Points, field]
+/**
+ * An object to store information about teams participating in the tournament.
+ * The structure is intended to represent groups, teams per group, and games per team.
+ * Each entry may include details such as Team1, Team2, RefTeam, start-time, Points, and field.
+ *
+ * Groups.TeamsPerGroup.GamesPerTeam = [Team1, Team2, RefTeam, start-time, Points, field]
+ *
+ * @type {Object}
+ */
 let teams = {};
 
 // build up current Infos on Teams
@@ -39,7 +47,7 @@ onBeforeMount(function () {
 			teamId++
 		) {
 			teams[groupId][teamId] = {};
-			// now search all games, where teamId is part of
+			// now search all games, where teamId is a part of
 			Object.values(store.tournament.games).forEach(function (
 				gamesOnField
 			) {
@@ -50,10 +58,12 @@ onBeforeMount(function () {
 					let playingTeams = gameArray.slice(0, 2);
 					let refTeam = gameArray[2];
 
+
 					if (
-						playingTeams.includes(teamId.toString()) ||
-						refTeam === teamId.toString()
+						playingTeams.includes(teamId) ||
+						refTeam === teamId
 					) {
+
 						teams[groupId][teamId][gameId] = gameArray;
 					}
 				});
@@ -72,6 +82,8 @@ function selectTeam(teamId) {
 </script>
 
 <template>
+	<!-- Show Teams per Group when no Team has been selected -->
+	 <!-- the group Id-conditionals are hardcoded with numbers here, because it doesn't have to be scalable yet -->
 	<div v-if="!teamSelected" class="flex flex-col h-[100svh] overflow-hidden">
 
 		<div class="sticky top-0 bg-[var(--color-background)] py-2 z-10">
@@ -93,7 +105,7 @@ function selectTeam(teamId) {
 		<div
 			class="flex-1 overflow-y-auto scrollbar-hidden flex flex-col gap-2 px-4 pb-[calc(env(safe-area-inset-bottom)+2rem)]">
 			<div class="flex flex-row h-18 font-bold text-lg bg-[var(--color-element)] rounded-3xl py-2 px-4 cursor-pointer"
-				v-for="(gamesOfTeam1, teamId) in teams[activeGroup]" :key="teamId" @click="selectTeam(teamId)">
+				v-for="(teamsOfGroup, teamId) in teams[activeGroup]" :key="teamId" @click="selectTeam(teamId)">
 				<div class="flex flex-row w-full items-center justify-between">
 					<span>{{ activeGroup === 1 ? "Fun" : $t("teams.pro") }} {{ teamId }}</span>
 					<IconEnter />
