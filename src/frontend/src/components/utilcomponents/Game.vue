@@ -27,9 +27,9 @@ const matchpoint = 25
 const whichTeamWon = computed(() => {
 	// console.log("points.value", points.value);
 	if (points.value[0] >= matchpoint && points.value[0] - points.value[1] >= 2) {
-		return team1;
+		return 1;
 	} else if (points.value[1] >= matchpoint && points.value[1] - points.value[0] >= 2) {
-		return team2;
+		return 2;
 	} else {
 		return 0; // game not finished
 	}
