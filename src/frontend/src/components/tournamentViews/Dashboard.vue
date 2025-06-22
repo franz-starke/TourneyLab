@@ -6,8 +6,11 @@ import { useTournamentStore } from "@/stores/tournamentStore";
 import IconQrCode from "../icons/IconQrCode.vue";
 import IconTrophy from "../icons/IconTrophy.vue";
 import { gzip, ungzip } from "pako";
+import Game from "../utilcomponents/Game.vue";
+
 import { evaluateTournamentData } from "@/util/tournamentEvaluation.js";
 import IconCamera from "../icons/IconCamera.vue";
+import { getCurrentGamePerField } from "@/util/tournamentDataStructureUtil.js";
 
 const store = useTournamentStore();
 
@@ -76,10 +79,17 @@ const activeGroup = ref(0);
 function setActiveGroup(groupIndex) {
 	activeGroup.value = groupIndex;
 }
+
+
+const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
+
+
+
 </script>
 
 <template>
 	<div class="h-full overflow-y-auto scrollbar-hidden">
+		<!-- EVAL: first condition renders Evaluation -->
 		<div v-if="evalShow" id="eval-dialog" class="flex flex-col flex-1">
 			<div class="sticky top-0 z-10 bg-[var(--color-background)] pb-2">
 				<div class="flex items-center justify-center gap-4 m-2">
@@ -128,18 +138,31 @@ function setActiveGroup(groupIndex) {
 			</div>
 		</div>
 
+		<!-- MAIN-VIEW: main Dashboard view -->
 		<div v-else-if="!syncGames" id="dashboard-container"
 			class="flex flex-col w-full align-center justify-between items-center h-full">
 			<button class="colorButton cursor-pointer w-full max-w-100" @click="toggleSyncGames">
 				<span>{{ $t("home.sync") }}</span>
 				<IconQrCode />
 			</button>
+
+
+
+			<div v-for="idCurrGame, field  in currentGamePerField">
+				Feld: {{field}}
+
+				<Game :gameId="idCurrGame" class="flex w-full" />
+			</div>
+
+
+
 			<button class="colorButton cursor-pointer w-full max-w-100" @click="evalTournament">
 				<span>{{ $t("home.results") }}</span>
 				<IconTrophy />
 			</button>
 		</div>
 
+		<!-- SYNC: sync dialogue -->
 		<div v-else id="synchronize-games-container" class="flex flex-col items-center overflow-y-auto">
 			<h2 class="text-lg text-center lg:text-xl font-bold mx-4 mb-4">{{ $t("sync.offline") }}</h2>
 			<div class="flex justify-center items-center w-full">
