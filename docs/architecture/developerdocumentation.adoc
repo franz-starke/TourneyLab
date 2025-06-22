@@ -1,0 +1,142 @@
+= Entwicklerdokumentation: [TourneyLab]
+include::../_includes/team-members.adoc[]
+:toc:
+:toclevels: 3
+:sectnums:
+:sectnumlevels: 3
+
+== Einleitung
+
+=== Ziel der Dokumentation
+Diese Dokumentation soll zukünftigen Entwicklern bei der Weiterentwicklung des Systems unterstützen. Sie enthält die Entwurfsdokumentation, das UX-Konzept sowie eine vollständige Softwaredokumentation. Außerdem wird beschrieben, welche Entscheidungen getroffen wurde und warum.
+
+=== Überblick über das System
+TourneyLab ist ein Turnier Verwaltungs System mit Weboberfläche. Das System kann genutzt werden um Turniere zu Erstellen und zu verwalten. Des weiteren können Nutzer über eine Weboberfläche, welche für Handy und Desktop optimiert ist, Turnieren beitreten und Punkte eintragen. Zu jeder Zeit können dann Punktestände sowie anstehende Spiele angezeigt werden. Zum Schluss kann das Ergebniss als PDF Exportiert werden. Das System beinhaltet ein Backend, welches über eine API ansteuerbar ist, sowie eine Frontend in Form einer Weboberfläche. Das Backend dient primär der Turnier speicherung für eine Online Punktesynchronisation. Während das Frontend für die Erstellung wichtiger Datenstrukturen verantwortlich ist und diese über die Weboberfläche gesteuert werden können.
+
+== Entwurfsdokumentation
+
+=== Annahmen und Abhängigkeiten
+
+* Nutzer haben ein internetfähiges Gerät mit Browserzugang und einer funktionierenden Kamera
+* Deploymentserver besitzt eine Docker instanz
+* Genutzte Frameworks sind weitest gehends Fehlerfrei, Sicher und werden zukünftig weiterentwickelt
+
+=== Architekturtreiber
+
+*Funktionale Anforderungen*
+
+* Offline/Online Nutzung: Das System soll sowohl online als auch offline nutzbar sein. Punktestände müssen offline zwischen Geräten austauschbar sein. Für die Online-Nutzung sollen Punkte automatisch ausgetauscht werden
+* Export von Dateien: Punktestände sollen exportiert werden können (z. B. als PDF)
+* Soll für unterschiedliche Betriebssysteme/Gerätetypen kompatibel sein
+* Zugriff von mehreren Geräten
+* Speicherung von Daten auf dem Gerät
+* Live-Spielinformationen
+* Synchronisierung von Daten zwischen verschiedenen Geräten über QR-Codes
+* Unterstützung von zwei Sprachen (Deutsch und Englisch)
+
+*Qualitätsanforderungen*
+
+* Einfache Programmierung
+* Effizienter Code
+* Übersichtliche Programmstruktur
+* Einheitliche Syntax
+* Einfache Ausführung und Tests
+* Einfaches Deployment
+* Geringe Ladezeiten
+* Leichte Pflege und Weiterentwicklung durch modularen Aufbau
+
+*Technische Randbedingungen*
+
+* Keine besonderen Geschwindigkeitsanforderungen
+* Keine besonderen Sicherheitsanforderungen
+* Datenspeicherung
+* Export von Dateien
+* Kompatibilität mit verschiedenen Betriebssystemen/Gerätetypen
+* Webfähigkeit der Geräte wird vorausgesetzt
+* Möglichkeit zur Einbindung von Legacy-Daten (z. B. aus Excel-Tabellen)
+
+=== Architekturziele und Philosophie
+
+* Die Architektur von TourneyLab verfolgt einen klar modularen Aufbau, um langfristige Wartbarkeit, Offline-Funktionalität und Plattformunabhängigkeit sicherzustellen. Ziel ist eine einfache Benutzung und Erweiterbarkeit durch klare Trennung von Backend (API, Speicherung) und Frontend (Web-GUI mit Logik zur Turnierkonfiguration und erstellung).
+
+*Architekturziele:*
+
+* Plattformunabhängigkeit (Responsive Web-App).
+* Offline- und Onlinebetrieb mit Synchronisation.
+* Einfache Erweiterbarkeit durch modulare Struktur.
+* Nutzung etablierter Technologien (FastAPI, SQLite, Vue.js, Pinia).
+* Unterstützung für Live-Spielinformationen und QR-basierte Datensynchronisation.
+
+* Einbindung alter Excel-Daten soll ermöglicht werden.
+* Es ist keine Backend-Dauerverbindung notwendig (z.B. für Offline-Einsatz in Hallen ohne Netzabdeckung).
+* QR-Code-basierte Synchronisation funktioniert über Kameras der Endgeräte.
+
+=== Systemarchitektur
+
+==== Logische Architektur
+
+Beschreibung + UML-Diagramme (Paket-, Komponenten-, Klassen- oder C4-Modell: Level 2 - Container / Level 3 - Komponenten)
+
+==== Physische Architektur (optional)
+Verteilungsdiagramm (z. B. Deployment-Diagramm) mit Beschreibung
+
+=== Technologische Entscheidungen
+* Programmiersprachen
+* Frameworks / Bibliotheken
+* Tools / Build-Systeme
+* Begründung der Entscheidungen
+
+=== Datenbankschema
+Diagramm (z.B. ER-Diagramm) und Beschreibung der Tabellen, Beziehungen, Schlüssel usw.
+
+=== Schnittstellen
+
+==== REST-API
+
+=== Zusammenarbeit zwischen Komponenten
+Sequenzdiagramme mit Beschreibung des Ablaufs für zentrale Anwendungsfälle
+
+== UX-Konzept
+
+=== Personas
+Beschreibung der Zielnutzer:innen mit Kontext, Zielen, Herausforderungen
+
+=== Nutzerkontext
+Arbeitsumfeld, technisches Niveau, Nutzungsgewohnheiten
+
+=== Wireframes
+* Screenshots / Skizzen der Benutzeroberfläche
+* Kurze Beschreibung pro Wireframe
+
+== Softwaredokumentation
+
+=== Modulübersicht
+Tabelle oder Liste aller Module / Packages mit kurzer Beschreibung
+
+=== Klassen- und Funktionsdokumentation
+
+== Anhang
+
+=== Glossar
+Liste von Fachbegriffen und Abkürzungen
+
+include::../requirements/glossary.adoc[lines=11..]
+
+=== Referenzen
+Literatur, Links zu Frameworks, Standards.
+
+* https://vuejs.org/[Vue.js]
+* https://pinia.vuejs.org/[Pinia Store]
+* https://tailwindcss.com/[Tailwindcss]
+* https://fastapi.tiangolo.com/[FastAPI]
+* https://sqlite.org/[SQLite]
+* https://google.github.io/styleguide/jsguide.html[JavaScript Style Guide]
+* https://peps.python.org/pep-0008/[Python Style Guide]
+
+=== Versionshistorie
+[cols="1,2,3", options="header"]
+|===
+| Version | Datum | Änderungen
+| 1.0     | 2025-06-30 | Initiale Version
+|===
+
