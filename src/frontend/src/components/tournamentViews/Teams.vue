@@ -58,10 +58,20 @@ onBeforeMount(function () {
 					let playingTeams = gameArray.slice(0, 2);
 					let refTeam = gameArray[2];
 
+					// console.log(
+					// 	"playingTeams:", playingTeams, playingTeams.map(t => typeof t),
+					// 	"refTeam:", refTeam, typeof refTeam,
+					// 	"teamId:", teamId, typeof teamId
+					// );
+
+					if (typeof playingTeams[0] === "string" || typeof playingTeams[1] === "string") {
+						teamId = String(teamId);
+					}
 
 					if (
-						playingTeams.includes(teamId) ||
-						refTeam === teamId
+						playingTeams.includes(teamId
+						) ||
+						refTeam == teamId
 					) {
 
 						teams[groupId][teamId][gameId] = gameArray;
