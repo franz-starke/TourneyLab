@@ -100,7 +100,7 @@ class Server:
             team_data = {}
             for i in range(team_count):
                 team_id = str(i + 1)
-                if group_count != 1 and i < teams["1"]:
+                if group_count == 1 or i < teams["1"]:
                     team_data[team_id] = [f"Fun {team_id}", 1]
                 else:
                     schwitzer_id = int(team_id) - teams["1"]
