@@ -7,11 +7,15 @@ import axios from "axios";
 const localhost = "127.0.0.1:8000";
 const serverDomain = "htw-turnier.de";
 const testServer = "217.79.180.226:5400";
+
 const protocol = "http://";
+
+// set the server address to use
+const usedServer = localhost;
 
 // Create Tournament
 class api {
-	constructor(domain = localhost) {
+	constructor(domain = usedServer) {
 		this.serverAddr = domain;
 		this.protocol = protocol;
 		this.response = null;
@@ -81,4 +85,4 @@ class api {
 	}
 }
 
-export default new api(testServer);
+export default new api(usedServer);
