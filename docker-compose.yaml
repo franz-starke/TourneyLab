@@ -7,14 +7,18 @@ services:
             - "8000:8000"
         volumes:
             - ./src/backend:/app
-        depends_on:
-            - frontend
+        restart: unless-stopped
 
     frontend:
         build:
             context: .
             dockerfile: src/frontend/Dockerfile
+            args:
+                VITE_API_URL: /api/
         ports:
             - "8080:80"
         volumes:
             - ./src/frontend:/app
+        restart: unless-stopped
+        depends_on:
+            - backend
