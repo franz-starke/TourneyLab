@@ -40,7 +40,13 @@ vom __date__
 |Alle
 
 |2
-|Aktuellen Stand der Untergruppen besprechen
+|Aktuellen Stand der Aufgaben
+|30 Min.
+|
+|Alle
+
+|3
+|Präsentation
 |30 Min.
 |
 |Alle
@@ -69,31 +75,37 @@ vom __date__
 
 === TOP 1: Besprechung Fachaustausch
 
-Ibrahim und Jannis tragen vor. Franz und Joshua helfen bei vorbereitung 
+
 
 === TOP 2: Aktuellen Stand der Untergruppen besprechen
 
-Frontend:
 
-Styling von Desktopseite 
+Anmerkungen von Lotte:
+Wie dashboard ausstatten?
+Aktuelle Zeit und dazu die anstehenden Spiele pro Feld
+Das Spiel als nächstes anzeigen, was als letztes keine Eingabe hat(Joshua &Ali)
 
-PDF Erstellung von Ergebnissen eventuell stylen 
+Kommentare:
 
-Dashboard mit aktuellen Spielen
+Tastatureingabe bei Punktestandanzeige ermöglichen (Joshua)
+Touchfelder größer machen (Joshua)
 
-Entwicklerdoku und Arcitecture Notebook
+Turnier ID soll nur aus Zahlen bestehen (Franz)
 
-Betriebsdokumentation Sytemvoraussetung und Systembetreuung (bei marlene nachfragen, eventuell Vorlagen aus letzten Jahren) 
+Handy Styling soll den ganzen Screen füllen (Franz)
+
+Möglichkeit für Impressum schaffen (niedrige Prio (Franz))
+
+Button für Ergebnisanzeige (Jannis)
+Dokumentation, wie App auf Server deployed wird. Repo an Lotte schicken mit Kontaktmöglichkeiten für Admins (Teammeeting)
 
 
-=== TOP 3: Fragen an Auftraggeberin 
+=== TOP 3: Präsentation
 
-Dashboard Seite mit baldigen Spielen?
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 
-Heute 16.06. um 17:30 Uhr hybrid im Raum A105/106 und BBB
 
 
 == Aufgabenverteilung
@@ -102,6 +114,7 @@ Heute 16.06. um 17:30 Uhr hybrid im Raum A105/106 und BBB
 [cols="3s,7", caption="", frame="none", grid="rows" ]
 |===
 |Wer |Aufgabe 
+
 
 
 |Ali, Joshua
