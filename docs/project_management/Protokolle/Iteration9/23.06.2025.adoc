@@ -75,37 +75,39 @@ vom __date__
 
 === TOP 1: Besprechung Fachaustausch
 
+gutes Feedback zu unserer Arbeit. Keine neuen Erkenntnisse
 
+große Kritik an Vorlesungstiming am Ende des Semesters
 
 === TOP 2: Aktuellen Stand der Untergruppen besprechen
 
 
-Anmerkungen von Lotte:
-Wie dashboard ausstatten?
-Aktuelle Zeit und dazu die anstehenden Spiele pro Feld
-Das Spiel als nächstes anzeigen, was als letztes keine Eingabe hat(Joshua &Ali)
-
-Kommentare:
-
-Tastatureingabe bei Punktestandanzeige ermöglichen (Joshua)
-Touchfelder größer machen (Joshua)
-
-Turnier ID soll nur aus Zahlen bestehen (Franz)
-
-Handy Styling soll den ganzen Screen füllen (Franz)
-
-Möglichkeit für Impressum schaffen (niedrige Prio (Franz))
-
-Button für Ergebnisanzeige (Jannis)
 Dokumentation, wie App auf Server deployed wird. Repo an Lotte schicken mit Kontaktmöglichkeiten für Admins (Teammeeting)
 
 
+Was noch gefixt werden muss:
+
+Tastatureingabe bei Punktestandanzeige ermöglichen (Joshua)?
+
+Turnierauswertungsseite. Punktestand muss richtig übernommen werden
+
+Dashboard. Styling und Zeiten anpassen
+
+Button für Ergebnisanzeige 
+
+Fehleranzeige bei Turniererstellung auf Handyansicht
+
+Übersetzung im Dashboard 
+
 === TOP 3: Präsentation
 
-
+Wer macht?
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 
+Vorher noch ein Meeting um Ergebnisse zu vergleichen?
+
+30.06.2025 08:00 Uhr Präsentation. wenn möglich alle anwesend
 
 
 == Aufgabenverteilung
@@ -115,25 +117,11 @@ Dokumentation, wie App auf Server deployed wird. Repo an Lotte schicken mit Kont
 |===
 |Wer |Aufgabe 
 
-
-
-|Ali, Joshua
-|Dashboard mit aktuellen Spielen
-
-|Franz
-|Desktop Styling
-
-|Franz
-|Entwicklerdoku und Arcitecture Notebook
-
-|Franz
-|Betriebsdokumentation Sytemvoraussetung und Systembetreuung
-
 |Jannis
-|PDF Ausgabe auf Ergebnisseite stylen
+|Button für Ergebnisanzeige
 
-|Ali, Mutaz
-|Anwenderdoku
+|Franz
+|Entwicklerdoku
 
 
 
