@@ -10,7 +10,12 @@ const props = defineProps({
 		type: String,
 		required: true,
 	},
+	showTime: {
+		type: Boolean,
+		default: true,
+	},
 });
+
 
 const store = useTournamentStore();
 let game = store.getGameById(props.gameId);
@@ -83,7 +88,7 @@ function selectInput2() {
 
 <template>
 	<div class="flex flex-col w-full justify-center items-center">
-		<p class="font-bold text-gray-500">{{ startTime }}</p>
+		<p v-if="showTime" class="font-bold text-gray-500">{{ startTime }}</p>
 		<div class="null-game" v-if="team1 == 0 || team2 == 0">--</div>
 		<div
 			v-else

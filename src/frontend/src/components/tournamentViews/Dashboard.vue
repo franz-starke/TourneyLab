@@ -81,10 +81,18 @@ async function evalTournament() {
 	evalShow.value = true;
 }
 
-// Neuer Handler zum PDF-Download
+//PDF-Download
 function downloadPdf() {
 	generatePdfBrowser(leaderboard.value);
 }
+
+// Time für Dashboard-Games
+function getGameTime(gameId) {
+	const game = store.getGameById(gameId);
+	return game[3]; // index 3 = startTime
+}
+
+
 
 const activeGroup = ref(0);
 function setActiveGroup(groupIndex) {
@@ -164,10 +172,20 @@ const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
 				<IconQrCode />
 			</button>
 
-			<div v-for="idCurrGame, field  in currentGamePerField">
-				Feld: {{field}}
+			<div
+				v-for="(idCurrGame, field) in currentGamePerField"
+				:key="field"
+				class="flex flex-col w-full gap-2 mb-4 px-2"
+			>
+				<!-- Zeile mit Feld + Uhrzeit -->
+				<div class="flex flex-row justify-between items-center text-base font-semibold px-2">
+					<div>{{ $t("games.field") }}: {{ field }}</div>
 
-				<Game :gameId="idCurrGame" class="flex w-full" />
+					<div>{{ getGameTime(idCurrGame) }}</div>
+				</div>
+
+				<!-- Game-Component -->
+				<Game :gameId="idCurrGame" :showTime="false" class="flex w-full" />
 			</div>
 
 			<button class="colorButton cursor-pointer w-full max-w-100" @click="evalTournament">
