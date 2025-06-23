@@ -10,6 +10,8 @@ import Settings from '@/components/tournamentViews/Settings.vue'
 import Imprint from '@/components/tournamentViews/Imprint.vue'
 import Teams from '@/components/tournamentViews/Teams.vue'
 import EditGame from '@/components/tournamentViews/EditGame.vue'
+import EvalTournament from '@/components/tournamentViews/EvalTournament.vue'
+import SyncTournament from '@/components/tournamentViews/SyncTournament.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -66,7 +68,15 @@ const router = createRouter({
 					props: route => ({
 						gameId: Number(route.params.gameId),
 					})
-				}
+				},
+				{
+					path: 'eval',
+					component: EvalTournament,
+				},
+				{
+					path: 'sync',
+					component: SyncTournament,
+				},
 			],
 		},
 	],
