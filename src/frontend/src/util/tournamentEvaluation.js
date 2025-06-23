@@ -88,7 +88,9 @@ export function evaluateTournamentData(tournamentData) {
 	Object.values(games).forEach(fieldGames => {
 		Object.values(fieldGames).forEach(game => {
 			// game[3] is [scoreA, scoreB], game[4] is the time
-			const [teamA, teamB, , [scoreA, scoreB]] = game;
+			const teamA = game[0];
+			const teamB = game[1];
+			const [scoreA, scoreB] = game[4];
 			const idA = String(teamA), idB = String(teamB);
 
 			

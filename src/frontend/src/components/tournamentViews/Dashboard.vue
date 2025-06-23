@@ -9,6 +9,8 @@ import { gzip, ungzip } from "pako";
 import Game from "../utilcomponents/Game.vue";
 
 import { evaluateTournamentData } from "@/util/tournamentEvaluation.js";
+import { generatePdfBrowser } from "@/util/tournamentPDFCreation";
+
 import IconCamera from "../icons/IconCamera.vue";
 import { getCurrentGamePerField } from "@/util/tournamentDataStructureUtil.js";
 
@@ -68,11 +70,19 @@ function toggleSyncGames() {
 }
 
 const leaderboard = ref({});
-function evalTournament() {
+async function evalTournament() {
 	console.log("Evaluating Tournament...");
-	leaderboard.value = evaluateTournamentData(store.tournament);
-	console.log("Leaderboard: ", leaderboard);
+
+	const result = evaluateTournamentData(store.tournament);
+	leaderboard.value = result;
+	console.log("Leaderboard: ", result);
+
 	evalShow.value = true;
+}
+
+// Neuer Handler zum PDF-Download
+function downloadPdf() {
+	generatePdfBrowser(leaderboard.value);
 }
 
 const activeGroup = ref(0);
@@ -80,11 +90,7 @@ function setActiveGroup(groupIndex) {
 	activeGroup.value = groupIndex;
 }
 
-
 const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
-
-
-
 </script>
 
 <template>
@@ -136,6 +142,16 @@ const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
 					</div>
 				</div>
 			</div>
+
+			<!-- PDF-Download Button unterhalb des Leaderboards -->
+			<div class="flex justify-center m-2">
+				<button
+					@click="downloadPdf"
+					class="cursor-pointer rounded-4xl h-18 px-4 py-2 text-lg font-semibold bg-[var(--color-accent)] text-[var(--color-text-alt)]"
+				>
+					PDF herunterladen
+				</button>
+			</div>
 		</div>
 
 		<!-- MAIN-VIEW: main Dashboard view -->
@@ -146,15 +162,11 @@ const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
 				<IconQrCode />
 			</button>
 
-
-
 			<div v-for="idCurrGame, field  in currentGamePerField">
 				Feld: {{field}}
 
 				<Game :gameId="idCurrGame" class="flex w-full" />
 			</div>
-
-
 
 			<button class="colorButton cursor-pointer w-full max-w-100" @click="evalTournament">
 				<span>{{ $t("home.results") }}</span>
