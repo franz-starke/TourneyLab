@@ -11,7 +11,6 @@ export const useTournamentStore = defineStore("tournament", () => {
 	//   groups: {},
 	//   date: ""
 	const teams = ref({});
-
 	const tournament = useLocalStorage("tournament", {});
 
 	function getGameById(gameId) {
@@ -36,8 +35,42 @@ export const useTournamentStore = defineStore("tournament", () => {
 		}
 	}
 
+	function buildTeams() {
+        let result = {};
+        let firstTeamIdOfGroup = 1;
+        Object.entries(tournament.value.groups).forEach(([groupId, teamAmount]) => {
+            result[groupId] = {};
+            for (
+                let teamId = firstTeamIdOfGroup;
+                teamId < teamAmount + firstTeamIdOfGroup;
+                teamId++
+            ) {
+                result[groupId][teamId] = {};
+                Object.values(tournament.value.games).forEach(gamesOnField => {
+                    Object.entries(gamesOnField).forEach(([gameId, gameArray]) => {
+                        let playingTeams = gameArray.slice(0, 2);
+                        let refTeam = gameArray[2];
+                        let tid = teamId;
+                        if (
+                            typeof playingTeams[0] === "string" ||
+                            typeof playingTeams[1] === "string"
+                        ) {
+                            tid = String(teamId);
+                        }
+                        if (playingTeams.includes(tid) || refTeam == tid) {
+                            result[groupId][tid][gameId] = gameArray;
+                        }
+                    });
+                });
+            }
+            firstTeamIdOfGroup += teamAmount;
+        });
+		console.log("Built teams: ", result);
+        teams.value = result;
+    }
 
 	return {
+		buildTeams,
 		teams,
 		setGameById,
 		getGameById,

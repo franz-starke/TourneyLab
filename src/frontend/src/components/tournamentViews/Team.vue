@@ -1,6 +1,6 @@
 <script setup>
 import { useTournamentStore } from "@/stores/tournamentStore";
-import { defineProps } from "vue";
+import { defineProps, onBeforeMount, computed } from "vue";
 import Game from "../utilcomponents/Game.vue";
 
 const store = useTournamentStore();
@@ -16,7 +16,12 @@ const props = defineProps({
 	},
 });
 
-let teams = store.teams;
+
+let teams = computed(() => store.teams);
+onBeforeMount(() => {
+    store.buildTeams();
+});
+
 </script>
 
 <template>

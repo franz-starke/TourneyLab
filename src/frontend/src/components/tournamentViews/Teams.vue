@@ -18,67 +18,10 @@ function setActiveGroup(groupIndex) {
 	activeGroup.value = groupIndex;
 }
 
-/**
- * An object to store information about teams participating in the tournament.
- * The structure is intended to represent groups, teams per group, and games per team.
- * Each entry may include details such as Team1, Team2, RefTeam, start-time, Points, and field.
- *
- * Groups.TeamsPerGroup.GamesPerTeam = [Team1, Team2, RefTeam, start-time, Points, field]
- *
- * @type {Object}
- */
-let teams = {};
 
-// build up current Infos on Teams
-let firstTeamIdOfGroup = 1;
-onBeforeMount(function () {
-	Object.entries(store.tournament.groups).forEach(function ([
-		groupId,
-		teamAmount,
-	]) {
-		teams[groupId] = {};
-		for (
-			let teamId = firstTeamIdOfGroup;
-			teamId < teamAmount + firstTeamIdOfGroup;
-			teamId++
-		) {
-			teams[groupId][teamId] = {};
-			// now search all games, where teamId is a part of
-			Object.values(store.tournament.games).forEach(function (
-				gamesOnField
-			) {
-				Object.entries(gamesOnField).forEach(function ([
-					gameId,
-					gameArray,
-				]) {
-					let playingTeams = gameArray.slice(0, 2);
-					let refTeam = gameArray[2];
-
-					// console.log(
-					// 	"playingTeams:", playingTeams, playingTeams.map(t => typeof t),
-					// 	"refTeam:", refTeam, typeof refTeam,
-					// 	"teamId:", teamId, typeof teamId
-					// );
-
-					if (
-						typeof playingTeams[0] === "string" ||
-						typeof playingTeams[1] === "string"
-					) {
-						teamId = String(teamId);
-					}
-
-					if (playingTeams.includes(teamId) || refTeam == teamId) {
-						teams[groupId][teamId][gameId] = gameArray;
-					}
-				});
-			});
-		}
-		firstTeamIdOfGroup += teamAmount;
-	});
-	console.log("teams: ", teams);
-
-	// make teams accessible for other components
-	store.teams = teams;
+let teams = computed(() => store.teams);
+onBeforeMount(() => {
+    store.buildTeams();
 });
 </script>
 
