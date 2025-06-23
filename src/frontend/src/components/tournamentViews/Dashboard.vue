@@ -30,23 +30,28 @@ function getGameTime(gameId) {
 			<span>{{ $t("home.sync") }}</span>
 			<IconQrCode />
 		</RouterLink>
-
-		<div
-			v-for="(idCurrGame, field) in currentGamePerField"
-			:key="field"
-			class="flex flex-col w-full gap-2 mb-4 px-2"
-		>
-			<!-- Zeile mit Feld + Uhrzeit -->
+		<div class="overflow-y-auto flex-1 w-full px-2 py-4 scrollbar-hidden">
 			<div
-				class="flex flex-row justify-between items-center text-base font-semibold px-2"
+				v-for="(idCurrGame, field) in currentGamePerField"
+				:key="field"
+				class="flex flex-col w-full gap-2 mb-4 px-2"
 			>
-				<div>{{ $t("games.field") }}: {{ field }}</div>
+				<!-- Zeile mit Feld + Uhrzeit -->
+				<div
+					class="flex flex-row justify-between items-center text-base font-semibold px-2"
+				>
+					<div>{{ $t("games.field") }}: {{ field }}</div>
 
-				<div>{{ getGameTime(idCurrGame) }}</div>
+					<div>{{ getGameTime(idCurrGame) }}</div>
+				</div>
+
+				<!-- Game-Component -->
+				<Game
+					:gameId="idCurrGame"
+					:showTime="false"
+					class="flex w-full"
+				/>
 			</div>
-
-			<!-- Game-Component -->
-			<Game :gameId="idCurrGame" :showTime="false" class="flex w-full" />
 		</div>
 
 		<RouterLink
