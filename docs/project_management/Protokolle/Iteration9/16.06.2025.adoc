@@ -93,7 +93,28 @@ Betriebsdokumentation Sytemvoraussetung und Systembetreuung (bei marlene nachfra
 
 === TOP 3: Fragen an Auftraggeberin 
 
-Dashboard Seite mit baldigen Spielen?
+Wie dashboard ausstatten?
+
+Aktuelle Zeit und dazu die anstehenden Spiele pro Feld
+Das Spiel als nächstes anzeigen, was als letztes keine Eingabe hat(Joshua &Ali)
+
+weitere Kommentare:
+
+Tastatureingabe bei Punktestandanzeige ermöglichen (Joshua)
+
+Touchfelder größer machen (Joshua)
+
+Turnier ID soll nur aus Zahlen bestehen (Franz)
+
+Handy Styling soll den ganzen Screen füllen (Franz)
+
+Möglichkeit für Impressum schaffen (niedrige Prio (Franz))
+
+Button für Ergebnisanzeige (Jannis)
+
+Dokumentation, wie App auf Server deployed wird. Repo an Lotte schicken mit Kontaktmöglichkeiten für Admins (Teammeeting)
+
+
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
