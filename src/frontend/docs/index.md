@@ -1,25 +1,17 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "TourneyLab Frontend Softwaredocumentation"
-  text: "Navigate the site to learn about how the Vue.js project is setup for TourneyLab."
-  tagline: My great project tagline
+  name: "TourneyLab Frontend Documentation"
+  text: "navigate through the individual docs for each component and helper module"
+  tagline: 
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Util
+      link: /utils
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Components
+      link: /components/
 
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
