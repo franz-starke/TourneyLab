@@ -10,6 +10,7 @@ export const useTournamentStore = defineStore("tournament", () => {
 	//   id: "",
 	//   groups: {},
 	//   date: ""
+	//   matchpoint: 25,
 	const teams = ref({});
 	const tournament = useLocalStorage("tournament", {});
 

@@ -1,6 +1,6 @@
 <script setup>
 
-// TODO: manual ref assinging dialogue 
+// TODO: manual ref assinging dialogue
 // TODO: disallow some combinations of tournament params (checkTournamentParams)
 import api from "@/api/api.js";
 import { createTournamentAlgo } from "@/util/tournamentalgo.js";
@@ -38,6 +38,7 @@ const date = ref((new Date()).toISOString().split('T')[0]);
 const startTime = ref("10:00");
 const roundDuration = ref(25);
 const breakDuration = ref(5);
+const matchpoint = ref(25); // default matchpoint, can be changed later in the tournament settings
 
 
 let games = {};
@@ -53,7 +54,7 @@ const showRefModal = ref(false); // variable to handle if there is a ref dialog 
 
 /**
 * Creates a tournament based on the user input.
-* 
+*
 * @summary
 * This function first validates the input data on unsupported parameter combinations. If the data is valid, it uses a tournament generation
 * algorithm to create the tournament structure. Afterward, if any matches are missing referees,
@@ -152,6 +153,7 @@ async function generateTournament() {
 	store.tournament.name = tournamentName.value;
 	store.tournament.id = tournamentId;
 	store.tournament.groups = teamgroups;
+	store.tournament.matchpoint = matchpoint.value;
 
 	// Redirect to the tournament home page
 	router.push("/tournament-home/dashboard");
@@ -159,7 +161,7 @@ async function generateTournament() {
 
 
 
-/** 
+/**
 * Nach erfolgter Turnierplanerstellung, die Daten mit dem Server synchronisieren.
 *
 * @returns {Promise<string>} Returns the tournament ID if successful, otherwise undefined.
@@ -171,6 +173,7 @@ async function syncTournament() {
 		teams: teamgroups,
 		games: games,
 		date: date.value, // string ex: "2025-04-26"
+		matchpoint: matchpoint.value, // number
 	};
 
 	// FIXME: continous testing
@@ -188,7 +191,7 @@ async function syncTournament() {
 
 /**
  * This function handles the opening of the modal dialog for manual referee assignment.
- * 
+ *
  * @returns Promise which resolves to the updated Games data structure
  */
 async function openRefModal() {

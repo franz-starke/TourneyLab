@@ -26,7 +26,7 @@ const referee = game[2];
 const startTime = game[3];
 const points = ref(game[4]);
 
-const matchpoint = 25
+const matchpoint = store.tournament.matchpoint || 25;
 
 
 const whichTeamWon = computed(() => {

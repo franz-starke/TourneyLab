@@ -9,7 +9,7 @@ import { getCurrentGamePerField } from "@/util/tournamentDataStructureUtil.js";
 
 const store = useTournamentStore();
 
-const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
+const currentGamePerField = getCurrentGamePerField(store.tournament.games, store.tournament.matchpoint);
 
 // Time für Dashboard-Games
 function getGameTime(gameId) {

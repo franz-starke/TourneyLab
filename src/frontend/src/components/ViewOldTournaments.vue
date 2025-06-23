@@ -31,6 +31,7 @@ async function getTournament(tid) {
 		store.tournament.name = response.name;
 		store.tournament.groups = response.teams;
 		store.tournament.games = response.games;
+		store.tournament.matchpoint = response.matchpoint || 25; // default matchpoint if not set
 
 		// Navigate to the tournament home page
 		router.push("/tournament-home/dashboard");
