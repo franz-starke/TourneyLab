@@ -15,7 +15,11 @@ export default defineConfig({
     ],
 
     sidebar: [
+	{ text: 'Vue-router', link: '/vue-router/'},
+	{ text: 'stores', link: '/stores/'},
+	{ text: 'backend-api', link: '/backend-api/'},
 	{
+
 		text: 'Components', link: '/components/',
 		items: [
 		{ text: 'LandingPage', link: '/components/LandingPage' },
@@ -44,6 +48,8 @@ export default defineConfig({
 		},
 		]
 	},
+
+
 	{
 		text: 'utils', link: '/utils/',
 		items: [
