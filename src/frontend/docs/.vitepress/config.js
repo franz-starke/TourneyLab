@@ -8,10 +8,10 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Vue-router', link: '/vue-router' },
-      { text: 'Backend-api', link: '/backend-api' },
-      { text: 'Stores', link: '/stores' },
       { text: 'Components', link: '/components' },
-      { text: 'Util', link: '/utils' }
+      { text: 'Util', link: '/utils' },
+	  { text: 'Backend-api', link: '/backend-api' },
+      { text: 'Stores', link: '/stores' },
     ],
 
     sidebar: [
