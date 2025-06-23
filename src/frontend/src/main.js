@@ -45,7 +45,8 @@ const i18n = createI18n({
             },
             home: {
                 sync: "Spielstände Sync.",
-                results: "Turnier Auswerten"
+                results: "Turnier Auswerten",
+                downloadPdf: "PDF herunterladen"
             },
             sync: {
                 offline: "QR-Code-Scanner für Offline Austauschen von Punkteständen:",
@@ -106,7 +107,8 @@ const i18n = createI18n({
             },
             home: {
                 sync: "Synchronize Scores",
-                results: "Evaluate Tournament"
+                results: "Evaluate Tournament",
+                downloadPdf: "Download PDF"
             },
             sync: {
                 offline: "QR Code Scanner for Offline Score Synchronization:",

@@ -11,9 +11,9 @@ function createSampleTournament() {
     groups: { "1": 3 },
     games: {
       "1": {
-        "1": [1, 2, 3, [2, 1], "10:00"],
-        "2": [1, 3, 2, [1, 1], "11:00"],
-        "3": [2, 3, 1, [3, 5], "12:00"],
+        "1": [1, 2, 3, "10:00", [2, 1]],
+        "2": [1, 3, 2, "11:00", [1, 1]],
+        "3": [2, 3, 1, "12:00", [3, 5]],
       }
     }
   };
@@ -74,14 +74,14 @@ describe('evaluateTournamentData', () => {
       groups: { "1": 3, "2": 3 },
       games: {
         "1": {
-          "1": [1, 2, 3, [2, 1], "10:00"],
-          "2": [1, 3, 2, [1, 1], "11:00"],
-          "3": [2, 3, 1, [0, 3], "12:00"],
+          "1": [1, 2, 3, "10:00", [2, 1]],
+          "2": [1, 3, 2, "11:00", [1, 1]],
+          "3": [2, 3, 1, "12:00", [0, 3]],
         },
         "2": {
-          "1": [4, 5, 6, [0, 2], "10:30"],
-          "2": [4, 6, 5, [4, 4], "11:30"],
-          "3": [5, 6, 4, [1, 0], "12:30"],
+          "1": [4, 5, 6, "10:30", [0, 2]],
+          "2": [4, 6, 5, "11:30", [4, 4]],
+          "3": [5, 6, 4, "12:30", [1, 0]],
         }
       }
     };
@@ -136,7 +136,7 @@ describe('evaluateTournamentData', () => {
 
   it('funktioniert auch mit einem Vue ref', () => {
     const tournament = ref(createSampleTournament());
-    const result = evaluateTournamentData(unref(tournament));
+    const result = evaluateTournamentData(tournament);
     expect(result.name).toBe("Testturnier");
   });
 
@@ -154,9 +154,9 @@ describe('evaluateTournamentData', () => {
       groups: { "1": 3 },
       games: {
         "1": {
-          "1": [1, 2, 3, [1, 1], "10:00"],
-          "2": [1, 3, 2, [1, 0], "11:00"],
-          "3": [2, 3, 1, [1, 0], "12:00"],
+          "1": [1, 2, 3, "10:00", [1, 1]],
+          "2": [1, 3, 2, "11:00", [1, 0]],
+          "3": [2, 3, 1, "12:00", [1, 0]],
         }
       }
     };
@@ -186,10 +186,8 @@ describe('evaluateTournamentData', () => {
       groups: { "1": 2 },
       games: {
         "1": {
-          // Spiel 1: noch nicht gespielt (0:0) → soll übersprungen werden
-          "1": [1, 2, 1, [0, 0], "10:00"],
-          // Spiel 2: echtes Ergebnis → wird gewertet
-          "2": [1, 2, 1, [3, 1], "11:00"],
+          "1": [1, 2, 1, "10:00", [0, 0]],
+          "2": [1, 2, 1, "11:00", [3, 1]],
         }
       }
     };
@@ -197,7 +195,6 @@ describe('evaluateTournamentData', () => {
     const result = evaluateTournamentData(tournament);
     const group = result.groups[0];
 
-    // Es gibt nur eine gewertete Partie → beide Teams haben games_played = 1
     expect(group.teams.find(t => t.id === "1")).toMatchObject({
       games_played: 1,
       wins:         1,
@@ -215,7 +212,6 @@ describe('evaluateTournamentData', () => {
       score_diff:  -2
     });
 
-    // Reihenfolge nach Punkten/Tordifferenz
     expect(group.teams.map(t => t.id)).toEqual(["1", "2"]);
   });
 

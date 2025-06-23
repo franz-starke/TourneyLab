@@ -9,7 +9,10 @@ import { gzip, ungzip } from "pako";
 import Game from "../utilcomponents/Game.vue";
 
 import { evaluateTournamentData } from "@/util/tournamentEvaluation.js";
+import { generatePdfBrowser } from "@/util/tournamentPDFCreation";
+
 import IconCamera from "../icons/IconCamera.vue";
+import IconDownload from "../icons/IconDownload.vue";
 import { getCurrentGamePerField } from "@/util/tournamentDataStructureUtil.js";
 
 const store = useTournamentStore();
@@ -68,23 +71,35 @@ function toggleSyncGames() {
 }
 
 const leaderboard = ref({});
-function evalTournament() {
+async function evalTournament() {
 	console.log("Evaluating Tournament...");
-	leaderboard.value = evaluateTournamentData(store.tournament);
-	console.log("Leaderboard: ", leaderboard);
+
+	const result = evaluateTournamentData(store.tournament);
+	leaderboard.value = result;
+	console.log("Leaderboard: ", result);
+
 	evalShow.value = true;
 }
+
+//PDF-Download
+function downloadPdf() {
+	generatePdfBrowser(leaderboard.value);
+}
+
+// Time für Dashboard-Games
+function getGameTime(gameId) {
+	const game = store.getGameById(gameId);
+	return game[3]; // index 3 = startTime
+}
+
+
 
 const activeGroup = ref(0);
 function setActiveGroup(groupIndex) {
 	activeGroup.value = groupIndex;
 }
 
-
 const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
-
-
-
 </script>
 
 <template>
@@ -136,6 +151,17 @@ const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
 					</div>
 				</div>
 			</div>
+
+			<!-- PDF-Download Button unterhalb des Leaderboards -->
+			<div class="flex justify-center m-2">
+				<button
+					@click="downloadPdf"
+					class="colorButton cursor-pointer w-full max-w-100 rounded-4xl"
+				>
+					<span>{{ $t('home.downloadPdf') }}</span>
+					<IconDownload />
+				</button>
+			</div>
 		</div>
 
 		<!-- MAIN-VIEW: main Dashboard view -->
@@ -146,15 +172,21 @@ const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
 				<IconQrCode />
 			</button>
 
+			<div
+				v-for="(idCurrGame, field) in currentGamePerField"
+				:key="field"
+				class="flex flex-col w-full gap-2 mb-4 px-2"
+			>
+				<!-- Zeile mit Feld + Uhrzeit -->
+				<div class="flex flex-row justify-between items-center text-base font-semibold px-2">
+					<div>{{ $t("games.field") }}: {{ field }}</div>
 
+					<div>{{ getGameTime(idCurrGame) }}</div>
+				</div>
 
-			<div v-for="idCurrGame, field  in currentGamePerField">
-				Feld: {{field}}
-
-				<Game :gameId="idCurrGame" class="flex w-full" />
+				<!-- Game-Component -->
+				<Game :gameId="idCurrGame" :showTime="false" class="flex w-full" />
 			</div>
-
-
 
 			<button class="colorButton cursor-pointer w-full max-w-100" @click="evalTournament">
 				<span>{{ $t("home.results") }}</span>
