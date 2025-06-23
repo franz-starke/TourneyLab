@@ -11,7 +11,7 @@ const testServer = "217.79.180.226:5400";
 const protocol = "http://";
 
 // set the server address to use
-const usedServer = testServer;
+const usedServer = localhost;
 
 // Create Tournament
 class api {

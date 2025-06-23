@@ -22,7 +22,7 @@ class Database:
         try:
             if not os.path.exists(os.path.join(utils.DATABASE_PATH, f"{tournament_id}.db")):
                 return None
-            
+
             with sqlite3.connect(os.path.join(utils.DATABASE_PATH, f"{tournament_id}.db")) as connection:
                 cursor = connection.cursor()
                 cursor.execute(query, attributes)
@@ -57,7 +57,9 @@ class Database:
         fields: Dict[str, str],
         teams: Dict[str, List[Union[str, int]]],
         groups: Dict[str, str],
-        games: Dict[str, List[Union[str, int]]]) -> Union[bool, None]:
+        games: Dict[str, List[Union[str, int]]],
+        matchpoint: int
+        ) -> Union[bool, None]:
 
         """
         Initializes the database for a new tournament and inserts the provided data.
@@ -73,6 +75,7 @@ class Database:
             teams (dict): Team ID to [name, group_id] mapping.
             groups (dict): Group ID to name mapping.
             games (dict): Game ID to [field_id, team1, team2, ref, time, score1, score2].
+            matchpoint (int): Match point value.
 
         Returns:
             bool: True if setup is successful.
@@ -87,13 +90,14 @@ class Database:
             date         TEXT,
             field_count  INTEGER,
             team_count   INTEGER,
-            group_count  INTEGER)"""))
+            group_count  INTEGER,
+            matchpoint	 INTEGER)"""))
 
         result.append(self.query(tournament_id, """
-            INSERT INTO config 
-            (id, name, date, field_count, team_count, group_count)
-            VALUES (?, ?, ?, ?, ?, ?)""", 
-            [tournament_id, name, date, field_count, team_count, group_count]))
+            INSERT INTO config
+            (id, name, date, field_count, team_count, group_count, matchpoint)
+            VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            [tournament_id, name, date, field_count, team_count, group_count, matchpoint]))
 
         result.append(self.query(tournament_id, """
             CREATE TABLE IF NOT EXISTS groups (
@@ -101,7 +105,7 @@ class Database:
             name TEXT)"""))
 
         for group_id, group_name in groups.items():
-            result.append(self.query(tournament_id, """INSERT INTO groups (id, name) VALUES (?, ?)""", 
+            result.append(self.query(tournament_id, """INSERT INTO groups (id, name) VALUES (?, ?)""",
                 [group_id, group_name]))
 
         result.append(self.query(tournament_id, """
@@ -135,15 +139,15 @@ class Database:
 
         for game_id, game_data in games.items():
             result.append(self.query(tournament_id, """
-                INSERT INTO games 
+                INSERT INTO games
                 (id, field_id, team1, team2, ref, time, score1, score2)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""", 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
                 [game_id, *game_data]))
 
         for variable in result:
             if variable is None:
                 return None
-            
+
         return True
 
     def get_config(self, tournament_id: str) -> Union[List, bool, None]:
@@ -160,7 +164,7 @@ class Database:
 
     def get_game_score(self, tournament_id: str, game_id: str) -> Union[List, bool, None]:
         """Returns the score for a specific game."""
-        
+
         return self.query(tournament_id, "SELECT score1, score2 FROM games WHERE id IS ?", [game_id])
 
 

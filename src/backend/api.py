@@ -40,7 +40,7 @@ def handle_error(result) -> dict | utils.Error:
     """
     if result is None:
         raise HTTPException(status_code=500, detail="Unexpected None response.")
-    
+
     if isinstance(result, utils.Error):
         raise HTTPException(status_code=result.code, detail=result.message)
     return result
@@ -67,7 +67,7 @@ def create_tournament(data: CreateTournament):
         if isinstance(variable[1], utils.Error):
             return handle_error(variable[1])
     result = server.create_tournament(
-        data.name, data.date, data.teams, data.games)
+        data.name, data.date, data.teams, data.games, data.matchpoint)
     result = handle_error(result)
     return {"tournament_id": result}
 
