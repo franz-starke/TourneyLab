@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "docs:dev": "vitepress dev docs",
+    "docs:dev": "vitepress dev docs --port 5555",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
