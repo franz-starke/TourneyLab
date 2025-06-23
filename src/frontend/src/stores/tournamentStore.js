@@ -1,6 +1,7 @@
 // stores/tournamentStore.js
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
+import { ref } from "vue";
 
 export const useTournamentStore = defineStore("tournament", () => {
 	//  tournament object in LocalStorage:
@@ -9,6 +10,7 @@ export const useTournamentStore = defineStore("tournament", () => {
 	//   id: "",
 	//   groups: {},
 	//   date: ""
+	const teams = ref({});
 
 	const tournament = useLocalStorage("tournament", {});
 
@@ -22,7 +24,6 @@ export const useTournamentStore = defineStore("tournament", () => {
 	}
 
 
-	// FIXME: check if correct`
 	function setGameById(gameId, updatedGame) {
 		for (const [field, gamesOnField] of Object.entries(tournament.value.games)) {
 			if (gameId in gamesOnField) {
@@ -37,6 +38,7 @@ export const useTournamentStore = defineStore("tournament", () => {
 
 
 	return {
+		teams,
 		setGameById,
 		getGameById,
 		tournament,

@@ -1,85 +1,95 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import LandingPage from '@/components/LandingPage.vue'
-import EnterTournament from '@/components/EnterTournament.vue'
-import CreateTournament from '@/components/CreateTournament.vue'
-import ViewOldTournaments from '@/components/ViewOldTournaments.vue'
-import TournamentHome from '@/components/TournamentHome.vue'
-import Dashboard from '@/components/tournamentViews/Dashboard.vue'
-import Games from '@/components/tournamentViews/Games.vue'
-import Settings from '@/components/tournamentViews/Settings.vue'
-import Imprint from '@/components/tournamentViews/Imprint.vue'
-import Teams from '@/components/tournamentViews/Teams.vue'
-import EditGame from '@/components/tournamentViews/EditGame.vue'
-import EvalTournament from '@/components/tournamentViews/EvalTournament.vue'
-import SyncTournament from '@/components/tournamentViews/SyncTournament.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import LandingPage from "@/components/LandingPage.vue";
+import EnterTournament from "@/components/EnterTournament.vue";
+import CreateTournament from "@/components/CreateTournament.vue";
+import ViewOldTournaments from "@/components/ViewOldTournaments.vue";
+import TournamentHome from "@/components/TournamentHome.vue";
+import Dashboard from "@/components/tournamentViews/Dashboard.vue";
+import Games from "@/components/tournamentViews/Games.vue";
+import Settings from "@/components/tournamentViews/Settings.vue";
+import Imprint from "@/components/tournamentViews/Imprint.vue";
+import Teams from "@/components/tournamentViews/Teams.vue";
+import EditGame from "@/components/tournamentViews/EditGame.vue";
+import EvalTournament from "@/components/tournamentViews/EvalTournament.vue";
+import SyncTournament from "@/components/tournamentViews/SyncTournament.vue";
+import Team from "@/components/tournamentViews/Team.vue";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		{
-			path: '/',
-			name: 'landing',
+			path: "/",
+			name: "landing",
 			component: LandingPage,
 		},
 		{
-			path: '/enter-tournament',
-			name: 'enter-tournament',
+			path: "/enter-tournament",
+			name: "enter-tournament",
 			component: EnterTournament,
 		},
 		{
-			path: '/create-tournament',
-			name: 'create-tournament',
+			path: "/create-tournament",
+			name: "create-tournament",
 			component: CreateTournament,
 		},
 		{
-			path: '/old-tournament',
-			name: 'old-tournament',
+			path: "/old-tournament",
+			name: "old-tournament",
 			component: ViewOldTournaments,
 		},
 		{
-			path: '/tournament-home',
-			name: 'tournament-home',
+			path: "/tournament-home",
+			name: "tournament-home",
 			component: TournamentHome,
 			children: [
 				{
-					path: 'dashboard',
+					path: "dashboard",
 					component: Dashboard,
 				},
 				{
-					path: 'games',
+					path: "games",
 					component: Games,
 				},
 				{
-					path: 'teams',
+					path: "teams",
 					component: Teams,
 				},
 				{
-					path: 'settings',
+					path: "settings",
 					component: Settings,
 				},
 				{
-					path: 'imprint',
+					path: "imprint",
 					component: Imprint,
 				},
 				{
-					path: 'edit-game/:gameId',
+					path: "edit-game/:gameId",
 					component: EditGame,
-					name: 'edit-game',
-					props: route => ({
+					name: "edit-game",
+					props: (route) => ({
 						gameId: Number(route.params.gameId),
-					})
+					}),
 				},
 				{
-					path: 'eval',
+					path: "eval",
 					component: EvalTournament,
 				},
 				{
-					path: 'sync',
+					path: "sync",
 					component: SyncTournament,
+				},
+				{
+					path: "team/:groupId/:teamId",
+					component: Team,
+					name: "team",
+					props: (route) => ({
+						teamId: Number(route.params.teamId),
+						groupId: Number(route.params.groupId),
+					}),
 				},
 			],
 		},
 	],
-})
+});
 
-export default router
+export default router;
