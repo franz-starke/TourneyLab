@@ -114,7 +114,7 @@ function selectInput2() {
 					class="flex flex-row w-30 justify-evenly items-center bg-[var(--color-sub-element)] p-2 rounded-full"
 				>
 					<input
-						class="flex w-8 text-center text-2xl font-bold"
+						class="flex min-w-[2em] w-8 text-center text-2xl font-bold"
 						:class="{'text-[var(--color-accent)]': whichTeamWon == 1}"
 						ref="numberInput1"
 						min="0"
@@ -126,7 +126,7 @@ function selectInput2() {
 					/>
 					:
 					<input
-						class="flex w-8 text-center text-2xl font-bold"
+						class="flex min-w-[2em] w-8 text-center text-2xl font-bold"
 						:class="{'text-[var(--color-accent)]': whichTeamWon == 2}"
 						ref="numberInput2"
 						min="0"
