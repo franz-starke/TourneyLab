@@ -1,4 +1,31 @@
+<!-- src/components/LandingPage.vue -->
+
 <script setup>
+/**
+ * @file LandingPage.vue
+ * @description The main landing page component for the application. Provides navigation to enter, create, or view old tournaments, and includes controls for language and theme selection.
+ *
+ * @component
+ * @name LandingPage
+ *
+ * @example
+ * <LandingPage />
+ *
+ * @imports
+ * - LanguageSelectBtn: Button for selecting application language.
+ * - ThemeChangeBtn: Button for toggling application theme.
+ * - IconEnter: Icon used for the "Enter Tournament" button.
+ *
+ * @dependencies
+ * - Vue Router's RouterLink for navigation.
+ * - i18n for translations via $t.
+ *
+ * @features
+ * - Responsive layout with Tailwind CSS utility classes.
+ * - Navigation to enter, create, or view old tournaments.
+ * - Language and theme selection controls in the header.
+ */
+
 import LanguageSelectBtn from './utilcomponents/LanguageSelectBtn.vue';
 import ThemeChangeBtn from './utilcomponents/ThemeChangeBtn.vue';
 import IconEnter from '@/components/icons/IconEnter.vue';

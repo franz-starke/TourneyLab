@@ -181,7 +181,8 @@ const currentGamePerField = getCurrentGamePerField(store.tournament.games, 25);
 				<div
 					class="flex flex-col items-center justify-center w-full max-w-50 aspect-square rounded-4xl bg-[var(--color-element)]">
 
-					<IconCamera v-if="!scannerActive" class="w-30 h-30"></IconCamera>
+
+					<IconCamera v-if="scannerActive" class="w-30 h-30"></IconCamera>
 					<qrcode-stream v-else @detect="onDetect"></qrcode-stream>
 				</div>
 			</div>

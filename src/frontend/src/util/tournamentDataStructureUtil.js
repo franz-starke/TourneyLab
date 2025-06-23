@@ -2,13 +2,14 @@
 /**
  * convert the game data structure to rounds of games
  *
- * @param {Object} games Object of Fields with Games
- * @param {Object} games.fieldId Object of Games with gameId as key and Array of Game-Arrays as value
- * @param {Array} games.fieldId.gameId game Array with [team1, team2, referee]
- * @returns {Array} Array of Rounds, where each Round is an Array of Games
- * @returns {Array} rounds[roundIndex] Array of Games in that Round
- * @returns {Array} rounds[roundIndex][gameIndex] game Array with [gameId, [...gameData]]
- */
+ * @param {Object<string, Object<string, Array<string, string, string>>>} games
+ * An object where keys are field IDs, and values are objects mapping game IDs
+ * to game arrays ([team1, team2, referee]).
+ *
+ * @returns {Array<Array<Array<string, Array<string, string, string>>>>}
+ * Returns an array of rounds. Each round is an array of tuples:
+ * [gameId, [team1, team2, referee]].
+*/
 export function getRounds(games) {
 	// function to get the rounds from the games
 	const rounds = [];
