@@ -12,7 +12,7 @@ import { unref } from "vue";
  *   groups: {1:6, 2:6}, // Number of teams per group
  *   games: {
  *     "1": {
- *       "1": [1, 2, 0, [5, 3], "10:00"], // [teamA, teamB, field, [scoreA, scoreB], time]
+ *       "1": [1, 2, 0, "10:00",[5, 3]], // [teamA, teamB, referee, time,[scoreA, scoreB]]
  *       ...
  *     },
  *     "2": { ... }
@@ -87,7 +87,6 @@ export function evaluateTournamentData(tournamentData) {
 	// Evaluate games
 	Object.values(games).forEach(fieldGames => {
 		Object.values(fieldGames).forEach(game => {
-			// game[3] is [scoreA, scoreB], game[4] is the time
 			const teamA = game[0];
 			const teamB = game[1];
 			const [scoreA, scoreB] = game[4];
