@@ -9,9 +9,16 @@ vom __date__
 - **Zeit:** 09:45 - 11:00 Uhr 
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
-- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Jannis Wittchen, Ali Zeinelov, Mutaz Abuazizeh, Ibrahim Braikeh 
-- **Abwesend:** 
+- **Anwesend:**   Franz Starke, Sebastian Heber, Jannis Wittchen, Mutaz Abuazizeh, 
+- **Abwesend:** Joshua Heninger,  Ali Zeinelov, Ibrahim Braikeh 
 
+.weiteres Meeting am selben Tag
+
+- **Zeit:** 18:00 - 19:00 Uhr 
+- **Ort:**  online via Discord
+- **Protokollant:** Sebastian Heber
+- **Anwesend:**   Franz Starke, Sebastian Heber, Jannis Wittchen, Mutaz Abuazizeh, Joshua Heninger, Ibrahim Braikeh 
+- **Abwesend:**   Ali Zeinelov, 
 
 == Agenda
 
