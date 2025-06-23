@@ -94,19 +94,18 @@ Dokumentation, wie App auf Server deployed wird. Repo an Lotte schicken mit Kont
 
 Was noch gefixt werden muss:
 
-Tastatureingabe bei Punktestandanzeige ermöglichen (Joshua)?
 
-Turnierauswertungsseite. Punktestand muss richtig übernommen werden (Jannis fertig)
+Turnierauswertungsseite. Punktestand muss richtig übernommen werden
 
-Dashboard. Styling und Zeiten anpassen. -> Backend anpassen +  Matchpoint Vaiable ergänzen, Buttons fixieren Inhalt scrollable (Joshua + Franz)
+Dashboard. Styling und Zeiten anpassen. -> Backend anpassen +  Matchpoint Vaiable ergänzen, Buttons fixieren Inhalt scrollable 
 
-Button für Ergebnisanzeige Jannis fertig
+Button für Ergebnisanzeige
 
-Fehleranzeige bei Turniererstellung auf Handyansicht -> Slide in Message (Franz + Joshua)
+Fehleranzeige bei Turniererstellung auf Handyansicht -> Slide in Message 
 
-Übersetzung im Dashboard (Joshua)
+Übersetzung im Dashboard 
 
-Highlights entfernen bei Unterseiten (Joshua)
+Highlights entfernen bei Unterseiten 
 
 Anwenderdoku aktualisieren (Mutaz und Ali)
 
@@ -134,7 +133,32 @@ Vorher noch ein Meeting um Ergebnisse zu vergleichen?
 |Franz
 |Entwicklerdoku
 
+|Joshua
+|Tastatureingabe bei Punktestandanzeige ermöglichen
 
+|Joshua
+|Übersetzung im Dashboard
+
+|Joshua
+|Highlights entfernen bei Unterseiten 
+
+|Joshua + Franz
+|Dashboard: Styling und Zeiten anpassen -> Backend anpassen +  Matchpoint Vaiable ergänzen, Buttons fixieren Inhalt scrollable
+
+|Joshua + Franz
+|Fehleranzeige bei Turniererstellung auf Handyansicht -> Slide in Message
+
+|Jannis
+|Turnierauswertungsseite. Punktestand muss richtig übernommen werden
+
+|Jannis
+|Button für Ergebnisanzeige
+
+|Mutaz + Ali
+|Anwenderdoku aktualisieren nach Änderungen
+
+|Sebastian + Joshua
+|Präsentation vorbereiten
 
 |===
 
