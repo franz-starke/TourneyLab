@@ -39,8 +39,8 @@ export function getRounds(games) {
 
 /**
  *
- * 
- * 
+ *
+ *
  * @returns Array of available Referee Teams for game with gameId
  */
 export function availableRefsForGame(games, gameId, totalTeamAmount) {
@@ -75,7 +75,7 @@ export function availableRefsForGame(games, gameId, totalTeamAmount) {
 
 
 
-/** 
+/**
 * Brief description of the function here.
 * @param {Object} games Object of Fields with Games
 * @param {Object} games.fieldId Object of Games with gameId as key and Array of Game-Arrays as value
@@ -101,3 +101,27 @@ export function someGameInGamesHasNoRef(games) {
 
 
 
+
+
+
+/**
+ * Returns an object mapping each fieldId to the gameId of the last not finished game.
+ */
+export function getCurrentGamePerField(games, matchpoint = 25) {
+	const result = {};
+	for (const [fieldId, gamesOnField] of Object.entries(games)) {
+		for (const [gameId, gameArr] of Object.entries(gamesOnField)) {
+
+			let points = gameArr[4];
+			let isfinished = points[0] >= matchpoint && points[0] - points[1] >= 2 || points[1] >= matchpoint && points[1] - points[0] >= 2
+			// Check if the game is finished
+			if (!isfinished) {
+				// If the game is not finished, set it as the current game for the field
+				result[fieldId] = gameId;
+				break; // No need to check further games on this field
+			}
+		}
+	}
+	console.log("Current games per field: ", result);
+	return result;
+}

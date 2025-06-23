@@ -21,6 +21,20 @@ const referee = game[2];
 const startTime = game[3];
 const points = ref(game[4]);
 
+const matchpoint = 25
+
+
+const whichTeamWon = computed(() => {
+	// console.log("points.value", points.value);
+	if (points.value[0] >= matchpoint && points.value[0] - points.value[1] >= 2) {
+		return 1;
+	} else if (points.value[1] >= matchpoint && points.value[1] - points.value[0] >= 2) {
+		return 2;
+	} else {
+		return 0; // game not finished
+	}
+});
+
 const gameRoute = computed(() => ({
 	name: "edit-game",
 	params: { gameId: props.gameId },
@@ -43,7 +57,9 @@ watch(
 
 		game[4] = newPoints;
 		store.setGameById(props.gameId, game);
-		// console.log(store.tournament);
+
+
+
 	},
 	{ deep: true }
 );
@@ -57,6 +73,12 @@ const numberInput2 = ref(null);
 function selectInput2() {
 	numberInput2.value?.select();
 }
+
+
+
+
+
+
 </script>
 
 <template>
@@ -71,8 +93,8 @@ function selectInput2() {
 			<div class="flex flex-col">
 				<div>
 					<p class="text-lg font-bold">
-						{{ $t("games.team") }} {{ team1 }} vs.
-						{{ $t("games.team") }} {{ team2 }}
+						<span :class="{'text-[var(--color-accent)]': whichTeamWon == 1}">{{ $t("games.team") }} {{ team1 }}</span> vs.
+						<span :class="{'text-[var(--color-accent)]': whichTeamWon == 2}">{{ $t("games.team") }} {{ team2 }}</span>
 					</p>
 				</div>
 
@@ -88,6 +110,7 @@ function selectInput2() {
 				>
 					<input
 						class="flex w-8 text-center text-2xl font-bold"
+						:class="{'text-[var(--color-accent)]': whichTeamWon == 1}"
 						ref="numberInput1"
 						min="0"
 						type="number"
@@ -99,6 +122,7 @@ function selectInput2() {
 					:
 					<input
 						class="flex w-8 text-center text-2xl font-bold"
+						:class="{'text-[var(--color-accent)]': whichTeamWon == 2}"
 						ref="numberInput2"
 						min="0"
 						type="number"

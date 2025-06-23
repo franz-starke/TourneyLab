@@ -9,8 +9,8 @@ vom __date__
 - **Zeit:** 09:45 - 11:00 Uhr 
 - **Ort:**  online via Discord
 - **Protokollant:** Sebastian Heber
-- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Jannis Wittchen, Ali Zeinelov
-- **Abwesend:** Mutaz Abuazizeh, Ibrahim Braikeh 
+- **Anwesend:**  Joshua Heninger, Franz Starke, Sebastian Heber, Jannis Wittchen, Ali Zeinelov, Mutaz Abuazizeh, Ibrahim Braikeh 
+- **Abwesend:** 
 
 
 == Agenda
@@ -36,20 +36,21 @@ vom __date__
 |1
 |Besprechung Fachaustausch 
 |15 Min.
-|Aufgaben für Vorbereitung verteilt
+|wie lief der ab, hab es neue Erkenntnisse
 |Alle
 
 |2
-|Aktuellen Stand der Untergruppen besprechen
+|Aktuellen Stand der Aufgaben
 |30 Min.
 |
 |Alle
 
 |3
-|Fragen an Auftraggeberin 
-|15 Min.
-|
+|Präsentation
+|30 Min.
+|Inhalte geklärt. Wer hält geklärt
 |Alle
+
 
 |Abschluss
 |Terminabklärung und Aufgabenverteilung abschließen
@@ -74,34 +75,19 @@ vom __date__
 
 === TOP 1: Besprechung Fachaustausch
 
-Ibrahim und Jannis tragen vor. Franz und Joshua helfen bei vorbereitung 
+
 
 === TOP 2: Aktuellen Stand der Untergruppen besprechen
 
-Frontend:
 
-Styling von Desktopseite 
-
-PDF Erstellung von Ergebnissen eventuell stylen 
-
-Dashboard mit aktuellen Spielen
-
-Entwicklerdoku und Arcitecture Notebook
-
-Betriebsdokumentation Sytemvoraussetung und Systembetreuung (bei marlene nachfragen, eventuell Vorlagen aus letzten Jahren) 
-
-
-=== TOP 3: Fragen an Auftraggeberin 
-
+Anmerkungen von Lotte:
 Wie dashboard ausstatten?
-
 Aktuelle Zeit und dazu die anstehenden Spiele pro Feld
 Das Spiel als nächstes anzeigen, was als letztes keine Eingabe hat(Joshua &Ali)
 
-weitere Kommentare:
+Kommentare:
 
 Tastatureingabe bei Punktestandanzeige ermöglichen (Joshua)
-
 Touchfelder größer machen (Joshua)
 
 Turnier ID soll nur aus Zahlen bestehen (Franz)
@@ -111,15 +97,15 @@ Handy Styling soll den ganzen Screen füllen (Franz)
 Möglichkeit für Impressum schaffen (niedrige Prio (Franz))
 
 Button für Ergebnisanzeige (Jannis)
-
 Dokumentation, wie App auf Server deployed wird. Repo an Lotte schicken mit Kontaktmöglichkeiten für Admins (Teammeeting)
 
+
+=== TOP 3: Präsentation
 
 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 
-Heute 16.06. um 17:30 Uhr hybrid im Raum A105/106 und BBB
 
 
 == Aufgabenverteilung
@@ -128,6 +114,7 @@ Heute 16.06. um 17:30 Uhr hybrid im Raum A105/106 und BBB
 [cols="3s,7", caption="", frame="none", grid="rows" ]
 |===
 |Wer |Aufgabe 
+
 
 
 |Ali, Joshua
