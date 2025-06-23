@@ -107,7 +107,7 @@ Fehleranzeige bei Turniererstellung auf Handyansicht -> Slide in Message
 
 Highlights entfernen bei Unterseiten 
 
-Anwenderdoku aktualisieren (Mutaz und Ali)
+Anwenderdoku aktualisieren 
 
 === TOP 3: Präsentation
 
