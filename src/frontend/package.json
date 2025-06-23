@@ -38,6 +38,7 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.21",
+    "jsdoc-to-markdown": "^9.1.1",
     "jsdom": "^26.0.0",
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8",

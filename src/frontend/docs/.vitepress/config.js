@@ -7,13 +7,16 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Components', link: '/components/' },
-      { text: 'Util', link: '/utils/' }
+      { text: 'Vue-router', link: '/vue-router' },
+      { text: 'Backend-api', link: '/backend-api' },
+      { text: 'Stores', link: '/stores' },
+      { text: 'Components', link: '/components' },
+      { text: 'Util', link: '/utils' }
     ],
 
     sidebar: [
 	{
-		text: 'Components',
+		text: 'Components', link: '/components/',
 		items: [
 		{ text: 'LandingPage', link: '/components/LandingPage' },
 		{ text: 'EnterTournament', link: '/components/EnterTournament' },
@@ -28,10 +31,21 @@ export default defineConfig({
 				{ text: 'Settings', link: '/components/tournamentViews/Settings' }
 			]
 		},
+		{
+			text: 'Utilcomponents', link: '/components/utilcomponents',
+			items: [
+				{ text: 'BackHeader', link: '/components/utilcomponents/BackHeader' },
+				{ text: 'Game', link: '/components/utilcomponents/Game' },
+				{ text: 'LanguageSelectBtn', link: '/components/utilcomponents/LanguageSelectBtn' },
+				{ text: 'Modal', link: '/components/utilcomponents/Modal' },
+				{ text: 'ThemeChangeBtn', link: '/components/utilcomponents/ThemeChangeBtn' },
+
+			]
+		},
 		]
 	},
 	{
-		text: 'utils',
+		text: 'utils', link: '/utils/',
 		items: [
 		{ text: 'tournamentDataStructureUtil', link: '/utils/tournamentDataStructureUtil' },
 		{ text: 'tournamentAlgo-v2', link: '/utils/tournamentAlgov2' },
