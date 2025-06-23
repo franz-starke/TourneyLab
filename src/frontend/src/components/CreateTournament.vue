@@ -249,7 +249,7 @@ watch(amountGroups, (newValue) => {
 					<span class="sectionSpan">{{ $t('create.fields') }}</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
-						<NumberFieldInput />
+						<NumberFieldInput @click="event => event.target.select()" />
 						<NumberFieldIncrement />
 					</NumberFieldContent>
 				</NumberField>
@@ -258,7 +258,7 @@ watch(amountGroups, (newValue) => {
 					<span class="sectionSpan">{{ $t('create.groups') }}</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
-						<NumberFieldInput />
+						<NumberFieldInput @click="event => event.target.select()"/>
 						<NumberFieldIncrement />
 					</NumberFieldContent>
 				</NumberField>
@@ -269,7 +269,7 @@ watch(amountGroups, (newValue) => {
 					</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
-						<NumberFieldInput />
+						<NumberFieldInput @click="event => event.target.select()"/>
 						<NumberFieldIncrement />
 					</NumberFieldContent>
 				</NumberField>
@@ -279,7 +279,7 @@ watch(amountGroups, (newValue) => {
 					<span class="sectionSpan">{{ $t('create.teams') }} {{ $t('create.group') }} 2</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
-						<NumberFieldInput />
+						<NumberFieldInput @click="event => event.target.select()"/>
 						<NumberFieldIncrement />
 					</NumberFieldContent>
 				</NumberField>
@@ -311,7 +311,7 @@ watch(amountGroups, (newValue) => {
 					<span class="sectionSpan">{{ $t('create.round') }}</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
-						<NumberFieldInput />
+						<NumberFieldInput @click="event => event.target.select()"/>
 						<NumberFieldIncrement />
 					</NumberFieldContent>
 				</NumberField>
@@ -320,7 +320,16 @@ watch(amountGroups, (newValue) => {
 					<span class="sectionSpan">{{ $t('create.break') }}</span>
 					<NumberFieldContent class="numberInputBox">
 						<NumberFieldDecrement />
-						<NumberFieldInput />
+						<NumberFieldInput @click="event => event.target.select()"/>
+						<NumberFieldIncrement />
+					</NumberFieldContent>
+				</NumberField>
+
+				<NumberField id="input-matchpoint" v-model="matchpoint" :min="2" :step="1">
+					<span class="sectionSpan">Matchpoint</span>
+					<NumberFieldContent class="numberInputBox">
+						<NumberFieldDecrement />
+						<NumberFieldInput @click="event => event.target.select()"/>
 						<NumberFieldIncrement />
 					</NumberFieldContent>
 				</NumberField>
@@ -333,10 +342,6 @@ watch(amountGroups, (newValue) => {
 			</div>
 
 
-			<!-- Referee Assignment Dialog -->
-			<Modal v-if="showRefModal" @close="closeRefModal" @submit="submitRefModal">
-				<h1 class="text-center font-medium">manual referee assigning not implemented</h1>
-			</Modal>
 		</main>
 	</div>
 </template>
