@@ -96,19 +96,23 @@ Was noch gefixt werden muss:
 
 Tastatureingabe bei Punktestandanzeige ermöglichen (Joshua)?
 
-Turnierauswertungsseite. Punktestand muss richtig übernommen werden
+Turnierauswertungsseite. Punktestand muss richtig übernommen werden (Jannis fertig)
 
-Dashboard. Styling und Zeiten anpassen
+Dashboard. Styling und Zeiten anpassen. -> Backend anpassen +  Matchpoint Vaiable ergänzen, Buttons fixieren Inhalt scrollable (Joshua + Franz)
 
-Button für Ergebnisanzeige 
+Button für Ergebnisanzeige Jannis fertig
 
-Fehleranzeige bei Turniererstellung auf Handyansicht
+Fehleranzeige bei Turniererstellung auf Handyansicht -> Slide in Message (Franz + Joshua)
 
-Übersetzung im Dashboard 
+Übersetzung im Dashboard (Joshua)
+
+Highlights entfernen bei Unterseiten (Joshua)
+
+Anwenderdoku aktualisieren (Mutaz und Ali)
 
 === TOP 3: Präsentation
 
-Wer macht?
+Joshua + Sebastian 
 
 === Abschluss: Termin nächstes Treffen und Aufgabenverteilung abschließen
 
