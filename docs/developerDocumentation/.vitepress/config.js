@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "TourneyLab Frontend Documentation",
-  description: "Documentation for the TourneyLab Frontend setup with Vue.js",
+  title: "TourneyLab Developer Documentation",
+  description: "Documentation for the TourneyLab setup with Vue.js and Fastapi",
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },

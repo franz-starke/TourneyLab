@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "TourneyLab Frontend Documentation"
+  name: "TourneyLab Developer Documentation"
   text: "navigate through the individual docs for each component and helper module"
   tagline: 
   actions:
