@@ -16,6 +16,7 @@ const i18n = createI18n({
             landing: {
                 enter: 'Turnier Beitreten',
                 create: 'Neue Turniere Erstellen',
+        
                 old: 'Alte Turniere Einsehen'
             },
             enter: {
@@ -41,6 +42,7 @@ const i18n = createI18n({
             },
             old: {
                 oldT: "Vergangene Turniere",
+                noT: "Keine Turniere Gefunden",
                 search: "Suche Turniername..."
             },
             home: {
@@ -103,6 +105,7 @@ const i18n = createI18n({
             },
             old: {
                 oldT: "Past Tournaments",
+                noT: "No Tournaments Found",
                 search: "Search Tournament Name..."
             },
             home: {

@@ -78,7 +78,9 @@ function filteredTournaments() {
 				</div>
 
 				<div class="flex w-full justify-center mt-50" v-if="filteredTournaments().length == 0">
-					<p class="text-xl font-bold">Keine Turniere gefunden...</p>
+					<p class="text-xl font-bold"> {{ $t('old.noT') }}
+					</p>
+
 				</div>
 			</div>
 		</main>
