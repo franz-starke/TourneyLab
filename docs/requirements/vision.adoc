@@ -1,4 +1,4 @@
-= Vision: {project-name}
+= Vision: TourneyLab
 include::../_includes/team-members.adoc[]
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
