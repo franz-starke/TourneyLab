@@ -2,11 +2,11 @@
 const props = defineProps({
 	width: {
 		type: String,
-		default: "45px"
+		default: "40px"
 	},
 	height: {
 		type: String,
-		default: "45px"
+		default: "40px"
 	}
 });
 
