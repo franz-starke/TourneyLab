@@ -15,7 +15,7 @@ const i18n = createI18n({
         de: {
             landing: {
                 enter: 'Turnier Beitreten',
-                create: 'Neue Turniere Erstellen',
+                create: 'Neues Turnier Erstellen',
                 old: 'Alte Turniere Einsehen'
             },
             enter: {
@@ -94,7 +94,7 @@ const i18n = createI18n({
                 groups: "Number of Skill Groups",
                 group: "Group",
                 teams: "Number of Teams",
-                return: "Home and Away Legs",
+                return: "Return Game",
                 date: "Date",
                 time: "Start Time",
                 round: "Round Duration (min)",
