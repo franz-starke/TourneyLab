@@ -104,7 +104,7 @@ function setActiveGroup(groupIndex) {
 			</div>
 
 			<!-- PDF-Download Button unterhalb des Leaderboards -->
-			<div class="flex justify-center m-2">
+			<div class="flex justify-center my-4">
 				<button
 					@click="downloadPdf"
 					class="colorButton cursor-pointer w-full max-w-100 rounded-4xl"
