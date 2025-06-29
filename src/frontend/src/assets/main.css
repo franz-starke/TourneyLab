@@ -1,7 +1,7 @@
 @import "./base.css";
 
 body {
-	@apply bg-[var(--color-background)] text-[var(--color-text)] min-w-[380px] duration-200;
+	@apply bg-[var(--color-background)] text-[var(--color-text)] min-w-[250px] duration-200;
 	font-family: 'Inter', Verdana;
 }
 
