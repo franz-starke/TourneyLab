@@ -35,7 +35,7 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 	<div class="flex flex-col 	h-[100svh]  overflow-y-auto overflow-x-hidden w-full lg:items-center">
 		<header class="flex w-full items-center justify-between pt-4 px-4 m-4">
 			<LanguageSelectBtn />
-			<ThemeChangeBtn />
+			<ThemeChangeBtn  class="mr-4"/>
 		</header>
 
 		<main class="flex flex-col flex-1 w-full justify-center items-center gap-8 px-8">
