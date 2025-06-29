@@ -41,6 +41,7 @@ const i18n = createI18n({
             },
             old: {
                 oldT: "Vergangene Turniere",
+                noT: "Keine Turniere Gefunden",
                 search: "Suche Turniername..."
             },
             home: {
@@ -103,6 +104,7 @@ const i18n = createI18n({
             },
             old: {
                 oldT: "Past Tournaments",
+                noT: "No Tournaments Found",
                 search: "Search Tournament Name..."
             },
             home: {
