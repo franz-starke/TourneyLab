@@ -5,8 +5,8 @@ import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
  * @param {Object} result - Output of evaluateTournamentData()
  */
 export async function generatePdfBrowser(result) {
-	const pdfDoc = await PDFDocument.create();
-	const page = pdfDoc.addPage();
+	let pdfDoc = await PDFDocument.create();
+	let page = pdfDoc.addPage();
 	const { width, height } = page.getSize();
 	const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 	let y = height - 40;
