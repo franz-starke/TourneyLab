@@ -62,9 +62,6 @@ watch(
 
 		game[4] = newPoints;
 		store.setGameById(props.gameId, game);
-
-
-
 	},
 	{ deep: true }
 );
@@ -79,27 +76,22 @@ function selectInput2() {
 	numberInput2.value?.select();
 }
 
-
-
-
-
-
 </script>
 
 <template>
 	<div class="flex flex-col w-full justify-center items-center">
 		<p v-if="showTime" class="font-bold text-gray-500">{{ startTime }}</p>
 		<div class="null-game" v-if="team1 == 0 || team2 == 0">--</div>
-		<div
-			v-else
+		<div v-else
 			class="flex flex-row justify-between items-center w-full px-4 py-2 bg-[var(--color-element)] rounded-3xl"
-			@click="selectInput1()"
-		>
+			@click="selectInput1()">
 			<div class="flex flex-col">
 				<div>
 					<p class="text-lg font-bold">
-						<span :class="{'text-[var(--color-accent)]': whichTeamWon == 1}">{{ $t("games.team") }} {{ team1 }}</span> vs.
-						<span :class="{'text-[var(--color-accent)]': whichTeamWon == 2}">{{ $t("games.team") }} {{ team2 }}</span>
+						<span :class="{ 'text-[var(--color-accent)]': whichTeamWon == 1 }">{{ $t("games.team") }} {{ team1
+							}}</span> vs.
+						<span :class="{ 'text-[var(--color-accent)]': whichTeamWon == 2 }">{{ $t("games.team") }} {{ team2
+							}}</span>
 					</p>
 				</div>
 
@@ -111,33 +103,20 @@ function selectInput2() {
 
 			<div class="flex space-x-4 items-center">
 				<div
-					class="flex flex-row w-30 justify-evenly items-center bg-[var(--color-sub-element)] p-2 rounded-full"
-				>
-					<input
-						class="flex min-w-[2em] w-8 text-center text-2xl font-bold"
-						:class="{'text-[var(--color-accent)]': whichTeamWon == 1}"
-						ref="numberInput1"
-						min="0"
-						type="number"
-						v-model.number="points[0]"
-						@click.stop.prevent
-						@click="selectInput1()"
-						@focus="selectInput1()"
-					/>
+					class="flex flex-row w-30 justify-evenly items-center bg-[var(--color-sub-element)] p-2 rounded-full">
+					<input class="flex min-w-[2em] w-8 text-center text-2xl font-bold"
+						:class="{ 'text-[var(--color-accent)]': whichTeamWon == 1 }" ref="numberInput1" min="0"
+						type="number" v-model.number="points[0]" @click.stop.prevent @click="selectInput1()"
+						@focus="selectInput1()" />
 					:
-					<input
-						class="flex min-w-[2em] w-8 text-center text-2xl font-bold"
-						:class="{'text-[var(--color-accent)]': whichTeamWon == 2}"
-						ref="numberInput2"
-						min="0"
-						type="number"
-						v-model.number="points[1]"
-						@click.stop.prevent
-						@click="selectInput2()"
-						@focus="selectInput2()"
-					/>
+					<input class="flex min-w-[2em] w-8 text-center text-2xl font-bold"
+						:class="{ 'text-[var(--color-accent)]': whichTeamWon == 2 }" ref="numberInput2" min="0"
+						type="number" v-model.number="points[1]" @click.stop.prevent @click="selectInput2()"
+						@focus="selectInput2()" />
 				</div>
-				<RouterLink :to="gameRoute"> <IconEnter/> </RouterLink>
+				<RouterLink :to="gameRoute">
+					<IconEnter />
+				</RouterLink>
 			</div>
 		</div>
 	</div>
