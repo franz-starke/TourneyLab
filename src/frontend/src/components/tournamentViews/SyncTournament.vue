@@ -62,10 +62,7 @@ function onDetect(detectedCodes) {
 
 	console.log("Tournament data updated:", tournamentData);
 }
-
-
 </script>
-
 <template>
 
 

@@ -39,10 +39,11 @@ async function enterTournament() {
 		const response = await api.getTournament(tournamentId.value);
 		// set tournament data in the store
 		store.tournament.date = response.date;
-		store.tournament.id = response.id;
+		store.tournament.id = tournamentId.value;
 		store.tournament.name = response.name;
 		store.tournament.groups = response.teams;
 		store.tournament.games = response.games;
+		store.tournament.matchpoint = response.matchpoint;
 
 		// Navigate to the tournament home page
 		router.push("/tournament-home/dashboard");
