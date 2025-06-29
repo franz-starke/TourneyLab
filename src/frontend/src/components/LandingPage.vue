@@ -32,8 +32,8 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 </script>
 
 <template>
-	<div class="flex flex-col h-[100svh] overflow-hidden w-full lg:items-center">
-		<header class="flex w-full items-center justify-between pt-4 px-4">
+	<div class="flex flex-col 	h-[100svh]  overflow-hidden w-full lg:items-center">
+		<header class="flex w-full items-center justify-between pt-4 px-4 m-4">
 			<LanguageSelectBtn />
 			<ThemeChangeBtn />
 		</header>
@@ -43,7 +43,7 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 			<span class="hidden font-bold text-7xl mb-8 lg:flex">TourneyLab</span>
 
 			<RouterLink to="/enter-tournament" class="enterButton group">
-				<IconEnter class="w-50 h-50 mb-2 ease-in-out" />
+				<IconEnter class="w-40 h-40 mb-2 ease-in-out" />
 				<span>{{ $t('landing.enter') }}</span>
 			</RouterLink>
 
@@ -56,8 +56,6 @@ import IconEnter from '@/components/icons/IconEnter.vue';
 					<span>{{ $t('landing.old') }}</span>
 				</RouterLink>
 			</div>
-
 		</main>
-
 	</div>
 </template>
