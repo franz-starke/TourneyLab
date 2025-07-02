@@ -36,6 +36,7 @@ export default defineConfig({
 									{ text: 'Stores', link: '/dev-doc/software-doc/frontend/stores/' },
 									{
 										text: 'Components',
+										link: '/dev-doc/software-doc/frontend/components/',
 										collapsed: true, // Makes this section a dropdown
 										items: [
 											{ text: 'LandingPage', link: '/dev-doc/software-doc/frontend/components/LandingPage' },
@@ -69,6 +70,7 @@ export default defineConfig({
 									},
 									{
 										text: 'Utils',
+										link: '/dev-doc/software-doc/frontend/utils/',
 										collapsed: true, // Makes this section a dropdown
 										items: [
 											{ text: 'tournamentDataStructureUtil', link: '/dev-doc/software-doc/frontend/utils/tournamentDataStructureUtil' },

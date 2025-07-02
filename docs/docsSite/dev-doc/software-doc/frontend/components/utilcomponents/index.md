@@ -8,5 +8,3 @@ This section documents the utility components used throughout the frontend. Thes
 - [Game](./Game.md): Displays information about a single game.
 - [LanguageSelectBtn](./LanguageSelectBtn.md): Button for selecting the application language.
 - [ThemeChangeBtn](./ThemeChangeBtn.md): Button for toggling the application theme.
-
-Each component is described in its own file with usage and props.
