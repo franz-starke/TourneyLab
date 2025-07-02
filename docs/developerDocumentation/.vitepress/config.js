@@ -62,10 +62,10 @@ export default defineConfig({
 							{ text: 'tournamentParamCheck', link: '/frontend/utils/tournamentParamCheck' },
 							{ text: 'time', link: '/frontend/utils/time' },
 						]
-					}
+					},
+					{ text: 'api-module', link: '/frontend/api-module/' }
 				]
 			},
-			{ text: 'Backend-api', link: '/backend-api/' }
 		]
 	}
 })
