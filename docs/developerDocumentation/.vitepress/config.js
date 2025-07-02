@@ -2,67 +2,71 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "TourneyLab Developer Documentation",
-  description: "Documentation for the TourneyLab setup with Vue.js and Fastapi",
-  themeConfig: {
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Vue-router', link: '/vue-router' },
-      { text: 'Components', link: '/components' },
-      { text: 'Util', link: '/utils' },
-	  { text: 'Backend-api', link: '/backend-api' },
-      { text: 'Stores', link: '/stores' },
-    ],
+	title: "TourneyLab DevDocs",
+	description: "Documentation for the TourneyLab setup with Vue.js and Fastapi",
+	themeConfig: {
+		nav: [
+			{ text: 'Home', link: '/' },
+			{ text: 'Frontend', link: '/frontend/' },
+			{ text: 'Backend-api', link: '/backend-api' },
+		],
 
-    sidebar: [
-	{ text: 'Vue-router', link: '/vue-router/'},
-	{ text: 'stores', link: '/stores/'},
-	{ text: 'backend-api', link: '/backend-api/'},
-	{
-
-		text: 'Components', link: '/components/',
-		items: [
-		{ text: 'LandingPage', link: '/components/LandingPage' },
-		{ text: 'EnterTournament', link: '/components/EnterTournament' },
-		{ text: 'CreateTournament', link: '/components/CreateTournament' },
-		{ text: 'ViewOldTournaments', link: '/components/ViewOldTournaments' },
-		{
-			text: 'TournamentHome', link: '/components/TournamentHome',
-			items: [
-				{ text: 'Dashboard', link: '/components/tournamentViews/Dashboard' },
-				{ text: 'Games', link: '/components/tournamentViews/Games' },
-				{ text: 'Teams', link: '/components/tournamentViews/Teams' },
-				{ text: 'Team', link: '/components/tournamentViews/Team' },
-				{ text: 'Settings', link: '/components/tournamentViews/Settings' },
-				{ text: 'EvalTournament', link: '/components/tournamentViews/EvalTournament' },
-				{ text: 'SyncTournament', link: '/components/tournamentViews/SyncTournament' }
-			]
-		},
-		{
-			text: 'Utilcomponents', link: '/components/utilcomponents',
-			items: [
-				{ text: 'BackHeader', link: '/components/utilcomponents/BackHeader' },
-				{ text: 'Game', link: '/components/utilcomponents/Game' },
-				{ text: 'LanguageSelectBtn', link: '/components/utilcomponents/LanguageSelectBtn' },
-				{ text: 'ThemeChangeBtn', link: '/components/utilcomponents/ThemeChangeBtn' },
-
-			]
-		},
-		]
-	},
-
-
-	{
-		text: 'utils', link: '/utils/',
-		items: [
-		{ text: 'tournamentDataStructureUtil', link: '/utils/tournamentDataStructureUtil' },
-		{ text: 'tournamentAlgo-v2', link: '/utils/tournamentAlgov2' },
-		{ text: 'tournamentEvaluation', link: '/utils/tournamentEvaluation' },
-		{ text: 'tournamentPDFCreation', link: '/utils/tournamentPDFCreation' },
-		{ text: 'tournamentParamCheck', link: '/utils/tournamentParamCheck' },
-		{ text: 'time', link: '/utils/time' },
+		sidebar: [
+			{
+				text: 'Frontend',
+				collapsed: false, // Makes this section a dropdown
+				items: [
+					{ text: 'Vue-router', link: '/frontend/vue-router/' },
+					{ text: 'Stores', link: '/frontend/stores/' },
+					{
+						text: 'Components',
+						collapsed: true, // Makes this section a dropdown
+						items: [
+							{ text: 'LandingPage', link: '/frontend/components/LandingPage' },
+							{ text: 'EnterTournament', link: '/frontend/components/EnterTournament' },
+							{ text: 'CreateTournament', link: '/frontend/components/CreateTournament' },
+							{ text: 'ViewOldTournaments', link: '/frontend/components/ViewOldTournaments' },
+							{
+								text: 'TournamentHome',
+								collapsed: true, // Makes this section a dropdown
+								items: [
+									{ text: 'Dashboard', link: '/frontend/components/tournamentViews/Dashboard' },
+									{ text: 'Games', link: '/frontend/components/tournamentViews/Games' },
+									{ text: 'Teams', link: '/frontend/components/tournamentViews/Teams' },
+									{ text: 'Team', link: '/frontend/components/tournamentViews/Team' },
+									{ text: 'Settings', link: '/frontend/components/tournamentViews/Settings' },
+									{ text: 'EvalTournament', link: '/frontend/components/tournamentViews/EvalTournament' },
+									{ text: 'SyncTournament', link: '/frontend/components/tournamentViews/SyncTournament' }
+								]
+							},
+							{
+								text: 'Utilcomponents',
+								collapsed: true, // Makes this section a dropdown
+								items: [
+									{ text: 'BackHeader', link: '/frontend/components/utilcomponents/BackHeader' },
+									{ text: 'Game', link: '/frontend/components/utilcomponents/Game' },
+									{ text: 'LanguageSelectBtn', link: '/frontend/components/utilcomponents/LanguageSelectBtn' },
+									{ text: 'ThemeChangeBtn', link: '/frontend/components/utilcomponents/ThemeChangeBtn' },
+								]
+							},
+						]
+					},
+					{
+						text: 'Utils',
+						collapsed: true, // Makes this section a dropdown
+						items: [
+							{ text: 'tournamentDataStructureUtil', link: '/frontend/utils/tournamentDataStructureUtil' },
+							{ text: 'tournamentAlgo-v2', link: '/frontend/utils/tournamentAlgov2' },
+							{ text: 'tournamentEvaluation', link: '/frontend/utils/tournamentEvaluation' },
+							{ text: 'tournamentPDFCreation', link: '/frontend/utils/tournamentPDFCreation' },
+							{ text: 'tournamentParamCheck', link: '/frontend/utils/tournamentParamCheck' },
+							{ text: 'time', link: '/frontend/utils/time' },
+						]
+					}
+				]
+			},
+			{ text: 'Backend-api', link: '/backend-api/' }
 		]
 	}
-	]
-}})
+})
 

@@ -9,24 +9,15 @@ hero:
 
     - theme: alt
       text: Vue-router
-      link: /vue-router
+      link: /frontend/vue-router
 
     - theme: alt
       text: Components
-      link: /components
-
-    - theme: alt
-      text: Util
-      link: /utils
-
-
-    - theme: alt
-      text: Backend-api
-      link: /backend-api
+      link: /frontend/components
 
     - theme: alt
       text: stores
-      link: /stores
+      link: /frontend/stores
     
 
 ---
