@@ -7,12 +7,20 @@ hero:
   tagline: 
   actions:
     - theme: alt
-      text: Software Documentation
-      link: /frontend/components
+      text: Developer Documentation
+      link: /dev-doc
 
     - theme: alt
-      text: Tests
-      link: /tests
+      text: Test Documentation
+      link: /test-doc
+
+    - theme: alt
+      text: User Documentation
+      link: /user-doc
+
+    - theme: alt
+      text: Operating Manual
+      link: /op-man
     
 
 ---

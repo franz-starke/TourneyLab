@@ -7,72 +7,88 @@ export default defineConfig({
 	themeConfig: {
 		nav: [
 			{ text: 'Home', link: '/' },
-			{ text: 'Software Documentation', link: '/frontend/components' },
-			{ text: 'Tests', link: '/tests' },
+			{ text: 'Developer Documentation', link: '/dev-doc/' },
+			{ text: 'Test Documentation', link: '/test-doc' },
+			{ text: 'User Documentation', link: '/user-doc' },
+			{ text: 'Operating Manual', link: '/op-man' },
 			{ text: 'GitHub', link: 'https://github.com/franz-starke/TourneyLab' }
 		],
 
 		sidebar: [
-			{	text: 'Software Documentation',
+
+			{
+				text: 'Developer Documentation',
+				link: '/dev-doc/',
 				collapsed: false,
 				items: [
+					{ text: 'Architecture', link: '/dev-doc/architecture/' },
+					{ text: 'UX-Concept', link: '/dev-doc/ux-concept/' },
 					{
-						text: 'Frontend',
-						collapsed: false,
+						text: 'Software Documentation',
+						link: '/dev-doc/software-doc/',
+						collapsed: true,
 						items: [
-							{ text: 'Vue-router', link: '/frontend/vue-router/' },
-							{ text: 'Stores', link: '/frontend/stores/' },
 							{
-								text: 'Components',
-								collapsed: true, // Makes this section a dropdown
+								text: 'Frontend',
+								collapsed: false,
 								items: [
-									{ text: 'LandingPage', link: '/frontend/components/LandingPage' },
-									{ text: 'EnterTournament', link: '/frontend/components/EnterTournament' },
-									{ text: 'CreateTournament', link: '/frontend/components/CreateTournament' },
-									{ text: 'ViewOldTournaments', link: '/frontend/components/ViewOldTournaments' },
+									{ text: 'Vue-router', link: '/dev-doc/software-doc/frontend/vue-router/' },
+									{ text: 'Stores', link: '/dev-doc/software-doc/frontend/stores/' },
 									{
-										text: 'TournamentHome', link: '/frontend/components/TournamentHome',
+										text: 'Components',
 										collapsed: true, // Makes this section a dropdown
 										items: [
-											{ text: 'Dashboard', link: '/frontend/components/tournamentViews/Dashboard' },
-											{ text: 'Games', link: '/frontend/components/tournamentViews/Games' },
-											{ text: 'Teams', link: '/frontend/components/tournamentViews/Teams' },
-											{ text: 'Team', link: '/frontend/components/tournamentViews/Team' },
-											{ text: 'Settings', link: '/frontend/components/tournamentViews/Settings' },
-											{ text: 'EvalTournament', link: '/frontend/components/tournamentViews/EvalTournament' },
-											{ text: 'SyncTournament', link: '/frontend/components/tournamentViews/SyncTournament' }
+											{ text: 'LandingPage', link: '/dev-doc/software-doc/frontend/components/LandingPage' },
+											{ text: 'EnterTournament', link: '/dev-doc/software-doc/frontend/components/EnterTournament' },
+											{ text: 'CreateTournament', link: '/dev-doc/software-doc/frontend/components/CreateTournament' },
+											{ text: 'ViewOldTournaments', link: '/dev-doc/software-doc/frontend/components/ViewOldTournaments' },
+											{
+												text: 'TournamentHome', link: '/dev-doc/software-doc/frontend/components/TournamentHome',
+												collapsed: true, // Makes this section a dropdown
+												items: [
+													{ text: 'Dashboard', link: '/dev-doc/software-doc/frontend/components/tournamentViews/Dashboard' },
+													{ text: 'Games', link: '/dev-doc/software-doc/frontend/components/tournamentViews/Games' },
+													{ text: 'Teams', link: '/dev-doc/software-doc/frontend/components/tournamentViews/Teams' },
+													{ text: 'Team', link: '/dev-doc/software-doc/frontend/components/tournamentViews/Team' },
+													{ text: 'Settings', link: '/dev-doc/software-doc/frontend/components/tournamentViews/Settings' },
+													{ text: 'EvalTournament', link: '/dev-doc/software-doc/frontend/components/tournamentViews/EvalTournament' },
+													{ text: 'SyncTournament', link: '/dev-doc/software-doc/frontend/components/tournamentViews/SyncTournament' }
+												]
+											},
+											{
+												text: 'Utilcomponents', link: '/dev-doc/software-doc/frontend/components/utilcomponents/',
+												collapsed: true, // Makes this section a dropdown
+												items: [
+													{ text: 'BackHeader', link: '/dev-doc/software-doc/frontend/components/utilcomponents/BackHeader' },
+													{ text: 'Game', link: '/dev-doc/software-doc/frontend/components/utilcomponents/Game' },
+													{ text: 'LanguageSelectBtn', link: '/dev-doc/software-doc/frontend/components/utilcomponents/LanguageSelectBtn' },
+													{ text: 'ThemeChangeBtn', link: '/dev-doc/software-doc/frontend/components/utilcomponents/ThemeChangeBtn' },
+												]
+											},
 										]
 									},
 									{
-										text: 'Utilcomponents', link: '/frontend/components/utilcomponents/',
+										text: 'Utils',
 										collapsed: true, // Makes this section a dropdown
 										items: [
-											{ text: 'BackHeader', link: '/frontend/components/utilcomponents/BackHeader' },
-											{ text: 'Game', link: '/frontend/components/utilcomponents/Game' },
-											{ text: 'LanguageSelectBtn', link: '/frontend/components/utilcomponents/LanguageSelectBtn' },
-											{ text: 'ThemeChangeBtn', link: '/frontend/components/utilcomponents/ThemeChangeBtn' },
+											{ text: 'tournamentDataStructureUtil', link: '/dev-doc/software-doc/frontend/utils/tournamentDataStructureUtil' },
+											{ text: 'tournamentAlgo-v2', link: '/dev-doc/software-doc/frontend/utils/tournamentAlgov2' },
+											{ text: 'tournamentEvaluation', link: '/dev-doc/software-doc/frontend/utils/tournamentEvaluation' },
+											{ text: 'tournamentPDFCreation', link: '/dev-doc/software-doc/frontend/utils/tournamentPDFCreation' },
+											{ text: 'time', link: '/dev-doc/software-doc/frontend/utils/time' },
 										]
 									},
+									{ text: 'api-module', link: '/dev-doc/software-doc/frontend/api-module/' }
 								]
 							},
-							{
-								text: 'Utils',
-								collapsed: true, // Makes this section a dropdown
-								items: [
-									{ text: 'tournamentDataStructureUtil', link: '/frontend/utils/tournamentDataStructureUtil' },
-									{ text: 'tournamentAlgo-v2', link: '/frontend/utils/tournamentAlgov2' },
-									{ text: 'tournamentEvaluation', link: '/frontend/utils/tournamentEvaluation' },
-									{ text: 'tournamentPDFCreation', link: '/frontend/utils/tournamentPDFCreation' },
-									{ text: 'time', link: '/frontend/utils/time' },
-								]
-							},
-							{ text: 'api-module', link: '/frontend/api-module/' }
+							{ text: 'Backend', link: '/dev-doc/software-doc/backend/' },
 						]
 					},
-					{ text: 'Backend', link: '/backend/' },
 				]
 			},
-			{ text: 'Tests', link: '/tests/' },
+			{ text: 'Test Documentation', link: '/test-doc/' },
+			{ text: 'User Documentation', link: '/user-doc/' },
+			{ text: 'Operating Manual', link: '/op-man/' },
 		]
 	}
 })
