@@ -7,20 +7,8 @@ hero:
   tagline: 
   actions:
     - theme: alt
-      text: Vue-router
-      link: /frontend/vue-router
-
-    - theme: alt
-      text: Components
+      text: Software Documentation
       link: /frontend/components
-
-    - theme: alt
-      text: stores
-      link: /frontend/
-
-    - theme: alt
-      text: Backend
-      link: /backend
 
     - theme: alt
       text: Tests
