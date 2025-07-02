@@ -2,13 +2,15 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-	title: "TourneyLab DevDocs",
+	title: "TourneyLab Docs",
 	description: "Documentation for the TourneyLab setup with Vue.js and Fastapi",
 	themeConfig: {
 		nav: [
 			{ text: 'Home', link: '/' },
-			{ text: 'Frontend', link: '/frontend/' },
-			{ text: 'Backend-api', link: '/backend-api' },
+			{ text: 'Components', link: '/frontend/components' },
+			{ text: 'Backend', link: '/backend' },
+			{ text: 'Tests', link: '/tests' },
+			{ text: 'GitHub', link: 'https://github.com/franz-starke/TourneyLab' } // <-- Added website link here
 		],
 
 		sidebar: [
@@ -27,7 +29,7 @@ export default defineConfig({
 							{ text: 'CreateTournament', link: '/frontend/components/CreateTournament' },
 							{ text: 'ViewOldTournaments', link: '/frontend/components/ViewOldTournaments' },
 							{
-								text: 'TournamentHome',
+								text: 'TournamentHome', link: '/frontend/components/TournamentHome',
 								collapsed: true, // Makes this section a dropdown
 								items: [
 									{ text: 'Dashboard', link: '/frontend/components/tournamentViews/Dashboard' },
@@ -40,7 +42,7 @@ export default defineConfig({
 								]
 							},
 							{
-								text: 'Utilcomponents',
+								text: 'Utilcomponents', link: '/frontend/components/utilcomponents/',
 								collapsed: true, // Makes this section a dropdown
 								items: [
 									{ text: 'BackHeader', link: '/frontend/components/utilcomponents/BackHeader' },
@@ -59,13 +61,14 @@ export default defineConfig({
 							{ text: 'tournamentAlgo-v2', link: '/frontend/utils/tournamentAlgov2' },
 							{ text: 'tournamentEvaluation', link: '/frontend/utils/tournamentEvaluation' },
 							{ text: 'tournamentPDFCreation', link: '/frontend/utils/tournamentPDFCreation' },
-							{ text: 'tournamentParamCheck', link: '/frontend/utils/tournamentParamCheck' },
 							{ text: 'time', link: '/frontend/utils/time' },
 						]
 					},
 					{ text: 'api-module', link: '/frontend/api-module/' }
 				]
 			},
+			{ text: 'Backend', link: '/backend/' },
+			{ text: 'Tests', link: '/tests/' },
 		]
 	}
 })

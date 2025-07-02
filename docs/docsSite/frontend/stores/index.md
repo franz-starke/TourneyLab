@@ -7,13 +7,12 @@
 `tournamentStore.js` defines the main Pinia store for managing tournament data in the TourneyLab application. It provides reactive state for the current tournament, utility methods for accessing and updating games, and a method to build a structured teams object for efficient lookup and display.
 
 ---
-
 ### State
 
 | Variable      | Type   | Description                                                      |
 |---------------|--------|------------------------------------------------------------------|
-| `tournament`  | Ref    | Reactive object (persisted in localStorage) holding all tournament data: games, name, id, groups, date, matchpoint. |
-| `teams`       | Ref    | Computed object mapping group and team IDs to their games.       |
+| `tournament`  | Ref    | Reactive object (persisted in localStorage) holding all tournament data. <br>**Entries:**<br>&nbsp;&nbsp;- `games`: Object containing all games, organized by field.<br>&nbsp;&nbsp;- `name`: String, the tournament name.<br>&nbsp;&nbsp;- `id`: String or number, unique tournament identifier.<br>&nbsp;&nbsp;- `groups`: object with groupId mapping to teamamount in group.<br>&nbsp;&nbsp;- `date`: String, tournament date.<br>&nbsp;&nbsp;- `matchpoint`: Number, game point at which a team can win. |
+| `teams`       | Ref    | Computed object mapping group and team IDs to their games.<br>**Entries:**<br>&nbsp;&nbsp;- `[groupId]`: Object for each group.<br>&nbsp;&nbsp;- `[teamId]`: Array of games for the team (including as referee). |
 
 ---
 

@@ -1,4 +1,4 @@
-<a name="addMinutes"></a>
+# Function
 
 ## addMinutes(time, minutesAdd) ⇒ <code>string</code> \| <code>null</code>
 Adds a specified number of minutes to a given time string in "HH:mm" format.
