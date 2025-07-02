@@ -34,7 +34,8 @@ export default defineConfig({
 				{ text: 'Teams', link: '/components/tournamentViews/Teams' },
 				{ text: 'Team', link: '/components/tournamentViews/Team' },
 				{ text: 'Settings', link: '/components/tournamentViews/Settings' },
-				{ text: 'EvalTournament', link: '/components/tournamentViews/EvalTournament' }
+				{ text: 'EvalTournament', link: '/components/tournamentViews/EvalTournament' },
+				{ text: 'SyncTournament', link: '/components/tournamentViews/SyncTournament' }
 			]
 		},
 		{
