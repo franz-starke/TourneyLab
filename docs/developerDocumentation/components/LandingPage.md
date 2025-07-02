@@ -1,102 +1,59 @@
-# LandingPage.vue
+# LandingPage.vue Documentation
 
-> The main landing page component for the application. Provides navigation to enter, create, or view old tournaments, and includes controls for language and theme selection.
+## Overview
 
----
-
-## Component: `LandingPage`
-
-### Description
-
-The `LandingPage` component serves as the entry point for users. It offers navigation to enter an existing tournament, create a new one, or view previous tournaments. The header includes controls for language and theme selection.
+`LandingPage.vue` is the main landing page component for the application. It provides navigation to enter, create, or view old tournaments, and includes controls for language and theme selection.
 
 ---
 
-### Example Usage
+## Features
 
-```vue
-<LandingPage />
-```
-
----
-
-### Imports
-
-- **LanguageSelectBtn**  
-  Button for selecting application language.
-
-- **ThemeChangeBtn**  
-  Button for toggling application theme.
-
-- **IconEnter**  
-  Icon used for the "Enter Tournament" button.
-
----
-
-### Dependencies
-
-- **Vue Router's RouterLink**  
-  Used for navigation between pages.
-
-- **i18n**  
-  Used for translations via `$t`.
-
----
-
-### Features
-
-- Responsive layout with Tailwind CSS utility classes.
+- Responsive layout using Tailwind CSS utility classes
 - Navigation to:
   - Enter a tournament
-  - Create a tournament
+  - Create a new tournament
   - View old tournaments
-- Language and theme selection controls in the header.
+- Language selection button
+- Theme selection button
 
 ---
 
-### Template Structure
+## Imports
+
+| Import                | Description                                 |
+|-----------------------|---------------------------------------------|
+| `LanguageSelectBtn`   | Button for selecting application language   |
+| `ThemeChangeBtn`      | Button for toggling application theme       |
+| `IconEnter`           | Icon used for the "Enter Tournament" button |
+
+---
+
+## Dependencies
+
+- Vue Router's `RouterLink` for navigation
+- i18n for translations via `$t`
+
+---
+
+## Template Structure
 
 - **Header:**  
-  Contains `LanguageSelectBtn` and `ThemeChangeBtn`.
-
+  - `LanguageSelectBtn`
+  - `ThemeChangeBtn`
 - **Main Section:**  
   - App title (visible on large screens)
-  - "Enter Tournament" button with `IconEnter`
-  - "Create Tournament" and "Old Tournament" buttons
+  - "Enter Tournament" button with icon
+  - Buttons for "Create Tournament" and "View Old Tournaments"
 
 ---
 
-### File Location
+## Example Usage
 
-`src/components/LandingPage.vue`
+This component is typically used as the root or home route of the application.
 
 ---
 
-### JSDoc Block
+## Notes
 
-```js
-/**
- * @file LandingPage.vue
- * @description The main landing page component for the application. Provides navigation to enter, create, or view old tournaments, and includes controls for language and theme selection.
- *
- * @component
- * @name LandingPage
- *
- * @example
- * <LandingPage />
- *
- * @imports
- * - LanguageSelectBtn: Button for selecting application language.
- * - ThemeChangeBtn: Button for toggling application theme.
- * - IconEnter: Icon used for the "Enter Tournament" button.
- *
- * @dependencies
- * - Vue Router's RouterLink for navigation.
- * - i18n for translations via $t.
- *
- * @features
- * - Responsive layout with Tailwind CSS utility classes.
- * - Navigation to enter, create, or view old tournaments.
- * - Language and theme selection controls in the header.
- */
-```
+- All user-facing strings are internationalized via `$t`.
+- The layout is fully responsive and adapts to different
