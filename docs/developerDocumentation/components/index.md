@@ -12,16 +12,14 @@ This section provides documentation for each Vue component used in the frontend.
 - [CreateTournament](./CreateTournament.md): Form for creating a new tournament.
 - [EnterTournament](./EnterTournament.md): Join an existing tournament by code or QR.
 - [ViewOldTournaments](./ViewOldTournaments.md): Browse and search past tournaments.
-- [TournamentHome](./TournamentHome.md): Main wrapper for tournament views and navigation.
+- [TournamentHome](./TournamentHome.md): Main wrapper for tournament views and navigation:	
+	- [Dashboard](./tournamentViews/Dashboard.md): Overview of tournament	stats and info.
+	- [Games](./tournamentViews/Games.md): List and details of games in the	tournament.
+	- [Teams](./tournamentViews/Teams.md): Manage and view teams in the	tournament.
+	- [Team](./tournamentViews/Team.md): Detailed view of a single team.
+	- [Settings](./tournamentViews/Settings.md): Tournament settings and	configuration.
+	- [EvalTournament](./tournamentViews/EvalTournament.md): Evaluation and	analysis tools for tournaments.
+- [utilcomponents](./utilcomponents/index.md): Reusable utility components like headers, buttons, and modals.
 
-## Tournament Views
-
-- [Dashboard](./tournamentViews/Dashboard.md): Tournament statistics and leaderboard.
-- [Games](./tournamentViews/Games.md): Manage and view games per field.
-- [Teams](./tournamentViews/Teams.md): List teams and their games.
-- [EditGame](./tournamentViews/EditGame.md): Edit the score of a specific game.
-- [Settings](./tournamentViews/Settings.md): Change language, theme, and leave tournament.
-
----
 
 For more details, select a component from the list above or use the sidebar navigation.

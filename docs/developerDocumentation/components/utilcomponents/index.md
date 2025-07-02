@@ -7,7 +7,6 @@ This section documents the utility components used throughout the frontend. Thes
 - [BackHeader](./BackHeader.md): Header with a back navigation button.
 - [Game](./Game.md): Displays information about a single game.
 - [LanguageSelectBtn](./LanguageSelectBtn.md): Button for selecting the application language.
-- [Modal](./Modal.md): Generic modal dialog component.
 - [ThemeChangeBtn](./ThemeChangeBtn.md): Button for toggling the application theme.
 
 Each component is described in its own file with usage and props.

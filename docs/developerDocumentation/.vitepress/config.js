@@ -43,7 +43,6 @@ export default defineConfig({
 				{ text: 'BackHeader', link: '/components/utilcomponents/BackHeader' },
 				{ text: 'Game', link: '/components/utilcomponents/Game' },
 				{ text: 'LanguageSelectBtn', link: '/components/utilcomponents/LanguageSelectBtn' },
-				{ text: 'Modal', link: '/components/utilcomponents/Modal' },
 				{ text: 'ThemeChangeBtn', link: '/components/utilcomponents/ThemeChangeBtn' },
 
 			]
