@@ -1,58 +1,127 @@
-# Functions
-## evaluateTournamentData(tournamentData) ⇒ <code>Object</code>
-📊 Evaluates a tournament based on the played games and calculates team rankings.
+# tournamentEvaluation.js
 
-This function can accept either a plain object or a Vue `ref` containing the tournament data.
+> Function for evaluating tournaments based on played games and calculating team rankings.
 
-**Input format**
+---
 
-```javascript
+## Function: `evaluateTournamentData`
+
+### Description
+
+The `evaluateTournamentData` function processes a tournament data object (or a Vue `ref` wrapping such an object), aggregates the results from all played games, calculates per-team statistics (games played, wins, draws, losses, points, score differential), and generates group-based rankings. It supports both plain JavaScript objects and Vue refs as input.
+
+---
+
+### Input Format
+```js
 {
-  name: "Tournament Name",
-  date: "YYYY-MM-DD",
-  groups: {1:6, 2:6}, // Number of teams per group
-  games: {
-    "1": {
-      "1": [1, 2, 0, [5, 3], "10:00"], // [teamA, teamB, field, [scoreA, scoreB], time]
-      ...
-    },
-    "2": { ... }
+  name: string,        // Tournament name
+  date: string,        // Tournament date (YYYY-MM-DD)
+  groups: {            // Number of teams per group
+    [groupId: string]: number
+  },
+  games: {             // Played games per group
+    [groupId: string]: {
+      [gameId: string]: [
+        teamA: number,
+        teamB: number,
+        referee: number,
+        time: string,
+        [scoreA: number, scoreB: number]
+      ]
+    }
   }
 }
+
 ```
 
+### Notes
+- teamA and teamB are numeric IDs and are internally converted to sequential string IDs ("1", "2", ...).
+- Games with result [0, 0] are not counted (treated as not played).
+- If name or date is missing, default values "(no name)" and "(no date)" are used.
 
-**Output format**
-
-```javascript
+### Ausgabeformat
+```js
 {
-  name: "Tournament Name",
-  date: "YYYY-MM-DD",
+  name: string,
+  date: string,
   groups: [
     {
-      groupId: "1",
+      groupId: string,
       teams: [
         {
-          id: "1",
-          games_played: 5,
-          wins: 3,
-          draws: 1,
-          losses: 1,
-          points: 10,
-          score_diff: 8,
-          rank: 1
-        },
-        ...
+          id: string,
+          games_played: number,
+          wins: number,
+          draws: number,
+          losses: number,
+          points: number,
+          score_diff: number,
+          rank: number
+        }
       ]
-    },
-    ...
+    }
   ]
 }
 ```
 
-**Returns**: <code>Object</code> - Structured tournament result with team statistics and rankings.  
+### Ranking Rules
+- Teams are ranked by total points.
+- Ties are resolved by score differential (score_diff).
+- Teams with the same points and score differential share the same rank.
+- Ranks are not skipped in case of ties (e.g., 1., 1., 2., 3.).
 
-| Param | Type | Description |
-| --- | --- | --- |
-| tournamentData | <code>Object</code> \| <code>Ref</code> | Tournament object or a Vue ref containing it. |
+### Example Usage
+```js
+import { evaluateTournamentData } from "@/utils/tournamentEvaluation";
 
+// Beispiel: Plain JavaScript Object
+const tournament = {
+  name: "Champions Cup",
+  date: "2025-06-28",
+  groups: { "1": 4, "2": 4 },
+  games: {
+    "1": {
+      "1": [1, 2, 0, "10:00", [2, 1]],
+      "2": [3, 4, 0, "11:00", [0, 0]]
+    },
+    "2": {
+      "3": [5, 6, 0, "12:00", [3, 2]],
+      "4": [7, 8, 0, "13:00", [1, 1]]
+    }
+  }
+};
+
+const result = evaluateTournamentData(tournament);
+console.log(result.groups);
+
+// Beispiel: Vue 3 ref
+import { ref } from "vue";
+
+const tournamentRef = ref(tournament);
+const resultFromRef = evaluateTournamentData(tournamentRef);
+console.log(resultFromRef.groups);
+```
+
+### Return Type (TypeScript)
+```ts
+function evaluateTournamentData(
+  tournamentData: Object | Ref<Object>
+): {
+  name: string,
+  date: string,
+  groups: Array<{
+    groupId: string,
+    teams: Array<{
+      id: string,
+      games_played: number,
+      wins: number,
+      draws: number,
+      losses: number,
+      points: number,
+      score_diff: number,
+      rank: number
+    }>
+  }>
+}
+```
