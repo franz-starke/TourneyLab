@@ -75,7 +75,8 @@ npm run dev
 Frontend runs at `http://localhost:5173` \
 Backend runs at `http://localhost:8000`
 
-**!!!Before deploying replace the contents of src/frontend/public/imprint.txt with you imprint!!!**
+**!!! Before deploying replace the contents of src/frontend/public/imprint.txt with you imprint !!!**
+**HTTPS is required for the app to be downloaded and the camera to work.**
 
 ## 📁 Project Structure
 ```
