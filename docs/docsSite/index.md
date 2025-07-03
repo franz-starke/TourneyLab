@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: alt
       text: Developer Documentation
-      link: /dev-doc
+      link: /dev-doc/architecture
 
     - theme: alt
       text: Test Documentation

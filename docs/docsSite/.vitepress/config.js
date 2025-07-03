@@ -7,7 +7,7 @@ export default defineConfig({
 	themeConfig: {
 		nav: [
 			{ text: 'Home', link: '/' },
-			{ text: 'Developer Documentation', link: '/dev-doc/' },
+			{ text: 'Developer Documentation', link: '/dev-doc/architecture' },
 			{ text: 'Test Documentation', link: '/test-doc' },
 			{ text: 'User Documentation', link: '/user-doc' },
 			{ text: 'Operating Manual', link: '/op-man' },
@@ -34,7 +34,6 @@ export default defineConfig({
 					},
 					{
 						text: 'Software Documentation',
-						link: '/dev-doc/software-doc/',
 						collapsed: true,
 						items: [
 							{
@@ -45,7 +44,6 @@ export default defineConfig({
 									{ text: 'Stores', link: '/dev-doc/software-doc/frontend/stores/' },
 									{
 										text: 'Components',
-										link: '/dev-doc/software-doc/frontend/components/',
 										collapsed: true, // Makes this section a dropdown
 										items: [
 											{ text: 'LandingPage', link: '/dev-doc/software-doc/frontend/components/LandingPage' },
@@ -66,7 +64,7 @@ export default defineConfig({
 												]
 											},
 											{
-												text: 'Utilcomponents', link: '/dev-doc/software-doc/frontend/components/utilcomponents/',
+												text: 'Utilcomponents',
 												collapsed: true, // Makes this section a dropdown
 												items: [
 													{ text: 'BackHeader', link: '/dev-doc/software-doc/frontend/components/utilcomponents/BackHeader' },
@@ -79,7 +77,6 @@ export default defineConfig({
 									},
 									{
 										text: 'Utils',
-										link: '/dev-doc/software-doc/frontend/utils/',
 										collapsed: true, // Makes this section a dropdown
 										items: [
 											{ text: 'tournamentDataStructureUtil', link: '/dev-doc/software-doc/frontend/utils/tournamentDataStructureUtil' },
@@ -91,7 +88,7 @@ export default defineConfig({
 									{ text: 'api-module', link: '/dev-doc/software-doc/frontend/api-module/' }
 								]
 							},
-							{ text: 'Backend', 
+							{ text: 'Backend',
 								collapsed: false,
 								items: [
 									{ text: 'Api-Class', link: '/dev-doc/software-doc/backend/api' },
