@@ -83,7 +83,15 @@ export default defineConfig({
 									{ text: 'api-module', link: '/dev-doc/software-doc/frontend/api-module/' }
 								]
 							},
-							{ text: 'Backend', link: '/dev-doc/software-doc/backend/' },
+							{ text: 'Backend', 
+								collapsed: false,
+								items: [
+									{ text: 'Api-Class', link: '/dev-doc/software-doc/backend/api/' },
+									{ text: 'Server-Class', link: '/dev-doc/software-doc/backend/server/' },
+									{ text: 'Database-Class', link: '/dev-doc/software-doc/backend/database/' },
+									{ text: 'API-Endpoints', link: '/dev-doc/software-doc/backend/api-endpoints/' }
+								]
+							}
 						]
 					},
 				]
