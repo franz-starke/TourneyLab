@@ -21,8 +21,18 @@ export default defineConfig({
 				link: '/dev-doc/',
 				collapsed: false,
 				items: [
-					{ text: 'Architecture', link: '/dev-doc/architecture/' },
-					{ text: 'UX-Concept', link: '/dev-doc/ux-concept/' },
+					{ text: 'Architecture',
+						link: '/dev-doc/architecture/',
+						collapsed: false,
+					},
+					{ text: 'UX-Concept',
+						link: '/dev-doc/ux-concept/',
+						collapsed: false,
+						items: [
+							{ text: 'Persona', link: '/dev-doc/ux-concept/persona' },
+							{ text: 'Wireframe', link: '/dev-doc/ux-concept/wireframe' },
+						]
+					},
 					{
 						text: 'Software Documentation',
 						link: '/dev-doc/software-doc/',
@@ -88,10 +98,10 @@ export default defineConfig({
 								items: [
 									{ text: 'Api-Class', link: '/dev-doc/software-doc/backend/api/' },
 									{ text: 'Server-Class', link: '/dev-doc/software-doc/backend/server/' },
-									{ text: 'Database-Class', link: '/dev-doc/software-doc/backend/database/' },
-									{ text: 'API-Endpoints', link: '/dev-doc/software-doc/backend/api-endpoints/' }
+									{ text: 'Database-Class', link: '/dev-doc/software-doc/backend/database/' }
 								]
-							}
+							},
+							{ text: 'API', link: '/dev-doc/software-doc/backend/api-endpoints/' }
 						]
 					},
 				]

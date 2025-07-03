@@ -1,6 +1,6 @@
 # API Documentation
 
-This document describes all endpoints exposed by the api, with tis needed parameters and responses.
+This document describes all endpoints exposed by the api, with its needed parameters and responses.
 
 ## Create a tournament
 
