@@ -27,6 +27,6 @@ Detailed documentation of the frontend and backend codebases, including:
 
 ---
 
-## 🎨 [UX Concept](ux-concept/index.md)
+## 🎨 [UX Concept](ux-concept/wireframe.md)
 Documentation of the user experience and interface design and wireframes.
 

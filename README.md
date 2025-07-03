@@ -75,6 +75,8 @@ npm run dev
 Frontend runs at `http://localhost:5173` \
 Backend runs at `http://localhost:8000`
 
+**!!!Before deploying replace the contents of src/frontend/public/imprint.txt with you imprint!!!**
+
 ## 📁 Project Structure
 ```
 ├── LICENSE

@@ -104,6 +104,8 @@ If used:
 API_URL=http://localhost:8000
 ```
 
+**!!!Before deploying replace the contents of src/frontend/public/imprint.txt with you imprint!!!**
+
 ## **4. System Maintenance**
 
 ### **FAQ**
