@@ -26,7 +26,6 @@ export default defineConfig({
 						collapsed: false,
 					},
 					{ text: 'UX-Concept',
-						link: '/dev-doc/ux-concept/',
 						collapsed: false,
 						items: [
 							{ text: 'Persona', link: '/dev-doc/ux-concept/persona' },
@@ -96,9 +95,9 @@ export default defineConfig({
 							{ text: 'Backend', 
 								collapsed: false,
 								items: [
-									{ text: 'Api-Class', link: '/dev-doc/software-doc/backend/api/' },
-									{ text: 'Server-Class', link: '/dev-doc/software-doc/backend/server/' },
-									{ text: 'Database-Class', link: '/dev-doc/software-doc/backend/database/' }
+									{ text: 'Api-Class', link: '/dev-doc/software-doc/backend/api' },
+									{ text: 'Server-Class', link: '/dev-doc/software-doc/backend/server' },
+									{ text: 'Database-Class', link: '/dev-doc/software-doc/backend/database' }
 								]
 							},
 							{ text: 'API', link: '/dev-doc/software-doc/backend/api-endpoints/' }
