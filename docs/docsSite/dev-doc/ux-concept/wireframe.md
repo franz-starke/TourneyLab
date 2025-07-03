@@ -15,6 +15,11 @@ The wireframe adopts a minimalist and functional design language. Key characteri
 
 ![Wireframe Overview](images/wireframe1.png)
 
+## Updated App Design
+
+![Wireframe Overview](images/wireframe3.png)
+![Wireframe Overview](images/wireframe4.png)
+
 ## Wireframe Components
 
 ### 1. **Main Navigation (Home)**
