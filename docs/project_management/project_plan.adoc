@@ -12,7 +12,7 @@ Dieses Dokument
 == Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
 
-
+.Teamrollen
 [cols="<1,<1, <1,<1"]
 |===
 |Name |Rollen |Email|S-Nummer
@@ -63,6 +63,23 @@ Dieses Dokument
 |s85643
 |===
 
+.Fähigkeiten im Dev-Team
+[cols="<1,<1"]
+|===
+|Name |Kenntnisse und Erfahrungen
+
+|Franz
+|
+
+|
+|
+
+|
+|
+
+|===
+
+.Regelmäßige Meetings
 [cols="<1,<1, <1,<1"]
 |===
 |Meeting |Zeitpunkt |Ort |Dauer
@@ -82,8 +99,21 @@ Dieses Dokument
 |A105/106 / HTWD Bib 302b / online Discord
 |60 min
 
-
 |===
+
+.Iterationslänge:
+Eine Iteration dauert 3 Wochen 
+
+
+.Regeln der Zusammenarbeit:
+- zwischenmenschliche Konflikte sofort ansprechen
+- Bei fachlichen Problemen nicht lange zögern und erst Untergruppenmitglieder, dann gesamtes Team fragen
+- Bei absehbarer Abwesenheit von Meetings Projektleiter oder Teammitglied, das sicher dabei ist, kontaktieren
+- Pünklichkeit bei Meetings beachten
+
+
+.Aufgabenverwaltung:
+Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
 
 * Gruppen für jeweils Server und Client für Aufgabentrennung
 * Projektleitung
