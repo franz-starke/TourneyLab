@@ -115,44 +115,55 @@ Eine Iteration dauert 3 Wochen
 .Aufgabenverwaltung:
 Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
 
-* Gruppen für jeweils Server und Client für Aufgabentrennung
-* Projektleitung
-* Wöchentliches StandUp
-* Kommunikation via Discord / Github
+
+.Tools für Entwicklung, Test und Dokumentation
+[cols="<1,<1"]
+|===
+|Einsatzgebiet |Tool 
+
+|Entwicklung
+|
+
+|Test
+|
+
+|Dokumentation
+|
+
+|===
 
 
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 
-* Iteratives Vorgehen (eine Iteration 3 Wochen)
-* Aufgabenzuteilung in Meetings 
+Zusammenarbeit & Workflow
+ ▪ Daily / Weekly
+ ▪ Task Board
+ ▪ Timeboxing
+ ▪ Cross-functional Team
 
+Qualitätssicherung
+▪ Definition of Done
+ ▪ Code Conventions
+ ▪ Code Reviews mit Pull Requests
+ ▪ Branching
+ ▪ Automatisierte Unit Tests
 
-== Meilensteine und Ziele
+ Planung und Priorisierung
+ ▪ User Stories und Refinement
+ ▪ Planning Poker
+
+ Kontinuierliche Verbesserung
+ ▪ Retrospektiven
+ ▪ Reviews mit Produkt-Demos
+
+== Roadmap und Releases
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
-[%header, cols="1,3a,2,1"]
-|===
-| Iteration
-| Primary objectives +
-(risks and use case scenarios)
-| Scheduled start or milestone
-| Target velocity
+− Minimum Viable Produkt am Ende von SE I (Januar 2025)
 
-| I1
-|
-* Mitigate Risk1
-* Develop Use Case 3, Scenario 2
-| Date from/Date to
-| 15
+− Demo des Produkts am Ende von SE II (Juni 2025)
 
-| I2
-|
-* Mitigate Risk 2
-* Develop Use Case 1, Scenario 2
-| Date from/Date to
-| 16
-|===
 
 
 == Deployment
