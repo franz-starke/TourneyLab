@@ -1,4 +1,4 @@
-= Glossar: {project-name}
+= Glossar: TourneyLab
 include::../_includes/team-members.adoc[]
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
