@@ -22,7 +22,7 @@ Detailed documentation of the frontend and backend codebases, including:
   Helper functions and algorithms.
 - [Vue Router](software-doc/frontend/vue-router/):  
   Routing structure and navigation.
-- [Backend](software-doc/backend/index.md):  
+- [Backend](software-doc/backend/api):  
   Backend API endpoints and logic.
 
 ---

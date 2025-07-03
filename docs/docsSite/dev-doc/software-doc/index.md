@@ -7,7 +7,7 @@ This section provides detailed technical documentation for both the frontend and
 
 ## 📦 Backend
 
-- [Backend Overview](backend/index.md)  
+- [Backend Overview](backend/api)  
   Learn about the backend architecture, API endpoints, and server logic.
 
 ---
