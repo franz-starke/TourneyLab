@@ -83,7 +83,6 @@ export default defineConfig({
 										collapsed: true, // Makes this section a dropdown
 										items: [
 											{ text: 'tournamentDataStructureUtil', link: '/dev-doc/software-doc/frontend/utils/tournamentDataStructureUtil' },
-											{ text: 'tournamentAlgo-v2', link: '/dev-doc/software-doc/frontend/utils/tournamentAlgov2' },
 											{ text: 'tournamentEvaluation', link: '/dev-doc/software-doc/frontend/utils/tournamentEvaluation' },
 											{ text: 'tournamentPDFCreation', link: '/dev-doc/software-doc/frontend/utils/tournamentPDFCreation' },
 											{ text: 'time', link: '/dev-doc/software-doc/frontend/utils/time' },
