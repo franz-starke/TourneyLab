@@ -88,7 +88,7 @@ npm run dev
 
 ## **3. System Configuration**
 
-**https is needed** to for users to access the camera inside the pwa and website, as well as pwa export 
+**HTTPS is needed** to for users to access the camera inside the pwa and website, as well as pwa export.
 
 ### **Network & Ports**
 
