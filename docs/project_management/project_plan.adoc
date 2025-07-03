@@ -9,7 +9,7 @@ include::../_includes/default-attributes.inc.adoc[]
 Dieses Dokument 
 
 
-== Verantwortlichkeiten
+== Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
 
 
