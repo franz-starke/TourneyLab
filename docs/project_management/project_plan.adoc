@@ -83,8 +83,8 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 |
 |
 
-|
-|
+|Joshua
+|vorher Tutorial Ahnung von HTML, CSS, JS; keine Ahnung von Vue.js, wie Website hosten, adoc, git, Github, Docker
 
 |===
 
@@ -112,7 +112,7 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 .Tools für Entwicklung, Test und Dokumentation
 [cols="<1,<1"]
 |===
-|Einsatzgebiet |Tool 
+|Einsatzgebiet |Tool
 
 |Entwicklung
 |
@@ -136,7 +136,7 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 
 |===
 .Iterationslänge:
-Eine Iteration dauert enthält 3 Sprints. Ein Sprint beginnt mit dem Weekly und dauert eine Woche. 
+Eine Iteration dauert enthält 3 Sprints. Ein Sprint beginnt mit dem Weekly und dauert eine Woche.
 
 .Aufgabenverwaltung:
 Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
@@ -154,24 +154,24 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 
 .Zusammenarbeit und Workflow
-- Weekly 
+- Weekly
 - Aufteilung in Untergruppen
- 
+
 
 .Qualitätssicherung
 - link:https://github.com/franz-starke/TourneyLab/blob/main/docs/development/design.adoc[Code Conventions]
 - Code Reviews durch Pull Requests
-- Branching 
+- Branching
 
 .Planung und Priorisierung
-- User Stories 
+- User Stories
 - gemeinsame Abschätzung des Aufgabenumfang
 
 .Kontinuierliche Verbesserung
 - Feedback mit Auftraggeberin
 - Reviews durch Coach
-- Reviews durch Team im Weekly 
- 
+- Reviews durch Team im Weekly
+
 
 == Roadmap und Releases
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
@@ -188,7 +188,7 @@ Unsere Deployment Strategie besteht darin, unser Produkt einem Kunden zur Verfü
 Bereits bei der Programmierung und der Erstellung der Deployment Vorlage durch Docker haben wir auf eine klare Struktur und gut verständlichen Code geachtet.
 Unsere Software wird als fertiges Produkt ausgeliefert und gilt für uns als abgeschlossen. Das bedeutet, wir planen keine zukünftigen Updates.
 Dennoch haben wir bewusst modular und nachvollziehbar gearbeitet, sodass andere Entwickler problemlos Erweiterungen oder Aktualisierungen vornehmen können.
-Wir setzen voraus, dass der Kunde mit der Bedienung eines Linux-Servers vertraut ist. Sollten dennoch Fragen oder Probleme auftreten, 
+Wir setzen voraus, dass der Kunde mit der Bedienung eines Linux-Servers vertraut ist. Sollten dennoch Fragen oder Probleme auftreten,
 ist in unserer Dokumentation eine Kontaktperson angegeben, die mit den technischen Details der Anwendung und ihres Deployments vertraut ist.
 
 Das eigentliche Hosten soll im Normalfall über einen Docker Container pro System geschehen (Frontend und Backend).
