@@ -5,23 +5,48 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Allgemeine Informationen
 
-- Git Commits in Englisch.
-- Kommentare in Englisch und sobald Sinn ergibt diese einzufügen.
-- Bitte auch direkt nach Funktions definition beschreiben, wass diese Funktion macht.
+- Git Commits müssen auf **Englisch** verfasst sein.
+- Kommentare sollen ebenfalls auf **Englisch** geschrieben werden, sofern sie sinnvoll sind.
+- Direkt **nach jeder Funktionsdefinition** soll eine kurze Beschreibung eingefügt werden, die den Zweck der Funktion erklärt.
 
-Snytax für JavaScript:
-Camel case für Variablen und Funktionen
-    Beispiel: aRandomFunction()
+== Sprachspezifische Konventionen
 
-Es gilt außerdem das allgemeine JavaScript Style Guide.
-https://google.github.io/styleguide/jsguide.html
+=== JavaScript Style
 
-Snytax für Python:
-Snake case für Variablen und Funktionen 
-    Beispiel: a_random_function()
-Große Anfangsbuchstaben der einzelnen wörter für Klassen
-    Beispiel: ARandomClass
+- Verwende **camelCase** für Variablen- und Funktionsnamen.
+- Halte dich an den offiziellen Style Guide: link:https://google.github.io/styleguide/jsguide.html[Google JavaScript Style Guide]
 
-Es gilt außerdem das allgemeine Python Style Guide.
-https://peps.python.org/pep-0008/
-== ...
+.Beispiele JavaScript
+[cols="1,1", options="header"]
+|===
+|Element |Beispiel
+
+|Variable / Funktion
+|`aRandomFunction()`
+
+|Konvention
+|`camelCase`
+
+|===
+
+=== Python Style
+
+- Verwende **snake_case** für Variablen- und Funktionsnamen.
+- Klassen sollten **PascalCase** verwenden (jedes Wort großgeschrieben).
+- Halte dich an den offiziellen Style Guide: link:https://peps.python.org/pep-0008/[PEP 8 – Python Style Guide]
+
+.Beispiele Python
+[cols="1,1", options="header"]
+|===
+|Element |Beispiel
+
+|Variable / Funktion
+|`a_random_function()`
+
+|Klasse
+|`ARandomClass`
+
+|Konvention
+|`snake_case` (für Funktionen/Variablen), `PascalCase` (für Klassen)
+
+|===
