@@ -8,6 +8,9 @@ class Turnier {
   Name
   Datum
   Anzahl_Felder
+  QR-Code
+  Anzahl_Runden
+  Matchpoint
 }
 
 class Leistungsgruppe {
@@ -26,17 +29,13 @@ class Team {
   Name
 }
 
-class Turnierplan {
-  QR-Code
-  Anzahl_Runden
-}
 
-Turnier "1..*" -right- "1..*" Leistungsgruppe
-Turnier "1"    -down--  "1" Turnierplan
-Team    "1..*" -up- "1" Leistungsgruppe
-Team    "1" -down-- "1..*" Spiel : Schiedsrichter >
-Team    "1" -down- "*" Spiel : Team_Home >
-Team    "1" -down- "*" Spiel : Team_Away >
-Spiel   "3..*" -left- "1" Turnierplan
+
+Turnier "1" -right- "1..2" Leistungsgruppe
+Team    "3..12" -- "1" Leistungsgruppe
+Team    "1" -left- "1..*" Spiel : Schiedsrichter >
+Team    "1" -- "*" Spiel : Team_Home >
+Team    "1" -- "*" Spiel : Team_Away >
+Spiel   "3..*" -- "1" Turnier
 
 @enduml

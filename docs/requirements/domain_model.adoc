@@ -5,7 +5,7 @@ include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
 
-.Klassendiagramm mit PlantUML
+.Domänenmodell mit PlantUML
 [plantuml, "{diagramsdir}/domain_model.puml", svg]
 ....
 

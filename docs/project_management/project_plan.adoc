@@ -197,5 +197,5 @@ Das eigentliche Hosten soll im Normalfall über einen Docker Container pro Syste
 
 Unser Product Backlog befindet sich in link:https://github.com/users/franz-starke/projects/4/views/1[GitHub Projects]
 
-== Erkenntnisse (Lessons learned)
-//List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.
+// == Erkenntnisse (Lessons learned)
+// //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.

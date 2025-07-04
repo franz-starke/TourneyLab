@@ -23,7 +23,7 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 <<<
 
 
-//COMPILE WITH: asciidoctor-pdf -r asciidoctor-diagram Belegarbeit/Repo/SE-Volleyball-Turnier-Belegprojekt/belegabgabe_se1/se1_belegabgabe_t00.adoc 
+//COMPILE WITH: asciidoctor-pdf -r asciidoctor-diagram Belegarbeit/Repo/SE-Volleyball-Turnier-Belegprojekt/belegabgabe_se1/se1_belegabgabe_t00.adoc
 
 // --- 4. include Pfade anpassen ---------------
 
@@ -33,8 +33,7 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 :imagesdir: {docs-project-management}/images
 
 // FIXME: Projektplan => zur Zeit wird das Projekt nur in Github und über die Protokolle gemanaged (nichts in project_plan.adoc)
-// include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
-NOTE: link:https://github.com/users/franz-starke/projects/4/views/1[Github Project Backlog]
+include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
 
 .relevante Links
 * link:https://github.com/users/franz-starke/projects/4/views/13[User Story Liste]
@@ -73,7 +72,7 @@ include::{docs-requirements}/domain_model.adoc[lines=1..1;4..-1,leveloffset=+1]
 .Entwurf zu Wireframes
 image::wireframe2.png[]
 
-.konkretes UI-Design 
+.konkretes UI-Design
 image::wireframe1.png[]
 
 
@@ -82,18 +81,9 @@ image::wireframe1.png[]
 
 // --- Entwurfsdokumentation ---
 = Entwurfsdokumentation
-* Architektur-Notizbuch 
+* Architektur-Notizbuch
 
 // Architektur-Notizbuch
 :imagesdir: ../docs/architecture/images
+
 include::{docs-architecture}/architecture_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-// Test Cases
-// FIXME: Noch keine Test Cases
-// :imagesdir: {docs-test}/images
-// include::{docs-test}/test_cases.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
-
-// ---------------------------------------------
-
-:imagesdir: {imagesdir-reset}/images
