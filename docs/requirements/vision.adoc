@@ -158,10 +158,10 @@ NOTE: Prioritäten 1 bis 4 mit 1 am wichtigsten
 |===
 | Bedarf | Priorität | Features | Geplantes Release
 
-| Turnierauswertung | 1 | Algoritmus zur Bewertung der Spielstände | xx
-| Spielplangenerierung | 2 | Benutzeroberfläche und Algoritmus zur Spielplangenerierung | xx
-| Erfassung der Spielstände| 2 | Benutzeroberfläche zur Eintragung und Speicherung der Spielstände | xx
-| Speicherung | 3 | Speicherung der Turnierdaten auch von vergangenen Tuniere| xx
+| Turnierauswertung | 1 | Algoritmus zur Bewertung der Spielstände 
+| Spielplangenerierung | 2 | Benutzeroberfläche und Algoritmus zur Spielplangenerierung 
+| Erfassung der Spielstände| 2 | Benutzeroberfläche zur Eintragung und Speicherung der Spielstände 
+| Archivierung von Turnierergebnissen | 3 | Speicherung der Turnierdaten auch von vergangenen Tuniere
 |===
 
 // == Zusätzliche Produktanforderungen
