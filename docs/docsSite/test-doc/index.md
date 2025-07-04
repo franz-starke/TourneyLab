@@ -14,7 +14,7 @@ Demonstrate the quality of the system and document the test structure and execut
     - `getConflicts`
     - `distributeGamesToFieldsWithOneGroup`
     - `distributeGamesToFieldsAndAssignReferees`
-  - Backen endpoints (via pytest and FastAPI TestClient)
+  - Backend endpoints (via pytest and FastAPI TestClient)
       - `/api/create`
       - `/api/get_tournaments`
 

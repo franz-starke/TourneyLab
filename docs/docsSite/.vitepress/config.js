@@ -18,7 +18,6 @@ export default defineConfig({
 
 			{
 				text: 'Developer Documentation',
-				link: '/dev-doc/',
 				collapsed: false,
 				items: [
 					{ text: 'Architecture',
