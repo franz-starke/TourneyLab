@@ -37,7 +37,7 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 
 |Jannis Wittchen
 |Analyse, Programmierer
-|Algorithmus
+|Algorithmen, Tester
 |jannis.wittchen@stud.htw-dresden.de
 |s86417
 
@@ -85,6 +85,11 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 
 |Joshua
 |vorher Tutorial Ahnung von HTML, CSS, JS; keine Ahnung von Vue.js, wie Website hosten, adoc, git, Github, Docker
+
+|
+|
+|Jannis
+|Vorerfahrung in Webentwicklung, Python, GitHub, Testen; keine Erfahrung in Bereichen wie Dokumentation, Vue.js und ausführlicher Projektarchitektur.
 
 |===
 
