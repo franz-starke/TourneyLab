@@ -15,7 +15,7 @@ Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entw
 * Turnierauswertung
 * Spielstandserfassung
 * Speicherung von Daten
-* Intuitive Bedienbarkeit
+//* Intuitive Bedienbarkeit
 
 .out of scope
 * Anwendbarkeit für andere Turierformate/Sportarten
