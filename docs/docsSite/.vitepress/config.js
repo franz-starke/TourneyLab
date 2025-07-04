@@ -11,7 +11,8 @@ export default defineConfig({
 			{ text: 'Test Documentation', link: '/test-doc' },
 			{ text: 'User Documentation', link: '/userdoc.pdf', target: '_blank', rel: 'noopener' },
 			{ text: 'Operating Manual', link: '/op-man' },
-			{ text: 'GitHub', link: 'https://github.com/franz-starke/TourneyLab' }
+			{ text: 'GitHub', link: 'https://github.com/franz-starke/TourneyLab' },
+			{ text: 'Imprint', link: '/imprint' },
 		],
 
 		sidebar: [
