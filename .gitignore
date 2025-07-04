@@ -1,5 +1,7 @@
 # Syntax: https://git-scm.com/docs/gitignore
 
+
+DokumentationenAbgabe/
 # General
 .DS_Store
 reflexion.adoc

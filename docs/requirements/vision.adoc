@@ -27,7 +27,7 @@ Dieses Visions-Dokument bezieht sich auf die Turnier App, welche von Team A entw
 
 === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
-separat aufgeführt im link:/docs/requirements/glossary.adoc[Glossar]
+separat aufgeführt im Glossar
 
 // === Referenzen
 // (hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
@@ -158,9 +158,9 @@ NOTE: Prioritäten 1 bis 4 mit 1 am wichtigsten
 |===
 | Bedarf | Priorität | Features | Geplantes Release
 
-| Turnierauswertung | 1 | Algoritmus zur Bewertung der Spielstände 
-| Spielplangenerierung | 2 | Benutzeroberfläche und Algoritmus zur Spielplangenerierung 
-| Erfassung der Spielstände| 2 | Benutzeroberfläche zur Eintragung und Speicherung der Spielstände 
+| Turnierauswertung | 1 | Algoritmus zur Bewertung der Spielstände
+| Spielplangenerierung | 2 | Benutzeroberfläche und Algoritmus zur Spielplangenerierung
+| Erfassung der Spielstände| 2 | Benutzeroberfläche zur Eintragung und Speicherung der Spielstände
 | Archivierung von Turnierergebnissen | 3 | Speicherung der Turnierdaten auch von vergangenen Tuniere
 |===
 
