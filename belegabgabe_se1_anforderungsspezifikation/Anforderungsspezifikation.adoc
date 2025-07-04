@@ -1,7 +1,7 @@
 // --- 1. Projektthema -------------------------
 = SE 2 - Anforderungsspezifikation: {project-name}
 // --- 2. Teammitglieder -----------------------
-Sebastian Heber <sebastian.heber2@stud.htw-dresden.de>; Joshua Heninger <s87568@htw-dresden.de>; Franz Starke <franz.starke@stud.htw-dresden.de>; Mutaz Abuazizeh <s87611@htw-dresden.de>; Jannis Wittchen <jannis.wittchen@stud.htw-dresden.de>; Til Simon <til.simon@stud.htw-dresden.de>; Konstantin Becher <konstantin.becher@stud.htw-dresden.de>; Ibrahim Braikeh <ibrahim.braikeh@stud.htw-dresden.de>
+Sebastian Heber <sebastian.heber2@stud.htw-dresden.de>; Joshua Heninger <s87568@htw-dresden.de>; Franz Starke <franz.starke@stud.htw-dresden.de>; Mutaz Abuazizeh <s87611@htw-dresden.de>; Jannis Wittchen <jannis.wittchen@stud.htw-dresden.de>; Ibrahim Braikeh <ibrahim.braikeh@stud.htw-dresden.de>; Ali Zeinelov <ali.zeinelov@stud.htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
 4. Juli 2025
 // ---------------------------------------------
@@ -47,7 +47,7 @@ include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffse
 * Vision
 * Glossar
 * Domänenmodel
-* UX-Konzept
+
 
 :imagesdir: {docs-requirements}/images
 
@@ -61,28 +61,3 @@ include::{docs-requirements}/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
 // Domänenmodell
 include::{docs-requirements}/domain_model.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
-// UX-Konzept
-// FIXME: UX-Konzept sind die Wireframes. Wollen wir die so einbinden?
-// include::{docs-requirements}/ux-concept.adoc[lines=1..1;4..-1,leveloffset=+1]
-
-
-= UX-Konzept
-
-.Entwurf zu Wireframes
-image::wireframe2.png[]
-
-.konkretes UI-Design
-image::wireframe1.png[]
-
-
-
-<<<
-
-// --- Entwurfsdokumentation ---
-= Entwurfsdokumentation
-* Architektur-Notizbuch
-
-// Architektur-Notizbuch
-:imagesdir: ../docs/architecture/images
-
-include::{docs-architecture}/architecture_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]

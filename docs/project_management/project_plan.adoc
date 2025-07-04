@@ -146,12 +146,12 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 .Iterationslänge:
 Eine Iteration dauert enthält 3 Sprints. Ein Sprint beginnt mit dem Weekly und dauert eine Woche.
 
-.Aufgabenverwaltung:
-Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
-
 
 [%always]
 <<<
+
+.Aufgabenverwaltung:
+Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
 
 
 .Regeln der Zusammenarbeit:
@@ -186,6 +186,9 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
 - Reviews durch Team im Weekly
 
 
+[%always]
+<<<
+
 == Roadmap und Releases
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
@@ -193,8 +196,6 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
 
 - Demo des Produkts am Ende von SE II (Juni 2025)
 
-[%always]
-<<<
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
