@@ -124,24 +124,26 @@ Beispiel Produkt:
 //Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 
+. Welche anderen Anwendungen sind im Einsatz?
+** bisher wird der Spielplan in Excel erstellt
 
-. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
-** Die Anzahl der Nutzer varriert je nach Turnier zwischen 4-16 Teams
-// . ->Mit rein?<- Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
-// ** Ein Turnier dauert in der Regel <Auftraggeber fragen>
+. Anzahl der Personen, die am Turnier beteiligt sind. Ändert sich das?
+** Die Anzahl der Nutzer varriert je nach Turnier. Es gibt zwischen 3-24 Teams mit mindestens 6 Spielern pro Team
 
 . Gibt es besondere Umgebungsbedingungen?
 // Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
-  - Die Anwendung soll mobil und offline einsetzbar sein
-  - So barrierefrei und intuitiv wie möglich
-. Welche anderen Anwendungen sind im Einsatz?
-  - bisher wird der Plan in Excel erstellt
+** Wahrscheinlich gibt es keine Internetverbindung in der Sporthalle -> Die Anwendung soll offline einsetzbar sein
+** Die Turniererstellung und zentrale Bedienung der App geschieht am Laptop oder Tablet -> Desktop-Ansicht
+** Die meisten Teilnehmer werden die App auf dem Smartphone nutzen -> Mobil-Ansicht
 
-. App wird vom Stura vermutlich sehr selten genutzt, d.h. Leute werden sich nicht immer daran errinern wie man die App benutzt, oder benutzen sie zum ersten Mal.
+
+. App wird von vielen zum ersten Mal benutzt -> So barrierefrei und intuitiv wie möglich.
 
 . Jedes Teammitglied / Mitspieler darf in der App Änderungen vornehmen.
 
-. Server läuft vermutlich auf Linux => Docker
+. Punkteeingabe soll durch Touch und Tastatur möglich sein
+
+. Server läuft auf Linux => Docker
 
 // Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
@@ -154,10 +156,13 @@ Beispiel Produkt:
 
 NOTE: Prioritäten 1 bis 4 mit 1 am wichtigsten
 
-[%header, cols="4,1,4,1"]
+[%header, cols="4,1,4"]
 |===
-| Bedarf | Priorität | Features | Geplantes Release
+| Bedarf | Priorität | Features
 
+| Turnierauswertung | 1 | Algoritmus zur Bewertung der Spielstände
+| Spielplangenerierung | 2 | Benutzeroberfläche und Algoritmus zur Spielplangenerierung
+| Erfassung der Spielstände| 2 | Benutzeroberfläche zur Eintragung und Speicherung der Spielstände
 | Turnierauswertung | 1 | Algoritmus zur Bewertung der Spielstände
 | Spielplangenerierung | 2 | Benutzeroberfläche und Algoritmus zur Spielplangenerierung
 | Erfassung der Spielstände| 2 | Benutzeroberfläche zur Eintragung und Speicherung der Spielstände
