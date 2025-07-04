@@ -109,22 +109,6 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 |60 min
 
 |===
-
-.Iterationslänge:
-Eine Iteration dauert 3 Wochen 
-
-
-.Regeln der Zusammenarbeit:
-- zwischenmenschliche Konflikte sofort ansprechen
-- Bei fachlichen Problemen nicht lange zögern und erst Untergruppenmitglieder, dann gesamtes Team fragen
-- Bei absehbarer Abwesenheit von Meetings Projektleiter oder Teammitglied, das sicher dabei ist, kontaktieren
-- Pünklichkeit bei Meetings beachten
-
-
-.Aufgabenverwaltung:
-Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
-
-
 .Tools für Entwicklung, Test und Dokumentation
 [cols="<1,<1"]
 |===
@@ -151,6 +135,19 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
 - ChatGPT
 
 |===
+.Iterationslänge:
+Eine Iteration dauert enthält 3 Sprints. Ein Sprint beginnt mit dem Weekly und dauert eine Woche. 
+
+.Aufgabenverwaltung:
+Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
+
+.Regeln der Zusammenarbeit:
+- zwischenmenschliche Konflikte sofort ansprechen
+- Bei fachlichen Problemen nicht lange zögern und erst Untergruppenmitglieder, dann gesamtes Team fragen
+- Bei absehbarer Abwesenheit von Meetings Projektleiter oder Teammitglied, das sicher dabei ist, kontaktieren
+- Pünklichkeit bei Meetings beachten
+
+
 
 
 == Praktiken und Bewertung
@@ -162,7 +159,7 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
  
 
 .Qualitätssicherung
-- link:/docs/development/design.adoc[Code Conventions]
+- link:https://github.com/franz-starke/TourneyLab/blob/main/docs/development/design.adoc[Code Conventions]
 - Code Reviews durch Pull Requests
 - Branching 
 
