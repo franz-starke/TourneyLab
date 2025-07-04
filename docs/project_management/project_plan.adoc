@@ -6,59 +6,68 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Einführung
 //Briefly describe the content of the project plan.
-Dieses Dokument 
+Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unsere Arbeitsweise und verweist auf unseren Product Backlog
 
 
 == Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
 
 .Teamrollen
-[cols="<1,<1, <1,<1"]
+[cols="<1,<1, <1,<1,<1"]
 |===
-|Name |Rollen |Email|S-Nummer
+|Name |Rollen |Untergruppe |Email|S-Nummer
 
 |Joshua Heninger
 |Docs, Programmierer
+|Frontend
 |s87568@htw-dresden.de
 |s87568
 
 |Mutaz Abuazizeh
 |Programmierer
+|Frontend
 |s87611@htw-dresden.de
 |s87611
 
+|Ali Zeinelov
+|Programmierer, Dokumentation
+|Frontend
+|ali.zeinelov@stud.htw-dresden.de
+|s85161
+
 |Jannis Wittchen
 |Analyse, Programmierer
+|Algorithmus
 |jannis.wittchen@stud.htw-dresden.de
 |s86417
 
 |Ibrahim Braikeh
-|Programmierer, Tester 
+|Programmierer, Tester
+|Backend
 |ibrahim.braikeh@stud.htw-dresden.de
 |s83791
 
 |Franz Starke
 |Architekt, Programmierer, Tester
+|Backend
 |franz.starke@stud.htw-dresden.de
 |s86320
 
-|Ali Zeinelov
-|Programmierer, Dokumentation
-|ali.zeinelov@stud.htw-dresden.de
-|s85161
-
 |Sebastian Heber
 |Projektleiter
+|
 |sebastian.heber2@stud.htw-dresden.de
 |s85262
 
 |Til Simon (nur SE 1)
 |Analyse
+|
 |til.simon@stud.htw-dresden.de
 |s85651
 
 |Konstantin Becher (nur SE 1)
 |Analyse
+|
 |konstantin.becher@stud.htw-dresden.de
 |s85643
 |===
@@ -136,15 +145,13 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 
-Zusammenarbeit & Workflow
- ▪ Daily / Weekly
- ▪ Task Board
- ▪ Timeboxing
- ▪ Cross-functional Team
+.Zusammenarbeit und Workflow
+- Weekly 
+- Aufteilung in Untergruppen
+ 
 
-Qualitätssicherung
-▪ Definition of Done
- ▪ Code Conventions
+.Qualitätssicherung
+- link:/docs/project_management/project_plan.adoc[Code Conventions]
  ▪ Code Reviews mit Pull Requests
  ▪ Branching
  ▪ Automatisierte Unit Tests
