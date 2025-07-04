@@ -78,7 +78,7 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 |Name |Kenntnisse und Erfahrungen
 
 |Franz
-|
+|Vorerfahrung in Webentwicklung, Python Programmierung, Deployment und Dokumentation. Wenig ahnung von Vue und erstellen einer Projektarchitektur sowie Github Pages.
 
 |
 |
