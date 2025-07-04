@@ -42,7 +42,7 @@
 ### `generateTournament()`
 - Validates input fields.
 - Generates tournament structure using `createTournamentAlgo`.  
-	See [tournamentAlgov2.js](../utils/tournamentalgo.md) for implementation details.
+	See [tournamentalgo.js](../utils/tournamentalgo.md) for implementation details.
 - Checks for valid parameter combinations.
 - Handles manual referee assignment if needed.
 - Prepares and syncs tournament data with the server.
