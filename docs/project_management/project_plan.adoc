@@ -132,12 +132,23 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
 
 |Entwicklung
 |
+- Visual Studio Code
+- Chat GPT
 
 |Test
 |
+- Visual Studio Code
+- Postman
+- Terminal
 
 |Dokumentation
 |
+- Visual Studio Code
+- vitepress
+- Obsidian
+- pdoc
+- netlify
+- ChatGPT
 
 |===
 
@@ -167,15 +178,22 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
 == Roadmap und Releases
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
-− Minimum Viable Produkt am Ende von SE I (Januar 2025)
+- Minimum Viable Produkt am Ende von SE I (Januar 2025)
 
-− Demo des Produkts am Ende von SE II (Juni 2025)
+- Demo des Produkts am Ende von SE II (Juni 2025)
 
 
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
+Unsere Deployment Strategie besteht darin, unser Produkt einem Kunden zur Verfügung zu stellen, sodass dieser es mit wenigen Schritten selbst hosten kann.
+Bereits bei der Programmierung und der Erstellung der Deployment Vorlage durch Docker haben wir auf eine klare Struktur und gut verständlichen Code geachtet.
+Unsere Software wird als fertiges Produkt ausgeliefert und gilt für uns als abgeschlossen. Das bedeutet, wir planen keine zukünftigen Updates.
+Dennoch haben wir bewusst modular und nachvollziehbar gearbeitet, sodass andere Entwickler problemlos Erweiterungen oder Aktualisierungen vornehmen können.
+Wir setzen voraus, dass der Kunde mit der Bedienung eines Linux-Servers vertraut ist. Sollten dennoch Fragen oder Probleme auftreten, 
+ist in unserer Dokumentation eine Kontaktperson angegeben, die mit den technischen Details der Anwendung und ihres Deployments vertraut ist.
 
+Das eigentliche Hosten soll im Normalfall über einen Docker Container pro System geschehen (Frontend und Backend).
 
 == Erkenntnisse (Lessons learned)
 //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.
