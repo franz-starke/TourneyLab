@@ -151,7 +151,7 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
  
 
 .Qualitätssicherung
-- link:/docs/project_management/project_plan.adoc[Code Conventions]
+- link:/docs/development/design.adoc[Code Conventions]
  ▪ Code Reviews mit Pull Requests
  ▪ Branching
  ▪ Automatisierte Unit Tests
