@@ -33,6 +33,9 @@ separat aufgeführt im Glossar
 // (hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
 //
 
+[%always]
+<<<
+
 == Positionierung
 
 === Fachliche Motivation
@@ -89,6 +92,8 @@ Beispiel Produkt:
 |===
 ////
 
+[%always]
+<<<
 
 == Stakeholder Beschreibungen
 

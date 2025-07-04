@@ -72,6 +72,9 @@ Dieses Dokument dient als Übersicht unserer Teamkonstellation, beschreibt unser
 |s85643
 |===
 
+[%always]
+<<<
+
 .Fähigkeiten im Dev-Team
 [cols="<1,<1"]
 |===
@@ -146,6 +149,11 @@ Eine Iteration dauert enthält 3 Sprints. Ein Sprint beginnt mit dem Weekly und 
 .Aufgabenverwaltung:
 Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
 
+
+[%always]
+<<<
+
+
 .Regeln der Zusammenarbeit:
 - zwischenmenschliche Konflikte sofort ansprechen
 - Bei fachlichen Problemen nicht lange zögern und erst Untergruppenmitglieder, dann gesamtes Team fragen
@@ -185,7 +193,8 @@ Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sic
 
 - Demo des Produkts am Ende von SE II (Juni 2025)
 
-
+[%always]
+<<<
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.

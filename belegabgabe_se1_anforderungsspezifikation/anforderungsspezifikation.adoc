@@ -3,7 +3,7 @@
 // --- 2. Teammitglieder -----------------------
 Sebastian Heber <sebastian.heber2@stud.htw-dresden.de>; Joshua Heninger <s87568@htw-dresden.de>; Franz Starke <franz.starke@stud.htw-dresden.de>; Mutaz Abuazizeh <s87611@htw-dresden.de>; Jannis Wittchen <jannis.wittchen@stud.htw-dresden.de>; Til Simon <til.simon@stud.htw-dresden.de>; Konstantin Becher <konstantin.becher@stud.htw-dresden.de>; Ibrahim Braikeh <ibrahim.braikeh@stud.htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
-24. Januar 2025
+4. Juli 2025
 // ---------------------------------------------
 :docs: ../docs
 include::{docs}/_includes/default-attributes.inc.adoc[]
@@ -32,7 +32,6 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 :imagesdir: {docs-project-management}/images
 
-// FIXME: Projektplan => zur Zeit wird das Projekt nur in Github und über die Protokolle gemanaged (nichts in project_plan.adoc)
 include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
 
 .relevante Links

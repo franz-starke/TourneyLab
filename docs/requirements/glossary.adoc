@@ -16,7 +16,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
 
 | Team Fun
-| Das Team, welches aus gelegenheits oder neuen Spielern besteht um spaß am Spiel zu haben.
+| Das Team, welches aus Gelegenheitsspielern oder neuen Spielern besteht um Spaß am Spiel zu haben.
 | Amateurteam
 
 | Team Schwitzer
@@ -24,7 +24,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Profiteam
 
 | Turnier
-| Eine organisierte Veranstaltung, bei der mehrere Teams nach einem festgelegten Spielplan gegeneinander antreten, um einen Sieger zu ermitteln.
+| Eine organisierte Veranstaltung, bei der mehrere Teams nach einem festgelegten Spielplan gegeneinander antreten, um einen Sieger zu küren.
 | Wettkampf
 
 | Leistungsgruppen
@@ -39,7 +39,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Ein Team ist eine Gruppe von Personen, die gemeinsam an einem Ziel arbeiten
 | Mannschaft
 
-| Gelegenheitsspielende
+| Gelegenheitsspieler
 | Sind Personen, die nur ab und zu und nicht professionell an sportlichen Aktivitäten teilnehmen.
 | Freizeitsportler
 
@@ -59,16 +59,20 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Das zweite von zwei Spielen in einer Serie, bei dem die Teams gegeneinander antreten
 | Rückrunde, zweite Partie
 
+| Matchpoint
+| Die Anzahl Punkte, die ein Team mindestens benötigt, um das Spiel zu gewinnen
+| Startspiel
+
 | Aussetzzeit
 | Die Zeitspanne, in der ein Team nicht spielt und entweder zuschaut oder eine andere Rolle übernimmt
 | Spielpause
 
 | Pfeifen
-| Schiedrichter Rolle übernehmen
+| Die Rolle als Schiedrichter übernehmen
 | Leiten
 
 | Spielplan
-| Strukturierter Spielablauf
+| Strukturierter Spielablauf, welches Team wann gegen ein anderes auf welchem Feld spielt
 | Zeitplan, Begegnungsplan
 
 | Generieren
@@ -76,87 +80,33 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Erstellen, Erzeugen
 
 | Sieger
-| Das Team mit den meisten gewonnenen Spielen
+| Das Team welches nach den Regeln zur Auswertung des Turniers gwonnen hat
 | Gewinner
-
-| App
-| Ein Program in welchem eine bestimmte Logik verfolgt wird um ein und ausgabe zu verwalten.
-| Program
-
-|PWA
-|Eine Website,die wie eine native App aussieht und funktioniert
-|
-
-|Framework
-|Anwendung oder Gerüst welches viele vorgefertigten Tools beinhaltet
-|
-
-|Wireframe
-|Eine übergordneter Entwurf, der die Sturktur deiner Website,App oder deine Projektes veranschaulicht 
-|
-
-|Datenbank 
-|System zur Beschreibung, Speicherung und zum Abrufen von großen Datenmengen
-|
 
 |Team Home, Team Away
 |Unterscheidung der Teams bezügich Hin und Rückspiel
-|
+|Team1, Team2
 
 |Punkte Home,Punkte Away
 |Unterscheidung der Punkten bezüglich Hin und Rückspiel
-|
+|Punkte Team1, Punkte Team2
 
-|QR-Code
-|Zweidimensionaler,Grafischer,aus Punkten zu einem Quadrat zusammengesetzter, elektronischer lesbarer Code 
-|
-
-
-|API
-|Eine API ist eine Schnittstelle, die es unabhängigen Anwendungen ermöglicht, miteinander zu kommunizieren und Daten auszutauschen
-|
-
-|Frontend
-|Eine grafischen Benutzeroberfläche mit welcherder Benutzer interagiert
-|
-
-|Backend
-|Ein System, welches die Datenverarbeitung und Bereitstellung eines System gewährleistet
-|
 |===
 
+[%always]
+<<<
 
 == Abkürzungen und Akronyme
 [%header]
 |===
 | Abkürzung | Bedeutung | Erläuterung
 
-//| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
-
 | Schiri
 | Schiedsrichter
 | Leiter des Spiels
 
-
-|API
-|Application Programming Interfaces
-|Schnittstelle zwischen Datenbank und Frontend
-
-|PWA
-|Progressiv Web App
-|Eine Website die aussieht wie eine native App
-
-|===
-
-== Verzeichnis der Datenstrukturen
-[%header]
-|===
-| Bezeichnung | Definition | Format | Gültigkeitsregeln | Aliase
-
-| Anmeldedaten
-| Zusammensetzung von Benutzername und Passwort.
-| String
-| Emailadresse muss `@`-Zeichen und anschließend mindestens ein Zeichen gefolgt von einem `.` Punkt enthalten.
-| Login
+| Turnieralgo
+| Turnieralgorithmus
+| Algorithmus zur Generierung des Spielplans
 
 |===

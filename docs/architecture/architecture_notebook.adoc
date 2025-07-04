@@ -39,6 +39,9 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 - Legacy Support (Einladen der Alten Excel Tabelle)
 - Jeder Nutzer hat ein Web fähiges (Mobil) Gerät
 
+[%always]
+<<<
+
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
 
@@ -69,6 +72,11 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 // - Um Daten zu speichern und sortieren wird eine Datenbank verwendet.
 // - Um einen einfachen Zugriff auf die Gespeicherten Daten zu haben wird eine API verwendet.
 
+
+[%always]
+<<<
+
+
 == Architekturmechanismen
 // https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
 //[List the architectural mechanisms and describe the current state of each one. Initially, each mechanism may be only name and a brief description. They will evolve until the mechanism is a collaboration or pattern that can be directly applied to some aspect of the design.]
@@ -97,8 +105,8 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 * Scheduling
 * Transaction Management
 
-== Wesentliche Abstraktionen
-//[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
+// == Wesentliche Abstraktionen
+// //[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
 
 
 == Schichten oder Architektur-Framework
@@ -107,6 +115,12 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 - FastAPI (Python)
 - SQLite (SQL)
 - Vue (Java Script)
+
+
+
+[%always]
+<<<
+
 
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
