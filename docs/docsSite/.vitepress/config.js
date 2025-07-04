@@ -9,7 +9,7 @@ export default defineConfig({
 			{ text: 'Home', link: '/' },
 			{ text: 'Developer Documentation', link: '/dev-doc/architecture' },
 			{ text: 'Test Documentation', link: '/test-doc' },
-			{ text: 'User Documentation', link: '/user-doc' },
+			{ text: 'User Documentation', link: '/userdoc.pdf', target: '_blank', rel: 'noopener' },
 			{ text: 'Operating Manual', link: '/op-man' },
 			{ text: 'GitHub', link: 'https://github.com/franz-starke/TourneyLab' }
 		],
@@ -102,7 +102,7 @@ export default defineConfig({
 				]
 			},
 			{ text: 'Test Documentation', link: '/test-doc/' },
-			{ text: 'User Documentation', link: '/user-doc/' },
+			{ text: 'User Documentation', link: '/userdoc.pdf', target: '_blank', rel: 'noopener' },
 			{ text: 'Operating Manual', link: '/op-man/' },
 		]
 	}

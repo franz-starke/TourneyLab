@@ -16,7 +16,9 @@ hero:
 
     - theme: alt
       text: User Documentation
-      link: /user-doc
+      link: /userdoc.pdf
+      target: '_blank'
+      rel: 'noopener' 
 
     - theme: alt
       text: Operating Manual
