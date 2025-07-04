@@ -1,13 +1,13 @@
-= Design: {project-name}
+= Design: TourneyLab
 include::../_includes/team-members.adoc[]
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 
 == Allgemeine Informationen
 
-Git Commits in Englisch.
-Kommentare in Englisch und sobald Sinn ergibt diese einzufügen.
-Bitte auch direkt nach Funktions definition beschreiben, wass diese Funktion macht.
+- Git Commits in Englisch.
+- Kommentare in Englisch und sobald Sinn ergibt diese einzufügen.
+- Bitte auch direkt nach Funktions definition beschreiben, wass diese Funktion macht.
 
 Snytax für JavaScript:
 Camel case für Variablen und Funktionen

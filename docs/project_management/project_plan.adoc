@@ -1,5 +1,4 @@
-= Projektplan: {project-name}
-include::../_includes/team-members.adoc[]
+= Projektplan: TourneyLab
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -7,50 +6,164 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Einführung
 //Briefly describe the content of the project plan.
-
+Dieses Dokument 
 
 
 == Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
 
-* Gruppen für jeweils Server und Client für Aufgabentrennung
-* Projektleitung
-* Wöchentliches StandUp
-* Kommunikation via Discord / Github
+.Teamrollen
+[cols="<1,<1, <1,<1"]
+|===
+|Name |Rollen |Email|S-Nummer
+
+|Joshua Heninger
+|Docs, Programmierer
+|s87568@htw-dresden.de
+|s87568
+
+|Mutaz Abuazizeh
+|Programmierer
+|s87611@htw-dresden.de
+|s87611
+
+|Jannis Wittchen
+|Analyse, Programmierer
+|jannis.wittchen@stud.htw-dresden.de
+|s86417
+
+|Ibrahim Braikeh
+|Programmierer, Tester 
+|ibrahim.braikeh@stud.htw-dresden.de
+|s83791
+
+|Franz Starke
+|Architekt, Programmierer, Tester
+|franz.starke@stud.htw-dresden.de
+|s86320
+
+|Ali Zeinelov
+|Programmierer, Dokumentation
+|ali.zeinelov@stud.htw-dresden.de
+|s85161
+
+|Sebastian Heber
+|Projektleiter
+|sebastian.heber2@stud.htw-dresden.de
+|s85262
+
+|Til Simon (nur SE 1)
+|Analyse
+|til.simon@stud.htw-dresden.de
+|s85651
+
+|Konstantin Becher (nur SE 1)
+|Analyse
+|konstantin.becher@stud.htw-dresden.de
+|s85643
+|===
+
+.Fähigkeiten im Dev-Team
+[cols="<1,<1"]
+|===
+|Name |Kenntnisse und Erfahrungen
+
+|Franz
+|
+
+|
+|
+
+|
+|
+
+|===
+
+.Regelmäßige Meetings
+[cols="<1,<1, <1,<1"]
+|===
+|Meeting |Zeitpunkt |Ort |Dauer
+
+|Weekly
+|Montag, 09:45 Uhr
+|HTWD Bib 2.OG Fensterreihe / online Discord
+|90 min
+
+|Auftraggeberin
+|nach Bedarf
+|A105/106 / online BBB-Raum des Stura
+|30 min
+
+|Coach
+|nach Bedarf
+|A105/106 / HTWD Bib 302b / online Discord
+|60 min
+
+|===
+
+.Iterationslänge:
+Eine Iteration dauert 3 Wochen 
+
+
+.Regeln der Zusammenarbeit:
+- zwischenmenschliche Konflikte sofort ansprechen
+- Bei fachlichen Problemen nicht lange zögern und erst Untergruppenmitglieder, dann gesamtes Team fragen
+- Bei absehbarer Abwesenheit von Meetings Projektleiter oder Teammitglied, das sicher dabei ist, kontaktieren
+- Pünklichkeit bei Meetings beachten
+
+
+.Aufgabenverwaltung:
+Im Weekly wird der aktuelle Stand und die nächsten Schritte besprochen. Die sich daraus ergebenden Aufagben werden im Protokoll niedergeschrieben und als Issuses durch das jeweils ausführende Teammitglied dokumentiert.
+
+
+.Tools für Entwicklung, Test und Dokumentation
+[cols="<1,<1"]
+|===
+|Einsatzgebiet |Tool 
+
+|Entwicklung
+|
+
+|Test
+|
+
+|Dokumentation
+|
+
+|===
 
 
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 
-* Iteratives Vorgehen (eine Iteration 3 Wochen)
-* Aufgabenzuteilung in Meetings 
+Zusammenarbeit & Workflow
+ ▪ Daily / Weekly
+ ▪ Task Board
+ ▪ Timeboxing
+ ▪ Cross-functional Team
 
+Qualitätssicherung
+▪ Definition of Done
+ ▪ Code Conventions
+ ▪ Code Reviews mit Pull Requests
+ ▪ Branching
+ ▪ Automatisierte Unit Tests
 
-== Meilensteine und Ziele
+ Planung und Priorisierung
+ ▪ User Stories und Refinement
+ ▪ Planning Poker
+
+ Kontinuierliche Verbesserung
+ ▪ Retrospektiven
+ ▪ Reviews mit Produkt-Demos
+
+== Roadmap und Releases
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
-[%header, cols="1,3a,2,1"]
-|===
-| Iteration
-| Primary objectives +
-(risks and use case scenarios)
-| Scheduled start or milestone
-| Target velocity
+− Minimum Viable Produkt am Ende von SE I (Januar 2025)
 
-| I1
-|
-* Mitigate Risk1
-* Develop Use Case 3, Scenario 2
-| Date from/Date to
-| 15
+− Demo des Produkts am Ende von SE II (Juni 2025)
 
-| I2
-|
-* Mitigate Risk 2
-* Develop Use Case 1, Scenario 2
-| Date from/Date to
-| 16
-|===
 
 
 == Deployment
